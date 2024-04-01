@@ -169,7 +169,7 @@ main .subtitle {
     font-style: italic;
     color: var(--color-5);
     margin: 0;
-    padding-right: .2rem;
+    padding: 0;
 }
 
 main .date {
