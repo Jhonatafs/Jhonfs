@@ -164,8 +164,16 @@ main .postcover h1 {
     color: var(--color-2);
 }
 
+main .subtitle {
+    font: 1rem;
+    font-style: italic;
+    color: var(--color-5);
+    margin: 0;
+    padding-right: .2rem;
+}
+
 main .date {
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight: 500;
     color: var(--color-4);
     margin: 0;
