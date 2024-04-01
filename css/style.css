@@ -1,0 +1,256 @@
+/** Import **/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/** Var **/
+:root {
+    /*Colors*/
+    --color-1: #262525;
+    --color-2: #F2EDE4;
+    --color-3: #c53c2f;
+    --color-4: #80BFB9;
+    --color-5: #4b8173;
+    --color-6: #202020;
+}
+
+/** Default **/
+* {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--color-1);
+    background-image: url(/img/body.png);
+}
+
+h1 {
+    color: var(--color-3);
+    font-weight: 700;
+}
+
+h2, h3, h4, h5 {
+    color: var(--color-3);
+    font-weight: 600;
+}
+
+p { 
+    color: var(--color-2);
+    line-height: 1.5;
+}
+
+span {
+    color: var(--color-2);
+}
+
+a {
+    color: var(--color-4);
+    text-decoration: none;
+}
+
+/** Scroll Bar **/
+    /* Works on Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-3) var(--color-1);
+    }
+    
+    /* Works on Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    *::-webkit-scrollbar-track {
+        background: var(--color-1);
+    }
+    
+    *::-webkit-scrollbar-thumb {
+        background-color: var(--color-3);
+        border: none;
+    }
+
+/** Nav Bar**/
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 21vh;
+    background-image: url(/img/navbar.png);
+    background-position: bottom;
+}
+
+#logo {
+    max-height: 14vh;
+    padding-top: 5vh;
+    padding-bottom: 1vh;
+}
+
+/** Footer **/
+footer {
+    background-image: url(/img/footer.png);
+    position: fixed;
+    bottom: -1.7%;
+    width: 100vw;
+    z-index: 1;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer li {
+    color: var(--color-2);
+    list-style: none;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+footer a {
+    color: var(--color-2);
+}
+
+footer img {
+    height: 3rem ;
+    margin: 0;
+    padding: 0 !important;
+}
+
+/** Main **/
+main {
+    max-width: 95vw;
+    padding: 23vh 0 0;
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .postcover {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: .6rem;
+    opacity: .87;
+    max-width: fit-content;
+}
+
+main .postcover:hover {
+    opacity: 1;
+}
+
+main .imgcover {
+    width: 30ch;
+    object-fit: scale-down;
+    border-radius: 15px 15px 0 0;
+}
+
+main .postcover h1 {
+    margin: .2rem 0 0;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--color-2);
+}
+
+main .date {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--color-4);
+    margin: 0;
+}
+
+/** Articles... **/
+article {
+    padding: 2.5rem 0 0 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    border-left: dashed 2px var(--color-5);
+}
+
+article h1 {
+    font-size: 1.8rem;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+article .subtitle {
+    font: 1.2rem;
+    font-style: italic;
+    text-align: right;
+    color: var(--color-5);
+    margin: 0 0 2rem;
+    padding-right: .2rem;
+}
+
+article h2 {
+    font-size: 1.5rem;
+    color: var(--color-4);
+}
+
+article .subtitlechapter {
+    font: 1.2rem;
+    font-style: italic;
+    text-align: left;
+    text-indent: 0;
+    color: var(--color-5);
+    margin: 0 0 .8rem;
+}
+
+article h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-2);  
+}
+
+article p {
+    text-indent: .5rem;
+    text-align: justify;
+}
+
+article li {
+    color: var(--color-2);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/** Details **/
+.nomargintop {
+    margin-top: 0;
+}
+
+.nomarginbottom {
+    margin-bottom: 0;
+}
+
+/** Media Settings **/
+@media screen and (max-width: 1000px) {
+    
+    main {
+        max-width: 95vw !important;
+    }
+
+    article {
+        padding-left: 0;
+        max-width: 90vw;
+        border-left: none;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    
+    main .imgcover {
+        width: 90vw;
+    }
+}
