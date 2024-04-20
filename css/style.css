@@ -1,6 +1,7 @@
 /** Import **/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /** Var **/
 :root {
@@ -15,7 +16,8 @@
 
 /** Default **/
 * {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    /*font-family: "Roboto", Arial, Helvetica, sans-serif;*/
+    font-family: "Courier Prime", "Ubuntu Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -26,14 +28,8 @@ body {
     background-image: url(/img/body.png);
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
     color: var(--color-3);
-    font-weight: 700;
-}
-
-h2, h3, h4, h5 {
-    color: var(--color-3);
-    font-weight: 600;
 }
 
 p { 
@@ -48,6 +44,16 @@ span {
 a {
     color: var(--color-4);
     text-decoration: none;
+}
+
+.italic {
+    font-style: italic;
+}
+
+hr {
+    width: 100%;
+    border-color: var(--color-2);
+    opacity: .1;
 }
 
 /** Scroll Bar **/
@@ -81,15 +87,15 @@ nav {
     top: 0;
     left: 0%;
     width: 100vw;
-    height: 21vh;
+    height: 10vh;
     background-image: url(/img/navbar.png);
     background-position: bottom;
 }
 
-#logo {
-    max-height: 14vh;
-    padding-top: 5vh;
-    padding-bottom: 1vh;
+nav h1 {
+    font-size: 1.5rem;
+    color: var(--color-2);
+    opacity: .85;
 }
 
 /** Footer **/
@@ -111,7 +117,6 @@ footer li {
     color: var(--color-2);
     list-style: none;
     font-size: 1.3rem;
-    font-weight: 300;
 }
 
 footer a {
@@ -126,46 +131,42 @@ footer img {
 
 /** Main **/
 main {
-    max-width: 95vw;
-    padding: 23vh 0 0;
-    margin:auto;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
     gap: 1rem;
+    max-width: fit-content;
+    padding: 15vh 0 0;
+    margin: auto;
 }
 
 main .postcover {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding: .6rem;
-    opacity: .87;
-    max-width: fit-content;
+    opacity: .8;
+    min-width: fit-content;
 }
 
 main .postcover:hover {
     opacity: 1;
 }
 
-main .imgcover {
-    width: 30ch;
-    object-fit: scale-down;
-    border-radius: 15px 15px 0 0;
+main .posttitle {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 500px;
 }
 
 main .postcover h1 {
     margin: .2rem 0 0;
-    font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: var(--color-2);
+    padding-top: 0;
+    margin-top: 0;
 }
 
 main .subtitle {
-    font: 1rem;
+    font-size: 1.1rem;
     font-style: italic;
     color: var(--color-5);
     margin: 0;
@@ -173,18 +174,21 @@ main .subtitle {
 }
 
 main .date {
-    font-size: .8rem;
-    font-weight: 500;
-    color: var(--color-4);
+    text-align: right;
+    font-size: .9rem;
+    color: var(--color-3);
     margin: 0;
+}
+
+main .topic {
+    color: var(--color-5);
 }
 
 /** Articles... **/
 article {
-    padding: 2.5rem 0 0 1.5rem;
-    max-width: 800px;
-    margin: 0 auto 5rem;
-    border-left: dashed 2px var(--color-5);
+    padding: 2.5rem 1.5rem;
+    max-width: 700px;
+    margin: auto;
 }
 
 article h1 {
@@ -218,7 +222,6 @@ article .subtitlechapter {
 
 article h3 {
     font-size: 1.3rem;
-    font-weight: 500;
     color: var(--color-2);  
 }
 
@@ -243,22 +246,13 @@ article li {
 }
 
 /** Media Settings **/
-@media screen and (max-width: 1000px) {
-    
-    main {
-        max-width: 95vw !important;
-    }
-
+@media screen and (max-width: 800px) {
     article {
-        padding-left: 0;
-        max-width: 90vw;
-        border-left: none;
+        max-width: 95vw;
+        margin: auto;
     }
-}
 
-@media screen and (max-width: 680px) {
-    
-    main .imgcover {
-        width: 90vw;
+    main .posttitle {
+        max-width: 90vw !important;
     }
 }
