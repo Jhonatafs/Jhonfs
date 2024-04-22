@@ -11,7 +11,8 @@
     --color-3: #c53c2f;
     --color-4: #80BFB9;
     --color-5: #4b8173;
-    --color-6: #202020;
+    --color-6: #c5c32f;
+    --color-7: #ddd4c3;
 }
 
 /** Default **/
@@ -50,6 +51,40 @@ a {
     font-style: italic;
 }
 
+
+.center {
+    text-align: center;
+}
+
+.color-1 {
+    color: var(--color-1) !important;
+}
+
+.color-2 {
+    color: var(--color-2) !important;
+}
+
+.color-3 {
+    color: var(--color-3) !important;
+}
+
+.color-4 {
+    color: var(--color-4) !important;
+}
+
+.color-5 {
+    color: var(--color-5) !important;
+}
+
+.color-6 {
+    color: var(--color-6) !important;
+}
+
+.color-7 {
+    color: var(--color-7) !important;
+}
+
+
 hr {
     width: 100%;
     border-color: var(--color-2);
@@ -57,25 +92,25 @@ hr {
 }
 
 /** Scroll Bar **/
-    /* Works on Firefox */
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: var(--color-3) var(--color-1);
-    }
-    
-    /* Works on Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
-        width: 5px;
-    }
-    
-    *::-webkit-scrollbar-track {
-        background: var(--color-1);
-    }
-    
-    *::-webkit-scrollbar-thumb {
-        background-color: var(--color-3);
-        border: none;
-    }
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-3) var(--color-1);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--color-1);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-3);
+    border: none;
+}
 
 /** Nav Bar**/
 nav {
@@ -209,6 +244,7 @@ article .subtitle {
 article h2 {
     font-size: 1.5rem;
     color: var(--color-4);
+    padding-top: 2rem;
 }
 
 article .subtitlechapter {
@@ -236,6 +272,23 @@ article li {
     text-align: justify;
 }
 
+article .indice li {
+    text-align: left !important;
+    transition: padding .3s ease-in-out;
+}
+
+article .indice li:hover {
+    color: var(--color-3);
+    border-left: solid 2px var(--color-3);
+    list-style: none;
+    padding-left: .5rem;
+}
+
+article .underline {
+    text-decoration: underline;
+    text-decoration-color: var(--color-6);
+}
+
 /** Details **/
 .nomargintop {
     margin-top: 0;
@@ -248,8 +301,10 @@ article li {
 /** Media Settings **/
 @media screen and (max-width: 800px) {
     article {
-        max-width: 95vw;
+        width: 94vw !important;
         margin: auto;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     main .posttitle {
