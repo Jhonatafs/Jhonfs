@@ -290,6 +290,22 @@ article .underline {
     text-decoration-color: var(--color-6);
 }
 
+/**E-mail**/
+#email {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--color-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    opacity: .8;
+}
+
+#email img {
+    height: 1.2rem;
+}
+
 /** Details **/
 .nomargintop {
     margin-top: 0;
