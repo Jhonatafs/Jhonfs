@@ -27,6 +27,7 @@
 body {
     background-color: var(--color-1);
     background-image: url(/img/body.png);
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5 {
