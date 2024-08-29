@@ -60,7 +60,10 @@ a:hover {text-decoration: underline;}
 /*article*/
 article {margin: 4rem 0;}
 
-article ul li {margin-bottom: 0.8rem;}
+article ul li {
+    margin-bottom: 0.8rem; 
+    line-height: 1.5;
+}
 
 p{
     line-height: 1.5;
