@@ -1,0 +1,118 @@
+body {
+   display: flex;
+   justify-self: center;
+   align-items: center;
+   max-width: 700px;
+   margin: auto;
+   background-color: #c8c3bc;
+   font-family: Candara, sans-serif;
+   color: #181a1b;
+}
+
+h1 {font-size: 2.8rem; padding-top: 4rem;}
+h2 {font-size: 2.2rem;}
+h3 {font-size: 2.0rem;}
+h4 {font-size: 1.8rem;}
+h5 {font-size: 1.6rem;}
+p, main li, main a, span  {font-size: 1.4rem;}
+
+h2, h3, h4, h5 {
+   padding-top: 1rem;
+}
+
+main {
+   width: 100vw !important;
+   margin: 4rem 0 1rem !important;
+}
+
+main a, .colorlink {
+    color: #a74a4a;
+    cursor: pointer;
+}
+
+main p{
+   line-height: 140%;
+   text-align: left;
+   hyphens: auto;
+}
+
+main #chapter {
+   display: inline-block;
+   border-bottom: 2px solid #a74a4a;
+   animation: chapter 7s linear infinite;
+}
+
+main .code {
+   display: flex;
+   flex-direction: column;
+   justify-content: left;
+   align-items: left;
+   background-color: #181a1b;
+   color: #4aa75e;
+   padding: 1rem 1rem 1rem 1rem ;
+   width: calc(100% - 4rem);
+   margin: 0 auto;
+   border-radius: 8px;
+}
+
+main .code span {
+   margin: 0;
+   padding: 0;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 1rem;
+}
+
+
+main .code span::before {
+   content: '⇝';
+   padding-right: .8rem;
+   color: #c8c3bc;
+   opacity: .3;
+}
+
+main .code .code-result::before {
+   color: #a74a4a;
+   opacity: .9;
+}
+
+main .quote {
+   width: 80%;
+   text-align: right;
+   margin-left: 20%;
+   font-size: 1.1rem !important;
+   text-align: justify;
+}
+
+main sup {
+   line-height: 0;
+}
+
+main sup a {
+   text-decoration: none;
+   font-size: 1.1rem;
+}
+
+@keyframes chapter {
+   0% {
+      padding-right: 0;
+      border-color: #a74a4a;
+   }
+
+   50% {
+      padding-right: 70%;
+      border-color: #181a1b;
+   }
+
+   90% {
+      border-color: #a74a4a;
+   }
+
+   100% {
+      padding-right: 0%;
+   }
+
+}
+
+@media screen and (max-width: 800px) {
+   body {max-width: 94vw !important;}
+}

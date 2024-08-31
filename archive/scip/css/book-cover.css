@@ -1,0 +1,14 @@
+body {
+    background-color: #c8c3bc;
+}
+
+main {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+main img {
+    max-width: 100vw;
+    object-fit: cover;
+}

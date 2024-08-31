@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Estrutura e Interpretação de Programas de Computador</title>
+     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <link rel="stylesheet" href="../css/normalize.css">
+     <link rel="stylesheet" href="../css/book-page.css">
+     <link rel="stylesheet" href="../css/navigation.css">
+<script src="https://kit.fontawesome.com/0c2f8cb29c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <nav id="navbar-book">
+     <ul>
+          <!--Come back-->
+          <li><a class="enabled" href="9.html"><i class="fa-solid fa-circle-left"></i></a></li>
+          <!--Home-->
+          <li><a class="enabled" href="/index.html"><i class="fa-solid fa-house"></i></a></li>
+          <!--Cover-->
+          <li><a class="enabled" href="../book.html"><i class="fa-solid fa-book"></i></a></li>
+          <!--Content-->
+          <li><a class="enabled" href="4.html"><i class="fa-solid fa-list-ul"></i></a></li>
+          <!--Next-->
+          <li><a class="enabled" href="11.html"><i class="fa-solid fa-circle-right"></i></i></a></li>
+     </ul>
+     </nav>
+     <main>
+          <h1 id="1.1">1.1 Os Elementos da Programação</h1>
+          <p>Uma linguagem de programação poderosa é mais do que apenas um meio de instruir um computador a executar tarefas. A linguagem também serve como uma estrutura dentro da qual organizamos nossas ideias sobre processos. Assim, quando descrevemos uma linguagem, devemos prestar atenção especial aos meios que a linguagem fornece para combinar ideias simples para formar ideias mais complexas. Toda linguagem poderosa tem três mecanismos para realizar isso:</p>
+          <ul>
+               <li><strong>expressões primitivas</strong>, que representam as entidades mais simples com as quais a linguagem se preocupa,</li>
+               <li><strong>meios de combinação</strong>, pelos quais elementos compostos são construídos a partir de outros mais simples, e</li>
+               <li><strong>meios de abstração</strong>, pelos quais elementos compostos podem ser nomeados e manipulados como unidades.</li>
+          </ul> 
+          <p>Na programação, lidamos com dois tipos de elementos:procedimentos e dados. (Mais tarde descobriremos que eles não são realmente tão distintos.) Informalmente, dados são "coisas" que queremos manipular, e procedimentos são descrições das regras para manipular os dados. Assim, qualquer linguagem de programação poderosa deve ser capaz de descrever dados primitivos e procedimentos primitivos e deve ter métodos para combinar e abstrair procedimentos e dados.</p>  
+          <p>Neste capítulo trataremos apenas de questões simplesdados numéricos para que possamos nos concentrar nas regras para construir procedimentos.<sup><a href="">4</a></sup> Nos capítulos posteriores, veremos que essas mesmas regras nos permitem construir procedimentos para manipular dados compostos também.</p>
+          <h2 id="1.1.1">1.1.1 Expressões</h2>  
+          <p>Uma maneira fácil de começar a programar é examinar algumas interações típicas com um interpretador para o dialeto Scheme do Lisp. Imagine que você está sentado em um terminal de computador. Você digita uma expressão e o interpretador responde exibindo o resultado de sua avaliação dessa expressão.</p>  
+          <p>Um tipo de expressão primitiva que você pode digitar é um número. (Mais precisamente, a expressão que você digita consiste nos numerais que representam o número na base 10.) Se você apresentar ao Lisp um número</p>  
+          <p class="code">
+              <span>486</span>
+          </p>
+          <p>o intérprete responderá imprimindo<sup><a href="">5</a></sup></p>  
+          <p class="code">
+               <span class="code-result">486</span>
+          </p>
+          <p>Expressões que representam números podem ser combinadas com umexpressão que representa umaprocedimento primitivo (como + ou * ) para formar uma expressão composta que representa a aplicação do procedimento a esses números. Por exemplo:</p>
+          <p class="code">
+               <span>(+ 137 349)</span>
+               <span class="code-result">486</span>
+               <span>(- 1000 334)</span>
+               <span class="code-result">666</span>
+               <span>(* 5 99)</span>
+               <span class="code-result">495</span>
+               <span>(/ 10 5)</span>
+               <span class="code-result">2</span>
+               <span>(+ 2,7 10)</span>
+               <span class="code-result">12,7</span>
+          </p>
+          <p>Expressões como estas, formadas pordelimitando uma lista de expressões entre parênteses para denotaraplicação de procedimento, são chamados de combinações . O elemento mais à esquerda na lista é chamado deoperador , e os outros elementos são chamadosoperandos . Oso valor de uma combinação é obtido aplicando o procedimento especificado pelo operador ao argumentos que são os valores dos operandos.</p>  
+          <p>A convenção de colocar o operador à esquerda dos operandos é conhecida comonotação de prefixo , e pode ser um pouco confuso no início porque se afasta significativamente da convenção matemática habitual. A notação de prefixo tem várias vantagens, no entanto. Uma delas é que pode acomodarprocedimentos que podem receber um número arbitrário de argumentos, como nos exemplos a seguir:</p>  
+          <p class="code">
+               <span>(+ 21 35 12 7)</span>
+               <span class="code-result">75</span>
+               <span>(* 25 4 12)</span>
+               <span class="code-result">1200</span>
+          </p> 
+          <p>Não pode surgir nenhuma ambiguidade, porque o operador é sempre o elemento mais à esquerda e toda a combinação é delimitada pelos parênteses.</p>  
+          <p>Uma segunda vantagem da notação de prefixo é que ela se estende de maneira direta para permitir que combinações sejam aninhadas , ou seja, para ter combinações cujos elementos são eles próprios combinações:</p>
+          <p class="code">
+               <span>(+ (* 3 5) (- 10 6))</span>
+               <span class="code-result">19</span>
+          </p>
+          <p>Não há limite (em princípio) para a profundidade de tal aninhamento e para a complexidade geral das expressões que o interpretador Lisp pode avaliar. Somos nós, humanos, que ficamos confusos com expressões ainda relativamente simples, como</p>
+          <p class="code">
+               <span>(+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))</span>
+          </p>
+          <p>que o intérprete prontamente avaliaria como sendo 57. Podemos nos ajudar escrevendo tal expressão na forma</p>
+          <p class="code">
+               <span>(+ (* 3 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ (* 2 4) <br>
+                    &nbsp;&nbsp;&nbsp;(+ 3 5))) <br>
+                    &nbsp;&nbsp;&nbsp;(+ (- 10 7) <br>
+                    &nbsp;&nbsp;&nbsp;6))</span>
+          </p>
+          <p>seguindo uma convenção de formatação conhecida comopretty-printing , em que cada combinação longa é escrita de modo que os operandos sejam alinhados verticalmente. Os recuos resultantes exibem claramente a estrutura da expressão.<sup><a href="">6</a></sup></p>  
+          <p>Mesmo com expressões complexas, o interpretador sempre opera no mesmo ciclo básico: ele lê uma expressão do terminal, avalia a expressão e imprime o resultado. Esse modo de operação é frequentemente expresso dizendo que o interpretador roda em umloop read-eval-print . Observe em particular que não é necessário instruir explicitamente o interpretador a imprimir o valor da expressão.<sup><a href="">7</a></sup></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+          <p></p>  
+     </main>
+</body>
+</html>
