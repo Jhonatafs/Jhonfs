@@ -14,7 +14,7 @@ h2 {font-size: 2.2rem; color: #181a1b;}
 h3 {font-size: 2.0rem; color: #181a1b;}
 h4 {font-size: 1.8rem; color: #181a1b;}
 h5 {font-size: 1.6rem; color: #181a1b;}
-p, main li, main a, span  {font-size: 1.4rem; color: #181a1b;}
+p, main li, main a, span  {font-size: 1.4rem;}
 
 h2, h3, h4, h5 {
    padding-top: 1rem;
@@ -34,6 +34,7 @@ main p{
    line-height: 140%;
    text-align: left;
    hyphens: auto;
+   color: #181a1b;
 }
 
 main #chapter {
