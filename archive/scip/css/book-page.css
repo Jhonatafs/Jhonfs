@@ -43,8 +43,6 @@ main #chapter {
    animation: chapter 7s linear infinite;
 }
 
-main .code+span {color: #4aa75e !important;}
-
 main .code {
    display: flex;
    flex-direction: column;
