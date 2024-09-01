@@ -6,7 +6,6 @@ body {
    margin: auto;
    background-color: #c8c3bc;
    font-family: Candara, sans-serif;
-   color: #181a1b;
 }
 
 h1 {font-size: 2.8rem; padding-top: 4rem; color: #181a1b;}
@@ -23,6 +22,7 @@ h2, h3, h4, h5 {
 main {
    width: 100vw !important;
    margin: 4rem 0 1rem !important;
+   color: #181a1b;
 }
 
 main a, .colorlink {
@@ -35,7 +35,7 @@ main p{
    text-align: left;
    hyphens: auto;
    color: #181a1b;
-}
+}  
 
 main #chapter {
    display: inline-block;
@@ -77,7 +77,7 @@ main .code .code-result::before {
 }
 
 main .quote {
-   width: 80%;
+   width: 70%;
    text-align: right;
    margin-left: 20%;
    font-size: 1.1rem !important;

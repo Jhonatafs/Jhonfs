@@ -85,15 +85,32 @@
                     &nbsp;&nbsp;&nbsp;6))</span>
           </p>
           <p>seguindo uma convenção de formatação conhecida comopretty-printing , em que cada combinação longa é escrita de modo que os operandos sejam alinhados verticalmente. Os recuos resultantes exibem claramente a estrutura da expressão.<sup><a href="">6</a></sup></p>  
-          <p>Mesmo com expressões complexas, o interpretador sempre opera no mesmo ciclo básico: ele lê uma expressão do terminal, avalia a expressão e imprime o resultado. Esse modo de operação é frequentemente expresso dizendo que o interpretador roda em umloop read-eval-print . Observe em particular que não é necessário instruir explicitamente o interpretador a imprimir o valor da expressão.<sup><a href="">7</a></sup></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
+          <p>Mesmo com expressões complexas, o interpretador sempre opera no mesmo ciclo básico: ele lê uma expressão do terminal, avalia a expressão e imprime o resultado. Esse modo de operação é frequentemente expresso dizendo que o interpretador roda em um <em>loop read-eval-print</em>. Observe em particular que não é necessário instruir explicitamente o interpretador a imprimir o valor da expressão.<sup><a href="">8</a></sup></p>  
+          <h2 id="1.1.2">1.1.2 Nomeação e ambiente</h2>
+          <p>Um aspecto crítico de uma linguagem de programação é o meio que ela fornece para usar nomes para se referir a objetos computacionais. Dizemos que o nome identifica um <em>variável</em> cuja <em>valor</em> é o objeto.</p>  
+          <p>No dialeto Scheme do Lisp, nomeamos as coisas com <em>definir</em> . Digitação</p>
+          <p class="code">
+               <span>(defina tamanho 2)</span>
+          </p>
+          <p>faz com que o interpretador associe o valor 2 ao nome size<sup><a href="">8</a></sup>. Uma vez que o nome size tenha sido associado ao número 2, podemos nos referir ao valor 2 pelo nome:</p>  
+          <p class="code">
+               <span>tamanho <br>
+                    &nbsp;&nbsp;&nbsp;2 <br>
+                    &nbsp;&nbsp;&nbsp;(*5 tamanho) <br>
+                    &nbsp;&nbsp;&nbsp;10</span>
+          </p> 
+          <p>Aqui estão mais exemplos do uso de <em>define</em>:</p>  
+          <p class="code">
+               <span>(define pi 3,14159)</span>
+               <span>(define raio 10)</span>
+               <span>(* pi (* raio raio))</span>
+               <span class="code-result">314,159</span>
+               <span>(define circunferência (* 2 pi raio))</span>
+               <span>circunferência</span>
+               <span class="code-result">62,8318</span>
+          </p>
+          <p><em>Define</em> é o meio mais simples de abstração da nossa linguagem, pois nos permite usar nomes simples para nos referirmos aos resultados de operações compostas, como a circunferência computada acima. Em geral, objetos computacionais podem ter estruturas muito complexas, e seria extremamente inconveniente ter que lembrar e repetir seus detalhes cada vez que quisermos usá-los. De fato, programas complexos são construídos construindo, passo a passo, objetos computacionais de complexidade crescente. O interpretador torna essa construção de programa passo a passo particularmente conveniente porque associações nome-objeto podem ser criadas incrementalmente em interações sucessivas. Esse recurso incentiva o desenvolvimento incremental e teste de programas e é em grande parte responsável pelo fato de que um programa Lisp geralmente consiste em um grande número de procedimentos relativamente simples.</p>  
+          <p>Deve ficar claro que a possibilidade de associar valores a símbolos e depois recuperá-los significa que o interpretador deve manter algum tipo de memória que acompanhe os pares nome-objeto. Essa memória é chamada demeio ambiente (mais precisamente oambiente global , pois veremos mais tarde que uma computação pode envolver vários ambientes diferentes). 9</p>  
           <p></p>  
           <p></p>  
           <p></p>  
