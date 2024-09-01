@@ -48,7 +48,7 @@ main .code {
    justify-content: left;
    align-items: left;
    background-color: #181a1b;
-   color: #4aa75e;
+   color: #4aa75e !important;
    padding: 1rem 1rem 1rem 1rem ;
    width: calc(100% - 4rem);
    margin: 0 auto;
@@ -66,12 +66,12 @@ main .code span {
 main .code span::before {
    content: '⇝';
    padding-right: .8rem;
-   color: #c8c3bc;
+   color: #c8c3bc !important;
    opacity: .3;
 }
 
 main .code .code-result::before {
-   color: #a74a4a;
+   color: #a74a4a !important;
    opacity: .9;
 }
 
