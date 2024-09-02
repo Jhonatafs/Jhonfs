@@ -6,14 +6,13 @@ body {
    margin: auto;
    background-color: #c8c3bc;
    font-family: Candara, sans-serif;
-   color: #181a1b;
 }
 
-h1 {font-size: 2.8rem; padding-top: 4rem;}
-h2 {font-size: 2.2rem;}
-h3 {font-size: 2.0rem;}
-h4 {font-size: 1.8rem;}
-h5 {font-size: 1.6rem;}
+h1 {font-size: 2.8rem; padding-top: 4rem; color: #181a1b;}
+h2 {font-size: 2.2rem; color: #181a1b;}
+h3 {font-size: 2.0rem; color: #181a1b;}
+h4 {font-size: 1.8rem; color: #181a1b;}
+h5 {font-size: 1.6rem; color: #181a1b;}
 p, main li, main a, span  {font-size: 1.4rem;}
 
 h2, h3, h4, h5 {
@@ -23,6 +22,7 @@ h2, h3, h4, h5 {
 main {
    width: 100vw !important;
    margin: 4rem 0 1rem !important;
+   color: #181a1b;
 }
 
 main a, .colorlink {
@@ -34,7 +34,8 @@ main p{
    line-height: 140%;
    text-align: left;
    hyphens: auto;
-}
+   color: #181a1b;
+}  
 
 main #chapter {
    display: inline-block;
@@ -48,7 +49,7 @@ main .code {
    justify-content: left;
    align-items: left;
    background-color: #181a1b;
-   color: #4aa75e;
+   color: #4aa75e !important;
    padding: 1rem 1rem 1rem 1rem ;
    width: calc(100% - 4rem);
    margin: 0 auto;
@@ -66,17 +67,17 @@ main .code span {
 main .code span::before {
    content: '⇝';
    padding-right: .8rem;
-   color: #c8c3bc;
+   color: #c8c3bc !important;
    opacity: .3;
 }
 
 main .code .code-result::before {
-   color: #a74a4a;
+   color: #a74a4a !important;
    opacity: .9;
 }
 
 main .quote {
-   width: 80%;
+   width: 70%;
    text-align: right;
    margin-left: 20%;
    font-size: 1.1rem !important;
