@@ -110,24 +110,59 @@
                <span class="code-result">62,8318</span>
           </p>
           <p><em>Define</em> é o meio mais simples de abstração da nossa linguagem, pois nos permite usar nomes simples para nos referirmos aos resultados de operações compostas, como a circunferência computada acima. Em geral, objetos computacionais podem ter estruturas muito complexas, e seria extremamente inconveniente ter que lembrar e repetir seus detalhes cada vez que quisermos usá-los. De fato, programas complexos são construídos construindo, passo a passo, objetos computacionais de complexidade crescente. O interpretador torna essa construção de programa passo a passo particularmente conveniente porque associações nome-objeto podem ser criadas incrementalmente em interações sucessivas. Esse recurso incentiva o desenvolvimento incremental e teste de programas e é em grande parte responsável pelo fato de que um programa Lisp geralmente consiste em um grande número de procedimentos relativamente simples.</p>  
-          <p>Deve ficar claro que a possibilidade de associar valores a símbolos e depois recuperá-los significa que o interpretador deve manter algum tipo de memória que acompanhe os pares nome-objeto. Essa memória é chamada demeio ambiente (mais precisamente oambiente global , pois veremos mais tarde que uma computação pode envolver vários ambientes diferentes). 9</p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
-          <p></p>  
+          <p>Deve ficar claro que a possibilidade de associar valores a símbolos e depois recuperá-los significa que o interpretador deve manter algum tipo de memória que acompanhe os pares nome-objeto. Essa memória é chamada demeio ambiente (mais precisamente oambiente global , pois veremos mais tarde que uma computação pode envolver vários ambientes diferentes)<sup><a href="">9</a></sup>.</p>
+          <h2 id="1.1.3">1.1.3 Avaliando Combinações</h2>
+          <p>Um dos nossos objetivos neste capítulo é isolar questões sobre pensar proceduralmente. Como um caso em questão, vamos considerar que, ao avaliar combinações, o intérprete está ele próprio seguindo um procedimento.</p>
+          <ul>
+               <li>Para avaliar uma combinação, faça o seguinte:</li>
+               <ol style="list-style: decimal;">
+                    <li>Avalie as subexpressões da combinação.</li>
+                    <li>Aplique o procedimento que é o valor da subexpressão mais à esquerda (o operador) aos argumentos que são os valores das outras subexpressões (os operandos).</li>
+               </ol>
+          </ul>
+          <p>Mesmo esta regra simples ilustra alguns pontos importantes sobre processos em geral. Primeiro, observe que o primeiro passo determina que, para realizar o processo de avaliação para uma combinação, devemos primeiro executar o processo de avaliação em cada elemento da combinação. Assim, a regra de avaliação érecursiva por natureza; ou seja, inclui, como uma de suas etapas, a necessidade de invocar a própria regra<sup><a href="">10</a></sup>.</p>  
+          <p>Observe quão sucintamente a ideia de recursão pode ser usada para expressar o que, no caso de uma combinação profundamente aninhada, seria visto como um processo bastante complicado. Por exemplo, avaliar</p>
+          <p class="code">
+               <span>(* (+ 2 (* 4 6))<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ 3 5 7))</span>
+          </p>
+          <p>requer que a regra de avaliação seja aplicada a quatro combinações diferentes. Podemos obter uma imagem deste processo porrepresentando a combinação na forma de umárvore, conforme mostrado na figura <a href="#fig-1.1">1.1</a>. Cada combinação é representada por uma nó comramos correspondentes ao operador e aos operandos da combinação dele decorrentes.nós terminais (isto é, nós sem ramificações originárias deles) representam operadores ou números. Visualizando a avaliação em termos de árvore, podemos imaginar que os valores dos operandos se infiltram para cima, começando pelos nós terminais e então se combinando em níveis cada vez mais altos. Em geral, veremos que a recursão é uma técnica muito poderosa para lidar com objetos hierárquicos, semelhantes a árvores. Na verdade, a forma "percolar valores para cima" da regra de avaliação é um exemplo de um tipo geral de processo conhecido como <em>acumulação de árvores</em>.</p>
+          <div class="book-figure" id="fig-1.1">
+               <img src="../image/ch1-Z-G-1.gif" alt="imagem do calculo do processo (* (+ 2 (* 4 6))(+ 3 5 7)) em forma de arvore">
+               <span><strong>Figura 1.1:</strong> Representação em árvore, mostrando o valor de cada subcombinação.</span>
+          </div> 
+          <p>Em seguida, observe que a aplicação repetida do primeiro passo nos leva ao ponto em que precisamos avaliar, não combinações, mas expressões primitivas como numerais, operadores internos ou outros nomes. Cuidamos dos casos primitivos estipulando que</p>
+          <ul>
+               <li>os valores dos numerais são os números que eles nomeiam,</li>
+               <li>os valores dos operadores integrados são as sequências de instruções da máquina que realizam as operações correspondentes e</li>
+               <li>os valores de outros nomes são os objetos associados a esses nomes no ambiente.</li>
+          </ul>
+          <p>Podemos considerar a segunda regra como um caso especial da terceira, estipulando que símbolos como <em>+</em> e <em>*</em> também estão incluídos no ambiente global e estão associados às sequências de instruções de máquina que são seus "valores". O ponto-chave a ser observado é o papel doambiente na determinação do significado dos símbolos em expressões. Em uma linguagem interativa como Lisp, não faz sentido falar do valor de uma expressão como <em>(+ x 1)</em> sem especificar nenhuma informação sobre o ambiente que forneceria um significado para o símbolo  x (ou mesmo para o símbolo + ). Como veremos no capítulo 3, a noção geral do ambiente como provedor de um contexto no qual a avaliação ocorre desempenhará um papel importante em nossa compreensão da execução do programa.</p>  
+          <p>Observe que a regra de avaliação dada acima não lida com definições. Por exemplo, avaliar <em>(define x 3)</em> não aplica define a dois argumentos, um dos quais é o valor do símbolo x e o outro é 3, já que o propósito de define é precisamente associar x a um valor. (Ou seja, <em>(define x 3)</em> não é uma combinação.)</p>  
+          <p>Tais exceções à regra geral de avaliação são chamadas de formulários especiais . Define é o único exemplo de um formulário especial que vimos até agora, mas conheceremos outros em breve. Cada forma especial tem sua própria regra de avaliação. Os vários tipos de expressões (cada um com sua regra de avaliação associada) constituem osintaxe da linguagem de programação. Em comparação com a maioria das outras linguagens de programação, Lisp tem uma sintaxe muito simples; isto é, a regra de avaliação para expressões pode ser descrita por uma regra geral simples junto com regras especializadas para um pequeno número de formas especiais<sup><a href="">11</a></sup>.</p>
+          <h2 id="1.1.4">1.1.4 Procedimentos compostos</h2>
+          <p>Identificamos no Lisp alguns dos elementos que devem aparecer em qualquer linguagem de programação poderosa:</p>
+          <ul>
+               <li>Números e operações aritméticas são dados e procedimentos primitivos.</li>
+               <li>O aninhamento de combinações fornece um meio de combinar operações.</li>
+               <li>Definições que associam nomes a valores fornecem um meio limitado de abstração.</li>
+          </ul>
+          <p>Agora vamos aprender sobre <em>definições de procedimento</em>, uma técnica de abstração muito mais poderosa pela qual uma operação composta pode receber um nome e então ser referida como uma unidade.</p>  
+          <p>Começamos examinando como expressar a ideia de "elevar ao quadrado". Podemos dizer: "Para elevar algo ao quadrado, multiplique-o por si mesmo". Isso é expresso em nossa linguagem como</p> 
+          <p class="code">
+               <span>(defina (quadrado x) (* x x))</span>
+          </p>
+          <p>Podemos entender isso da seguinte maneira:</p>  
+          <p class="code">
+               <span class="code-comment">;; Para elevar algo ao quadrado, multiplique-o por ele mesmo:</span>
+               <span>(define (quadrado x) (* x x))</span>
+          </p>
+          <p>Temos aqui um <em>procedimento composto</em>, que recebeu o nome de <em>quadrado</em>. O procedimento representa a operação de multiplicar algo por si mesmo. A coisa a ser multiplicada recebe um nome local, <em>x</em>, que desempenha o mesmo papel que um pronome desempenha na linguagem natural. A avaliação da definição cria este procedimento composto e o associa ao nome <em>quadrado</em><sup><a href="">12</a></sup>.</p>  
+          <p>A forma geral de uma definição de procedimento é</p>
+          <p class="code">
+               <span>(define (&lt;nome&gt; &lt;parâmetros formais&gt;) &lt;corpo&gt;)</span>
+          </p> 
+          <p class="three-points">Em tradução<span class="one">.</span><span class="two">.</span><span class="three">.</span></p> 
           <p></p>  
           <p></p>  
           <p></p>  

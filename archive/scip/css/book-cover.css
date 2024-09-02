@@ -9,6 +9,7 @@ main {
 }
 
 main img {
-    max-width: 100vw;
     object-fit: cover;
+    padding: 4% 0 0;
+    max-width: 100%;
 }
