@@ -133,6 +133,19 @@ main .three-points .three {
    animation: three-points-three 2s linear infinite alternate;
 }
 
+#footnote-line {
+   border-color: #181a1b;
+   width: 40%;
+   margin-right: 60%;
+   margin-top: 4rem;
+}
+
+#footnotes p {
+   font-size: 1rem;
+   padding-top: 1rem;
+   margin: 0;
+}
+
 @keyframes chapter {
    0% {
       padding-right: 0;
