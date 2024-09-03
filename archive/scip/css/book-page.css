@@ -135,23 +135,15 @@ main .three-points .three {
 }
 
 main .annotation {
-   border-left: .8rem solid #a74a4a;
+   border-left: .8rem solid #181a1bf1;
    background-color: #181a1b17;
    border-radius: 5px;
-   padding-left: .5rem;
-   padding-bottom: .5rem;
+   padding: .6rem 0 .6rem .6rem;
 }
 
 main .annotation * { 
    font-size: 1rem;
    margin: 0;
-}
-
-main .annotation span {
-   display: inline-block;
-   color: #a74a4a;
-   font-family: cursive;
-   margin: .3rem 0 .5rem;
 }
 
 main .annotation p {
