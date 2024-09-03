@@ -21,7 +21,7 @@ h2, h3, h4, h5 {
 
 main {
    width: 100vw !important;
-   margin: 4rem 0 1.5rem !important;
+   margin: 2rem 0 5rem !important;
    color: #181a1b;
 }
 
@@ -39,6 +39,7 @@ main p{
 
 main #chapter {
    display: inline-block;
+   font-size: 1.8rem;
    border-bottom: 2px solid #a74a4a;
    animation: chapter 7s linear infinite;
 }
@@ -131,6 +132,30 @@ main .three-points .two{
 
 main .three-points .three {
    animation: three-points-three 2s linear infinite alternate;
+}
+
+main .annotation {
+   border-left: .8rem solid #a74a4a;
+   background-color: #181a1b17;
+   border-radius: 5px;
+   padding-left: .5rem;
+   padding-bottom: .5rem;
+}
+
+main .annotation * { 
+   font-size: 1rem;
+   margin: 0;
+}
+
+main .annotation span {
+   display: inline-block;
+   color: #a74a4a;
+   font-family: cursive;
+   margin: .3rem 0 .5rem;
+}
+
+main .annotation p {
+   font-family: cursive;
 }
 
 #footnote-line {
