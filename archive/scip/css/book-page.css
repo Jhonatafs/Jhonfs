@@ -10,9 +10,9 @@ body {
 
 h1 {font-size: 2.8rem; padding-top: 4rem; color: #181a1b;}
 h2 {font-size: 2.2rem; color: #181a1b;}
-h3 {font-size: 2.0rem; color: #181a1b;}
-h4 {font-size: 1.8rem; color: #181a1b;}
-h5 {font-size: 1.6rem; color: #181a1b;}
+h3 {font-size: 1.8rem; color: #181a1b;}
+h4 {font-size: 1.6rem; color: #181a1b;}
+h5 {font-size: 1.4rem; color: #181a1b;}
 p, main li, main a, span  {font-size: 1.4rem;}
 
 h2, h3, h4, h5 {
@@ -30,12 +30,18 @@ main a, .colorlink {
     cursor: pointer;
 }
 
-main p{
+main p {
    line-height: 140%;
    text-align: left;
    hyphens: auto;
    color: #181a1b;
-}  
+}
+
+main li {
+   line-height: 140%;
+   text-align: left;
+   hyphens: auto;
+}
 
 main #chapter {
    display: inline-block;
@@ -81,6 +87,11 @@ main .code-comment {
    color: #c8c3bcAA !important;
 }
 
+main .code-in-line {
+   color: #3E5E50;
+   font-size: 1.2rem;
+}
+
 main .quote {
    width: 70%;
    text-align: right;
@@ -111,29 +122,6 @@ main .book-figure img {
    object-fit: cover;
 }
 
-main .three-points {
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   margin: 0;
-   padding: .2rem 0rem .3rem 1rem;
-   width: 100%;
-   background-color: #181a1b;
-   animation: three-points 2s linear infinite alternate;
-}
-
-main .three-points .one {
-   animation: three-points-one 2s linear infinite alternate;
-}
-
-main .three-points .two{
-   animation: three-points-two 2s linear infinite alternate;
-}
-
-main .three-points .three {
-   animation: three-points-three 2s linear infinite alternate;
-}
-
 main .annotation {
    border-left: .8rem solid #181a1bf1;
    background-color: #181a1b17;
@@ -149,6 +137,29 @@ main .annotation * {
 main .annotation p {
    font-family: cursive;
 }
+
+main math {
+   font-size: 1.4rem;
+}
+
+main table {
+   border-collapse: collapse;
+   margin: 25px auto;
+   width: 100%;
+ }
+ 
+ main th, td {
+   border: 1px solid #181a1b;
+   padding: 8px;
+   text-align: left;
+   font-size: 1.4rem;
+ }
+ 
+ main th {
+   font-size: 1.4rem;
+   font-weight: 700;
+   text-align: left;
+ }
 
 #footnote-line {
    border-color: #181a1b;
@@ -182,50 +193,6 @@ main .annotation p {
       padding-right: 0%;
    }
 
-}
-
-@keyframes three-points {
-   0% {color: #c8c3bc;}
-   10% {color: #c8c3bc;}
-   20% {color: #c8c3bc;}
-   30% {color: #a74a4a;}
-   70% {color: #a74a4a;}
-   80% {color: #c8c3bc;}
-   90% {color: #c8c3bc;}
-   100% {color: #c8c3bc;}
-}
- 
-@keyframes three-points-one {
-   0% {color: transparent;}
-   10% {color: #c8c3bc;}
-   20% {color: #c8c3bc;}
-   30% {color: #a74a4a;}
-   70% {color: #a74a4a;}
-   80% {color: #c8c3bc;}
-   90% {color: #c8c3bc;}
-   100% {color: transparent;}
-}
- 
-@keyframes three-points-two {
-   0% {color: transparent;}
-   10% {color: transparent;}
-   20% {color: #c8c3bc;}
-   30% {color: #a74a4a;}
-   70% {color: #a74a4a;}
-   80% {color: #c8c3bc;}
-   90% {color: transparent;}
-   100% {color: transparent;}
-}
-
-@keyframes three-points-three {
-   0% {color: transparent;}
-   10% {color: transparent;}
-   20% {color: transparent;}
-   30% {color: #a74a4a;}
-   70% {color: #a74a4a;}
-   80% {color: transparent;}
-   90% {color: transparent;}
-   100% {color: transparent;}
 }
 
 @media screen and (max-width: 800px) {
