@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs: Microcontroladores">
+     <meta name="description" content="Blog: eBook">
+     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <title>Microcontroladores</title>
+     <!--CSS-->
+     <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/archive/css/book/default.css">
+     <link rel="stylesheet" href="/archive/css/book/navigation.css">
+     <!--Icons-->
+     <script src="https://kit.fontawesome.com/0c2f8cb29c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <nav id="navbar">
+          <ul>
+               <!--Come back-->
+               <li><a class="enabled" href="3.html"><i class="fa-solid fa-circle-left"></i></a></li>
+               <!--Home-->
+               <li><a class="enabled" href="/index.html"><i class="fa-solid fa-house"></i></a></li>
+               <!--Cover-->
+               <li><a class="enabled" href="cover.html"><i class="fa-solid fa-book"></i></a></li>
+               <!--Content-->
+               <li><a class="enabled" href="content.html"><i class="fa-solid fa-list-ul"></i></a></li>
+               <!--Next-->
+               <li><a class="enabled" href="5.html"><i class="fa-solid fa-circle-right"></i></i></a></li>
+          </ul>
+     </nav>
+     <article>
+          <span id="chapter">Capítulo 4: </span>
+          <hr> 
+          <h1>Da Energia aos Dados: A Evolução da Computação</h2>
+          <p>Imagine um computador como uma orquestra complexa. A eletricidade, a força motriz dessa orquestra, é transformada em uma série de sinais elétricos, cada um representando uma nota musical. No contexto de um computador, esses sinais elétricos são representados por bits, a menor unidade de informação. Mas como essa transformação ocorre? E qual o papel do hardware nesse processo?</p>
+          <h4>O Hardware</h4>
+          <p>O hardware de um computador é composto por diversos componentes eletrônicos que trabalham em conjunto para processar informações. A base de tudo são os transistores, pequenos dispositivos semicondutores que podem atuar como interruptores, controlando o fluxo de corrente elétrica. Essa capacidade de ligar e desligar permite representar os bits: 1 para ligado e 0 para desligado.</p>
+          <p>Ao combinar diversos transistores, criamos portas lógicas, como AND, OR e NOT. Essas portas realizam operações lógicas básicas, como &quot;E&quot;, &quot;OU&quot; e &quot;NÃO&quot;, respectivamente. As portas lógicas
+          são os blocos de construção de circuitos mais complexos, como somadores, comparadores e registradores.</p>
+          <p>Milhares de transistores e portas lógicas são integrados em um único chip, formando circuitos integrados. A Unidade Central de Processamento
+          (CPU), por exemplo, é um circuito integrado extremamente complexo que executa as instruções de um programa. Outros circuitos integrados, como a memória, armazenam os dados e as instruções.</p>
+          <h4>O Surgimento do Kernel: Da Máquina de Turing ao Mundo Moderno</h4>
+          <p>As primeiras máquinas de calcular, como a Máquina Analítica de Babbage, já continham os elementos básicos de um computador moderno: uma unidade de controle, uma memória e uma unidade aritmética. No entanto, a falta de um sistema operacional centralizado limitava sua funcionalidade.</p>
+          <p>Com o avanço da tecnologia, a necessidade de gerenciar o hardware de forma eficiente se tornou evidente. Surgiram então os primeiros sistemas operacionais, com um componente central: o kernel. Inicialmente, os kernels eram muito simples, focados em tarefas básicas como gerenciamento de memória e execução de programas. A linguagem assembly, próxima ao hardware, era a ferramenta principal para escrever esses primeiros kernels.</p>
+          <h4>O Papel do Kernel na Abstração</h4>
+          <p>O kernel atua como uma camada intermediária entre o hardware e os programas de aplicação. Ele oferece uma abstração do hardware, ou seja, esconde a complexidade dos circuitos e componentes eletrônicos, proporcionando uma interface mais simples para os programadores.</p>
+          <p>As principais funções do kernel incluem:</p>
+          <ul>
+               <li><strong><span>Gerenciamento de recursos:</span></strong><span> CPU, memória, dispositivos de entrada e saída. </span> </li>
+               <li><strong><span>Gerenciamento
+               de processos:</span></strong><span>
+               Controle da execução de múltiplos programas. </span>
+               </li>
+               <li><strong><span>Gerenciamento
+               de memória:</span></strong><span>
+               Alocação e liberação de memória para as aplicações. </span>
+               </li>
+               <li><strong><span>Gerenciamento
+               de dispositivos:</span></strong><span>
+               Comunicação com dispositivos externos. </span>
+               </li>
+               <li><strong><span>Sistema
+               de arquivos:</span></strong><span>
+               Organização dos dados em arquivos e diretórios. </span>
+               </li>
+          </ul>
+          <h4>Kernels em Microcontroladores</h4>
+          <p>Diferentemente dos sistemas operacionais de computadores pessoais, os microcontroladores muitas vezes operam com kernels mais simples ou até mesmo sem um kernel completo. Isso se deve a diversos fatores, como limitações de hardware, requisitos de tempo real e a natureza específica das aplicações. Em alguns casos, o próprio firmware do
+          microcontrolador pode assumir as funções de um kernel básico.</p>
+          <h2>O Processo de Compilação</h2>
+          <p style="font-variant: normal; font-style: normal">A
+          compilação é o processo de tradução de um código-fonte, escrito
+          em uma linguagem de alto nível como C ou C++, para um código de
+          máquina, sendo a linguagem entendida diretamente pelo processador.
+          Esse processo envolve várias etapas:</p>
+          <ol>
+               <li><strong><span style="font-variant: normal"><span>Análise
+               Léxica:</span></span></strong><span style="font-variant: normal">
+               </span><span style="font-variant: normal"><span>O
+               compilador divide o código-fonte em tokens, sendo as menores
+               unidades com significado, como palavras-chave, identificadores e
+               operadores. </span></span>
+               </li>
+               <li><strong><span style="font-variant: normal"><span>Análise
+               Sintática:</span></span></strong><span style="font-variant: normal">
+               </span><span style="font-variant: normal"><span>Os
+               tokens são organizados em uma estrutura hierárquica, verificando
+               se a gramática da linguagem foi seguida. </span></span>
+               </li>
+               <li><strong><span style="font-variant: normal"><span>Análise
+               Semântica:</span></span></strong><span style="font-variant: normal">
+               </span><span style="font-variant: normal"><span>O
+               compilador verifica se o código faz sentido, verificando tipos de
+               dados, escopo de variáveis e outras regras semânticas. </span></span>
+               </li>
+               <li><strong><span style="font-variant: normal"><span>Geração
+               de Código:</span></span></strong><span style="font-variant: normal">
+               </span><span style="font-variant: normal"><span>O
+               compilador gera o código de máquina correspondente ao
+               código-fonte. </span></span>
+               </li>
+          </ol>
+          <h4>Tipos
+          de Compiladores</h4>
+          <ul>
+               <li><strong><span>Compiladores
+               Cruzados:</span></strong><span>
+               Geram código para uma arquitetura diferente daquela em que estão
+               sendo executados. </span>
+               </li>
+               <li><strong><span>Compiladores
+               JIT (Just-in-Time):</span></strong><span>
+               Compilam o código durante a execução.</span>
+               </li>
+               <li><strong><span>Compiladores
+               AOT (Ahead-of-Time):</span></strong><span>
+               Compilam o código antes da execução, gerando um arquivo
+               executável. </span>
+               </li>
+          </ul>     
+     </article>
+</body>
+</html>

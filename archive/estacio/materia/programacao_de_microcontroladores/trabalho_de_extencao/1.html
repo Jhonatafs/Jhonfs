@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs: Microcontroladores">
+     <meta name="description" content="Blog: eBook">
+     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <title>Microcontroladores</title>
+     <!--CSS-->
+     <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/archive/css/book/default.css">
+     <link rel="stylesheet" href="/archive/css/book/navigation.css">
+     <!--Icons-->
+     <script src="https://kit.fontawesome.com/0c2f8cb29c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <nav id="navbar">
+          <ul>
+               <!--Come back-->
+               <li><a class="enabled" href="content.html"><i class="fa-solid fa-circle-left"></i></a></li>
+               <!--Home-->
+               <li><a class="enabled" href="/index.html"><i class="fa-solid fa-house"></i></a></li>
+               <!--Cover-->
+               <li><a class="enabled" href="cover.html"><i class="fa-solid fa-book"></i></a></li>
+               <!--Content-->
+               <li><a class="enabled" href="content.html"><i class="fa-solid fa-list-ul"></i></a></li>
+               <!--Next-->
+               <li><a class="enabled" href="2.html"><i class="fa-solid fa-circle-right"></i></i></a></li>
+          </ul>
+     </nav>
+     <article>
+          <span id="chapter">Capítulo 1: </span>
+          <hr>
+          <h1>Fundamentos de Microcontroladores</h1>
+          <p>Um microcontrolador é um circuito integrado (chip) que combina uma unidade central de processamento (CPU), memória e periféricos de entrada e saída em um único chip. Essa integração permite que microcontroladores sejam usados em uma ampla variedade de aplicações, desde brinquedos e eletrodomésticos até sistemas industriais e automotivos. Como essas peças funcionam será melhor abordado no Capítulo 4.</p>
+          <h2>Componentes Internos de um Microcontrolador</h2>
+          <ul>
+               <li><strong>Unidade Central de Processamento (CPU):</strong> O &quot;cérebro&quot; do
+               microcontrolador, responsável por executar as instruções do programa. A CPU busca as instruções na memória, decodifica-as e as executa.</li>
+               <li><strong>Memória:</strong></li>
+               <ul>
+                    <li><strong>ROM (Read-Only Memory):</strong>
+                    Armazena as instruções do programa de forma permanente. Uma vez gravadas, as instruções não podem ser alteradas.</li>
+                    <li><strong>RAM (Random Access Memory):</strong> Armazena os dados que o programa está usando durante a execução. A RAM é volátil, ou seja, os dados são perdidos quando a alimentação é desligada.</li>
+               </ul>
+              
+               <li><strong>Oscilador:</strong> Gera o sinal de clock que sincroniza todas as operações do
+               microcontrolador, a frequência do oscilador determina a velocidadede execução do microcontrolador.</li>
+               <li><strong>Periféricos:</strong> Módulos que permitem que o microcontrolador interaja com o mundo externo. Exemplos comuns incluem:</li>
+               <ul>
+                    <li><strong>Portas de entrada/saída: utilizadas</strong> para conectar o microcontrolador a outros dispositivos, como sensores e atuadores.</li>
+                    <li><strong>Temporizadores:</strong> Geram pulsos em intervalos de tempo precisos, utilizados para
+                    controlar eventos e medir tempo. 
+                    </li>
+                    <li><strong>Conversores
+                    analógico-digitais (ADCs):</strong> Converte sinais analógicos
+                    (como tensão) em sinais digitais que o microcontrolador pode
+                    processar. 
+                    </li>
+                    <li><strong>Módulos de comunicação: permitem</strong> a
+                    comunicação com outros dispositivos, como UART, I2C, SPI. 
+                    </li>
+               </ul>
+          </ul>
+          <figure>
+               <img src="img/figure1.jpg" name="Figure1"style="max-width: 100%;"/>
+               <figcaption>Figure 1: arquitetura de um microcontrolador PIC16F887 - fonte Scrigroup </figcaption>
+          </figure>
+          
+          <br clear="left"/>
+          <p><strong>Analise dos componentes da <em>Figure 1</em></strong></p>
+          <ul>
+               <li>O número de instruções 35 (Figure 1) indica a complexidade do conjunto de instruções da CPU.</li>
+               <li><strong>Programa Memory (8K):</strong> Armazena o programa que será executado pelo microcontrolador. É geralmente uma memória não volátil (EEPROM ou Flash), o que significa que os dados não são perdidos quando a alimentação é desligada.</li>
+               <li><strong>RAM (368):</strong> Memória de acesso aleatório, usada para armazenar dados temporários durante a execução do programa, como variáveis e resultados de cálculos. É volátil, perdendo os dados quando a alimentação é removida.</li>
+               <li><strong>EEPROM(256):</strong> Memória não volátil de menor capacidade, utilizada para armazenar dados de configuração que precisam ser mantidos mesmo com a alimentação desligada.</li>
+                    <ul">
+                              <li><strong>Timers:</strong>
+                              Contadores que podem ser
+                              configurados para gerar interrupções em intervalos de tempo
+                              específicos. Utilizados em diversas aplicações, como
+                              temporização de eventos, geração de PWM (Modulação por
+                              Largura de Pulso) e controle de motores. 
+                              </li>
+                              <li><strong>Serial
+                              Communication:</strong> Módulos
+                              que permitem a comunicação serial com outros dispositivos, como
+                              sensores, atuadores e computadores.</li>
+                              <ul>
+                                   <li><strong>SPI
+                                   (Serial Peripheral Interface):</strong> Protocolo
+                                   de comunicação síncrono, utilizado para conectar diversos
+                                   dispositivos a um único mestre. 
+                                   </li>
+                                   <li><strong>USART
+                                   (Universal Synchronous/Asynchronous Receiver/Transmitter):</strong>
+                                   Protocolo de comunicação
+                                   assíncrono, utilizado para comunicação serial de longa
+                                   distância. 
+                                   </li>
+                              </ul>
+                              <li><strong>A/D
+                              Converter (ADCs):
+                              </strong>Utilizado
+                              para ler dados de sensores analógicos, como temperatura,
+                              luminosidade, etc. 
+                              </li>
+                              <li><strong>CCP/PWM
+                              modules:</strong> Módulos
+                              de captura, comparação e geração de PWM, utilizados para
+                              controlar a velocidade de motores, gerar sinais PWM para controlar
+                              a luminosidade de LEDs, etc. 
+                              </li>
+                              <li><strong>I/O
+                              Ports: </strong>Pinos
+                              de entrada/saída que permitem ao microcontrolador interagir com o
+                              mundo externo. 
+                              </li>
+                              <li><strong>Interrupts:</strong>
+                              Mecanismo que permite ao
+                              microcontrolador responder a eventos externos, como interrupções
+                              de hardware (por exemplo, um botão pressionado) ou interrupções
+                              de software (por exemplo, um timer expirando). 
+                              </li>
+                              <li><strong>WDT
+                              (Watchdog Timer):</strong> Temporizador
+                              que reinicia o microcontrolador se ele ficar preso em um loop
+                              infinito ou se ocorrer algum erro de software. 
+                              </li>
+                    </ul>
+          <h2>Ciclo de Máquina</h2>
+          <p>O ciclo de máquina descreve as etapas básicas que um
+          microcontrolador executa para processar uma instrução:</p>
+          <ol>
+               <li><strong>Busca de Instrução:</strong>
+               A CPU busca a próxima instrução a ser executada na memória e a
+               coloca em um registrador interno. 
+               </li>
+               <li><strong>Decodificação:</strong>
+               A instrução é decodificada para determinar a operação a ser
+               realizada. 
+               </li>
+               <li><strong>Execução:</strong> A CPU
+               executa a operação especificada pela instrução, utilizando os
+               dados armazenados nos registradores ou na memória. 
+               </li>
+               <li><strong>Incremento do Contador de Programa:</strong> O
+               contador de programa é incrementado para apontar para a próxima
+               instrução a ser executada. 
+               </li>
+          </ol>
+          <p>Este ciclo se repete continuamente enquanto o microcontrolador
+          está em execução.</p>
+          <h2>Linguagens de Programação para
+          Microcontroladores</h2>
+          <ul>
+               <li><strong>Assembly:</strong>
+               Linguagem de baixo nível que permite controlar diretamente o
+               hardware do microcontrolador. É utilizada para tarefas que exigem
+               alto desempenho ou acesso direto a recursos específicos do
+               hardware. 
+               </li>
+               <li><strong>C:</strong> Linguagem de
+               alto nível mais popular para programação de microcontroladores.
+               Oferece um bom equilíbrio entre portabilidade, eficiência e
+               facilidade de uso. 
+               </li>
+               <li><strong>C++: linguagem</strong> de programação orientada a
+               objetos, que pode ser utilizada para projetos mais complexos que
+               exigem as funcionalidades de uma linguagem orientada a objetos. 
+               </li>
+          </ul>
+          <p><strong>Por que C é a linguagem mais popular?</strong></p>
+          <ul>
+               <li><strong>Eficiência:</strong> O
+               código gerado pelos compiladores C é geralmente muito eficiente, o
+               que é importante para aplicações embarcadas com recursos
+               limitados. 
+               </li>
+               <li><strong>Portabilidade:</strong> O
+               código C pode ser facilmente portado para diferentes plataformas,
+               desde que exista um compilador C disponível. 
+               </li>
+               <li><strong>Grande comunidade: existe</strong> uma grande
+               comunidade de desenvolvedores C, o que facilita encontrar soluções
+               para problemas comuns. 
+               </li>
+          </ul>
+          <h2>Ferramentas de Desenvolvimento.</h2>
+          <ul>
+               <li><strong>Integrated Development
+               Environment (IDE):</strong> Um ambiente de desenvolvimento integrado
+               que fornece um conjunto de ferramentas para escrever, compilar e
+               depurar código. 
+               </li>
+               <li><strong>Arduino IDE:</strong> Uma
+               plataforma de hardware e software de código aberto, popular para
+               iniciantes e projetos simples. 
+               </li>
+               <li><strong>Keil:</strong> Um ambiente
+               de desenvolvimento profissional para microcontroladores, com suporte
+               a uma ampla variedade de dispositivos. 
+               </li>
+               <li><strong>Outras IDEs:</strong> Code::Blocks, Eclipse, entre
+               outras. 
+               </li>
+          </ul>
+          <h3><strong>Funcionalidades comuns das IDEs:</strong></h3>
+          <ul>
+               <li><strong>Editor de código: permite</strong>
+               escrever e editar o código-fonte. 
+               </li>
+               <li><strong>Compilador:</strong>
+               Traduz o código-fonte em linguagem de máquina. 
+               </li>
+               <li><strong>Debugger:</strong> Permite
+               depurar o código, identificando e corrigindo erros. 
+               </li>
+               <li><strong>Simulador:</strong> permite simular o comportamento
+               do microcontrolador antes de carregar o código no hardware. 
+               </li>
+          </ul>
+     </article>
+</body>
+</html>

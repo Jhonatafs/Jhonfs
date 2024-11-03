@@ -1,9 +1,16 @@
 
+:root {
+    --c_background: #242424;
+    --c_navbar: #181a1b;
+    --c_textdefault: #c8c3bc;
+    --c_link: #e2b077;
+}
+
 /*default page*/
 
 body {
     font-family: Candara, sans-serif;
-    background-color: #181a1b;
+    background-color: var(--c_background);
     color: #c8c3bc;
     max-width: 700px;
     margin: auto;
@@ -17,7 +24,7 @@ h5 {font-size: 1.6rem;}
 p, li, a, span  {font-size: 1.4rem;}
 
 a, .colorlink {
-    color: #a74a4a;
+    color: var(--c_link);
     cursor: pointer;
 }
 
@@ -29,7 +36,7 @@ a:hover {text-decoration: underline;}
     display: flex;
     justify-content: space-between;
     align-content: center;
-    border-bottom: 0.1rem solid #c8c3bc;
+    border-bottom: 0.1rem solid var(--c_textdefault);
     margin-top: 1rem;
 }
 
@@ -51,10 +58,19 @@ a:hover {text-decoration: underline;}
     display: flex;
     flex-direction: column;
     margin-left: -2rem;
+    gap: 1rem;
 }
 
 #archivelist li {
     list-style: none;
+    background-color: var(--c_navbar);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#archivelist a {
+    color: var(--c_textdefault);
+    font-size: 1.3rem;
 }
 
 /*article*/
@@ -85,7 +101,7 @@ p{
     position: fixed;
     bottom: 0px;
     z-index: 1;
-    background-color: #181a1b;
+    background-color: var(--c_background);
     width: 700px;
     padding: .3rem 0 .5rem;
 }

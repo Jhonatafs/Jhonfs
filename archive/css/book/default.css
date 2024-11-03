@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fira+Code:wght@300..700&family=Glory:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --c_background: #242424;
+    --c_navbar: #181a1b;
+    --c_textdefault: #c8c3bc;
+    --c_link: #e2b077;
+}
+
+*,
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+tr,
+th,
+caption,
+a,
+li {
+    font-family: Candara, "Glory" , sans-serif;
+    font-optical-sizing: auto;
+    hyphens: auto;
+}
+
+
+body {
+    background-color: var(--c_background);
+    color: var(--c_textdefault);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100dvw;
+}
+
+h1 {font-size: 2.7rem; color: var(--c_link);}
+h2 {font-size: 1.9rem;}
+h3 {font-size: 1.7rem;}
+h4 {font-size: 1.5rem;}
+p,
+li,
+th,
+tr  {
+    font-size: 1.3rem;
+    line-height: 140%;
+    margin-bottom: .5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    
+    min-height: 100dvh;
+    width: 100dvw;
+}
+
+main .center {
+    justify-content: center;
+    align-items: center;
+}
+
+#cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+
+#content li {
+    list-style: decimal;
+}
+
+#content a {
+    text-decoration: none;
+    color: var(--c_link);
+}
+
+article {
+    width: 700px;
+    margin: auto;
+
+    padding-bottom: 4rem;
+}
+
+#chapter {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    color: var(--c_link);
+}
+
+article table {
+    border-collapse: collapse;
+    caption-side: bottom;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+article td, th {
+    border: 1px solid var(--c_textdefault);
+    padding: 0.7rem;
+    margin: 0;
+}
+
+article tr:nth-child(even) {
+    background-color: var(--c_navbar);
+}
+
+article .code code {
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#footnotes hr {
+    width: 40%;
+    margin-right: 60%;
+    border-color: var(--c_link);
+}
+
+#footnotes p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+#footnotes a {
+    color: var(--c_textdefault);
+}
+
+@media screen and (max-width: 800px) {
+    article {width: 92dvw !important;}
+ }

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs: Microcontroladores">
+     <meta name="description" content="Blog: eBook">
+     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <title>Microcontroladores</title>
+     <!--CSS-->
+     <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/archive/css/book/default.css">
+     <link rel="stylesheet" href="/archive/css/book/navigation.css">
+     <!--Icons-->
+     <script src="https://kit.fontawesome.com/0c2f8cb29c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <nav id="navbar">
+          <ul>
+               <!--Come back-->
+               <li><a class="enabled" href="1.html"><i class="fa-solid fa-circle-left"></i></a></li>
+               <!--Home-->
+               <li><a class="enabled" href="/index.html"><i class="fa-solid fa-house"></i></a></li>
+               <!--Cover-->
+               <li><a class="enabled" href="cover.html"><i class="fa-solid fa-book"></i></a></li>
+               <!--Content-->
+               <li><a class="enabled" href="content.html"><i class="fa-solid fa-list-ul"></i></a></li>
+               <!--Next-->
+               <li><a class="enabled" href="3.html"><i class="fa-solid fa-circle-right"></i></i></a></li>
+          </ul>
+     </nav>
+     <article>
+          <span id="chapter">Capítulo 2: </span>
+          <hr> 
+          <h1>Arquiteturas de Microcontroladores</h1>
+          <p>A arquitetura de um microcontrolador define como seus componentes
+          internos estão organizados e interagem entre si. A escolha da
+          arquitetura influencia diretamente o desempenho, o custo e as
+          aplicações de um microcontrolador.</p>
+          <h3>Arquitetura Harvard vs. von Neumann</h3>
+          <ul>
+               <li><strong>Arquitetura von Neumann:</strong></li>
+               <ul>
+                    <li>Utiliza um único barramento para
+                    dados e instruções. 
+                    </li>
+                    <li>Mais simples e econômica de
+                    implementar. 
+                    </li>
+                    <li>Limitação: Não permite acesso
+                    simultâneo à memória de dados e instruções, podendo limitar o
+                    desempenho em algumas aplicações. 
+                    </li>
+               </ul>
+               <li><strong>Arquitetura Harvard:</strong></li>
+               <ul>
+                    <li>Possui barramentos separados para
+                    dados e instruções. 
+                    </li>
+                    <li>Permite acesso simultâneo à
+                    memória de dados e instruções, o que aumenta o desempenho. 
+                    </li>
+                    <li>Mais complexa e cara de implementar. 
+                    </li>
+               </ul>
+          </ul>
+          <table>
+               <caption>Comparativo entre a arquitetura Von Neumann e Havard</caption>
+               <tr>
+                    <th>Característica</th>
+                    <th>von Neumann</th>
+                    <th>Harvard</th>
+               </tr>
+               <tr>
+                    <td>Barramento</td>
+                    <td>Único</td>
+                    <td>Separados</td>
+               </tr>
+               <tr>
+                    <td>Acesso simultâneo</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+               </tr>
+               <tr>
+                    <td>Desempenho</td>
+                    <td>Médio</td>
+                    <td>Alto</td>
+               </tr>
+               <tr>
+                    <td>Custo</td>
+                    <td>Baixo</td>
+                    <td>Alto</td>
+               </tr>
+               <tr>
+                    <td>Complexidade</td>
+                    <td>Baixa</td>
+                    <td>Alta</td>
+               </tr>
+          </table>
+          
+          <p>A arquitetura Harvard é mais comum em microcontroladores de alto
+          desempenho, enquanto a arquitetura von Neumann é mais utilizada em
+          microcontroladores de baixo custo.</p>
+          <h2>Arquitetura RISC vs. CISC</h2>
+          <ul>
+               <li><strong>Arquitetura RISC (Reduced
+               Instruction Set Computer):</strong> 
+               </p>
+               <ul>
+                    <li>Conjunto de instruções reduzido
+                    e simples. 
+                    </li>
+                    <li>Ciclo de instrução mais curto,
+                    resultando em maior velocidade. 
+                    </li>
+                    <li>Foco em software, com
+                    compiladores otimizados para gerar código eficiente. 
+                    </li>
+               </ul>
+          <li><strong>Arquitetura CISC (Complex
+          Instruction Set Computer):</strong> 
+          </li>
+               <ul>
+                    <li>Conjunto de instruções complexo
+                    e extenso. 
+                    </li>
+                    <li>Cada instrução pode realizar
+                    várias operações, o que pode reduzir o número de instruções
+                    necessárias para executar uma tarefa. 
+                    </li>
+                    <li>Hardware mais complexo e caro. 
+                    </li>
+               </ul>
+          </ul>
+          <table>
+               <caption>Comparativo entre a arquitetura RISC e CISC</caption>
+               <tr>
+                    <th>Característica</th>
+                    <th>RISC</th>
+                    <th>CISC</th>
+               </tr>
+               <tr>
+                    <td>Conjunto de instruções</td>
+                    <td>Reduzido</td>
+                    <td>Complexo</td>
+               </tr>
+               <tr>
+                    <td>Ciclo de instrução</td>
+                    <td>Curto</td>
+                    <td>Longo</td>
+               </tr>
+               <tr>
+                    <td>Desempenho</td>
+                    <td>Alto</td>
+                    <td>Médio</td>
+               </tr>
+               <tr>
+                    <td>Custo</td>
+                    <td>Baixo</td>
+                    <td>Alto</td>
+               </tr>
+               <tr>
+                    <td>Complexidade</td>
+                    <td>Baixa</td>
+                    <td>Alta</td>
+               </tr>
+          </table>
+          <p>A arquitetura RISC é predominante nos microcontroladores modernos
+          devido ao seu alto desempenho e baixo custo. A arquitetura CISC,
+          embora ainda utilizada em algumas aplicações específicas, está em
+          declínio.</p>
+          <h3>Outras Arquiteturas</h3>
+          <p>Existem outras arquiteturas de microcontroladores, como a
+          arquitetura superescalar, que permite a execução de múltiplas
+          instruções em paralelo. No entanto, as arquiteturas Harvard, von
+          Neumann, RISC e CISC são as mais comuns e importantes de se
+          conhecer.</p>
+          <h3>Exemplo Prático: Arduino Uno</h3>
+          <p>O Arduino Uno é um microcontrolador baseado na arquitetura AVR da
+          Atmel (agora Microchip). Ele utiliza uma arquitetura Harvard
+          modificada, com um barramento de dados de 8 bits e um barramento de
+          instruções de 16 bits. Essa arquitetura permite um bom equilíbrio
+          entre desempenho e custo, tornando o Arduino Uno uma plataforma
+          popular para projetos de eletrônica e robótica.<br/>
+          <figure>
+               <img src="img/figure2.png" name="Figure1"style="max-width: 100%;"/>
+               <figcaption>Figure 2: Arduino UNO - fonte blog do robótica </figcaption>
+          </figure>
+          </figure>
+          <p><strong>Características do Arduino Uno:</strong></p>
+          <ul>
+               <li>Microcontrolador AVR
+               ATmega328P 
+               </li>
+               <li>Tensão de operação: 5V 
+               </li>
+               <li>Memória Flash: 32 KB 
+               </li>
+               <li>RAM: 2 KB 
+               </li>
+               <li>EEPROM: 1 KB 
+               </li>
+               <li>14 pinos de entrada/saída
+               digitais 
+               </li>
+               <li>6 pinos de entrada analógica 
+               </li>
+               <li>16 MHz de clock 
+               </li>
+          </ul>
+     </article>
+</body>
+</html>
