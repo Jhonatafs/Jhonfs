@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fira+Code:wght@300..700&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
+
+@font-face {
+    font-family: "Icons";
+    src: url("/fonts/SymbolsNerdFont-Regular.ttf");
+}
+
+:root {
+    --background: #1f1f1f;
+    --foreground: #b69b6d;
+    --text: #e0e0e0;
+    --reverse-text: #121212;
+    --link: #4a8065;
+    --nav: #1c1c1c;
+    --disabled: #777777;
+}
+
+.light-theme {
+    --background: #f4f1e6;
+    --foreground: #b08f5a;
+    --text: #0e0e0e;
+    --reverse-text: #ffffff;
+    --link: #345543;
+    --nav: #e4d9c6;
+    --disabled: #b1a9a1;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 2px solid var(--foreground);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+}
+
+html, html * {
+    scrollbar-color: var(--foreground) transparent;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    /*font-family: Candara, Geneva, Verdana, Tahoma, sans-serif;*/
+    font-family: "Cardo", serif;
+
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Texte defaut */
+
+h1 {
+    font-size: 2.7rem;
+    font-family: "IM Fell English", serif;
+}
+h2 {font-size: 2.0rem;}
+h3 {font-size: 1.9rem;}
+h4 {font-size: 1.8rem;}
+h5 {font-size: 1.6rem;}
+p,
+li,
+th,
+tr {
+    font-size: 1.5rem;
+    line-height: 140%;
+    margin-bottom: .5rem;
+}
+
+.color-link {color: var(--link);}
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ------------ */
+
+/* Nav Bar */
+
+#main-nav {
+    background-color: var(--nav);
+
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    width: 100dvw;
+    padding: 1rem 0 .7rem;
+    box-shadow: 0px 1px 5px black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#main-nav h1 {
+    /*font-size: 2.2rem;*/
+    margin: 0;
+    padding: 0;
+}
+
+#main-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style: none;
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.3rem;
+
+    padding: .2rem .5rem 0;   
+    border-top: 2px dotted transparent;
+
+    transition: all .4s ease-in-out;
+}
+
+#main-nav a:hover {
+    border-top: 2px dotted var(--link);
+    color: var(--link);
+}
+
+/* ------- */
+
+/* Floating Button */
+.floating-button {
+    position: fixed;
+    right: .5rem;
+    z-index: 9;
+
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.floating-bottom-position {
+    bottom: .5rem;
+}
+
+.floating-top-position {
+    top: .5rem
+}
+
+.floating-button-formatting {
+    display: inline-block;
+
+    background-color: var(--nav);
+    color: var(--text);
+    opacity: .5;
+    
+    border: none;
+    box-shadow: 0 0 10px black;
+    
+    padding: 0;
+    margin: 0;
+
+    cursor: pointer;
+
+    font-size: 1.5rem;
+    text-align: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 100%;
+    box-shadow: 0 0 10px black;
+
+    transition: all .7s ease-in-out;
+}
+
+.floating-button-formatting:hover {
+    background-color: var(--nav);
+    color: var(--text);
+    text-decoration: none;
+    opacity: 1;
+}
+
+.floating-button-disabled {
+    display: none;
+}
+
+/* ---------- */
+
+/* Articles */
+
+article,
+main {
+    width: 96%; margin: auto;
+}
+
+article {
+    padding: 3rem 0;
+}
+
+article h1+p:first-letter,
+.word-cappilar:first-letter {
+    font-size: 5.5rem;
+    float: left;
+    font-weight: bold;
+    color: var(--link);
+    padding-right: .2rem;
+}
+
+article p {
+    hyphens: auto;
+    hyphenate-character: "_";
+}
+
+article table {
+    border-collapse: collapse;
+    caption-side: bottom;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+article td, th {
+    border: 1px solid var(--text);
+    padding: 0.7rem;
+    margin: 0;
+}
+
+article tr:nth-child(even) {
+    background-color: var(--nav);
+}
+
+article .code code {
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+article .quote {
+    width: 70%;
+    text-align: right;
+    margin-left: 20%;
+    font-size: 1.1rem !important;
+    text-align: justify;
+ }
+
+/* -------- */
+
+/* Archive */
+
+#archive {
+    width: 94%;
+    min-height: calc(100vh - 12rem);
+    
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+
+    padding-top: 7rem;
+
+}
+
+#archive a {
+    background-color: transparent;
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: 0 0 0 var(--nav);
+
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 0;
+    border: 3px dotted var(--link);
+    padding: .7rem 1rem;
+
+    transition: all .3s ease-in-out;
+}
+
+#archive a:hover {
+
+    background-color: var(--link);
+    color: var(--reverse-text);
+    box-shadow: 0 3px 3px black;
+
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+#archive .archive-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    
+    display: inline-block;
+    margin: .2rem 0 .7rem;
+}
+
+#archive .archive-date {
+    font-size: 1rem;
+    text-align: right;
+}
+
+#chapter {
+    color: var(--link);
+    
+    display: inline-block;
+
+    font-size: 1.4rem;
+    
+    margin-top: 2rem;
+    padding-bottom: .7rem;
+    padding-left: 4rem;
+    width: 100%;
+    
+    border-bottom: 2px solid var(--link);
+}
+
+/* ------- */
+
+/* Book Nav */
+
+#book-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--nav);
+    
+    position: fixed;
+    /*bottom: -2.3rem;*/
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+    box-shadow: 0px -1px 5px black;
+    transition: .3s all ease-in-out;
+}
+
+#book-nav * {
+    margin: 0;
+    padding: 0;
+}
+
+#book-nav ul {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+#book-nav ul li {
+    list-style: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20%;
+    
+    transition: .3s ease-in-out;
+}
+
+#book-nav a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: var(--text);
+    width: 100%;
+}
+
+#book-nav ul a:hover {
+    background-color: var(--link);
+    color: var(--reverse-text);
+    cursor: pointer;
+}
+
+#book-nav .disabled {
+    color: var(--disabled);
+}
+
+#book-nav .disabled:hover {
+    cursor: not-allowed;
+    background-color: transparent;
+    color: var(--disabled);
+}
+
+/* -------- */
+
+/* Book */
+
+#book-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 96dvh;
+
+    padding-bottom: 1rem;
+}
+
+#book-cover img {
+        object-fit: cover;
+        padding: 4% 0 0;
+        height: 90dvh;
+}
+
+/* ---- */
+
+/* Footer */
+
+#footnotes hr {
+    width: 40%;
+    margin-right: 60%;
+    border-color: var(--foreground);
+}
+
+#footnotes p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+#footnotes a {
+    color: var(--link);
+}
+
+/* ------ */
+
+/* Footer */
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .1rem;
+
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.3rem;
+
+    transition: all .4s ease-in-out;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: var(--link);
+}
+
+/* ------ */
+
+@media screen and (max-width: 800px) {
+    body {width: 92dvw !important;}
+ }

@@ -1,28 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="application-name" content="JhonFs">
     <meta name="description" content="Blog">
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="icon" type="image/png" href="" />
+    <title>JhonFs</title>
     <!--CSS-->
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/default_style.css">
-    <title>JhonFs</title>
+    <link rel="stylesheet" href="/css/style.css">    
+    <link rel="stylesheet" href="/css/archive.css">    
+    <!--JS-->
+    <script src="/js/light.js"></script>
 </head>
 <body>
-    <nav id="navbar">
+    <nav id="main-nav">
         <h1>JhonFs</h1>
-        <ul>
-        </ul>
+        <!--<ul>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">NosTr</a></li>
+            <li><a href="">Github</a></li>
+        </ul>-->
     </nav>
-    <main>
-        <ul id="archivelist">
-            <li><a href="/archive/scip/book.html">Estrutura e Interpretação de Programas de Computador (SCIP &mdash; PT-BR)</a></li>
-            <li><a href="/archive/estacio/materia/programacao_de_microcontroladores/trabalho_de_extencao/cover.html">Microcontroladores: Introdução para autodidatas [Trabalho de Extensão]</a></li>
-        </ul>
+    <div class="floating-button floating-bottom-position">
+        <a class="floating-button-formatting" href="#top">⌅</a>
+        <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+    </div>
+    <div id="top"></div>
+    <main id="archive">
+
+        <a href="arquive/sicp-pt-br.html">
+            <span class="archive-title">(SICP pt-BR) Estrutura e Interpretação de Programas de Computadores</span>
+            <span class="archive-date">Em processo de tradução</span>
+        </a>
+        <!--
+        <a href="arquive/Microcontroladores:_Introdução_para_autodidatas.html">
+            <span class="archive-title">Microcontroladores: Introdução para autodidatas</span>
+            <span class="archive-date">ter. DD de novembro de 2024</span>
+        </a>
+        -->
     </main>
+    <footer>
+            <ul>
+                <li><a href="">Sobre</a></li>
+                <li>⊶</li>
+                <li><a href="">NosTr</a></li>
+                <li>⊷</li>
+                <li><a href="">Github</a></li>
+            </ul>
+    </footer>
 </body>
 </html>

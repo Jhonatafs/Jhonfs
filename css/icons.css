@@ -1,0 +1,36 @@
+.icon_back::before {
+    font-family: 'Icons';
+    font-size: 2.5rem;
+    content: '󰮹';
+}
+
+.icon_next::before {
+    font-family: 'Icons';
+    font-size: 2.5rem;
+    content: '󰮺';
+}
+
+.icon_home::before {
+    font-family: 'Icons';
+    content: '󰮹';
+}
+
+.icon_exit::before {
+    font-family: 'Icons';
+    content: '󰩈';
+}
+
+.icon_cover::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_content::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_chip::before {
+    font-family: 'Icons';
+    content: '';
+}

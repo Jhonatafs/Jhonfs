@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs: Microcontroladores">
+     <meta name="description" content="Blog: eBook">
+     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <title>Microcontroladores</title>
+     <!--CSS-->
+     <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/icons.css">
+     <!--JS-->
+     <script src="/js/light.js"></script>
+</head>
+<body>
+     <div class="floating-button floating-top-position">
+          <a class="floating-button-formatting" href="#top">⌅</a>
+          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+     </div>
+    <div id="top"></div>
+     <nav id="book-nav">
+          <ul>
+               <!--Come back-->
+               <li><a class="icon_back enabled" href="2.html"></a></li>
+               <!--Home-->
+               <li><a class="icon_exit enabled" href="/index.html"></a></li>
+               <!--Cover-->
+               <li><a class="icon_cover enabled" href="../Microcontroladores:_Introdução_para_autodidatas.html"></a></li>
+               <!--Content-->
+               <li><a class="icon_content enabled" href="content.html"></a></li>
+               <!--Next-->
+               <li><a class="icon_next enabled" href="4.html"></a></li>
+          </ul>
+     </nav>
+     <article>
+          <span id="chapter">Capítulo 3: </span>
+               <h1>Linguagens de Programação para Microcontroladores</h1>
+               <p>As linguagens de programação são ferramentas que usamos para instruir computadores a executarem tarefas específicas. Elas funcionam como uma ponte entre a lógica humana e o hardware da máquina. A forma como essas linguagens se comunicam com o computador varia de acordo com o nível de abstração que oferecem.</p>
+               <ul>
+                    <li>Linguagem de máquina: É o nível mais baixo, composto por sequências de 0s e 1s (código binário) que o processador entende diretamente. É a linguagem nativa da máquina.</li>
+                    <li>Linguagens de baixo nível (ex: Assembly): São mais próximas da linguagem de máquina, mas utilizam instruções mnemônicas (palavras abreviadas) que representam operações básicas do processador. Exigem um conhecimento profundo da arquitetura do computador.</li>
+                    <li>Linguagens de médio nível (ex: C): Oferecem um nível de abstração maior, permitindo a manipulação de memória e hardware, mas com uma sintaxe mais próxima da linguagem humana. São utilizadas em sistemas operacionais e aplicações que exigem alto desempenho.</li>
+                    <li>Linguagens de alto nível (ex: C++, Python, Java): São as mais distantes da linguagem de máquina e oferecem um alto nível de abstração. Possuem sintaxe mais intuitiva e facilitam a escrita de código, tornando o desenvolvimento mais rápido e menos propenso a erros. São amplamente utilizadas para diversas aplicações.</li>
+               </ul>
+               <h2>Assembly e C++ em Microcontroladores</h2>
+               <p>A escolha entre Assembly e C++ para o desenvolvimento de software em microcontroladores é uma decisão complexa que depende de diversos fatores, como os mencionados no texto. Vamos explorar as características de cada linguagem nesse contexto:</p>
+               <p><strong>Assembly: Controle Máximo, Complexidade Elevada</strong></p>
+               <ul>
+                    <li>Controle granular: Permite manipular diretamente os registradores e a memória do microcontrolador, oferecendo um controle preciso sobre o hardware.</li>
+                    <li>Otimização: Ideal para tarefas que exigem o máximo desempenho, como otimização de código para sistemas embarcados com recursos limitados.</li>
+                    <li>Portabilidade: O código Assembly é altamente dependente da arquitetura do microcontrolador, dificultando a portabilidade para outras plataformas.</li>
+                    <li>Complexidade: A sintaxe é complexa e requer um profundo conhecimento da arquitetura do hardware, tornando o desenvolvimento mais lento e propenso a erros.</li>
+                    <li>Dificuldade de manutenção: O código Assembly é difícil de ler e manter, o que pode aumentar os custos de desenvolvimento a longo prazo.</li>
+               </ul>
+               <p>Código de <strong>exemplo</strong> <a href="#footnote_1">¹</a></p>
+               <div class="code">
+                  <code>RES_VECT  CODE    0x0000</code>
+                    <code>#include &lt;p16F628A.inc&gt;</code>
+                    <code>__CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_ON & _MCLRE_ON & _BOREN_OFF & _LVP_OFF & _CPD_OFF & _CP_OFF</code>
+                    <code>BSF STATUS, RP0 ;muda para banco de memória 1 para configurar os PORTS e TRIS</code>
+                    <code>MOVLW 0x00</code>
+                    <code>MOVWF TRISA</code>
+                    <code>MOVLW 0X00</code>
+                    <code>MOVWF TRISB</code>
+                    <code>BCF STATUS, RP0</code>
+                    <code>CLRF PORTA</code>
+                    <code>CLRF PORTB</code>
+                    <code>start:</code>
+                    <code>BSF PORTA, 1</code>
+                    <code>nop</code>
+                    <code>BCF PORTA, 1</code>
+                    <code>GOTO start</code>
+                    <code>end</code>
+                  </div>
+               <p><strong>C++: Versatilidade e Abstração</strong></p>
+               <ul>
+                    <li>Abstração: Permite criar códigos mais legíveis e modulares, facilitando a manutenção e a reutilização.</li>
+                    <li>Orientação a objetos: Suporta a programação orientada a objetos, o que facilita o desenvolvimento de sistemas complexos.</li>
+                    <li>Bibliotecas: Oferece uma vasta gama de bibliotecas, acelerando o desenvolvimento e permitindo a reutilização de código.</li>
+                    <li>Portabilidade: O código C++ pode ser compilado para diversas plataformas, facilitando a portabilidade.</li>
+                    <li>Desempenho: Embora não seja tão eficiente quanto o Assembly, o C++ pode gerar código altamente otimizado, especialmente quando utilizado com compiladores modernos.</li>
+               </ul>
+               <p>Código de <strong>exemplo</strong> <a href="#footnote_2">²</a></p>
+               <div class="code">
+                    <code >&nbsp;&nbsp;void setup() {</code>
+                    <code >&nbsp;&nbsp;&nbsp;&nbsp;pinMode(12, OUTPUT);</code>
+                    <code >&nbsp;&nbsp;}</code>
+                    <code >&nbsp;&nbsp;void loop() {</code>
+                    <code >&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(12, HIGH);</code>
+                    <code >&nbsp;&nbsp;&nbsp;&nbsp;delay(1000);</code>
+                    <code >&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(12, LOW);</code>
+                    <code >&nbsp;&nbsp;&nbsp;&nbsp;delay(1000);</code>
+                    <code >&nbsp;&nbsp;}</code>
+               </div>
+               <h2 ><strong>Ambiente de Desevolvimento</strong></h2>
+               <p>A escolha da linguagem de programação para um microcontrolador é
+               apenas o primeiro passo em sua jornada de desenvolvimento. O ambiente
+               em que você escreve, compila e depura seu código também desempenha
+               um papel crucial na sua produtividade e na qualidade do seu projeto.</p>
+               <p>Historicamente, a programação de microcontroladores era
+               realizada diretamente em um terminal, utilizando editores de texto
+               simples e compiladores de linha de comando. Essa abordagem, embora
+               fornecesse um grande controle sobre o processo de desenvolvimento,
+               era bastante complexa e demandava um conhecimento profundo das
+               ferramentas e dos sistemas operacionais.</p>
+               <p>Com o passar dos anos, surgiram os <strong>Ambientes de
+               Desenvolvimento Integrados (IDEs)</strong>, que revolucionaram a
+               forma como programamos microcontroladores. Um IDE reúne em uma única
+               interface diversas ferramentas essenciais para o desenvolvimento,
+               como:</p>
+               <ul>
+                    <li><strong>Editor de código:</strong>
+                    Com destaque de sintaxe, autocompletar e outras funcionalidades que
+                    facilitam a escrita do código. 
+                    </li>
+                    <li><strong>Compilador:</strong>
+                    Transforma o código fonte em código de máquina que o
+                    microcontrolador pode entender. 
+                    </li>
+                    <li><strong>Depurador:</strong>
+                    Permite identificar e corrigir erros no seu código de forma
+                    interativa. 
+                    </li>
+                    <li><strong>Gerenciador de projetos:</strong> Organiza os
+                    arquivos do projeto, facilitando a gestão de projetos maiores. 
+                    </li>
+               </ul>
+               <p><strong>Por que usar um IDE?</strong></p>
+               <ul>
+                    <li><strong>Aumento da produtividade:</strong>
+                    Ao automatizar tarefas repetitivas e fornecer um ambiente integrado,
+                    o IDE permite que você se concentre na lógica do seu programa. 
+                    </li>
+                    <li><strong>Facilidade de uso:</strong>
+                    A interface gráfica e as funcionalidades intuitivas tornam o
+                    desenvolvimento mais acessível, mesmo para iniciantes. 
+                    </li>
+                    <li><strong>Melhora na qualidade do
+                    código:</strong> Ferramentas como o depurador e o verificador de
+                    sintaxe ajudam a identificar e corrigir erros mais rapidamente. 
+                    </li>
+                    <li><strong>Integração com outras ferramentas:</strong> Muitos
+                    IDEs permitem a integração com simuladores, emuladores e outros
+                    softwares, ampliando as suas possibilidades. 
+                    </li>
+               </ul>
+               <p><strong>Quando usar o terminal?</strong></p>
+               <p>Embora os IDEs sejam ferramentas poderosas, existem situações em
+               que o terminal pode ser mais adequado:</p>
+               <ul>
+                    <li><strong>Projetos pequenos e
+                    simples:</strong> Para projetos rápidos e de menor complexidade, o
+                    terminal pode ser uma opção mais ágil. 
+                    </li>
+                    <li><strong>Automatização de
+                    tarefas:</strong> O terminal é ideal para automatizar tarefas
+                    repetitivas, como a criação de builds ou a execução de testes. 
+                    </li>
+                    <li><strong>Aprendizado:</strong> Aprender a programar no
+                    terminal pode te dar um entendimento mais profundo sobre o processo
+                    de compilação e linkagem. 
+                    </li>
+               </ul>
+               <p><strong>Escolhendo o IDE certo:</strong></p>
+               <p>A escolha do IDE depende de diversos fatores, como:</p>
+               <ul>
+                    <li><strong>Plataforma de
+                    microcontrolador:</strong> Verifique se o IDE suporta o
+                    microcontrolador que você está utilizando. 
+                    </li>
+                    <li><strong>Linguagem de programação:</strong>
+                    Escolha um IDE que suporte a linguagem que você está utilizando. 
+                    </li>
+                    <li><strong>Funcionalidades:</strong>
+                    Avalie as funcionalidades oferecidas pelo IDE, como o depurador, o
+                    simulador e as ferramentas de projeto. 
+                    </li>
+                    <li><strong>Custo:</strong> Alguns
+                    IDEs são gratuitos, enquanto outros são pagos. 
+                    </li>
+                    <li><strong>Comunidade:</strong> Uma comunidade ativa pode
+                    fornecer suporte e recursos adicionais. 
+                    </li>
+               </ul>
+               <p><strong>IDEs populares:</strong></p>
+               <ul>
+                    <li><strong>Arduino IDE:</strong>
+                    Ideal para iniciantes e projetos simples. 
+                    </li>
+                    <li><strong>Visual Studio Code:</strong>
+                    Extremamente personalizável e com uma vasta gama de extensões. 
+                    </li>
+                    <li><strong>Eclipse:</strong>
+                    Plataforma open-source altamente configurável. 
+                    </li>
+                    <li><strong>Keil MDK:</strong> Focado
+                    em microcontroladores ARM, oferece um conjunto completo de
+                    ferramentas. 
+                    </li>
+                    <li><strong>MPLAB X:</strong> Desenvolvido pela Microchip, é
+                    amplamente utilizado para programar microcontroladores PIC.</li>
+               </ul>
+               <div id="footnotes">
+                    <hr>
+                    <p id="footnote_1">1. <a href="https://wantronics.com.br/2022/07/03/linguagem-assembly-pic16f628a/" target="_blank">Piscar um LED em Assembly</a></p>
+                    <p id="footnote_2">2. <a href="https://tecdicas.com/como-acender-e-piscar-um-led-no-arduino/" target="_blank">Como acender e piscar um LED no Arduino</a></p>
+               </div>
+     </article>
+</body>
+</html>
