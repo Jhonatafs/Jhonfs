@@ -6,7 +6,7 @@
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="application-name" content="JhonFs: Microcontroladores">
      <meta name="description" content="Blog: eBook">
-     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
      <title>Microcontroladores</title>
      <!--CSS-->
      <link rel="stylesheet" href="/css/normalize.css">
@@ -17,8 +17,8 @@
 </head>
 <body>
      <div class="floating-button floating-top-position">
-          <a class="floating-button-formatting" href="#top">⌅</a>
-          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+          <a class="floating-button-formatting icon_top" href="#top"></a>
+        <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="icon_light"></span></button>
      </div>
     <div id="top"></div>
      <nav id="book-nav">
@@ -37,181 +37,72 @@
      </nav>
      <article>
           <span id="chapter">Capítulo 2: </span>
-          <h1>Arquiteturas de Microcontroladores</h1>
-          <p>A arquitetura de um microcontrolador define como seus componentes
-          internos estão organizados e interagem entre si. A escolha da
-          arquitetura influencia diretamente o desempenho, o custo e as
-          aplicações de um microcontrolador.</p>
-          <h3>Arquitetura Harvard vs. von Neumann</h3>
+          <h1>Estrutura de um microcontrolador</h1>
+          <p>O microcontrolador é, essencialmente, um tipo de circuito integrado. Mas, afinal, o que é um circuito integrado e como ele funciona? Podemos compará-lo a uma bicicleta, onde cada parte desempenha uma função específica que contribui para o movimento como um todo. Assim como a bicicleta tem rodas, um guidão e uma estrutura que conecta tudo, o microcontrolador tem seus próprios componentes fundamentais que, juntos, formam uma unidade de processamento compacta e autossuficiente.</p>
+          <p>Imagine a estrutura de uma bicicleta. As rodas, por exemplo, têm um formato cilíndrico que permite rotação fácil, tornando a locomoção mais eficiente. No microcontrolador, o "equivalente" das rodas são os transistores. Eles funcionam como pequenos interruptores que controlam o fluxo de corrente, permitindo a passagem de informações e comandos. Assim como as rodas movem a bicicleta para frente, os transistores impulsionam os dados dentro do microcontrolador.</p>
+          <p>Além das rodas, a bicicleta possui um guidão, que permite ao usuário controlar a direção. No microcontrolador, esse papel é realizado pela unidade de controle, que direciona o fluxo das instruções e define a ordem de execução das operações. O guidão (unidade de controle) é essencial para garantir que todos os comandos sigam o caminho correto e atinjam o destino certo.</p>
+          <p>Há também a estrutura da bicicleta em si, que mantém tudo conectado. No microcontrolador, essa estrutura é formada por circuitos que interligam todos os componentes, como memória, unidade de processamento e portas de entrada e saída. Esses circuitos conectam cada "peça" para que todas trabalhem em harmonia, permitindo que o microcontrolador execute suas tarefas de forma eficiente.</p>
+          <h2>Por que essa estrutura é necessária?</h2>
+          <p>A estrutura de um microcontrolador é cuidadosamente planejada com base em princípios de engenharia elétrica. Cada componente tem um propósito específico e é posicionado de maneira a otimizar a comunicação entre as partes. Por exemplo, a unidade de processamento central (ou CPU) precisa de acesso rápido à memória, já que esta armazena instruções e dados que a CPU deve processar constantemente.</p>
+          <p>Outro ponto importante é a presença de portas de entrada e saída, que permitem a comunicação do microcontrolador com o mundo externo. Essas portas recebem sinais de sensores e enviam comandos para atuadores, controlando, por exemplo, motores ou displays. Essas conexões externas precisam estar localizadas em áreas específicas do microcontrolador para facilitar o fluxo de dados e a eficiência energética.</p>
+          <p>Essa organização interna foi desenvolvida para atender às necessidades de desempenho, custo e tamanho reduzido, fatores essenciais para o uso de microcontroladores em dispositivos pequenos, como eletrodomésticos, automóveis e dispositivos de IoT. Cada parte da estrutura interage de forma a minimizar os gastos de energia e maximizar a velocidade de processamento.</p>
+          <h2>Arquiteturas de Microcontroladores</h2>
+          <p>A forma como os componentes de um microcontrolador são organizados e interagem entre si é conhecida como arquitetura. Existem várias arquiteturas, cada uma com características próprias que impactam a performance, a eficiência e o custo do microcontrolador. Aqui estão algumas das arquiteturas mais relevantes:</p>
+          <h3>Arquitetura Harvard</h3>
+          <p>Na arquitetura Harvard, a memória de programa e a memória de dados são separadas fisicamente, ou seja, cada tipo de dado (instruções e informações de dados) possui seu próprio barramento. Essa separação permite que o microcontrolador acesse dados e instruções simultaneamente, aumentando a velocidade de processamento.</p>
           <ul>
-               <li><strong>Arquitetura von Neumann:</strong></li>
+               <li>Vantagens:</li>
                <ul>
-                    <li>Utiliza um único barramento para
-                    dados e instruções. 
-                    </li>
-                    <li>Mais simples e econômica de
-                    implementar. 
-                    </li>
-                    <li>Limitação: Não permite acesso
-                    simultâneo à memória de dados e instruções, podendo limitar o
-                    desempenho em algumas aplicações. 
-                    </li>
+                    <li>Maior eficiência e velocidade, já que permite acessar dados e instruções ao mesmo tempo.</li>
+                    <li>Ideal para aplicações em que a performance é prioridade, como sistemas de controle em tempo real.</li>
                </ul>
-               <li><strong>Arquitetura Harvard:</strong></li>
+               <li>Desvantagens:</li>
                <ul>
-                    <li>Possui barramentos separados para
-                    dados e instruções. 
-                    </li>
-                    <li>Permite acesso simultâneo à
-                    memória de dados e instruções, o que aumenta o desempenho. 
-                    </li>
-                    <li>Mais complexa e cara de implementar. 
-                    </li>
+                    <li>Estrutura mais complexa e, portanto, mais cara.</li>
+                    <li>Limitação de flexibilidade, pois é mais difícil modificar as instruções e os dados dinamicamente.</li>
                </ul>
           </ul>
-          <table>
-               <caption>Comparativo entre a arquitetura Von Neumann e Havard</caption>
-               <tr>
-                    <th>Característica</th>
-                    <th>von Neumann</th>
-                    <th>Harvard</th>
-               </tr>
-               <tr>
-                    <td>Barramento</td>
-                    <td>Único</td>
-                    <td>Separados</td>
-               </tr>
-               <tr>
-                    <td>Acesso simultâneo</td>
-                    <td>Não</td>
-                    <td>Sim</td>
-               </tr>
-               <tr>
-                    <td>Desempenho</td>
-                    <td>Médio</td>
-                    <td>Alto</td>
-               </tr>
-               <tr>
-                    <td>Custo</td>
-                    <td>Baixo</td>
-                    <td>Alto</td>
-               </tr>
-               <tr>
-                    <td>Complexidade</td>
-                    <td>Baixa</td>
-                    <td>Alta</td>
-               </tr>
-          </table>
-          
-          <p>A arquitetura Harvard é mais comum em microcontroladores de alto
-          desempenho, enquanto a arquitetura von Neumann é mais utilizada em
-          microcontroladores de baixo custo.</p>
-          <h2>Arquitetura RISC vs. CISC</h2>
+          <h3>Arquitetura Von Neumann:</h3>
+          <p>Na arquitetura Von Neumann, também conhecida como Arquitetura de Armazenamento Comum, tanto dados quanto instruções compartilham a mesma memória e o mesmo barramento. Nesse caso, o microcontrolador deve alternar entre acessar dados e instruções, pois utiliza o mesmo caminho para ambos.</p>
           <ul>
-               <li><strong>Arquitetura RISC (Reduced
-               Instruction Set Computer):</strong> 
-               </p>
+               <li>Vantagens:</li>
                <ul>
-                    <li>Conjunto de instruções reduzido
-                    e simples. 
-                    </li>
-                    <li>Ciclo de instrução mais curto,
-                    resultando em maior velocidade. 
-                    </li>
-                    <li>Foco em software, com
-                    compiladores otimizados para gerar código eficiente. 
-                    </li>
+                    <li>Estrutura mais simples e custo reduzido.</li>
+                    <li>Mais fácil de programar e modificar, pois dados e instruções estão na mesma área de memória.</li>
                </ul>
-          <li><strong>Arquitetura CISC (Complex
-          Instruction Set Computer):</strong> 
-          </li>
+               <li>Desvantagens:</li>
                <ul>
-                    <li>Conjunto de instruções complexo
-                    e extenso. 
-                    </li>
-                    <li>Cada instrução pode realizar
-                    várias operações, o que pode reduzir o número de instruções
-                    necessárias para executar uma tarefa. 
-                    </li>
-                    <li>Hardware mais complexo e caro. 
-                    </li>
+                    <li>Velocidade limitada, pois não é possível acessar dados e instruções simultaneamente.</li>
+                    <li>Possível ocorrência de "gargalos", já que o barramento único pode ficar sobrecarregado.</li>
                </ul>
           </ul>
-          <table>
-               <caption>Comparativo entre a arquitetura RISC e CISC</caption>
-               <tr>
-                    <th>Característica</th>
-                    <th>RISC</th>
-                    <th>CISC</th>
-               </tr>
-               <tr>
-                    <td>Conjunto de instruções</td>
-                    <td>Reduzido</td>
-                    <td>Complexo</td>
-               </tr>
-               <tr>
-                    <td>Ciclo de instrução</td>
-                    <td>Curto</td>
-                    <td>Longo</td>
-               </tr>
-               <tr>
-                    <td>Desempenho</td>
-                    <td>Alto</td>
-                    <td>Médio</td>
-               </tr>
-               <tr>
-                    <td>Custo</td>
-                    <td>Baixo</td>
-                    <td>Alto</td>
-               </tr>
-               <tr>
-                    <td>Complexidade</td>
-                    <td>Baixa</td>
-                    <td>Alta</td>
-               </tr>
-          </table>
-          <p>A arquitetura RISC é predominante nos microcontroladores modernos
-          devido ao seu alto desempenho e baixo custo. A arquitetura CISC,
-          embora ainda utilizada em algumas aplicações específicas, está em
-          declínio.</p>
-          <h3>Outras Arquiteturas</h3>
-          <p>Existem outras arquiteturas de microcontroladores, como a
-          arquitetura superescalar, que permite a execução de múltiplas
-          instruções em paralelo. No entanto, as arquiteturas Harvard, von
-          Neumann, RISC e CISC são as mais comuns e importantes de se
-          conhecer.</p>
-          <h3>Exemplo Prático: Arduino Uno</h3>
-          <p>O Arduino Uno é um microcontrolador baseado na arquitetura AVR da
-          Atmel (agora Microchip). Ele utiliza uma arquitetura Harvard
-          modificada, com um barramento de dados de 8 bits e um barramento de
-          instruções de 16 bits. Essa arquitetura permite um bom equilíbrio
-          entre desempenho e custo, tornando o Arduino Uno uma plataforma
-          popular para projetos de eletrônica e robótica.<br/>
-          <figure>
-               <img src="/img/figure2.png" name="Figure1"style="max-width: 100%;"/>
-               <figcaption>Figure 2: Arduino UNO - fonte blog do robótica </figcaption>
-          </figure>
-          </figure>
-          <p><strong>Características do Arduino Uno:</strong></p>
+          <h3>Arquitetura RISC (Computador com Conjunto Reduzido de Instruções)</h3>
+          <p>A arquitetura RISC é projetada para processar um conjunto limitado de instruções simples, mas de maneira extremamente eficiente. Cada instrução leva apenas um ciclo de clock para ser executada, tornando essa arquitetura muito rápida e eficiente para operações repetitivas.</p>
           <ul>
-               <li>Microcontrolador AVR
-               ATmega328P 
-               </li>
-               <li>Tensão de operação: 5V 
-               </li>
-               <li>Memória Flash: 32 KB 
-               </li>
-               <li>RAM: 2 KB 
-               </li>
-               <li>EEPROM: 1 KB 
-               </li>
-               <li>14 pinos de entrada/saída
-               digitais 
-               </li>
-               <li>6 pinos de entrada analógica 
-               </li>
-               <li>16 MHz de clock 
-               </li>
+               <li>Vantagens:</li>
+               <ul>
+                    <li>Altamente eficiente e com menor consumo de energia.</li>
+                    <li>Ideal para microcontroladores em sistemas embarcados, como smartphones e dispositivos portáteis.</li>
+               </ul>
+               <li>Desvantagens:</li>
+               <ul>
+                    <li>Limitado em termos de complexidade de instruções.</li>
+                    <li>Exige mais instruções para realizar operações complexas, o que pode aumentar o tempo de execução em algumas aplicações.</li>
+               </ul>
+          </ul>
+          <h3>Arquitetura CISC (Computador com Conjunto Complexo de Instruções)</h3>
+          <p>A arquitetura CISC, por outro lado, é projetada para realizar operações complexas com poucas instruções. Cada instrução pode realizar várias operações internas, o que diminui a quantidade de instruções necessárias para uma tarefa.</p>
+          <ul>
+               <li>Vantagens:</li>
+               <ul>
+                    <li>Capaz de realizar operações complexas com poucas instruções.</li>
+                    <li>Ideal para tarefas que exigem manipulação complexa de dados.</li>
+               </ul>
+               <li>Desvantagens:</li>
+               <ul>
+                    <li>Estrutura mais complexa, exigindo mais energia para funcionar.</li>
+                    <li>Menor eficiência em comparação à arquitetura RISC para operações simples e repetitivas.</li>
+               </ul>
           </ul>
      </article>
 </body>

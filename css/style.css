@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fira+Code:wght@300..700&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
 
 @font-face {
-    font-family: "Icons";
-    src: url("/fonts/SymbolsNerdFont-Regular.ttf");
+    font-family: "Fira Code";
+    src: url("/fonts/FiraCode-VF.ttf");
 }
+
 
 :root {
     --background: #1f1f1f;
@@ -32,7 +33,7 @@
 
 ::-webkit-scrollbar-thumb {
     background-color: transparent;
-    border: 2px solid var(--foreground);
+    border: 2px solid var(--link);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -40,7 +41,7 @@
 }
 
 html, html * {
-    scrollbar-color: var(--foreground) transparent;
+    scrollbar-color: var(--link) transparent;
     scrollbar-width: thin;
     scroll-behavior: smooth;
 }
@@ -62,9 +63,8 @@ h1 {
     font-family: "IM Fell English", serif;
 }
 h2 {font-size: 2.0rem;}
-h3 {font-size: 1.9rem;}
-h4 {font-size: 1.8rem;}
-h5 {font-size: 1.6rem;}
+h3 {font-size: 1.8rem;}
+h4 {font-size: 1.6rem;}
 p,
 li,
 th,
@@ -80,8 +80,21 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: auto;
+    height: auto;
+}
+
+code {
+    font-family: 'Fira Code' !important;
+    font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" !important;
+}
+
+figure {
+    caption-side: bottom !important;
 }
 
 /* ------------ */
@@ -93,7 +106,7 @@ a:hover {
 
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: self-start;
 
     width: 100dvw;
     padding: 1rem 0 .7rem;
@@ -103,6 +116,10 @@ a:hover {
     top: 0;
     left: 0;
     z-index: 10;
+}
+
+#logo {
+    width: 50px;
 }
 
 #main-nav h1 {
@@ -144,6 +161,8 @@ a:hover {
     z-index: 9;
 
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
     gap: .5rem;
 }
@@ -159,12 +178,9 @@ a:hover {
 .floating-button-formatting {
     display: inline-block;
 
-    background-color: var(--nav);
-    color: var(--text);
-    opacity: .5;
-    
-    border: none;
-    box-shadow: 0 0 10px black;
+    background-color: transparent;
+    color: var(--link);
+    opacity: .7;
     
     padding: 0;
     margin: 0;
@@ -174,18 +190,10 @@ a:hover {
     font-size: 1.5rem;
     text-align: center;
 
-    width: 2rem;
-    height: 2rem;
-
-    border-radius: 100%;
-    box-shadow: 0 0 10px black;
-
     transition: all .7s ease-in-out;
 }
 
 .floating-button-formatting:hover {
-    background-color: var(--nav);
-    color: var(--text);
     text-decoration: none;
     opacity: 1;
 }
@@ -204,7 +212,7 @@ main {
 }
 
 article {
-    padding: 3rem 0;
+    padding: 3rem 0 5rem;
 }
 
 article h1+p:first-letter,
@@ -219,6 +227,10 @@ article h1+p:first-letter,
 article p {
     hyphens: auto;
     hyphenate-character: "_";
+}
+
+article a:hover {
+    text-decoration: underline;
 }
 
 article table {
@@ -239,16 +251,6 @@ article tr:nth-child(even) {
     background-color: var(--nav);
 }
 
-article .code code {
-    display: block;
-
-    margin-bottom: 0.7rem;
-
-    font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-style: normal;
-}
-
 article .quote {
     width: 70%;
     text-align: right;
@@ -257,19 +259,26 @@ article .quote {
     text-align: justify;
  }
 
+article .code-inline {
+    background-color: #0e0e0edd;
+    color: white;
+    border-radius: 5px;
+    padding: .2rem .5rem;
+    font-size: 1.1rem;
+}
+
 /* -------- */
 
 /* Archive */
 
 #archive {
     width: 94%;
-    min-height: calc(100vh - 12rem);
     
     display: flex;
     flex-direction: column;
     gap: .7rem;
 
-    padding-top: 7rem;
+    padding: 7rem 0 3rem;
 
 }
 
@@ -313,7 +322,7 @@ article .quote {
 }
 
 #chapter {
-    color: var(--link);
+    color: var(--text);
     
     display: inline-block;
 
@@ -321,10 +330,15 @@ article .quote {
     
     margin-top: 2rem;
     padding-bottom: .7rem;
-    padding-left: 4rem;
     width: 100%;
     
-    border-bottom: 2px solid var(--link);
+    border-bottom: 2px solid var(--text);
+}
+
+#chapter::before {
+    font-family: 'Icons';
+    color: var(--foreground);
+    content: ' ';
 }
 
 /* ------- */
@@ -337,19 +351,20 @@ article .quote {
     align-items: center;
     
     background-color: var(--nav);
+    opacity: .9;
     
     position: fixed;
     /*bottom: -2.3rem;*/
     bottom: 0;
-    left: 0;
+    left: auto;
     z-index: 10;
 
-    width: 100%;
+    width: 700px;
     margin: 0;
     padding: 0;
     
-    box-shadow: 0px -1px 5px black;
-    transition: .3s all ease-in-out;
+    box-shadow: 0px -2px 5px #00000056;
+    transition: all .3s ease-in-out;
 }
 
 #book-nav * {
@@ -446,11 +461,22 @@ article .quote {
 
 /* Footer */
 
+footer {
+    border-top: 1px dashed var(--nav);
+    box-shadow: 0 2px 3px #00000056;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
 footer ul {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: .1rem;
+    align-items: baseline;
+    gap: 1rem;
+
+    padding: 0;
+    margin: 0;
 
     list-style: none;
 }
@@ -458,9 +484,9 @@ footer ul {
 footer a {
     text-decoration: none;
     color: var(--text);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 
-    transition: all .4s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 footer a:hover {
@@ -468,8 +494,86 @@ footer a:hover {
     color: var(--link);
 }
 
+footer .button-nostr {
+    background-color: transparent;
+    color: var(--text);
+    font-size: 1.1rem;
+    width: auto;
+    height: auto;
+}
+
+footer .button-nostr:hover {
+    color: var(--link);
+    cursor: pointer;
+}
+
+footer .footer-separator {
+    font-size: 1rem;
+    opacity: .3;
+}
+
+/* ----- */
+
+/* About */
+
+#main-about {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95dvh;
+}
+
+#content-about {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #00000056;
+
+    padding: 1rem;
+}
+
+#content-about img {
+    max-width: 40%;
+}
+
+#main-about .button-exit-relative {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+
+    padding: .7rem 1rem;
+
+    text-decoration: none;
+}
+
+#content-about ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+
+    padding: 0;
+}
+
+#content-about .button-nostr {
+    background-color: transparent;
+    color: var(--link);
+    cursor: pointer;
+}
+
 /* ------ */
 
 @media screen and (max-width: 800px) {
     body {width: 92dvw !important;}
+    #book-nav {
+        width: 100%;
+        left: 0;
+    }
  }

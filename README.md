@@ -7,6 +7,3 @@
 [HTTP](http://www.jhonfs.com)
 
 [Vercel.app](https://jhonfs.vercel.app/)
-      
-      
-

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Icons";
+    src: url("/fonts/SymbolsNerdFont-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Others";
+    src: url("/fonts/Other-Symbols.otf");
+}
+
 .icon_back::before {
     font-family: 'Icons';
     font-size: 2.5rem;
@@ -33,4 +43,36 @@
 .icon_chip::before {
     font-family: 'Icons';
     content: '';
+}
+
+.icon_light::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_top::before {
+    font-family: 'Icons';
+    content: '󱕑';
+}
+
+.icon_github::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_nostr::before {
+    font-family: 'Others';
+    font-size: 120%;
+    content: 'N';
+}
+
+.icon_info::before {
+    font-family: 'Icons';
+    font-size: 90%;
+    content: '';
+}
+
+.icon_close::before {
+    font-family: 'Icons';
+    content: '';
 }

@@ -6,19 +6,25 @@
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="application-name" content="JhonFs: Microcontroladores">
      <meta name="description" content="Blog: eBook">
-     <link rel="icon" type="image/png" href="/images/favicon.png" />
+     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
      <title>Microcontroladores</title>
      <!--CSS-->
      <link rel="stylesheet" href="/css/normalize.css">
      <link rel="stylesheet" href="/css/style.css">
      <link rel="stylesheet" href="/css/icons.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
      <!--JS-->
      <script src="/js/light.js"></script>
+     <link rel="stylesheet" href="/css/dracula.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/arduino.min.js"></script>
+     <script>hljs.highlightAll();</script>
+     
 </head>
 <body>
      <div class="floating-button floating-top-position">
-          <a class="floating-button-formatting" href="#top">⌅</a>
-          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+          <a class="floating-button-formatting icon_top" href="#top"></a>
+        <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="icon_light"></span></button>
      </div>
     <div id="top"></div>
      <nav id="book-nav">
@@ -37,93 +43,72 @@
      </nav>
      <article>
           <span id="chapter">Capítulo 4: </span>
-          <h1>Da Energia aos Dados: A Evolução da Computação</h2>
-          <p>Imagine um computador como uma orquestra complexa. A eletricidade, a força motriz dessa orquestra, é transformada em uma série de sinais elétricos, cada um representando uma nota musical. No contexto de um computador, esses sinais elétricos são representados por bits, a menor unidade de informação. Mas como essa transformação ocorre? E qual o papel do hardware nesse processo?</p>
-          <h4>O Hardware</h4>
-          <p>O hardware de um computador é composto por diversos componentes eletrônicos que trabalham em conjunto para processar informações. A base de tudo são os transistores, pequenos dispositivos semicondutores que podem atuar como interruptores, controlando o fluxo de corrente elétrica. Essa capacidade de ligar e desligar permite representar os bits: 1 para ligado e 0 para desligado.</p>
-          <p>Ao combinar diversos transistores, criamos portas lógicas, como AND, OR e NOT. Essas portas realizam operações lógicas básicas, como &quot;E&quot;, &quot;OU&quot; e &quot;NÃO&quot;, respectivamente. As portas lógicas
-          são os blocos de construção de circuitos mais complexos, como somadores, comparadores e registradores.</p>
-          <p>Milhares de transistores e portas lógicas são integrados em um único chip, formando circuitos integrados. A Unidade Central de Processamento
-          (CPU), por exemplo, é um circuito integrado extremamente complexo que executa as instruções de um programa. Outros circuitos integrados, como a memória, armazenam os dados e as instruções.</p>
-          <h4>O Surgimento do Kernel: Da Máquina de Turing ao Mundo Moderno</h4>
-          <p>As primeiras máquinas de calcular, como a Máquina Analítica de Babbage, já continham os elementos básicos de um computador moderno: uma unidade de controle, uma memória e uma unidade aritmética. No entanto, a falta de um sistema operacional centralizado limitava sua funcionalidade.</p>
-          <p>Com o avanço da tecnologia, a necessidade de gerenciar o hardware de forma eficiente se tornou evidente. Surgiram então os primeiros sistemas operacionais, com um componente central: o kernel. Inicialmente, os kernels eram muito simples, focados em tarefas básicas como gerenciamento de memória e execução de programas. A linguagem assembly, próxima ao hardware, era a ferramenta principal para escrever esses primeiros kernels.</p>
-          <h4>O Papel do Kernel na Abstração</h4>
-          <p>O kernel atua como uma camada intermediária entre o hardware e os programas de aplicação. Ele oferece uma abstração do hardware, ou seja, esconde a complexidade dos circuitos e componentes eletrônicos, proporcionando uma interface mais simples para os programadores.</p>
-          <p>As principais funções do kernel incluem:</p>
+          <h1>Projeto com Arduino Uno</h1>
+          <p>O Arduino Uno é uma plataforma de prototipagem eletrônica amplamente utilizada devido à sua facilidade de uso e flexibilidade. Com ele, é possível criar uma vasta gama de projetos, desde automação residencial até sistemas de monitoramento ambiental. Neste capítulo, exploraremos um projeto básico que demonstra os conceitos fundamentais da programação de microcontroladores: o controle de uma lâmpada. Embora simples, esse projeto serve como base para projetos mais complexos e pode ser adaptado para diversas aplicações práticas.</p>
+
+          <h2>O Projeto</h2>
+          <p>O <strong>objetivo</strong> é desenvolver um sistema que permita ligar e desligar uma luz de casa usando um componente físico ou um sensor para isso é preciso:</p>
           <ul>
-               <li><strong><span>Gerenciamento de recursos:</span></strong><span> CPU, memória, dispositivos de entrada e saída. </span> </li>
-               <li><strong><span>Gerenciamento
-               de processos:</span></strong><span>
-               Controle da execução de múltiplos programas. </span>
-               </li>
-               <li><strong><span>Gerenciamento
-               de memória:</span></strong><span>
-               Alocação e liberação de memória para as aplicações. </span>
-               </li>
-               <li><strong><span>Gerenciamento
-               de dispositivos:</span></strong><span>
-               Comunicação com dispositivos externos. </span>
-               </li>
-               <li><strong><span>Sistema
-               de arquivos:</span></strong><span>
-               Organização dos dados em arquivos e diretórios. </span>
-               </li>
+               <li>1 x Placa Arduino Uno</li>
+               <li>1 x Relé de 5V</li>
+               <li>1 x Lâmpada (pode ser uma lâmpada LED de baixa potência)</li>
+               <li>1 x Interruptor ou botão ou eté mesmo um sensor</li>
+               <li>Jumpers e protoboard (se necessário)</li>
           </ul>
-          <h4>Kernels em Microcontroladores</h4>
-          <p>Diferentemente dos sistemas operacionais de computadores pessoais, os microcontroladores muitas vezes operam com kernels mais simples ou até mesmo sem um kernel completo. Isso se deve a diversos fatores, como limitações de hardware, requisitos de tempo real e a natureza específica das aplicações. Em alguns casos, o próprio firmware do
-          microcontrolador pode assumir as funções de um kernel básico.</p>
-          <h2>O Processo de Compilação</h2>
-          <p style="font-variant: normal; font-style: normal">A
-          compilação é o processo de tradução de um código-fonte, escrito
-          em uma linguagem de alto nível como C ou C++, para um código de
-          máquina, sendo a linguagem entendida diretamente pelo processador.
-          Esse processo envolve várias etapas:</p>
-          <ol>
-               <li><strong><span style="font-variant: normal"><span>Análise
-               Léxica:</span></span></strong><span style="font-variant: normal">
-               </span><span style="font-variant: normal"><span>O
-               compilador divide o código-fonte em tokens, sendo as menores
-               unidades com significado, como palavras-chave, identificadores e
-               operadores. </span></span>
-               </li>
-               <li><strong><span style="font-variant: normal"><span>Análise
-               Sintática:</span></span></strong><span style="font-variant: normal">
-               </span><span style="font-variant: normal"><span>Os
-               tokens são organizados em uma estrutura hierárquica, verificando
-               se a gramática da linguagem foi seguida. </span></span>
-               </li>
-               <li><strong><span style="font-variant: normal"><span>Análise
-               Semântica:</span></span></strong><span style="font-variant: normal">
-               </span><span style="font-variant: normal"><span>O
-               compilador verifica se o código faz sentido, verificando tipos de
-               dados, escopo de variáveis e outras regras semânticas. </span></span>
-               </li>
-               <li><strong><span style="font-variant: normal"><span>Geração
-               de Código:</span></span></strong><span style="font-variant: normal">
-               </span><span style="font-variant: normal"><span>O
-               compilador gera o código de máquina correspondente ao
-               código-fonte. </span></span>
-               </li>
-          </ol>
-          <h4>Tipos
-          de Compiladores</h4>
+          <h3>Detalhando</h3>
+          <p><strong>Arduino UNO</strong> (figura 1) "é uma placa de microcontrolador ele contém tudo o que é necessário para suportar o microcontrolador; basta conectá-lo a um computador com um cabo USB ou ligá-lo com um adaptador AC-DC ou bateria para começar. Você pode mexer com sua UNO sem se preocupar muito em fazer algo errado, no pior cenário, você pode substituir o chip por alguns dólares e começar de novo. &ndash; Documentação do Arduino"</p>
+          <figure>
+               <img src="/img/microcontrolador_introducao_para_autodidatas/arduino_uno.png" width="100%" alt="">
+               <figcaption>Figura 1. Placa Arduino UNO</figcaption>
+          </figure>
+          <p><strong>Relé 5V</strong> é um componente eletrônico que funciona como um interruptor controlado eletricamente. Ele permite que você ligue ou desligue circuitos de maior potência usando um sinal elétrico de baixa potência, como o fornecido por um microcontrolador como o Arduino.</p>
+          <figure>
+               <img src="/img/microcontrolador_introducao_para_autodidatas/rele5v.png" width="100%" alt="">
+               <figcaption>Figura 2. Relé 5V</figcaption>
+          </figure>
+          <h3>Mão na masssa</h3>
+          <p>Se estiver usando um protoboard, insira os componentes e conecte-os usando os jumpers, agora vamos as conexões:.</p>
           <ul>
-               <li><strong><span>Compiladores
-               Cruzados:</span></strong><span>
-               Geram código para uma arquitetura diferente daquela em que estão
-               sendo executados. </span>
-               </li>
-               <li><strong><span>Compiladores
-               JIT (Just-in-Time):</span></strong><span>
-               Compilam o código durante a execução.</span>
-               </li>
-               <li><strong><span>Compiladores
-               AOT (Ahead-of-Time):</span></strong><span>
-               Compilam o código antes da execução, gerando um arquivo
-               executável. </span>
-               </li>
-          </ul>     
+               <li>VCC do relé: Conecte ao pino 5V do Arduino.
+               <li>GND do relé: Conecte ao GND do Arduino.
+               <li>IN do relé: Conecte a um pino digital do Arduino (por exemplo, pino 2).
+               <li>NO do relé: Conecte a um terminal da lâmpada.
+               <li>COM do relé: Conecte ao outro terminal da lâmpada.
+               <li>Lâmpada: Conecte a lâmpada a uma fonte de alimentação adequada.</li>
+          </ul>
+          <p>Ps. Nas placas a uma identificação para cada conexão.</p>
+          <p><strong>Código Arduino</strong></p>
+          <p>O código para controlar o relé e, consequentemente, a lâmpada, é simples. O interruptor irá acionar a lâmpada para ligá-la ou desligá-la. Então para começar, definimos quais pinos do Arduino serão utilizados para controlar o botão e o relé. Declaramos as variáveis <span class="code-inline">interruptor</span> e <span class="code-inline">rele</span> como do tipo int (inteiro), pois os pinos digitais do Arduino são representados por números inteiros. Utilizamos o tipo int para garantir que o Arduino reserve a quantidade correta de memória (4 bytes) para armazenar esses valores. E dexaremos o interrruptor pré configurado como 0 (zero) o que por conveção representa desligado.</p>
+          <pre><code class="linguage-arduino">
+const int interruptor = 2;
+const int rele = 7;
+
+int estadoInterruptor = 0;
+          </code></pre>
+          <p>Devemos ser muito precisos ao escrever o código, pois o microcontrolador não 'entende' o que queremos fazer se não declararmos explicitamente cada variável e cada ação e por isso precisamos definir o estado inicial do interruptor como 0 (zero) antes de começarmos a controlar o relé.</p>
+          <pre><code class="linguage-arduino">
+int estadoInterruptor = 0;
+          </code></pre>
+          <p>Uma analogia: a função matemática, como <em>f(x) = x² + 2ab - c</em>, é uma relação entre uma entrada <em>x</em> e uma saída (o resultado do cálculo). Na programação, as funções têm essa e outras funções, pois como é mencionado na obra <em>Structure and Interpretation of Computer Programs</em> de Harold Abelson, Gerald Jay Sussman e Julie Sussman: "Em matemática, geralmente nos preocupamos com descrições declarativas (o que é), enquanto na ciência da computação, geralmente nos preocupamos com descrições imperativas (como fazer)". Nem sempre precisamos que a função nos retorne um resultado, e as variáveis podem ser também parâmetros.</p>
+          <p>Entendido o que é função, vamos usar da abstração função para dizer a máquina que queremos que o pino <span class="code-inline">interruptor</span> esteja preparado para qualquer INPUT (entrada) e o pino <span class="code-inline">rele</span> tenha a função de OUTPUT (saída), o que irá permitir que o Arduíno envie um sinal para a relé, ligando ou desligando a carga conectada a ele.</p>
+          <pre><code class="linguage-arduino">
+void setup() {
+     pinMode(interruptor, INPUT);
+     pinMode(rele, OUTPUT);
+}
+          </code></pre>
+          <p>A função loop() será executada repetidamente em quanto o sistema estiver ligado, verificando constantemente o estado do interruptor. Em cada iteração, ela armazena o estado atual do interruptor em uma variável temporária. Em seguida, compara esse novo estado com o estado armazenado anteriormente. Se houver divergência, a função atualiza o estado armazenado e aciona o relé para ajustar o estado da lâmpada. Dessa forma, a lâmpada é ligada ou desligada automaticamente sempre que o interruptor é acionado.</p>
+          <pre><code class="linguage-arduino">
+void loop() {
+     int novoEstado = digitalRead(interruptor);
+     
+     if (novoEstado != estadoInterruptor) {
+          estadoInterruptor = novoEstado;
+          digitalWrite(rele, estadoInterruptor);
+     }
+}
+          </code></pre>
+          <p>Ao controlar uma lâmpada de forma automatizada, este projeto demonstra o potencial do Arduino em transformar nossas casas em ambientes mais inteligentes e eficientes. Essa mesma lógica pode ser aplicada em diversos outros projetos, como sistemas de irrigação automática, controle de temperatura e abertura de portões, abrindo um leque de possibilidades para a automação residencial.</p>
      </article>
 </body>
 </html>
