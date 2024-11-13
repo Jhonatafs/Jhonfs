@@ -76,3 +76,8 @@
     font-family: 'Icons';
     content: '';
 }
+
+.icon_download::before {
+    font-family: 'Icons';
+    content: '󰥦';
+}

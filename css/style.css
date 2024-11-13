@@ -91,6 +91,8 @@ button {
 code {
     font-family: 'Fira Code' !important;
     font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" !important;
+
+    width: 100% !important;
 }
 
 figure {
@@ -217,14 +219,17 @@ article {
 
 article h1+p:first-letter,
 .word-cappilar:first-letter {
-    font-size: 5.5rem;
-    float: left;
-    font-weight: bold;
+    font-size: 3rem;
     color: var(--link);
-    padding-right: .2rem;
+    font-weight: bold;
+    line-height: 1;
+    initial-letter: 2;
+    padding-right: .5rem;
+    float: left;
 }
 
-article p {
+article p,
+article li {
     hyphens: auto;
     hyphenate-character: "_";
 }
@@ -353,6 +358,7 @@ article .code-inline {
     background-color: var(--nav);
     opacity: .9;
     
+    max-width: 100dvw;
     position: fixed;
     /*bottom: -2.3rem;*/
     bottom: 0;
@@ -427,15 +433,31 @@ article .code-inline {
     justify-content: center;
     align-items: center;
 
-    min-height: 96dvh;
+    min-height: 90dvh;
 
     padding-bottom: 1rem;
 }
 
+#book-title {
+    font-size: 2.7rem;
+}
+
+#book-subtitle {
+    font-size: 1.9rem;
+}
+
+#book-author {
+    font-size: 1.8rem;
+}
+
 #book-cover img {
-        object-fit: cover;
-        padding: 4% 0 0;
-        height: 90dvh;
+    object-fit: cover;
+    padding: 4% 0 0;
+    height: 90dvh;
+}
+
+#book-cover-art {
+    font-size: 20dvw;
 }
 
 /* ---- */
@@ -570,10 +592,47 @@ footer .footer-separator {
 
 /* ------ */
 
-@media screen and (max-width: 800px) {
-    body {width: 92dvw !important;}
+@media screen and (max-width: 720px) {
+    body {max-width: 92dvw !important;}
+    
+    /* Book */
+
+    #book-title {
+        font-size: 8.5dvw;
+    }
+    
+    #book-subtitle {
+        font-size: 6dvw;
+    }
+
+    #book-author {
+        font-size: 6dvw;
+    }
+    
+    #book-cover img {
+        object-fit: cover;
+        padding: 4% 0 0;
+        height: 90dvh;
+    }
+
+    #book-cover-art {
+        font-size: 50dvw;
+    }
+
+    #book-cover-page p {
+        font-size: 1.3rem;
+    }
+    
     #book-nav {
         width: 100%;
         left: 0;
     }
  }
+
+@media screen and (max-width: 600px) {
+
+    article h1+p:first-letter,
+    .word-cappilar:first-letter {
+        float: none;
+    }    
+}
