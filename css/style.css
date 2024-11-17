@@ -219,7 +219,7 @@ article {
 
 article h1+p:first-letter,
 .word-cappilar:first-letter {
-    font-size: 3rem;
+    font-size: 5.5rem;
     color: var(--link);
     font-weight: bold;
     line-height: 1;
