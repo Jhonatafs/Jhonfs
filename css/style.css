@@ -550,7 +550,7 @@ footer .footer-separator {
     position: relative;
 
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     gap: 1rem;
 
@@ -561,7 +561,7 @@ footer .footer-separator {
 }
 
 #content-about img {
-    max-width: 40%;
+    max-width: 30%;
 }
 
 #main-about .button-exit-relative {
@@ -626,6 +626,10 @@ footer .footer-separator {
     #book-nav {
         width: 100%;
         left: 0;
+    }
+
+    #content-about {
+        flex-wrap: wrap;
     }
  }
 
