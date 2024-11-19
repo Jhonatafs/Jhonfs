@@ -10,14 +10,4 @@ Este repositório contém os arquivos do meu blog pessoal, onde compartilho o qu
 **Sobre o blog:**
 * Atualmente estou tentando traduzir o livro "Structure and Interpretation of Computer Programs" de Gerald Sussman e Hal Abelson para o português.
 * Livro pessoal sobre microcontroladores.
-
-
-# Jhonfs - Blog
-
-## Links
-
-[HTTPS](https://www.jhonfs.com)
-
-[HTTP](http://www.jhonfs.com)
-
-[Vercel.app](https://jhonfs.vercel.app/)
+* ...
