@@ -13,8 +13,8 @@
 </head>
 <body>
      <div class="floating-button floating-top-position">
-          <a class="floating-button-formatting" href="#top">⌅</a>
-          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+          <a class="floating-button-formatting icon_top" href="#top"></a>
+          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="icon_light"></span></button>
      </div>
     <div id="top"></div>
      <nav id="book-nav">
@@ -26,7 +26,7 @@
                <!--Cover-->
                <li><a class="icon_cover enabled" href="../sicp-pt-br.html"></a></li>
                <!--Content-->
-               <li><a class="icon_content enabled" href="4.html"></a></li>
+               <li><a class="icon_content enabled" href="content.html"></a></li>
                <!--Next-->
                <li><a class="icon_next enabled" href="11.html"></a></li>
           </ul>
@@ -39,52 +39,709 @@
                <li><strong>meios de combinação</strong>, pelos quais elementos compostos são construídos a partir de elementos mais simples, e</li>
                <li><strong>meios de abstração</strong>, pelos quais elementos compostos podem ser nomeados e manipulados como unidades.</li>
           </ul> 
-          <p>Na programação, lidamos com dois tipos de elementos: procedimentos e dados. (Mais tarde, descobriremos que eles não são tão distintos assim.) Informalmente, dados são as "coisas" que queremos manipular, e procedimentos são descrições das regras para manipular esses dados. Assim, qualquer linguagem de programação poderosa deve ser capaz de descrever dados primitivos e procedimentos primitivos e deve ter métodos para combinar e abstrair procedimentos e dados.</p>  
+          <p>Na programação, lidamos com dois tipos de elementos: procedimentos e dados. (Mais tarde, descobriremos que eles não são tão distintos assim.) Informalmente, dados são as "coisas" que queremos manipular, e procedimentos são descrições das regras para manipul<!DOCTYPE html>
+               <html lang="pt-br">
+               <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Estrutura e Interpretação de Programas de Computador</title>
+                    <!--CSS-->
+                    <link rel="stylesheet" href="/css/normalize.css">
+                    <link rel="stylesheet" href="/css/style.css">
+                    <link rel="stylesheet" href="/css/icons.css">
+                    <!--JS-->
+                    <script src="/js/light.js"></script>
+                    <link rel="stylesheet" href="/css/dracula.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+                    <script>hljs.highlightAll();</script>
+               </head>
+               <body>
+                    <div class="floating-button floating-top-position">
+                         <a class="floating-button-formatting" href="#top">⌅</a>
+                         <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+                    </div>
+                   <div id="top"></div>
+                    <nav id="book-nav">
+                         <ul>
+                              <!--Come back-->
+                              <li><a class="icon_back enabled" href="9.html"></a></li>
+                              <!--Home-->
+                              <li><a class="icon_exit enabled" href="/index.html"></a></li>
+                              <!--Cover-->
+                              <li><a class="icon_cover enabled" href="../sicp-pt-br.html"></a></li>
+                              <!--Content-->
+                              <li><a class="icon_content enabled" href="4.html"></a></li>
+                              <!--Next-->
+                              <li><a class="icon_next enabled" href="11.html"></a></li>
+                         </ul>
+                    </nav>
+                    <article>
+                         <h1 id="1.1">1.1 Os Elementos da Programação</h1>
+                         <p>Uma linguagem de programação poderosa é mais do que apenas um meio de instruir um computador a realizar tarefas. A linguagem também serve como um quadro dentro do qual organizamos nossas ideias sobre processos. Assim, ao descrevermos uma linguagem, devemos prestar atenção especial aos meios que ela fornece para combinar ideias simples de modo a formar ideias mais complexas. Toda linguagem poderosa possui três mecanismos para realizar isso:</p>
+                         <ul>
+                              <li><strong>expressões primitivas</strong>, que representam as entidades mais simples com as quais a linguagem se preocupa,</li>
+                              <li><strong>meios de combinação</strong>, pelos quais elementos compostos são construídos a partir de elementos mais simples, e</li>
+                              <li><strong>meios de abstração</strong>, pelos quais elementos compostos podem ser nomeados e manipulados como unidades.</li>
+                         </ul> 
+                         <p>Na programação, lidamos com dois tipos de elementos: procedimentos e dados. (Mais tarde, descobriremos que eles não são tão distintos assim.) Informalmente, dados são as "coisas" que queremos manipular, e procedimentos são descrições das regras para manipular esses dados. Assim, qualquer linguagem de programação poderosa deve ser capaz de descrever dados primitivos e procedimentos primitivos e deve ter métodos para combinar e abstrair procedimentos e dados.</p>  
+                         <p><sup id="note-4"></sup>Neste capítulo, lidaremos apenas com dados numéricos simples para que possamos focar nas regras para construir procedimentos.<sup><a href="">4</a></sup> Nos capítulos seguintes, veremos que essas mesmas regras nos permitem construir procedimentos para manipular dados compostos também.</p>
+                         <h2 id="1.1.1">1.1.1 Expressões</h2>  
+                         <p>Uma maneira simples de começar a programar é examinar algumas interações típicas com um interpretador do dialeto Scheme do Lisp. Imagine que você está sentado em um terminal de computador. Você digita uma expressão, e o interpretador responde exibindo o resultado da avaliação dessa expressão.</p>  
+                         <p>Um tipo de expressão primitiva que você pode digitar é um número. (Mais precisamente, a expressão que você digita consiste nos algarismos que representam o número na base 10.) <sup id="note-5"></sup>Se você apresentar um número ao Lisp:</p>  
+                         <pre><code class="linguage-scheme">
+486
+                         </code></pre>
+                         <p>o interpretador responderá imprimindo:<sup><a href="">5</a></sup></p>  
+                         <pre><code class="linguage-scheme">
+486
+                         </code></pre>
+                         <p>Expressões que representam números podem ser combinadas com uma expressão que representa um procedimento primitivo (como + ou *) para formar uma expressão composta que representa a aplicação do procedimento a esses números. Por exemplo:</p>
+                         <pre><code class="linguage-scheme">
+(+ 137 349)
+486
+(- 1000 334)
+666
+(* 5 99)
+495
+(/ 10 5)
+2
+(+ 2.7 10)
+12.7
+                         </code></pre>
+                         <p>Expressões como essas, formadas ao delimitar uma lista de expressões entre parênteses para denotar a aplicação de um procedimento, são chamadas de combinações. O elemento mais à esquerda na lista é chamado de operador, e os outros elementos são chamados de operandos. O valor de uma combinação é obtido aplicando o procedimento especificado pelo operador aos argumentos, que são os valores dos operandos.</p>  
+                         <p>A convenção de colocar o operador à esquerda dos operandos é conhecida como notação prefixada, e pode ser um pouco confusa no início, pois difere significativamente da convenção matemática usual. No entanto, a notação prefixada tem várias vantagens. Uma delas é que ela pode acomodar procedimentos que podem receber um número arbitrário de argumentos, como nos exemplos a seguir:</p>  
+                         <pre><code class="linguage-scheme">
+(+ 21 35 12 7)
+75
+(* 25 4 12)
+1200
+                         </code></pre> 
+                         <p>Não há ambiguidade possível, pois o operador é sempre o elemento mais à esquerda e toda a combinação é delimitada pelos parênteses.</p>  
+                         <p>Uma segunda vantagem da notação prefixada é que ela se estende de forma simples para permitir que as combinações sejam aninhadas, ou seja, que contenham combinações cujos elementos sejam, eles próprios, combinações:</p>
+                         <pre><code class="linguage-scheme">
+(+ (* 3 5) (- 10 6))
+19
+                         </code></pre>
+                         <p>Não há limite (em princípio) para a profundidade desse aninhamento e para a complexidade geral das expressões que o interpretador Lisp pode avaliar. Nós, humanos, é que nos confundimos com expressões relativamente simples como:</p>
+                         <pre><code class="linguage-scheme">
+(+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
+                         </code></pre>
+                         <p>que o interpretador avaliaria prontamente como 57. Podemos nos ajudar escrevendo essa expressão na forma:</p>
+                         <pre><code class="linguage-scheme">
+(+ (*
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ (* 2 4) <br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ 3 5))) <br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ (- 10 7) <br>
+                                   &nbsp;&nbsp;&nbsp;6))</span>
+                         </code></pre>
+                         <p>seguindo uma convenção de formatação conhecida como <em>pretty-printing</em>, na qual cada combinação longa é escrita de forma que os operandos fiquem alinhados verticalmente. <sup id="note-6"></sup>As indentações resultantes exibem claramente a estrutura da expressão.<sup><a href="">6</a></sup></p>  
+                         <p>Mesmo com expressões complexas, o interpretador sempre opera no mesmo ciclo básico: Ele lê uma expressão do terminal, avalia a expressão e imprime o resultado. Esse modo de operação é frequentemente descrito como um ciclo de leitura-avaliação-impressão (<em>loop read-eval-print</em>). <sup id="note-7"></sup>Observe, em particular, que não é necessário instruir explicitamente o interpretador para imprimir o valor da expressão.<sup><a href="">7</a></sup></p>  
+                         <h2 id="1.1.2">1.1.2 Nomeação e o Ambiente</h2>
+                         <p>Um aspecto crítico de uma linguagem de programação é o meio que ela fornece para usar nomes a fim de se referir a objetos computacionais. Dizemos que o nome identifica uma variável cujo valor é o objeto.</p>  
+                         <p><sup id="note-8"></sup>No dialeto Scheme de Lisp, nomeamos coisas com o comando <em>define</em>. Ao digitar</p>
+                         <pre><code class="linguage-scheme">
+(define tamanho 2)
+                         </code></pre>
+                         <p>o interpretador associa o valor 2 ao nome <em>tamanho</em>.<sup><a href="">8</a></sup> Uma vez que o nome <em>tamanho</em> tenha sido associado ao número 2, podemos nos referir ao valor 2 pelo nome:</p>  
+                         <pre><code class="linguage-scheme">
+(* 5 tamanho)
+10
+                         </code></pre> 
+                         <p>Aqui estão mais exemplos do uso de <em>define</em>:</p>  
+                         <pre><code class="linguage-scheme">
+(define pi 3.14159)
+(define raio 10)
+(* pi (* raio raio))
+314.159
+(define circunferência (* 2 pi raio))
+circunferência
+62.8318
+                         </code></pre>
+                         <p><em>Define</em> é o meio mais simples de abstração na nossa linguagem, pois nos permite usar nomes simples para se referir aos resultados de operações compostas, como a circunferência calculada acima. Em geral, os objetos computacionais podem ter estruturas muito complexas, e seria extremamente inconveniente ter que lembrar e repetir seus detalhes toda vez que quiséssemos usá-los. De fato, programas complexos são construídos através da criação, passo a passo, de objetos computacionais de complexidade crescente. O interpretador torna essa construção passo a passo particularmente conveniente, pois associações entre nomes e objetos podem ser criadas de forma incremental em interações sucessivas. Essa característica incentiva o desenvolvimento e o teste incremental de programas e é amplamente responsável pelo fato de que um programa em Lisp geralmente consiste em um grande número de procedimentos relativamente simples.</p>
+                         <p>Deve ficar claro que a possibilidade de associar valores a símbolos e recuperá-los posteriormente significa que o interpretador deve manter algum tipo de memória que rastreie os pares nome-objeto. <sup id="note-9"></sup>Essa memória é chamada de ambiente (mais precisamente, o ambiente global, já que veremos mais tarde que uma computação pode envolver uma série de diferentes ambientes).<sup><a href="">9</a></sup></p>
+                         <h2 id="1.1.3">1.1.3 Avaliando Combinações</h2>
+                         <p>Um dos nossos objetivos neste capítulo é isolar questões sobre o pensamento procedural. Para ilustrar, consideremos que, ao avaliar combinações, o interpretador está, ele próprio, seguindo um procedimento.</p>
+                         <ul>
+                              <li>Para avaliar uma combinação, faça o seguinte:</li>
+                              <ol style="list-style: decimal;">
+                                   <li>Avalie as subexpressões da combinação.</li>
+                                   <li>Aplique o procedimento que é o valor da subexpressão mais à esquerda (o operador) aos argumentos que são os valores das outras subexpressões (os operandos).</li>
+                              </ol>
+                         </ul>
+                         <p>Mesmo essa regra simples ilustra alguns pontos importantes sobre processos em geral. Primeiro, observe que o primeiro passo determina que, para realizar o processo de avaliação de uma combinação, devemos primeiro realizar o processo de avaliação em cada elemento da combinação. <sup id="note-10"></sup>Assim, a regra de avaliação é recursiva por natureza; ou seja, inclui, como um de seus passos, a necessidade de invocar a própria regra.<sup><a href="">10</a></sup></p>  
+                         <p>Perceba como a ideia de recursão pode ser usada de forma sucinta para expressar o que, no caso de uma combinação profundamente aninhada, seria visto como um processo bastante complicado. Por exemplo, avaliar</p>
+                         <pre><code class="linguage-scheme">
+(* (+ 2 (* 4 
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ 3 5 7))</span>
+                         </code></pre>
+                         <p>requer que a regra de avaliação seja aplicada a quatro combinações diferentes. Podemos obter uma imagem desse processo representando a combinação na forma de uma árvore, como mostrado na figura <a href="#fig-1.1">1.1</a>. Cada combinação é representada por um nó com ramificações correspondentes ao operador e aos operandos da combinação que se originam dele. Os nós terminais (ou seja, nós sem ramificações) representam operadores ou números. Visualizando a avaliação em termos da árvore, podemos imaginar que os valores dos operandos percolam para cima, começando nos nós terminais e se combinando em níveis cada vez mais altos. Em geral, veremos que a recursão é uma técnica muito poderosa para lidar com objetos hierárquicos em forma de árvore. Na verdade, a forma de "percolação de valores para cima" da regra de avaliação é um exemplo de um tipo geral de processo conhecido como acumulação em árvore.</p>
+                         <div class="book-figure" id="fig-1.1">
+                              <img src="../image/ch1-Z-G-1.gif" alt="imagem do calculo do processo (* (+ 2 (* 4 6))(+ 3 5 7)) em forma de arvore">
+                              <.span><strong>Figura 1.1:</strong> Representação em árvore, mostrando o valor de cada subcombinação.</span>
+                         </div> 
+                         <p>Em seguida, observe que a repetição do primeiro passo nos leva ao ponto em que precisamos avaliar, não combinações, mas expressões primitivas, como números, operadores embutidos ou outros nomes. Tratamos dos casos primitivos estipulando que</p>
+                         <ul>
+                              <li>os valores dos números são os números que eles representam,</li>
+                              <li>os valores dos operadores embutidos são as sequências de instruções de máquina que executam as operações correspondentes, e</li>
+                              <li>os valores de outros nomes são os objetos associados a esses nomes no ambiente.</li>
+                         </ul>
+                         <p>Podemos considerar a segunda regra como um caso especial da terceira, estipulando que símbolos como + e * também estão incluídos no ambiente global, e são associados às sequências de instruções de máquina que são seus "valores". O ponto-chave a notar é o papel do ambiente na determinação do significado dos símbolos nas expressões. Em uma linguagem interativa como Lisp, é sem sentido falar sobre o valor de uma expressão como (+ <em>x</em> 1) sem especificar qualquer informação sobre o ambiente que forneceria um significado para o símbolo <em>x</em> (ou mesmo para o símbolo +). Como veremos no capítulo 3, a noção geral do ambiente como fornecendo um contexto no qual a avaliação ocorre desempenhará um papel importante na nossa compreensão da execução de programas.</p>  
+                         <p>Note que a regra de avaliação dada acima não trata de definições. Por exemplo, avaliar (define <em>x</em> 3) não aplica define a dois argumentos, um dos quais é o valor do símbolo <em>x</em> e o outro é 3, pois o objetivo do define é justamente associar <em>x</em> a um valor. (Ou seja, (define <em>x</em> 3) não é uma combinação).</p>  
+                         <p>Essas exceções à regra geral de avaliação são chamadas de formas especiais. Define é o único exemplo de uma forma especial que vimos até agora, mas em breve encontraremos outras. Cada forma especial tem sua própria regra de avaliação. Os vários tipos de expressões (cada uma com sua regra de avaliação associada) constituem a sintaxe da linguagem de programação. <sup id="note-11"></sup>Em comparação com a maioria das outras linguagens de programação, Lisp tem uma sintaxe muito simples; isto é, a regra de avaliação para expressões pode ser descrita por uma regra geral simples juntamente com regras especializadas para um pequeno número de formas especiais.<sup><a href="">11</a></sup></p>
+                         <h2 id="1.1.4">1.1.4 Procedimentos Compostos</h2>
+                         <p>Identificamos em Lisp alguns dos elementos que devem aparecer em qualquer linguagem de programação poderosa:</p>
+                         <ul>
+                              <li>Números e operações aritméticas são dados primitivos e procedimentos.</li>
+                              <li>A aninhagem de combinações fornece um meio de combinar operações.</li>
+                              <li>Definições que associam nomes a valores fornecem um meio limitado de abstração.</li>
+                         </ul>
+                         <p>Agora aprenderemos sobre definições de procedimentos, uma técnica de abstração muito mais poderosa, por meio da qual uma operação composta pode receber um nome e, em seguida, ser referida como uma unidade.</p>  
+                         <p>Começamos examinando como expressar a ideia de "elevar ao quadrado". Poderíamos dizer: "Para elevar algo ao quadrado, multiplique-o por si mesmo." Isso é expresso em nossa linguagem como:</p> 
+                         <pre><code class="linguage-scheme">
+(define (quadrado x) (* <em>x</em> x))
+                         </code></pre>
+                         <p>Podemos entender isso da seguinte maneira.</p>
+                         <p>Para <em class="code-in-line">define</em> elevar algo <em class="code-in-line">x</em> ao quadrado <em class="code-in-line">quadrado</em>, multiplique-o <em class="code-in-line">*</em> por ele mesmo <em class="code-in-line">x x</em>.</p>
+                         <p>Aqui temos um procedimento composto, que foi chamado de <em>quadrado</em>. O procedimento representa a operação de multiplicar algo por si mesmo. A coisa a ser multiplicada recebe um nome local, <em>x</em>, que desempenha o mesmo papel que um pronome desempenha na linguagem natural. <sup id="note-12"></sup>Avaliar a definição cria este procedimento composto e o associa ao nome <em>quadrado</em>.<sup><a href="">12</a></sup></p>  
+                         <p>A forma geral de uma definição de procedimento é:</p>
+                         <pre><code class="linguage-scheme">
+(define (&lt;nome&gt; &lt;parâmetros formais&gt;) &lt;corpo&gt;)
+                         </code></pre>
+                         <p><sup id="note-13"></sup>O <em>&lt;nome&gt;</em> é um símbolo a ser associado à definição do procedimento no ambiente.<sup><a href="">13</a></sup> Os <em>&lt;parâmetros formais&gt;</em> são os nomes usados dentro do corpo do procedimento para se referir aos argumentos correspondentes do procedimento. O <em>&lt;corpo&gt;</em> é uma expressão que produzirá o valor da aplicação do procedimento quando os parâmetros formais forem substituídos pelos argumentos reais aos quais o procedimento é aplicado.<sup><a href="">14</a></sup> O <em>&lt;nome&gt;</em> e os <em>&lt;parâmetros formais&gt;</em> são agrupados entre parênteses, assim como seriam em uma chamada real ao procedimento sendo definido.</p>  
+                         <p>Tendo definido <em>quadrado</em>, podemos agora utilizá-lo:</p>
+                         <pre><code class="linguage-scheme">
+(quadrado 21)
+441
+(quadrado (+ 2 5))
+49
+(quadrado (quadrado 3))
+81
+                         </code></pre>
+                         <p>Também podemos usar <em>quadrado</em> como um bloco de construção para definir outros procedimentos. Por exemplo, x² + y² pode ser expresso como:</p>
+                         <pre><code class="linguage-scheme">
+(+ (quadrado x) (quadrado y))
+                         </code></pre> 
+                         <p>Podemos facilmente definir um procedimento <em>soma-dos-quadrados</em> que, dado dois números como argumentos, produz a soma de seus quadrados:</p>  
+                         <pre><code class="linguage-scheme">
+(define (soma-dos-quadrados <em>x</em> y)
+(+ (quadrado x) (quadrado y)))
+(soma-dos-quadrados 3 4)
+25
+                         </code></pre>
+                         <p>Agora podemos usar <em>soma-dos-quadrados</em> como um bloco de construção na construção de outros procedimentos:</p>  
+                         <pre><code class="linguage-scheme">
+(define (f
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(soma-dos-quadrados (+ a 1) (* a 2)))</span>
+(f 5)
+136
+                         </code></pre>
+                         <p>Procedimentos compostos são usados exatamente da mesma maneira que procedimentos primitivos. Na verdade, não se poderia dizer, apenas observando a definição de <em>soma-dos-quadrados</em> acima, se <em>quadrado</em> foi incorporado ao interpretador, como + e *, ou definido como um procedimento composto.</p>
+                         <h2 id="1.1.5">1.1.5 O Modelo de Substituição para Aplicação de Procedimentos</h2>
+                         <p>Para avaliar uma combinação cujo operador nomeia um procedimento composto, o interpretador segue um processo muito semelhante ao descrito na seção 1.1.3 para combinações cujos operadores nomeiam procedimentos primitivos. Ou seja, o interpretador avalia os elementos da combinação e aplica o procedimento (que é o valor do operador da combinação) aos argumentos (que são os valores dos operandos da combinação).</p>  
+                         <p>Podemos supor que o mecanismo para aplicar procedimentos primitivos aos argumentos está embutido no interpretador. Para procedimentos compostos, o processo de aplicação é o seguinte:</p>  
+                         <p>Para aplicar um procedimento composto a argumentos, avalie o corpo do procedimento substituindo cada parâmetro formal pelo argumento correspondente. Para ilustrar esse processo, vamos avaliar a combinação:</p>  
+                         <pre><code class="linguage-scheme">
+(f 5)
+                         </code></pre>
+                         <p>onde f é o procedimento definido na seção 1.1.4. Começamos recuperando o corpo de f:</p>
+                         <pre><code class="linguage-scheme">
+(soma-dos-quadrados (+ a 1) (* a 2))
+                         </code></pre> 
+                         <p>Em seguida, substituímos o parâmetro formal a pelo argumento 5:</p>  
+                         <pre><code class="linguage-scheme">
+(soma-dos-quadrados (+ 5 1) (* 5 2))
+                         </code></pre>
+                         <p>Assim, o problema se reduz à avaliação de uma combinação com dois operandos e um operador <em>soma-dos-quadrados</em>. Avaliar essa combinação envolve três subproblemas. Devemos avaliar o operador para obter o procedimento a ser aplicado, e devemos avaliar os operandos para obter os argumentos. Agora, (+ 5 1) produz 6 e (* 5 2) produz 10, então devemos aplicar o procedimento <em>soma-dos-quadrados</em> a 6 e 10. Esses valores são substituídos pelos parâmetros formais <em>x</em> e <em>y</em> no corpo de <em>soma-dos-quadrados</em>, reduzindo a expressão para</p>
+                         <pre><code class="linguage-scheme">
+(+ (quadrado 6) (quadrado 10))
+                         </code></pre>  
+                         <p>Se usarmos a definição de <em>quadrado</em>, isso se reduz a</p>  
+                         <pre><code class="linguage-scheme">
+(+ (* 6 6) (* 10 10))
+                         </code></pre>  
+                         <p>o que se reduz, por multiplicação, a</p>  
+                         <pre><code class="linguage-scheme">
+(+ 36 100)
+                         </code></pre>  
+                         <p>e finalmente a</p>  
+                         <pre><code class="linguage-scheme">
+136
+                         </code></pre>  
+                         <p>O processo que acabamos de descrever é chamado de modelo de substituição para aplicação de procedimentos. Ele pode ser tomado como um modelo que determina o "significado" da aplicação de procedimentos, no que se refere aos procedimentos discutidos neste capítulo. No entanto, há dois pontos que devem ser ressaltados:</p>
+                         <ul>
+                              <li>O propósito da substituição é nos ajudar a pensar sobre a aplicação de procedimentos, não fornecer uma descrição de como o interpretador realmente funciona. Interpretadores típicos não avaliam aplicações de procedimentos manipulando o texto de um procedimento para substituir valores pelos parâmetros formais. Na prática, a "substituição" é realizada utilizando um ambiente local para os parâmetros formais. Discutiremos isso mais detalhadamente nos capítulos 3 e 4, quando examinarmos a implementação de um interpretador em detalhes.</li>
+                              <li>Ao longo deste livro, apresentaremos uma sequência de modelos cada vez mais elaborados de como os interpretadores funcionam, culminando com uma implementação completa de um interpretador e compilador no capítulo 5. O modelo de substituição é apenas o primeiro desses modelos &mdash; uma maneira de começar a pensar formalmente sobre o processo de avaliação. Em geral, ao modelar fenômenos em ciência e engenharia, começamos com modelos simplificados e incompletos. À medida que examinamos as coisas com mais detalhes, esses modelos simples se tornam inadequados e devem ser substituídos por modelos mais refinados. O modelo de substituição não é uma exceção.<sup id="note-15"></sup> Em particular, quando abordarmos no capítulo 3 o uso de procedimentos com "dados mutáveis", veremos que o modelo de substituição se torna insuficiente e deve ser substituído por um modelo mais complicado de aplicação de procedimentos.<sup><a href="">15</a></sup></li>
+                         </ul>
+                         <h3>Ordem Aplicativa versus Ordem Normal</h3> 
+                         <p>De acordo com a descrição da avaliação dada na seção 1.1.3, o interpretador primeiro avalia o operador e os operandos e, em seguida, aplica o procedimento resultante aos argumentos resultantes. Esta não é a única maneira de realizar uma avaliação. Um modelo alternativo de avaliação não avaliaria os operandos até que seus valores fossem necessários. Em vez disso, ele primeiro substituiria as expressões dos operandos pelos parâmetros até obter uma expressão envolvendo apenas operadores primitivos, e então realizaria a avaliação. Se usássemos esse método, a avaliação de</p>
+                         <pre><code class="linguage-scheme">
+(f 5)
+                         </code></pre>  
+                         <p>seguiria a sequência de expansões</p>
+                         <pre><code class="linguage-scheme">
+(soma-dos-quadrados (+ 5 1) (* 5 2))
+                              <span class="code-comment">;; (+ (quadrado (+ 5 1)) (quadrado (* 5 2)) )</span>
+                              <span class="code-comment">;; (+ (* (+ 5 1) (+ 5 1)) (* (* 5 2) (* 5 2)))</span>
+                         </code></pre>
+                         <p>seguida pelas reduções</p>  
+                         <pre><code class="linguage-scheme">
+                              <span class="code-comment">;; (+ (* 6 6) (* 10 10))</span>
+                              <span class="code-comment">;; (+ 36 100)</span>
+136
+                         </code></pre>  
+                         <p>Isso dá a mesma resposta que nosso modelo de avaliação anterior, mas o processo é diferente. Em particular, as avaliações de (+ 5 1) e (* 5 2) são realizadas duas vezes aqui, correspondendo à redução da expressão</p>
+                         <pre><code class="linguage-scheme">
+                              <span class="code-comment">;; (* <em>x</em> x)</span>
+                         </code></pre>
+                         <p>com <em>x</em> substituído respectivamente por (+ 5 1) e (* 5 2).</p>  
+                         <p>Esse método alternativo de avaliação, chamado de "expandir totalmente e depois reduzir", é conhecido como avaliação por ordem normal, em contraste com o método "avaliar os argumentos e depois aplicar" que o interpretador realmente usa, conhecido como avaliação por ordem aplicativa. Pode-se demonstrar que, para aplicações de procedimentos que podem ser modeladas usando substituição (incluindo todos os procedimentos nos dois primeiros capítulos deste livro) e que produzem valores legítimos, as avaliações por ordem normal e por ordem aplicativa produzem o mesmo valor. (Veja o exercício 1.5 para um exemplo de um valor "ilegítimo" onde as avaliações por ordem normal e por ordem aplicativa não produzem o mesmo resultado.)</p>  
+                         <p>Lisp usa a avaliação por ordem aplicativa, em parte por causa da eficiência adicional obtida ao evitar múltiplas avaliações de expressões como as ilustradas com (+ 5 1) e (* 5 2) acima e, mais significativamente, porque a avaliação por ordem normal torna-se muito mais complicada de lidar quando saímos do reino dos procedimentos que podem ser modelados por substituição.<sup id="note-16"></sup> Por outro lado, a avaliação por ordem normal pode ser uma ferramenta extremamente valiosa, e investigaremos algumas de suas implicações nos capítulos 3 e 4.<sup><a href="">16</a></sup></p>
+                         <h2 id="1.1.6">1.1.6 Expressões Condicionais e Predicados</h2>
+                         <p>O poder expressivo das classes de procedimentos que podemos definir neste ponto é bastante limitado, pois não temos meios para realizar testes e executar operações diferentes dependendo do resultado de um teste. Por exemplo, não podemos definir um procedimento que calcula o valor absoluto de um número testando se o número é positivo, negativo ou zero e tomando ações diferentes nos diferentes casos, de acordo com a regra.</p>
+                         <img src="../image/ch1-Z-G-2.gif" alt="modulo de r é igual a r se r for maior que zero, ou igual a zero se r for igual a zero, ou igual -r se r for menor que zero">
+                         <p>Essa construção é chamada de análise de casos, e existe uma forma especial em Lisp para notação de tal análise de casos. Ela é chamada de <em>cond</em> (que significa "condicional") e é usada da seguinte forma:</p>
+                         <pre><code class="linguage-scheme">
+(define (abs
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond ((> <em>x</em> 0) x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((= <em>x</em> 0) 0)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((< <em>x</em> 0) (- x))))</span>
+                         </code></pre>
+                         <p>A forma geral de uma expressão condicional é:</p>
+                         <pre><code class="linguage-scheme">
+(cond (&lt;p1&gt; &lt;e1&g
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;p2&gt; &lt;e2&gt;)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;pn&gt; &lt;en&gt;))</span>
+                         </code></pre>
+                         <p>Ela consiste no símbolo <em>cond</em> seguido por pares de expressões entre parênteses (&lt;p&gt; &lt;e&gt;), chamados de cláusulas.<sup id="note-17"></sup> A primeira expressão em cada par é um predicado, ou seja, uma expressão cujo valor é interpretado como verdadeiro ou falso.</p>
+                         <p>As expressões condicionais são avaliadas da seguinte maneira. O predicado &lt;p1&gt; é avaliado primeiro. Se seu valor for falso, então &lt;p2&gt; é avaliado. Se o valor de &lt;p2&gt; também for falso, então &lt;p3&gt; é avaliado. Esse processo continua até que seja encontrado um predicado cujo valor seja verdadeiro, e nesse caso o interpretador retorna o valor da expressão correspondente &lt;e&gt; da cláusula como o valor da expressão condicional. Se nenhum dos &lt;p&gt; for verdadeiro, o valor do <em>cond</em> é indefinido.</p>
+                         <p>A palavra <em>predicado</em> é usada tanto para procedimentos que retornam verdadeiro ou falso, quanto para expressões que avaliam para verdadeiro ou falso.<sup id="note-18"></sup> O procedimento de valor absoluto <em>abs</em> faz uso dos predicados primitivos &gt;, &lt;, e =. Estes aceitam dois números como argumentos e testam se o primeiro número é, respectivamente, maior, menor ou igual ao segundo número, retornando verdadeiro ou falso conforme o caso.</p>
+                         <p>Outra maneira de escrever o procedimento de valor absoluto é:</p>
+                         <pre><code class="linguage-scheme">
+(define (abs
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond ((&lt; <em>x</em> 0) (- x))<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else x)))</span>
+                         </code></pre>
+                         <p>Isso poderia ser expresso em português como: "Se <em>x</em> for menor que zero, retorne <em>-x</em>; caso contrário, retorne <em>x</em>." <em>Else</em> é um símbolo especial que pode ser usado no lugar do &lt;p&gt; na cláusula final de um cond. Isso faz com que o cond retorne como valor o valor da expressão correspondente &lt;e&gt; sempre que todas as cláusulas anteriores forem ignoradas. Na verdade, qualquer expressão que sempre avalie para um valor verdadeiro poderia ser usada como &lt;p&gt; aqui.</p>
+                         <p>Aqui está mais uma maneira de escrever o procedimento de valor absoluto:</p>
+                         <pre><code class="linguage-scheme">
+(define (abs
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (&lt; <em>x</em> 0)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(- x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x))</span>
+                         </code></pre>
+                         <p>Isso utiliza a forma especial <em>if</em>, um tipo restrito de condicional que pode ser usado quando há exatamente dois casos na análise de casos. A forma geral de uma expressão <em>if</em> é:</p>
+                         <pre><code class="linguage-scheme">
+(if &lt;predicato&gt; &lt;consequente&gt; &lt;alternativa&gt;)
+                         </code></pre>
+                         <p>Para avaliar uma expressão <em>if</em>, o interpretador começa avaliando a parte &lt;predicato&gt; da expressão. Se o &lt;predicato&gt; for avaliado como verdadeiro, o interpretador então avalia o &lt;consequente&gt; e retorna seu valor.<sup id="note-19"></sup> Caso contrário, ele avalia o &lt;alternativa&gt; e retorna seu valor.</p>
+                         <p>Além dos predicados primitivos como &lt;, = e &gt;, existem operações de composição lógica que nos permitem construir predicados compostos. As três mais frequentemente usadas são estas:</p>
+                         <pre><code class="linguage-scheme">
+(and &lt;e1&gt; ... &lt;en&gt;)
+                         </code></pre>
+                         <p>O interpretador avalia as expressões &lt;e&gt; uma de cada vez, da esquerda para a direita. Se alguma &lt;e&gt; for avaliada como falso, o valor da expressão <em>and</em> será falso, e o restante das &lt;e&gt; não será avaliado. Se todas as &lt;e&gt; forem avaliadas como valores verdadeiros, o valor da expressão <em>and</em> será o valor da última.</p>
+                         <pre><code class="linguage-scheme">
+(or &lt;e1&gt; ... &lt;en&gt;)
+                         </code></pre>
+                         <p>O interpretador avalia as expressões &lt;e&gt; uma de cada vez, da esquerda para a direita. Se alguma &lt;e&gt; for avaliada como um valor verdadeiro, esse valor é retornado como o valor da expressão <em>or</em>, e o restante das &lt;e&gt; não será avaliado. Se todas as &lt;e&gt; forem avaliadas como falsas, o valor da expressão <em>or</em> será falso.</p>
+                         <pre><code class="linguage-scheme">
+(not &lt;e&gt;)
+                         </code></pre>
+                         <p>O valor de uma expressão <em>not</em> é verdadeiro quando a expressão &lt;e&gt; for avaliada como falso, e falso caso contrário.</p>
+                         <p>Observe que <em>and</em> e <em>or</em> são formas especiais, não procedimentos, pois as subexpressões não são necessariamente todas avaliadas. <em>Not</em> é um procedimento comum.</p>
+                         <p>Como exemplo de como essas formas são usadas, a condição de que um número <em>x</em> esteja no intervalo 5 &lt; <em>x</em> &lt; 10 pode ser expressa como:</p>
+                         <pre><code class="linguage-scheme">
+(and (&gt; <em>x</em> 5) (&lt; <em>x</em> 10))
+                         </code></pre>
+                         <p>Como outro exemplo, podemos definir um predicado para testar se um número é maior ou igual a outro como:</p>
+                         <pre><code class="linguage-scheme">
+(define (&gt;= <em>x</em>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or (&gt; <em>x</em> y) (= <em>x</em> y)))</span>
+                         </code></pre>
+                         <p>ou alternativamente como:</p>
+                         <pre><code class="linguage-scheme">
+(define (&gt;= <em>x</em>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(not (&lt; <em>x</em> y)))</span>
+                         </code></pre>
+                         <p><strong>Exercício 1.1.</strong> Abaixo está uma sequência de expressões. Qual é o resultado impresso pelo interpretador em resposta a cada expressão? Suponha que a sequência seja avaliada na ordem em que é apresentada.</p>
+                         <pre><code class="linguage-scheme">
+10
+(+ 5 3 4)
+(- 9 1)
+(/ 6 2)
+(+ (* 2 4) (- 4 6))
+(define a 3)
+(define b (+ a 1))
+(+ a b (* a b))
+(= a b)
+(if (and (&gt; b a) (&lt; b (* a b
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a)
+                              </span>
+(cond ((= a 4)
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((= b 4) (+ 6 7 a))<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else 25))</span>
+(+ 2 (if (&gt; b a) b a))
+(* (cond ((> a b)
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((< a b) b)<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else -1))<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ a 1))</span>
+                         </code></pre>
+                         <p><strong>Exercício 1.2.</strong> Traduza a seguinte expressão para a forma prefixada.</p>
+                         <p><strong>Exercício 1.3.</strong> Defina um procedimento que recebe três números como argumentos e retorna a soma dos quadrados dos dois maiores números.</p>
+                         <p><strong>Exercício 1.4.</strong> Observe que nosso modelo de avaliação permite combinações cujos operadores são expressões compostas. Use esta observação para descrever o comportamento do seguinte procedimento:</p>
+                         <pre><code class="linguage-scheme">
+(define (a-mais-abs-b a
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((if (&gt; b 0) + -) a b))</span>
+                         </code></pre>
+                         <p><strong>Exercício 1.5.</strong> Ben Bitdiddle inventou um teste para determinar se o interpretador com o qual ele está lidando usa avaliação por ordem aplicativa ou por ordem normal. Ele define os dois procedimentos a seguir:</p>
+                         <pre><code class="linguage-scheme">
+(define (p) (p))
+(define (teste <em>x</em>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((if (&gt; b 0) + -) a b))</span>
+                         </code></pre>
+                         <p>Em seguida, ele avalia a expressão:</p>
+                         <pre><code class="linguage-scheme">
+(teste 0 (p))
+                         </code></pre>
+                         <p>Que comportamento Ben observará com um interpretador que usa avaliação por ordem aplicativa? Que comportamento ele observará com um interpretador que usa avaliação por ordem normal? Explique sua resposta. (Suponha que a regra de avaliação para a forma especial <em>if</em> seja a mesma, independentemente de o interpretador estar usando ordem normal ou aplicativa: a expressão do predicado é avaliada primeiro, e o resultado determina se o consequente ou a alternativa é avaliado.)</p>
+                         <h2 id="1.1.7">1.1.7 Exemplo: Raízes Quadradas pelo Método de Newton</h2>
+                         <p>Procedimentos, como foram introduzidos acima, são muito semelhantes às funções matemáticas comuns. Eles especificam um valor que é determinado por um ou mais parâmetros. Mas há uma diferença importante entre funções matemáticas e procedimentos computacionais. Procedimentos devem ser efetivos.</p>
+                         <p>Como exemplo, considere o problema de calcular raízes quadradas. Podemos definir a função raiz quadrada como:</p>
+                         <math display="block">
+                              <mrow>
+                                <mraizquadrada><mrow><mi>x</mi></mrow></mraizquadrada>
+                                <mo>=</mo>
+                                <mi>y</mi>
+                                <mtext>&nbsp;tal que&nbsp;</mtext>
+                                <msup><mi>y</mi><mn>2</mn></msup>
+                                <mo>=</mo>
+                                <mi>x</mi>
+                              </mrow>
+                         </math>
+                         <p>Isso descreve uma função matemática perfeitamente legítima. Poderíamos usá-la para reconhecer se um número é a raiz quadrada de outro ou para derivar fatos sobre raízes quadradas em geral. Por outro lado, essa definição não descreve um procedimento. Na verdade, ela nos diz quase nada sobre como realmente encontrar a raiz quadrada de um dado número. Não ajudaria em nada reformular essa definição em pseudo-Lisp:</p>
+                         <pre><code class="linguage-scheme">
+(define (raizquadrada
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(the y (and (>= y 0)
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(= (quadrado y) x))))
+                                 </span>
+                         </code></pre>
+                         <p>Isso apenas adia a questão.</p>
+                         <p>O contraste entre função e procedimento reflete a distinção geral entre descrever as propriedades das coisas e descrever como fazer as coisas, ou, como às vezes é chamado, a distinção entre conhecimento declarativo e conhecimento imperativo.<sup id="note-20"></sup> Em matemática, geralmente estamos preocupados com descrições declarativas (o que é), enquanto na ciência da computação, estamos geralmente preocupados com descrições imperativas (como fazer).</p>
+                         <p>Como se calcula raízes quadradas? O método mais comum é usar o método de Newton de aproximações sucessivas, que diz que sempre que temos um palpite <em>y</em> para o valor da raiz quadrada de um número <em>x</em>, podemos realizar uma simples manipulação para obter um palpite melhor (mais próximo da raiz quadrada real) ao calcular a média de <em>y</em> com <small><sup>x</sup>/<small>y</small></small>.<sup id="note-21"></sup> Por exemplo, podemos calcular a raiz quadrada de 2 da seguinte forma. Suponha que nosso palpite inicial seja 1:</p>
+                         <table>
+                         <thead>
+                         <tr>
+                              <th>Palpite</th>
+                              <th>Quociente</th>
+                              <th>Média</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         <tr>
+                              <td>1</td>
+                              <td>2/1 = 2</td>
+                              <td>(2 + 1)/2 = 1.5</td>
+                         </tr>
+                         <tr>
+                              <td>1.5</td>
+                              <td>2/1.5 = 1.3333</td>
+                              <td>(1.3333 + 1.5)/2 = 1.4167</td>
+                         </tr>
+                         <tr>
+                              <td>1.4167</td>
+                              <td>2/1.4167 = 1.4118</td>
+                              <td>(1.4167 + 1.4118)/2 = 1.4142</td>
+                         </tr>
+                         <tr>
+                              <td>1.4142</td>
+                              <td>...</td>
+                              <td>...</td>
+                         </tr>
+                         </tbody>
+                         </table>
+                         <p>Continuando esse processo, obtemos aproximações cada vez melhores da raiz quadrada.</p>
+                         <p>Agora, vamos formalizar o processo em termos de procedimentos. Começamos com um valor para o radicando (o número cuja raiz quadrada estamos tentando calcular) e um valor para o palpite. Se o palpite for bom o suficiente para nossos propósitos, terminamos; caso contrário, precisamos repetir o processo com um palpite melhorado. Escrevemos essa estratégia básica como um procedimento:</p>
+                         <pre><code class="linguage-scheme">
+(define (raizquad-iter palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (bom-o-suficiente? palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x)))<br></span>
+                         </code></pre>
+                         <p>Um palpite é melhorado ao calcular a média entre ele e o quociente do radicando pelo palpite anterior:</p>
+                         <pre><code class="linguage-scheme">
+(define (melhorar palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(media palpite (/ <em>x</em> palpite)))</span>
+                         </code></pre>
+                         <p>onde</p>
+                         <pre><code class="linguage-scheme">
+(define (melhorar
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(/ (+ <em>x</em> y) 2))</span>
+                         </code></pre>
+                         <p>Também precisamos definir o que significa "bom o suficiente". O seguinte serve para ilustração, mas não é realmente um teste muito bom (veja o exercício 1.7).<sup id="note-22"></sup> A ideia é melhorar a resposta até que ela esteja próxima o suficiente, de modo que seu quadrado difira do radicando por menos que uma tolerância predefinida (aqui 0.001):</p>
+                         <pre><code class="linguage-scheme">
+(define (bom-o-suficiente? palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))</span>
+                         </code></pre>
+                         <p>Finalmente, precisamos de uma maneira de começar.<sup id="note-23"></sup> Por exemplo, podemos sempre supor que a raiz quadrada de qualquer número seja 1:</p>
+                         <pre><code class="linguage-scheme">
+(define (raizquadrada
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1 x))</span>
+                         </code></pre>
+                         <p>Se digitarmos essas definições no interpretador, podemos usar <em>raizquadrada</em> assim como usamos qualquer procedimento:</p>
+                         <pre><code class="linguage-scheme">
+(raizquadrada 9)
+3.00009155413138
+(raizquadrada (+ 100 37))
+3.00009155413138
+(raizquadrada (+ (raizquadrada 2) (raizquadrada 3)))
+3.00009155413138
+(quadrado (raizquadrada 1000))
+3.00009155413138
+                         </code></pre>
+                         <p>O programa <em>quadrado</em> também ilustra que a linguagem procedural simples que introduzimos até agora é suficiente para escrever qualquer programa puramente numérico que se poderia escrever, por exemplo, em C ou Pascal. Isso pode parecer surpreendente, já que não incluímos em nossa linguagem nenhum construto iterativo (de repetição) que oriente o computador a fazer algo repetidamente.<sup id="note-24"></sup> <em>raizquad-iter</em>, por outro lado, demonstra como a iteração pode ser realizada sem nenhum construto especial além da capacidade ordinária de chamar um procedimento.</p>
+                         <p><strong>Exercício 1.6.</strong> Alyssa P. Hacker não vê por que <em>if</em> precisa ser fornecido como uma forma especial. "Por que eu não posso simplesmente defini-lo como um procedimento comum em termos de <em>cond?</em>" ela pergunta. A amiga de Alyssa, Eva Lu Ator, afirma que isso pode de fato ser feito, e ela define uma nova versão de <em>if</em>:</p>
+                         <pre><code class="linguage-scheme">
+(define (novo-if predicado a-clausula else-clausu
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond (predicado a-clausula)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else else-clausula)))</span>
+                         </code></pre>
+                         <p>Eva demonstra o programa para Alyssa:</p>
+                         <pre><code class="linguage-scheme">
+(novo-if (= 2 3) 0 5)
+5
+(novo-if (= 1 1) 0 5)
+0
+                         </code></pre>
+                         <p>Encantada, Alyssa usa <em>novo-if</em> para reescrever o programa de raiz quadrada:</p>
+                         <pre><code class="linguage-scheme">
+(define (raizquad-iter palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(new-if (bom-o-suficiente? palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x)))</span>
+                         </code></pre>
+                         <p>O que acontece quando Alyssa tenta usar isso para calcular raízes quadradas? Explique.</p>
+                         <p><strong>Exercício 1.7.</strong> O teste <em>bom-o-suficiente?</em> usado para calcular raízes quadradas não será muito eficaz para encontrar as raízes quadradas de números muito pequenos. Além disso, em computadores reais, as operações aritméticas são quase sempre realizadas com precisão limitada. Isso torna nosso teste inadequado para números muito grandes. Explique essas afirmações, com exemplos mostrando como o teste falha para números pequenos e grandes. Uma estratégia alternativa para implementar <em>bom-o-suficiente?</em> é observar como o palpite muda de uma iteração para a próxima e parar quando a mudança for uma fração muito pequena do palpite. Projete um procedimento de raiz quadrada que use esse tipo de teste final. Isso funciona melhor para números pequenos e grandes?</p>
+                         <p><strong>Exercício 1.8.</strong> O método de Newton para raízes cúbicas é baseado no fato de que, se <em>y</em> é uma aproximação para a raiz cúbica de <em>x</em>, então uma melhor aproximação é dada pelo valor</p>
+                         <math display="block">
+                              <mfrac>
+                                <mrow>
+                                  <mi>y</mi>
+                                  <mo>+</mo>
+                                  <mfrac>
+                                    <mi>x</mi>
+                                    <msup>
+                                      <mi>y</mi>
+                                      <mn>2</mn>
+                                    </msup>
+                                  </mfrac>
+                                </mrow>
+                                <mn>2</mn>
+                              </mfrac>
+                            </math>
+                         <p>Use essa fórmula para implementar um procedimento de raiz cúbica análogo ao procedimento de raiz quadrada. (Na seção 1.3.4 veremos como implementar o método de Newton em geral como uma abstração desses procedimentos de raiz quadrada e raiz cúbica.)</p>
+                         <h2>1.1.8 Procedimentos como Abstrações de Caixa Preta</h2>
+                         <p>O <em>quadrado</em> é nosso primeiro exemplo de um processo definido por um conjunto de procedimentos mutuamente definidos. Observe que a definição de <em>raizquad-iter</em> é recursiva; ou seja, o procedimento é definido em termos de si mesmo. A ideia de poder definir um procedimento em termos de si mesmo pode ser perturbadora; pode parecer obscuro como uma definição "circular" poderia fazer sentido, quanto mais especificar um processo bem definido a ser executado por um computador. Isso será abordado com mais cuidado na seção 1.2. Mas antes, vamos considerar alguns outros pontos importantes ilustrados pelo exemplo de <em>quadrado</em>.</p>
+                         <p>Observe que o problema de calcular raízes quadradas se divide naturalmente em vários subproblemas: como determinar se um palpite é bom o suficiente, como melhorar um palpite, e assim por diante. Cada uma dessas tarefas é realizada por um procedimento separado. Todo o programa <em>quadrado</em> pode ser visto como um conjunto de procedimentos (mostrado na figura 1.2) que reflete a decomposição do problema em subproblemas.</p>
+                         <div class="book-figure" id="fig-1.1">
+                              <img src="../image/ch1-Z-G-6.gif" alt="imagem representativa em arvore do programa quadrado">
+                              <.span><strong>Figura 1.2:</strong> Decomposição Procedural do Programa <em>quadrado</em>.</span>
+                         </div> 
+                         <p>A importância dessa estratégia de decomposição não reside simplesmente no fato de dividir o programa em partes. Afinal, poderíamos pegar qualquer programa grande e dividi-lo em partes &mdash; as primeiras dez linhas, as próximas dez linhas, e assim por diante. No entanto, é crucial que cada procedimento realize uma tarefa identificável que possa ser usada como um módulo na definição de outros procedimentos. Por exemplo, quando definimos o procedimento <em>bom-o-suficiente?</em> em termos de <em>quadrado</em>, podemos considerar o procedimento <em>quadrado</em> como uma "caixa preta". Nesse momento, não nos preocupamos com a forma como o procedimento calcula seu resultado, apenas com o fato de que ele calcula o quadrado. Os detalhes de como o quadrado é calculado podem ser suprimidos, para serem considerados em um momento posterior. De fato, no que diz respeito ao procedimento <em>bom-o-suficiente?</em>, <em>quadrado</em> não é exatamente um procedimento, mas sim uma abstração de um procedimento, uma chamada abstração procedural. Nesse nível de abstração, qualquer procedimento que compute o quadrado é igualmente bom.</p>
+                         <p>Assim, considerando apenas os valores que retornam, os dois procedimentos a seguir para calcular o quadrado de um número deveriam ser indistinguíveis.<sup id="note-25"></sup> Cada um recebe um argumento numérico e produz o quadrado desse número como valor:</p>
+                         <pre><code class="linguage-scheme">
+(define (quadrado x) (* <em>x</em> x))
+(define (quadrado
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(exp (dobro (log x))))</span>
+(define (dobro x) (+ <em>x</em> x))
+                         </code></pre>
+                         <p>Portanto, uma definição de procedimento deve ser capaz de suprimir detalhes. Os usuários do procedimento podem não ter escrito o procedimento por si mesmos, mas podem tê-lo obtido de outro programador como uma caixa preta. Um usuário não deve precisar saber como o procedimento é implementado para usá-lo.</p>
+                         <h3>Nomes Locais</h3>
+                         <p>Um detalhe da implementação de um procedimento que não deve importar para o usuário do procedimento é a escolha do implementador para os nomes dos parâmetros formais do procedimento. Assim, os seguintes procedimentos não deveriam ser distinguíveis:</p>
+                         <pre><code class="linguage-scheme">
+(define (quadrado x) (* <em>x</em> x))
+(define (quadrado y) (* y y))
+                         </code></pre>
+                         <p>Esse princípio &mdash; que o significado de um procedimento deve ser independente dos nomes dos parâmetros usados pelo seu autor &mdash; parece, à primeira vista, ser autoevidente, mas suas consequências são profundas. A consequência mais simples é que os nomes dos parâmetros de um procedimento devem ser locais ao corpo do procedimento. Por exemplo, usamos <em>quadrado</em> na definição de <em>bom-o-suficiente?</em> em nosso procedimento de raiz quadrada:</p>
+                         <pre><code class="linguage-scheme">
+(define (bom-o-suficiente? palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))</span>
+                         </code></pre>
+                         <p>A intenção do autor de <em>bom-o-suficiente?</em> é determinar se o quadrado do primeiro argumento está dentro de uma tolerância dada do segundo argumento. Vemos que o autor de <em>bom-o-suficiente?</em> usou o nome <em>palpite</em> para se referir ao primeiro argumento e <em>x</em> para se referir ao segundo argumento. O argumento de <em>quadrado</em> é <em>palpite</em>. Se o autor de <em>quadrado</em> usasse <em>x</em> (como acima) para se referir a esse argumento, veríamos que o <em>x</em> em <em>bom-o-suficiente?</em> deve ser diferente do <em>x</em> em <em>quadrado</em>. Executar o procedimento <em>quadrado</em> não deve afetar o valor de <em>x</em> que é usado por <em>bom-o-suficiente?</em>, pois esse valor de <em>x</em> pode ser necessário para <em>bom-o-suficiente?</em> após <em>quadrado</em> terminar de calcular.</p>
+                         <p>Se os parâmetros não fossem locais aos corpos de seus respectivos procedimentos, então o parâmetro <em>x</em> em quadrado poderia ser confundido com o parâmetro <em>x</em> em <em>bom-o-suficiente?</em>, e o comportamento de <em>bom-o-suficiente?</em> dependeria de qual versão de quadrado usássemos. Assim, quadrado não seria a caixa preta desejada.</p>
+                         <p>Um parâmetro formal de um procedimento tem um papel muito especial na definição do procedimento, no sentido de que não importa qual nome o parâmetro formal tem. Esse nome é chamado de variável vinculada, e dizemos que a definição do procedimento vincula seus parâmetros formais.<sup id="note-26"></sup> O significado de uma definição de procedimento não muda se uma variável vinculada for consistentemente renomeada ao longo da definição. Se uma variável não é vinculada, dizemos que ela é livre. O conjunto de expressões para as quais uma vinculação define um nome é chamado de escopo desse nome. Em uma definição de procedimento, as variáveis vinculadas declaradas como parâmetros formais do procedimento têm o corpo do procedimento como seu escopo.</p>
+                         <p>Na definição de <em>bom-o-suficiente?</em> acima, palpite e x são variáveis vinculadas, mas &lt;, -, <em>abs</em>, e square são livres. O significado de bom-o-suficiente? deve ser independente dos nomes que escolhemos para palpite e x, desde que sejam distintos e diferentes de &lt;, -, <em>abs</em>, e square. (Se renomeássemos palpite para <em>abs</em>, teríamos introduzido um bug ao capturar a variável <em>abs</em>. Ela teria mudado de livre para vinculada). No entanto, o significado de <em>bom-o-suficiente?</em> não é independente dos nomes de suas variáveis livres. Ele certamente depende do fato (externo a essa definição) de que o símbolo <em>abs</em> nomeia um procedimento para calcular o valor absoluto de um número. O <em>bom-o-suficiente?</em> calculará uma função diferente se substituirmos <em>abs</em> por <em>cos</em> em sua definição.</p>
+                         <h3>Definições Internas e Estrutura de Blocos</h3>
+                         <p>Até agora, temos um tipo de isolamento de nomes disponível: os parâmetros formais de um procedimento são locais ao corpo do procedimento. O programa de cálculo da raiz quadrada ilustra outra maneira pela qual gostaríamos de controlar o uso de nomes. O programa existente consiste em procedimentos separados:</p>
+                         <pre><code class="linguage-scheme">
+(define (quadrado
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1.0 x))</span>
+(define (raizquad-iter palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (bom-o-suficiente? palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x) x)))</span>
+(define (bom-o-suficiente? palpite
+                              &nbsp;&nbsp;&nbsp;(< (abs (- (square palpite) x)) 0.001))</span>
+(define (melhorar palpite
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(media palpite (/ x palpite)))</span>
+                         </code></pre>
+                         <p>O problema com este programa é que o único procedimento importante para os usuários de <em>quadrado</em> é <em>quadrado</em>. Os outros procedimentos (<em>raizquad-iter</em>, <em>bom-o-suficiente?</em> e <em>melhorar</em>) apenas sobrecarregam suas mentes. Eles não podem definir qualquer outro procedimento chamado <em>bom-o-suficiente?</em> como parte de outro programa que funcione em conjunto com o programa de cálculo da raiz quadrada, porque <em>quadrado</em> precisa dele. O problema é especialmente grave na construção de grandes sistemas por muitos programadores separados. Por exemplo, na construção de uma grande biblioteca de procedimentos numéricos, muitas funções numéricas são calculadas como aproximações sucessivas e, portanto, podem ter procedimentos chamados <em>bom-o-suficiente?</em> e <em>melhorar</em> como procedimentos auxiliares. Gostaríamos de localizar os subprocedimentos, escondendo-os dentro de <em>quadrado</em>, para que <em>quadrado</em> pudesse coexistir com outras aproximações sucessivas, cada uma com seu próprio procedimento <em>bom-o-suficiente?</em> privado. Para tornar isso possível, permitimos que um procedimento tenha definições internas que são locais a esse procedimento. Por exemplo, no problema da raiz quadrada, podemos escrever:</p>
+                         <pre><code class="linguage-scheme">
+(define (quadrado
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (bom-o-suficiente? palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (melhorar palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(media palpite (/ x palpite)))<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (raizquad-iter palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (bom-o-suficiente? palpite x)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x) x)))<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1.0 x))</span>
+                         </code></pre>
+                         <p>Tal aninhamento de definições, chamado estrutura de blocos, é basicamente a solução certa para o problema mais simples de empacotamento de nomes. Mas há uma ideia ainda melhor em jogo aqui. Além de internalizar as definições dos procedimentos auxiliares, podemos simplificá-los. Como <em>x</em> é vinculado na definição de <em>quadrado</em>, os procedimentos <em>bom-o-suficiente?</em>, melhorar e <em>raizquad-iter</em>, que são definidos internamente a <em>quadrado</em>, estão no escopo de <em>x</em>. Assim, não é necessário passar <em>x</em> explicitamente para cada um desses procedimentos. Em vez disso, permitimos que <em>x</em> seja uma variável livre nas definições internas, como mostrado abaixo. Então, <em>x</em> obtém seu valor a partir do argumento com o qual o procedimento envolvente <em>quadrado</em> é chamado.<sup id="note-27"></sup> Essa disciplina é chamada de escopo léxico.</p>
+                         <pre><code class="linguage-scheme">
+(define (sqrt
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (bom-o-suficiente? palpite)<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (melhorar palpite)<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(palpite media (/ x palpite)))<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (raizquad-iter palpite)<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (bom-o-suficiente? palpite)<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite))))<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1.0))</span>
+                         </code></pre>
+                         <p><sup id="note-28"></sup>Usaremos a estrutura de blocos extensivamente para nos ajudar a dividir grandes programas em partes mais gerenciáveis. A ideia de estrutura de blocos originou-se com a linguagem de programação Algol 60. Ela aparece na maioria das linguagens de programação avançadas e é uma ferramenta importante para ajudar a organizar a construção de grandes programas.</p>
+                         <!---->
+                         <hr id="footnote-line">
+                         <section id="footnotes">
+                              <p id="footnote-4"><sup><a href="#note-4">4</a></sup>
+                              A caracterização dos números como "dados simples" é um blefe descarado. De fato, o tratamento dos números é um dos aspectos mais complicados e confusos de qualquer linguagem de programação. Algumas questões típicas envolvidas são as seguintes: Alguns sistemas computacionais distinguem inteiros, como 2, de números reais, como 2.71. O número real 2.00 é diferente do inteiro 2? As operações aritméticas usadas para inteiros são as mesmas que as usadas para números reais? 6 dividido por 2 resulta em 3 ou 3.0? Qual é o maior número que podemos representar? Quantas casas decimais de precisão podemos representar? O intervalo de inteiros é o mesmo que o intervalo de números reais? Além dessas questões, é claro, há uma série de problemas relacionados a erros de arredondamento e truncamento &mdash; toda a ciência da análise numérica. Como nosso foco neste livro é o design de programas em larga escala, e não em técnicas numéricas, vamos ignorar esses problemas. Os exemplos numéricos deste capítulo exibirão o comportamento usual de arredondamento que se observa ao usar operações aritméticas que preservam um número limitado de casas decimais em operações não inteiras.
+                              </p>
+                              <p id="footnote-5"><sup><a href="#note-5">5</a></sup>
+                                   Ao longo deste livro, quando desejarmos enfatizar a distinção entre a entrada digitada pelo usuário e a resposta impressa pelo interpretador, mostraremos esta última em caracteres inclinados.
+                              </p>
+                              <p id="footnote-6"><sup><a href="#note-6">6</a></sup>
+                                   Sistemas Lisp geralmente oferecem recursos para ajudar o usuário a formatar expressões. Dois recursos especialmente úteis são: um que indenta automaticamente na posição correta de impressão sempre que uma nova linha é iniciada, e outro que destaca o parêntese esquerdo correspondente sempre que um parêntese direito é digitado.
+                              </p>
+                              <p id="footnote-7"><sup><a href="#note-7">7</a></sup>
+                                   Lisp obedece à convenção de que toda expressão tem um valor. Essa convenção, juntamente com a antiga reputação de Lisp como uma linguagem ineficiente, é a origem da piada de Alan Perlis (parafraseando Oscar Wilde) de que "Programadores Lisp sabem o valor de tudo, mas o custo de nada."
+                              </p>
+                              <p id="footnote-8"><sup><a href="#note-8">8</a></sup>
+                                   Neste livro, não mostramos a resposta do interpretador à avaliação de definições, pois isso depende muito da implementação.
+                              </p>
+                              <p id="footnote-9"><sup><a href="#note-9">9</a></sup>
+                                   O Capítulo 3 mostrará que essa noção de ambiente é crucial tanto para entender como o interpretador funciona quanto para implementar interpretadores.
+                              </p>
+                              <p id="footnote-10"><sup><a href="#note-10">10</a></sup>
+                                   Pode parecer estranho que a regra de avaliação diga, como parte do primeiro passo, que devemos avaliar o elemento mais à esquerda de uma combinação, já que, neste ponto, isso só pode ser um operador como + ou *, representando uma operação primitiva como adição ou multiplicação. Veremos mais tarde que é útil trabalhar com combinações cujos operadores são eles próprios expressões compostas.
+                              </p>
+                              <p id="footnote-11"><sup><a href="#note-11">11</a></sup>
+                                   Formas sintáticas especiais que são simplesmente estruturas de superfície alternativas convenientes para coisas que podem ser escritas de maneiras mais uniformes são às vezes chamadas de "açúcar sintático", usando uma expressão cunhada por Peter Landin. Em comparação com os usuários de outras linguagens, os programadores Lisp, em geral, são menos preocupados com questões de sintaxe. (Por outro lado, examine qualquer manual de Pascal e perceba quanto dele é dedicado à descrição da sintaxe.) Esse desprezo pela sintaxe deve-se em parte à flexibilidade do Lisp, que facilita a alteração da sintaxe superficial, e em parte à observação de que muitos construtos sintáticos "convenientes", que tornam a linguagem menos uniforme, acabam causando mais problemas do que valem quando os programas se tornam grandes e complexos. Nas palavras de Alan Perlis, "Açúcar sintático causa câncer de ponto e vírgula."
+                              </p>
+                              <p id="footnote-12"><sup><a href="#note-12">12</a></sup>
+                                   Observe que aqui estão sendo combinadas duas operações diferentes: estamos criando o procedimento e dando a ele o nome de "square". É possível, e de fato importante, separar essas duas noções — criar procedimentos sem nomeá-los, e dar nomes a procedimentos que já foram criados. Veremos como fazer isso na seção 1.3.2.
+                              </p>
+                              <p id="footnote-13"><sup><a href="#note-13">13</a></sup>
+                                   Ao longo deste livro, descreveremos a sintaxe geral das expressões usando símbolos em itálico delimitados por colchetes angulares — por exemplo, &lt;name&gt; — para denotar os "espaços" na expressão a serem preenchidos quando tal expressão for realmente usada.
+                              </p>
+                              <p id="footnote-14"><sup><a href="#note-14">14</a></sup>
+                                   De forma mais geral, o corpo do procedimento pode ser uma sequência de expressões. Nesse caso, o interpretador avalia cada expressão na sequência e retorna o valor da última expressão como o valor da aplicação do procedimento.
+                              </p>
+                              <p id="footnote-15"><sup><a href="#note-15">15</a></sup>
+                                   Apesar da simplicidade da ideia de substituição, ela se revela surpreendentemente complicada quando se tenta dar uma definição matemática rigorosa do processo de substituição. O problema surge da possibilidade de confusão entre os nomes usados para os parâmetros formais de um procedimento e os nomes (possivelmente idênticos) usados nas expressões às quais o procedimento pode ser aplicado. De fato, há uma longa história de definições errôneas de substituição na literatura de lógica e semântica de programação. Veja Stoy 1977 para uma discussão cuidadosa sobre substituição.
+                              </p>
+                              <p id="footnote-16"><sup><a href="#note-16">16</a></sup>
+                                   No capítulo 3, introduziremos o processamento de fluxos, que é uma forma de lidar com estruturas de dados aparentemente "infinitas" incorporando uma forma limitada de avaliação em ordem normal. Na seção 4.2, modificaremos o interpretador Scheme para produzir uma variante em ordem normal de Scheme.
+                              </p>
+                              <p id="footnote-17"><sup><a href="#note-17">17</a></sup>
+                                   "Interpretado como verdadeiro ou falso" significa o seguinte: Em Scheme, há dois valores distintos que são denotados pelas constantes #t e #f. Quando o interpretador verifica o valor de um predicado, ele interpreta #f como falso. Qualquer outro valor é tratado como verdadeiro. (Assim, fornecer #t é logicamente desnecessário, mas é conveniente.) Neste livro, usaremos os nomes "true" e "false", que estão associados aos valores #t e #f, respectivamente.
+                              </p>
+                              <p id="footnote-18"><sup><a href="#note-18">18</a></sup>
+                                   "Abs" também usa o operador "menos" (-), que, quando usado com um único operando, como em (- x), indica negação.
+                              </p>
+                              <p id="footnote-19"><sup><a href="#note-19">19</a></sup>
+                                   Uma pequena diferença entre "if" e "cond" é que a parte &lt;e&gt; de cada cláusula "cond" pode ser uma sequência de expressões. Se a correspondente &lt;p&gt; for considerada verdadeira, as expressões &lt;e&gt; são avaliadas em sequência, e o valor da última expressão na sequência é retornado como o valor do "cond". Em uma expressão "if", no entanto, o &lt;consequent&gt; e o &lt;alternative&gt; devem ser expressões únicas.
+                              </p>
+                              <p id="footnote-20"><sup><a href="#note-20">20</a></sup>
+                                   Descrições declarativas e imperativas estão intimamente relacionadas, assim como a matemática e a ciência da computação. Por exemplo, dizer que a resposta produzida por um programa é "correta" é fazer uma declaração declarativa sobre o programa. Há uma grande quantidade de pesquisas destinadas a estabelecer técnicas para provar que programas são corretos, e grande parte da dificuldade técnica desse assunto tem a ver com a transição entre declarações imperativas (a partir das quais os programas são construídos) e declarações declarativas (que podem ser usadas para deduzir coisas). Em um sentido relacionado, uma área importante atual no design de linguagens de programação é a exploração de chamadas linguagens de altíssimo nível, nas quais se programa, de fato, em termos de declarações declarativas. A ideia é tornar os interpretadores sofisticados o suficiente para que, dado o conhecimento do "o que é" especificado pelo programador, eles possam gerar automaticamente o conhecimento do "como fazer". Isso não pode ser feito de maneira geral, mas há áreas importantes em que progressos foram feitos. Revisaremos essa ideia no capítulo 4.
+                              </p>
+                              <p id="footnote-21"><sup><a href="#note-21">21</a></sup>
+                                   Este algoritmo de raiz quadrada é, na verdade, um caso especial do método de Newton, que é uma técnica geral para encontrar raízes de equações. O próprio algoritmo de raiz quadrada foi desenvolvido por Heron de Alexandria no primeiro século d.C. Veremos como expressar o método geral de Newton como um procedimento Lisp na seção 1.3.4.
+                              </p>
+                              <p id="footnote-22"><sup><a href="#note-22">22</a></sup>
+                                   Geralmente, daremos aos predicados nomes terminados em pontos de interrogação, para nos ajudar a lembrar que são predicados. Isso é apenas uma convenção estilística. Para o interpretador, o ponto de interrogação é apenas um caractere comum.
+                              </p>
+                              <p id="footnote-23"><sup><a href="#note-23">23</a></sup>
+                                   Observe que expressamos nosso palpite inicial como 1.0 em vez de 1. Isso não faria diferença em muitas implementações de Lisp. O MIT Scheme, no entanto, distingue entre inteiros exatos e valores decimais, e dividir dois inteiros produz um número racional em vez de um decimal. Por exemplo, dividir 10 por 6 resulta em 5/3, enquanto dividir 10.0 por 6.0 resulta em 1.6666666666666667. (Aprenderemos como implementar aritmética em números racionais na seção 2.1.1.) Se começarmos com um palpite inicial de 1 em nosso programa de raiz quadrada, e x for um inteiro exato, todos os valores subsequentes produzidos no cálculo da raiz quadrada serão números racionais em vez de decimais. Operações mistas em números racionais e decimais sempre produzem decimais, então começar com um palpite inicial de 1.0 força todos os valores subsequentes a serem decimais.
+                              </p>
+                              <p id="footnote-24"><sup><a href="#note-24">24</a></sup>
+                                   Leitores preocupados com questões de eficiência envolvidas no uso de chamadas de procedimento para implementar iteração devem observar os comentários sobre "recursão de cauda" na seção 1.2.1.
+                              </p>
+                              <p id="footnote-25"><sup><a href="#note-25">25</a></sup>
+                                   Não está nem claro qual desses procedimentos é a implementação mais eficiente. Isso depende do hardware disponível. Existem máquinas em que a implementação "óbvia" é a menos eficiente. Considere uma máquina que tenha extensas tabelas de logaritmos e antilogaritmos armazenadas de maneira muito eficiente.
+                              </p>
+                              <p id="footnote-26"><sup><a href="#note-26">26</a></sup>
+                                   O conceito de renomeação consistente é, na verdade, sutil e difícil de definir formalmente. Lógicos renomados já cometeram erros embaraçosos nessa área.
+                              </p>
+                              <p id="footnote-27"><sup><a href="#note-27">27</a></sup>
+                                   O escopo lexical determina que as variáveis livres em um procedimento se referem às associações feitas pelas definições de procedimentos envolventes; ou seja, elas são buscadas no ambiente no qual o procedimento foi definido. Veremos como isso funciona em detalhes no capítulo 3, quando estudarmos ambientes e o comportamento detalhado do interpretador.
+                              </p>
+                              <p id="footnote-28"><sup><a href="#note-28">28</a></sup>
+                                   Definições embutidas devem vir primeiro no corpo de um procedimento. A gerência não se responsabiliza pelas consequências de executar programas que entrelaçam definição e uso.
+                              </p>
+                         </section>
+                    </main>
+               </body>
+               </html>ar esses dados. Assim, qualquer linguagem de programação poderosa deve ser capaz de descrever dados primitivos e procedimentos primitivos e deve ter métodos para combinar e abstrair procedimentos e dados.</p>  
           <p><sup id="note-4"></sup>Neste capítulo, lidaremos apenas com dados numéricos simples para que possamos focar nas regras para construir procedimentos.<sup><a href="">4</a></sup> Nos capítulos seguintes, veremos que essas mesmas regras nos permitem construir procedimentos para manipular dados compostos também.</p>
           <h2 id="1.1.1">1.1.1 Expressões</h2>  
           <p>Uma maneira simples de começar a programar é examinar algumas interações típicas com um interpretador do dialeto Scheme do Lisp. Imagine que você está sentado em um terminal de computador. Você digita uma expressão, e o interpretador responde exibindo o resultado da avaliação dessa expressão.</p>  
           <p>Um tipo de expressão primitiva que você pode digitar é um número. (Mais precisamente, a expressão que você digita consiste nos algarismos que representam o número na base 10.) <sup id="note-5"></sup>Se você apresentar um número ao Lisp:</p>  
-          <p class="code">
-              <span>486</span>
+          <pre><code class="linguage-scheme">
+              486
           </p>
           <p>o interpretador responderá imprimindo:<sup><a href="">5</a></sup></p>  
-          <p class="code">
-               <span class="code-result">486</span>
+          <pre><code class="linguage-scheme">
+486
           </p>
           <p>Expressões que representam números podem ser combinadas com uma expressão que representa um procedimento primitivo (como + ou *) para formar uma expressão composta que representa a aplicação do procedimento a esses números. Por exemplo:</p>
-          <p class="code">
-               <span>(+ 137 349)</span>
-               <span class="code-result">486</span>
-               <span>(- 1000 334)</span>
-               <span class="code-result">666</span>
-               <span>(* 5 99)</span>
-               <span class="code-result">495</span>
-               <span>(/ 10 5)</span>
-               <span class="code-result">2</span>
-               <span>(+ 2.7 10)</span>
-               <span class="code-result">12.7</span>
+          <pre><code class="linguage-scheme">
+               (+ 137 349)
+486
+               (- 1000 334)
+666
+               (* 5 99)
+495
+               (/ 10 5)
+2
+               (+ 2.7 10)
+12.7
           </p>
           <p>Expressões como essas, formadas ao delimitar uma lista de expressões entre parênteses para denotar a aplicação de um procedimento, são chamadas de combinações. O elemento mais à esquerda na lista é chamado de operador, e os outros elementos são chamados de operandos. O valor de uma combinação é obtido aplicando o procedimento especificado pelo operador aos argumentos, que são os valores dos operandos.</p>  
           <p>A convenção de colocar o operador à esquerda dos operandos é conhecida como notação prefixada, e pode ser um pouco confusa no início, pois difere significativamente da convenção matemática usual. No entanto, a notação prefixada tem várias vantagens. Uma delas é que ela pode acomodar procedimentos que podem receber um número arbitrário de argumentos, como nos exemplos a seguir:</p>  
-          <p class="code">
-               <span>(+ 21 35 12 7)</span>
-               <span class="code-result">75</span>
-               <span>(* 25 4 12)</span>
-               <span class="code-result">1200</span>
+          <pre><code class="linguage-scheme">
+               (+ 21 35 12 7)
+75
+               (* 25 4 12)
+1200
           </p> 
           <p>Não há ambiguidade possível, pois o operador é sempre o elemento mais à esquerda e toda a combinação é delimitada pelos parênteses.</p>  
           <p>Uma segunda vantagem da notação prefixada é que ela se estende de forma simples para permitir que as combinações sejam aninhadas, ou seja, que contenham combinações cujos elementos sejam, eles próprios, combinações:</p>
-          <p class="code">
-               <span>(+ (* 3 5) (- 10 6))</span>
-               <span class="code-result">19</span>
+          <pre><code class="linguage-scheme">
+               (+ (* 3 5) (- 10 6))
+19
           </p>
           <p>Não há limite (em princípio) para a profundidade desse aninhamento e para a complexidade geral das expressões que o interpretador Lisp pode avaliar. Nós, humanos, é que nos confundimos com expressões relativamente simples como:</p>
-          <p class="code">
-               <span>(+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))</span>
+          <pre><code class="linguage-scheme">
+               (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
           </p>
           <p>que o interpretador avaliaria prontamente como 57. Podemos nos ajudar escrevendo essa expressão na forma:</p>
-          <p class="code">
-               <span>(+ (* 3 <br>
+          <pre><code class="linguage-scheme">
+               (+ (*
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ (* 2 4) <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ 3 5))) <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ (- 10 7) <br>
@@ -95,23 +752,23 @@
           <h2 id="1.1.2">1.1.2 Nomeação e o Ambiente</h2>
           <p>Um aspecto crítico de uma linguagem de programação é o meio que ela fornece para usar nomes a fim de se referir a objetos computacionais. Dizemos que o nome identifica uma variável cujo valor é o objeto.</p>  
           <p><sup id="note-8"></sup>No dialeto Scheme de Lisp, nomeamos coisas com o comando <em>define</em>. Ao digitar</p>
-          <p class="code">
-               <span>(define tamanho 2)</span>
+          <pre><code class="linguage-scheme">
+               (define tamanho 2)
           </p>
           <p>o interpretador associa o valor 2 ao nome <em>tamanho</em>.<sup><a href="">8</a></sup> Uma vez que o nome <em>tamanho</em> tenha sido associado ao número 2, podemos nos referir ao valor 2 pelo nome:</p>  
-          <p class="code">
-               <span>(* 5 tamanho)</span>
-               <span class="code-result">10</span>
+          <pre><code class="linguage-scheme">
+               (* 5 tamanho)
+10
           </p> 
           <p>Aqui estão mais exemplos do uso de <em>define</em>:</p>  
-          <p class="code">
-               <span>(define pi 3.14159)</span>
-               <span>(define raio 10)</span>
-               <span>(* pi (* raio raio))</span>
-               <span class="code-result">314.159</span>
-               <span>(define circunferência (* 2 pi raio))</span>
-               <span>circunferência</span>
-               <span class="code-result">62.8318</span>
+          <pre><code class="linguage-scheme">
+               (define pi 3.14159)
+               (define raio 10)
+               (* pi (* raio raio))
+314.159
+               (define circunferência (* 2 pi raio))
+               circunferência
+62.8318
           </p>
           <p><em>Define</em> é o meio mais simples de abstração na nossa linguagem, pois nos permite usar nomes simples para se referir aos resultados de operações compostas, como a circunferência calculada acima. Em geral, os objetos computacionais podem ter estruturas muito complexas, e seria extremamente inconveniente ter que lembrar e repetir seus detalhes toda vez que quiséssemos usá-los. De fato, programas complexos são construídos através da criação, passo a passo, de objetos computacionais de complexidade crescente. O interpretador torna essa construção passo a passo particularmente conveniente, pois associações entre nomes e objetos podem ser criadas de forma incremental em interações sucessivas. Essa característica incentiva o desenvolvimento e o teste incremental de programas e é amplamente responsável pelo fato de que um programa em Lisp geralmente consiste em um grande número de procedimentos relativamente simples.</p>
           <p>Deve ficar claro que a possibilidade de associar valores a símbolos e recuperá-los posteriormente significa que o interpretador deve manter algum tipo de memória que rastreie os pares nome-objeto. <sup id="note-9"></sup>Essa memória é chamada de ambiente (mais precisamente, o ambiente global, já que veremos mais tarde que uma computação pode envolver uma série de diferentes ambientes).<sup><a href="">9</a></sup></p>
@@ -126,14 +783,14 @@
           </ul>
           <p>Mesmo essa regra simples ilustra alguns pontos importantes sobre processos em geral. Primeiro, observe que o primeiro passo determina que, para realizar o processo de avaliação de uma combinação, devemos primeiro realizar o processo de avaliação em cada elemento da combinação. <sup id="note-10"></sup>Assim, a regra de avaliação é recursiva por natureza; ou seja, inclui, como um de seus passos, a necessidade de invocar a própria regra.<sup><a href="">10</a></sup></p>  
           <p>Perceba como a ideia de recursão pode ser usada de forma sucinta para expressar o que, no caso de uma combinação profundamente aninhada, seria visto como um processo bastante complicado. Por exemplo, avaliar</p>
-          <p class="code">
-               <span>(* (+ 2 (* 4 6))<br>
+          <pre><code class="linguage-scheme">
+               (* (+ 2 (* 4 
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ 3 5 7))</span>
           </p>
           <p>requer que a regra de avaliação seja aplicada a quatro combinações diferentes. Podemos obter uma imagem desse processo representando a combinação na forma de uma árvore, como mostrado na figura <a href="#fig-1.1">1.1</a>. Cada combinação é representada por um nó com ramificações correspondentes ao operador e aos operandos da combinação que se originam dele. Os nós terminais (ou seja, nós sem ramificações) representam operadores ou números. Visualizando a avaliação em termos da árvore, podemos imaginar que os valores dos operandos percolam para cima, começando nos nós terminais e se combinando em níveis cada vez mais altos. Em geral, veremos que a recursão é uma técnica muito poderosa para lidar com objetos hierárquicos em forma de árvore. Na verdade, a forma de "percolação de valores para cima" da regra de avaliação é um exemplo de um tipo geral de processo conhecido como acumulação em árvore.</p>
           <div class="book-figure" id="fig-1.1">
                <img src="../image/ch1-Z-G-1.gif" alt="imagem do calculo do processo (* (+ 2 (* 4 6))(+ 3 5 7)) em forma de arvore">
-               <span><strong>Figura 1.1:</strong> Representação em árvore, mostrando o valor de cada subcombinação.</span>
+               <strong>Figura 1.1:</strong> Representação em árvore, mostrando o valor de cada subcombinação.
           </div> 
           <p>Em seguida, observe que a repetição do primeiro passo nos leva ao ponto em que precisamos avaliar, não combinações, mas expressões primitivas, como números, operadores embutidos ou outros nomes. Tratamos dos casos primitivos estipulando que</p>
           <ul>
@@ -153,75 +810,75 @@
           </ul>
           <p>Agora aprenderemos sobre definições de procedimentos, uma técnica de abstração muito mais poderosa, por meio da qual uma operação composta pode receber um nome e, em seguida, ser referida como uma unidade.</p>  
           <p>Começamos examinando como expressar a ideia de "elevar ao quadrado". Poderíamos dizer: "Para elevar algo ao quadrado, multiplique-o por si mesmo." Isso é expresso em nossa linguagem como:</p> 
-          <p class="code">
-               <span>(define (quadrado x) (* <em>x</em> x))</span>
+          <pre><code class="linguage-scheme">
+               (define (quadrado x) (* <em>x</em> x))
           </p>
           <p>Podemos entender isso da seguinte maneira.</p>
           <p>Para <em class="code-in-line">define</em> elevar algo <em class="code-in-line">x</em> ao quadrado <em class="code-in-line">quadrado</em>, multiplique-o <em class="code-in-line">*</em> por ele mesmo <em class="code-in-line">x x</em>.</p>
           <p>Aqui temos um procedimento composto, que foi chamado de <em>quadrado</em>. O procedimento representa a operação de multiplicar algo por si mesmo. A coisa a ser multiplicada recebe um nome local, <em>x</em>, que desempenha o mesmo papel que um pronome desempenha na linguagem natural. <sup id="note-12"></sup>Avaliar a definição cria este procedimento composto e o associa ao nome <em>quadrado</em>.<sup><a href="">12</a></sup></p>  
           <p>A forma geral de uma definição de procedimento é:</p>
-          <p class="code">
-               <span>(define (&lt;nome&gt; &lt;parâmetros formais&gt;) &lt;corpo&gt;)</span>
+          <pre><code class="linguage-scheme">
+               (define (&lt;nome&gt; &lt;parâmetros formais&gt;) &lt;corpo&gt;)
           </p>
           <p><sup id="note-13"></sup>O <em>&lt;nome&gt;</em> é um símbolo a ser associado à definição do procedimento no ambiente.<sup><a href="">13</a></sup> Os <em>&lt;parâmetros formais&gt;</em> são os nomes usados dentro do corpo do procedimento para se referir aos argumentos correspondentes do procedimento. O <em>&lt;corpo&gt;</em> é uma expressão que produzirá o valor da aplicação do procedimento quando os parâmetros formais forem substituídos pelos argumentos reais aos quais o procedimento é aplicado.<sup><a href="">14</a></sup> O <em>&lt;nome&gt;</em> e os <em>&lt;parâmetros formais&gt;</em> são agrupados entre parênteses, assim como seriam em uma chamada real ao procedimento sendo definido.</p>  
           <p>Tendo definido <em>quadrado</em>, podemos agora utilizá-lo:</p>
-          <p class="code">
-               <span>(quadrado 21)</span>
-               <span class="code-result">441</span>
-               <span>(quadrado (+ 2 5))</span>
-               <span class="code-result">49</span>
-               <span>(quadrado (quadrado 3))</span>
-               <span class="code-result">81</span>
+          <pre><code class="linguage-scheme">
+               (quadrado 21)
+441
+               (quadrado (+ 2 5))
+49
+               (quadrado (quadrado 3))
+81
           </p> 
           <p>Também podemos usar <em>quadrado</em> como um bloco de construção para definir outros procedimentos. Por exemplo, x² + y² pode ser expresso como:</p>
-          <p class="code">
-               <span>(+ (quadrado x) (quadrado y))</span>
+          <pre><code class="linguage-scheme">
+               (+ (quadrado x) (quadrado y))
           </p> 
           <p>Podemos facilmente definir um procedimento <em>soma-dos-quadrados</em> que, dado dois números como argumentos, produz a soma de seus quadrados:</p>  
-          <p class="code">
-               <span>(define (soma-dos-quadrados <em>x</em> y)</span>
-               <span>(+ (quadrado x) (quadrado y)))</span>
-               <span>(soma-dos-quadrados 3 4)</span>
-               <span class="code-result">25</span>
+          <pre><code class="linguage-scheme">
+               (define (soma-dos-quadrados <em>x</em> y)
+               (+ (quadrado x) (quadrado y)))
+               (soma-dos-quadrados 3 4)
+25
           </p> 
           <p>Agora podemos usar <em>soma-dos-quadrados</em> como um bloco de construção na construção de outros procedimentos:</p>  
-          <p class="code">
-               <span>(define (f a)<br>
+          <pre><code class="linguage-scheme">
+               (define (f
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(soma-dos-quadrados (+ a 1) (* a 2)))</span>
-               <span>(f 5)</span>
-               <span class="code-result">136</span>
+               (f 5)
+136
           </p> 
           <p>Procedimentos compostos são usados exatamente da mesma maneira que procedimentos primitivos. Na verdade, não se poderia dizer, apenas observando a definição de <em>soma-dos-quadrados</em> acima, se <em>quadrado</em> foi incorporado ao interpretador, como + e *, ou definido como um procedimento composto.</p>
           <h2 id="1.1.5">1.1.5 O Modelo de Substituição para Aplicação de Procedimentos</h2>
           <p>Para avaliar uma combinação cujo operador nomeia um procedimento composto, o interpretador segue um processo muito semelhante ao descrito na seção 1.1.3 para combinações cujos operadores nomeiam procedimentos primitivos. Ou seja, o interpretador avalia os elementos da combinação e aplica o procedimento (que é o valor do operador da combinação) aos argumentos (que são os valores dos operandos da combinação).</p>  
           <p>Podemos supor que o mecanismo para aplicar procedimentos primitivos aos argumentos está embutido no interpretador. Para procedimentos compostos, o processo de aplicação é o seguinte:</p>  
           <p>Para aplicar um procedimento composto a argumentos, avalie o corpo do procedimento substituindo cada parâmetro formal pelo argumento correspondente. Para ilustrar esse processo, vamos avaliar a combinação:</p>  
-          <p class="code">
-               <span>(f 5)</span>
+          <pre><code class="linguage-scheme">
+               (f 5)
           </p>
           <p>onde f é o procedimento definido na seção 1.1.4. Começamos recuperando o corpo de f:</p>
-          <p class="code">
-               <span>(soma-dos-quadrados (+ a 1) (* a 2))</span>
+          <pre><code class="linguage-scheme">
+               (soma-dos-quadrados (+ a 1) (* a 2))
           </p> 
           <p>Em seguida, substituímos o parâmetro formal a pelo argumento 5:</p>  
-          <p class="code">
-               <span>(soma-dos-quadrados (+ 5 1) (* 5 2))</span>
+          <pre><code class="linguage-scheme">
+               (soma-dos-quadrados (+ 5 1) (* 5 2))
           </p>
           <p>Assim, o problema se reduz à avaliação de uma combinação com dois operandos e um operador <em>soma-dos-quadrados</em>. Avaliar essa combinação envolve três subproblemas. Devemos avaliar o operador para obter o procedimento a ser aplicado, e devemos avaliar os operandos para obter os argumentos. Agora, (+ 5 1) produz 6 e (* 5 2) produz 10, então devemos aplicar o procedimento <em>soma-dos-quadrados</em> a 6 e 10. Esses valores são substituídos pelos parâmetros formais <em>x</em> e <em>y</em> no corpo de <em>soma-dos-quadrados</em>, reduzindo a expressão para</p>
-          <p class="code">
-               <span>(+ (quadrado 6) (quadrado 10))</span>
+          <pre><code class="linguage-scheme">
+               (+ (quadrado 6) (quadrado 10))
           </p>  
           <p>Se usarmos a definição de <em>quadrado</em>, isso se reduz a</p>  
-          <p class="code">
-               <span>(+ (* 6 6) (* 10 10))</span>
+          <pre><code class="linguage-scheme">
+               (+ (* 6 6) (* 10 10))
           </p>  
           <p>o que se reduz, por multiplicação, a</p>  
-          <p class="code">
-               <span>(+ 36 100)</span>
+          <pre><code class="linguage-scheme">
+               (+ 36 100)
           </p>  
           <p>e finalmente a</p>  
-          <p class="code">
-               <span>136</span>
+          <pre><code class="linguage-scheme">
+               136
           </p>  
           <p>O processo que acabamos de descrever é chamado de modelo de substituição para aplicação de procedimentos. Ele pode ser tomado como um modelo que determina o "significado" da aplicação de procedimentos, no que se refere aos procedimentos discutidos neste capítulo. No entanto, há dois pontos que devem ser ressaltados:</p>
           <ul>
@@ -230,23 +887,23 @@
           </ul>
           <h3>Ordem Aplicativa versus Ordem Normal</h3> 
           <p>De acordo com a descrição da avaliação dada na seção 1.1.3, o interpretador primeiro avalia o operador e os operandos e, em seguida, aplica o procedimento resultante aos argumentos resultantes. Esta não é a única maneira de realizar uma avaliação. Um modelo alternativo de avaliação não avaliaria os operandos até que seus valores fossem necessários. Em vez disso, ele primeiro substituiria as expressões dos operandos pelos parâmetros até obter uma expressão envolvendo apenas operadores primitivos, e então realizaria a avaliação. Se usássemos esse método, a avaliação de</p>
-          <p class="code">
-               <span>(f 5)</span>
+          <pre><code class="linguage-scheme">
+               (f 5)
           </p>  
           <p>seguiria a sequência de expansões</p>
-          <p class="code">
-               <span>(soma-dos-quadrados (+ 5 1) (* 5 2))</span>
+          <pre><code class="linguage-scheme">
+               (soma-dos-quadrados (+ 5 1) (* 5 2))
                <span class="code-comment">;; (+ (quadrado (+ 5 1)) (quadrado (* 5 2)) )</span>
                <span class="code-comment">;; (+ (* (+ 5 1) (+ 5 1)) (* (* 5 2) (* 5 2)))</span>
           </p>
           <p>seguida pelas reduções</p>  
-          <p class="code">
+          <pre><code class="linguage-scheme">
                <span class="code-comment">;; (+ (* 6 6) (* 10 10))</span>
                <span class="code-comment">;; (+ 36 100)</span>
-               <span class="code-result">136</span>
+136
           </p>  
           <p>Isso dá a mesma resposta que nosso modelo de avaliação anterior, mas o processo é diferente. Em particular, as avaliações de (+ 5 1) e (* 5 2) são realizadas duas vezes aqui, correspondendo à redução da expressão</p>
-          <p class="code">
+          <pre><code class="linguage-scheme">
                <span class="code-comment">;; (* <em>x</em> x)</span>
           </p>
           <p>com <em>x</em> substituído respectivamente por (+ 5 1) e (* 5 2).</p>  
@@ -256,15 +913,15 @@
           <p>O poder expressivo das classes de procedimentos que podemos definir neste ponto é bastante limitado, pois não temos meios para realizar testes e executar operações diferentes dependendo do resultado de um teste. Por exemplo, não podemos definir um procedimento que calcula o valor absoluto de um número testando se o número é positivo, negativo ou zero e tomando ações diferentes nos diferentes casos, de acordo com a regra.</p>
           <img src="../image/ch1-Z-G-2.gif" alt="modulo de r é igual a r se r for maior que zero, ou igual a zero se r for igual a zero, ou igual -r se r for menor que zero">
           <p>Essa construção é chamada de análise de casos, e existe uma forma especial em Lisp para notação de tal análise de casos. Ela é chamada de <em>cond</em> (que significa "condicional") e é usada da seguinte forma:</p>
-          <p class="code">
-               <span>(define (abs x)<br>
+          <pre><code class="linguage-scheme">
+               (define (abs
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond ((> <em>x</em> 0) x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((= <em>x</em> 0) 0)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((< <em>x</em> 0) (- x))))</span>
           </p>
           <p>A forma geral de uma expressão condicional é:</p>
-          <p class="code">
-               <span>(cond (&lt;p1&gt; &lt;e1&gt;)<br>
+          <pre><code class="linguage-scheme">
+               (cond (&lt;p1&gt; &lt;e1&g
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;p2&gt; &lt;e2&gt;)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;pn&gt; &lt;en&gt;))</span>
@@ -273,72 +930,72 @@
           <p>As expressões condicionais são avaliadas da seguinte maneira. O predicado &lt;p1&gt; é avaliado primeiro. Se seu valor for falso, então &lt;p2&gt; é avaliado. Se o valor de &lt;p2&gt; também for falso, então &lt;p3&gt; é avaliado. Esse processo continua até que seja encontrado um predicado cujo valor seja verdadeiro, e nesse caso o interpretador retorna o valor da expressão correspondente &lt;e&gt; da cláusula como o valor da expressão condicional. Se nenhum dos &lt;p&gt; for verdadeiro, o valor do <em>cond</em> é indefinido.</p>
           <p>A palavra <em>predicado</em> é usada tanto para procedimentos que retornam verdadeiro ou falso, quanto para expressões que avaliam para verdadeiro ou falso.<sup id="note-18"></sup> O procedimento de valor absoluto <em>abs</em> faz uso dos predicados primitivos &gt;, &lt;, e =. Estes aceitam dois números como argumentos e testam se o primeiro número é, respectivamente, maior, menor ou igual ao segundo número, retornando verdadeiro ou falso conforme o caso.</p>
           <p>Outra maneira de escrever o procedimento de valor absoluto é:</p>
-          <p class="code">
-               <span>(define (abs x)<br>
+          <pre><code class="linguage-scheme">
+               (define (abs
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond ((&lt; <em>x</em> 0) (- x))<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else x)))</span>
           </p>
           <p>Isso poderia ser expresso em português como: "Se <em>x</em> for menor que zero, retorne <em>-x</em>; caso contrário, retorne <em>x</em>." <em>Else</em> é um símbolo especial que pode ser usado no lugar do &lt;p&gt; na cláusula final de um cond. Isso faz com que o cond retorne como valor o valor da expressão correspondente &lt;e&gt; sempre que todas as cláusulas anteriores forem ignoradas. Na verdade, qualquer expressão que sempre avalie para um valor verdadeiro poderia ser usada como &lt;p&gt; aqui.</p>
           <p>Aqui está mais uma maneira de escrever o procedimento de valor absoluto:</p>
-          <p class="code">
-               <span>(define (abs x)<br>
+          <pre><code class="linguage-scheme">
+               (define (abs
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (&lt; <em>x</em> 0)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(- x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x))</span>
           </p>
           <p>Isso utiliza a forma especial <em>if</em>, um tipo restrito de condicional que pode ser usado quando há exatamente dois casos na análise de casos. A forma geral de uma expressão <em>if</em> é:</p>
-          <p class="code">
-               <span>(if &lt;predicato&gt; &lt;consequente&gt; &lt;alternativa&gt;)</span>
+          <pre><code class="linguage-scheme">
+               (if &lt;predicato&gt; &lt;consequente&gt; &lt;alternativa&gt;)
           </p>
           <p>Para avaliar uma expressão <em>if</em>, o interpretador começa avaliando a parte &lt;predicato&gt; da expressão. Se o &lt;predicato&gt; for avaliado como verdadeiro, o interpretador então avalia o &lt;consequente&gt; e retorna seu valor.<sup id="note-19"></sup> Caso contrário, ele avalia o &lt;alternativa&gt; e retorna seu valor.</p>
           <p>Além dos predicados primitivos como &lt;, = e &gt;, existem operações de composição lógica que nos permitem construir predicados compostos. As três mais frequentemente usadas são estas:</p>
-          <p class="code">
-               <span>(and &lt;e1&gt; ... &lt;en&gt;)</span>
+          <pre><code class="linguage-scheme">
+               (and &lt;e1&gt; ... &lt;en&gt;)
           </p>
           <p>O interpretador avalia as expressões &lt;e&gt; uma de cada vez, da esquerda para a direita. Se alguma &lt;e&gt; for avaliada como falso, o valor da expressão <em>and</em> será falso, e o restante das &lt;e&gt; não será avaliado. Se todas as &lt;e&gt; forem avaliadas como valores verdadeiros, o valor da expressão <em>and</em> será o valor da última.</p>
-          <p class="code">
-               <span>(or &lt;e1&gt; ... &lt;en&gt;)</span>
+          <pre><code class="linguage-scheme">
+               (or &lt;e1&gt; ... &lt;en&gt;)
           </p>
           <p>O interpretador avalia as expressões &lt;e&gt; uma de cada vez, da esquerda para a direita. Se alguma &lt;e&gt; for avaliada como um valor verdadeiro, esse valor é retornado como o valor da expressão <em>or</em>, e o restante das &lt;e&gt; não será avaliado. Se todas as &lt;e&gt; forem avaliadas como falsas, o valor da expressão <em>or</em> será falso.</p>
-          <p class="code">
-               <span>(not &lt;e&gt;)</span>
+          <pre><code class="linguage-scheme">
+               (not &lt;e&gt;)
           </p>
           <p>O valor de uma expressão <em>not</em> é verdadeiro quando a expressão &lt;e&gt; for avaliada como falso, e falso caso contrário.</p>
           <p>Observe que <em>and</em> e <em>or</em> são formas especiais, não procedimentos, pois as subexpressões não são necessariamente todas avaliadas. <em>Not</em> é um procedimento comum.</p>
           <p>Como exemplo de como essas formas são usadas, a condição de que um número <em>x</em> esteja no intervalo 5 &lt; <em>x</em> &lt; 10 pode ser expressa como:</p>
-          <p class="code">
-               <span>(and (&gt; <em>x</em> 5) (&lt; <em>x</em> 10))</span>
+          <pre><code class="linguage-scheme">
+               (and (&gt; <em>x</em> 5) (&lt; <em>x</em> 10))
           </p>
           <p>Como outro exemplo, podemos definir um predicado para testar se um número é maior ou igual a outro como:</p>
-          <p class="code">
-               <span>(define (&gt;= <em>x</em> y)<br>
+          <pre><code class="linguage-scheme">
+               (define (&gt;= <em>x</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or (&gt; <em>x</em> y) (= <em>x</em> y)))</span>
           </p>
           <p>ou alternativamente como:</p>
-          <p class="code">
-               <span>(define (&gt;= <em>x</em> y)<br>
+          <pre><code class="linguage-scheme">
+               (define (&gt;= <em>x</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(not (&lt; <em>x</em> y)))</span>
           </p>
           <p><strong>Exercício 1.1.</strong> Abaixo está uma sequência de expressões. Qual é o resultado impresso pelo interpretador em resposta a cada expressão? Suponha que a sequência seja avaliada na ordem em que é apresentada.</p>
-          <p class="code">
-               <span>10</span>
-               <span>(+ 5 3 4)</span>
-               <span>(- 9 1)</span>
-               <span>(/ 6 2)</span>
-               <span>(+ (* 2 4) (- 4 6))</span>
-               <span>(define a 3)</span>
-               <span>(define b (+ a 1))</span>
-               <span>(+ a b (* a b))</span>
-               <span>(= a b)</span>
-               <span>(if (and (&gt; b a) (&lt; b (* a b)))<br>
+          <pre><code class="linguage-scheme">
+               10
+               (+ 5 3 4)
+               (- 9 1)
+               (/ 6 2)
+               (+ (* 2 4) (- 4 6))
+               (define a 3)
+               (define b (+ a 1))
+               (+ a b (* a b))
+               (= a b)
+               (if (and (&gt; b a) (&lt; b (* a b
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a)
                </span>
-               <span>(cond ((= a 4) 6)<br>
+               (cond ((= a 4)
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((= b 4) (+ 6 7 a))<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else 25))</span>
-               <span>(+ 2 (if (&gt; b a) b a))</span>
-               <span>(* (cond ((> a b) a)<br>
+               (+ 2 (if (&gt; b a) b a))
+               (* (cond ((> a b)
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((< a b) b)<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else -1))<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(+ a 1))</span>
@@ -346,19 +1003,19 @@
           <p><strong>Exercício 1.2.</strong> Traduza a seguinte expressão para a forma prefixada.</p>
           <p><strong>Exercício 1.3.</strong> Defina um procedimento que recebe três números como argumentos e retorna a soma dos quadrados dos dois maiores números.</p>
           <p><strong>Exercício 1.4.</strong> Observe que nosso modelo de avaliação permite combinações cujos operadores são expressões compostas. Use esta observação para descrever o comportamento do seguinte procedimento:</p>
-          <p class="code">
-               <span>(define (a-mais-abs-b a b)<br>
+          <pre><code class="linguage-scheme">
+               (define (a-mais-abs-b a
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((if (&gt; b 0) + -) a b))</span>
           </p>
           <p><strong>Exercício 1.5.</strong> Ben Bitdiddle inventou um teste para determinar se o interpretador com o qual ele está lidando usa avaliação por ordem aplicativa ou por ordem normal. Ele define os dois procedimentos a seguir:</p>
-          <p class="code">
-               <span>(define (p) (p))</span>
-               <span>(define (teste <em>x</em> y)<br>
+          <pre><code class="linguage-scheme">
+               (define (p) (p))
+               (define (teste <em>x</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((if (&gt; b 0) + -) a b))</span>
           </p>
           <p>Em seguida, ele avalia a expressão:</p>
-          <p class="code">
-               <span>(teste 0 (p))</span>
+          <pre><code class="linguage-scheme">
+               (teste 0 (p))
           </p>
           <p>Que comportamento Ben observará com um interpretador que usa avaliação por ordem aplicativa? Que comportamento ele observará com um interpretador que usa avaliação por ordem normal? Explique sua resposta. (Suponha que a regra de avaliação para a forma especial <em>if</em> seja a mesma, independentemente de o interpretador estar usando ordem normal ou aplicativa: a expressão do predicado é avaliada primeiro, e o resultado determina se o consequente ou a alternativa é avaliado.)</p>
           <h2 id="1.1.7">1.1.7 Exemplo: Raízes Quadradas pelo Método de Newton</h2>
@@ -376,8 +1033,8 @@
                </mrow>
           </math>
           <p>Isso descreve uma função matemática perfeitamente legítima. Poderíamos usá-la para reconhecer se um número é a raiz quadrada de outro ou para derivar fatos sobre raízes quadradas em geral. Por outro lado, essa definição não descreve um procedimento. Na verdade, ela nos diz quase nada sobre como realmente encontrar a raiz quadrada de um dado número. Não ajudaria em nada reformular essa definição em pseudo-Lisp:</p>
-          <p class="code">
-               <span>(define (raizquadrada x)<br>
+          <pre><code class="linguage-scheme">
+               (define (raizquadrada
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(the y (and (>= y 0)
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(= (quadrado y) x))))
                   </span>
@@ -418,61 +1075,61 @@
           </table>
           <p>Continuando esse processo, obtemos aproximações cada vez melhores da raiz quadrada.</p>
           <p>Agora, vamos formalizar o processo em termos de procedimentos. Começamos com um valor para o radicando (o número cuja raiz quadrada estamos tentando calcular) e um valor para o palpite. Se o palpite for bom o suficiente para nossos propósitos, terminamos; caso contrário, precisamos repetir o processo com um palpite melhorado. Escrevemos essa estratégia básica como um procedimento:</p>
-          <p class="code">
-               <span>(define (raizquad-iter palpite x)<br>
+          <pre><code class="linguage-scheme">
+               (define (raizquad-iter palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (bom-o-suficiente? palpite x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x)))<br></span>
           </p>
           <p>Um palpite é melhorado ao calcular a média entre ele e o quociente do radicando pelo palpite anterior:</p>
-          <p class="code">
-               <span>(define (melhorar palpite x)<br>
+          <pre><code class="linguage-scheme">
+               (define (melhorar palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(media palpite (/ <em>x</em> palpite)))</span>
           </p>
           <p>onde</p>
-          <p class="code">
-               <span>(define (melhorar x)<br>
+          <pre><code class="linguage-scheme">
+               (define (melhorar
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(/ (+ <em>x</em> y) 2))</span>
           </p>
           <p>Também precisamos definir o que significa "bom o suficiente". O seguinte serve para ilustração, mas não é realmente um teste muito bom (veja o exercício 1.7).<sup id="note-22"></sup> A ideia é melhorar a resposta até que ela esteja próxima o suficiente, de modo que seu quadrado difira do radicando por menos que uma tolerância predefinida (aqui 0.001):</p>
-          <p class="code">
-               <span>(define (bom-o-suficiente? palpite x)<br>
+          <pre><code class="linguage-scheme">
+               (define (bom-o-suficiente? palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))</span>
           </p>
           <p>Finalmente, precisamos de uma maneira de começar.<sup id="note-23"></sup> Por exemplo, podemos sempre supor que a raiz quadrada de qualquer número seja 1:</p>
-          <p class="code">
-               <span>(define (raizquadrada x)<br>
+          <pre><code class="linguage-scheme">
+               (define (raizquadrada
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1 x))</span>
           </p>
           <p>Se digitarmos essas definições no interpretador, podemos usar <em>raizquadrada</em> assim como usamos qualquer procedimento:</p>
-          <p class="code">
-               <span>(raizquadrada 9)</span>
-               <span class="code-result">3.00009155413138</span>
-               <span>(raizquadrada (+ 100 37))</span>
-               <span class="code-result">3.00009155413138</span>
-               <span>(raizquadrada (+ (raizquadrada 2) (raizquadrada 3)))</span>
-               <span class="code-result">3.00009155413138</span>
-               <span>(quadrado (raizquadrada 1000))</span>
-               <span class="code-result">3.00009155413138</span>
+          <pre><code class="linguage-scheme">
+               (raizquadrada 9)
+3.00009155413138
+               (raizquadrada (+ 100 37))
+3.00009155413138
+               (raizquadrada (+ (raizquadrada 2) (raizquadrada 3)))
+3.00009155413138
+               (quadrado (raizquadrada 1000))
+3.00009155413138
           </p>
           <p>O programa <em>quadrado</em> também ilustra que a linguagem procedural simples que introduzimos até agora é suficiente para escrever qualquer programa puramente numérico que se poderia escrever, por exemplo, em C ou Pascal. Isso pode parecer surpreendente, já que não incluímos em nossa linguagem nenhum construto iterativo (de repetição) que oriente o computador a fazer algo repetidamente.<sup id="note-24"></sup> <em>raizquad-iter</em>, por outro lado, demonstra como a iteração pode ser realizada sem nenhum construto especial além da capacidade ordinária de chamar um procedimento.</p>
           <p><strong>Exercício 1.6.</strong> Alyssa P. Hacker não vê por que <em>if</em> precisa ser fornecido como uma forma especial. "Por que eu não posso simplesmente defini-lo como um procedimento comum em termos de <em>cond?</em>" ela pergunta. A amiga de Alyssa, Eva Lu Ator, afirma que isso pode de fato ser feito, e ela define uma nova versão de <em>if</em>:</p>
-          <p class="code">
-               <span>(define (novo-if predicado a-clausula else-clausula)<br>
+          <pre><code class="linguage-scheme">
+               (define (novo-if predicado a-clausula else-clausu
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond (predicado a-clausula)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(else else-clausula)))</span>
           </p>
           <p>Eva demonstra o programa para Alyssa:</p>
-          <p class="code">
-               <span>(novo-if (= 2 3) 0 5)</span>
-               <span class="code-result">5</span>
-               <span>(novo-if (= 1 1) 0 5)</span>
-               <span class="code-result">0</span>
+          <pre><code class="linguage-scheme">
+               (novo-if (= 2 3) 0 5)
+5
+               (novo-if (= 1 1) 0 5)
+0
           </p>
           <p>Encantada, Alyssa usa <em>novo-if</em> para reescrever o programa de raiz quadrada:</p>
-          <p class="code">
-               <span>(define (raizquad-iter palpite x)<br>
+          <pre><code class="linguage-scheme">
+               (define (raizquad-iter palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(new-if (bom-o-suficiente? palpite x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x)<br>
@@ -503,26 +1160,26 @@
           <p>Observe que o problema de calcular raízes quadradas se divide naturalmente em vários subproblemas: como determinar se um palpite é bom o suficiente, como melhorar um palpite, e assim por diante. Cada uma dessas tarefas é realizada por um procedimento separado. Todo o programa <em>quadrado</em> pode ser visto como um conjunto de procedimentos (mostrado na figura 1.2) que reflete a decomposição do problema em subproblemas.</p>
           <div class="book-figure" id="fig-1.1">
                <img src="../image/ch1-Z-G-6.gif" alt="imagem representativa em arvore do programa quadrado">
-               <span><strong>Figura 1.2:</strong> Decomposição Procedural do Programa <em>quadrado</em>.</span>
+               <strong>Figura 1.2:</strong> Decomposição Procedural do Programa <em>quadrado</em>.
           </div> 
           <p>A importância dessa estratégia de decomposição não reside simplesmente no fato de dividir o programa em partes. Afinal, poderíamos pegar qualquer programa grande e dividi-lo em partes &mdash; as primeiras dez linhas, as próximas dez linhas, e assim por diante. No entanto, é crucial que cada procedimento realize uma tarefa identificável que possa ser usada como um módulo na definição de outros procedimentos. Por exemplo, quando definimos o procedimento <em>bom-o-suficiente?</em> em termos de <em>quadrado</em>, podemos considerar o procedimento <em>quadrado</em> como uma "caixa preta". Nesse momento, não nos preocupamos com a forma como o procedimento calcula seu resultado, apenas com o fato de que ele calcula o quadrado. Os detalhes de como o quadrado é calculado podem ser suprimidos, para serem considerados em um momento posterior. De fato, no que diz respeito ao procedimento <em>bom-o-suficiente?</em>, <em>quadrado</em> não é exatamente um procedimento, mas sim uma abstração de um procedimento, uma chamada abstração procedural. Nesse nível de abstração, qualquer procedimento que compute o quadrado é igualmente bom.</p>
           <p>Assim, considerando apenas os valores que retornam, os dois procedimentos a seguir para calcular o quadrado de um número deveriam ser indistinguíveis.<sup id="note-25"></sup> Cada um recebe um argumento numérico e produz o quadrado desse número como valor:</p>
-          <p class="code">
-               <span>(define (quadrado x) (* <em>x</em> x))</span>
-               <span>(define (quadrado x)<br>
+          <pre><code class="linguage-scheme">
+               (define (quadrado x) (* <em>x</em> x))
+               (define (quadrado
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(exp (dobro (log x))))</span>
-               <span>(define (dobro x) (+ <em>x</em> x))</span>
+               (define (dobro x) (+ <em>x</em> x))
           </p>
           <p>Portanto, uma definição de procedimento deve ser capaz de suprimir detalhes. Os usuários do procedimento podem não ter escrito o procedimento por si mesmos, mas podem tê-lo obtido de outro programador como uma caixa preta. Um usuário não deve precisar saber como o procedimento é implementado para usá-lo.</p>
           <h3>Nomes Locais</h3>
           <p>Um detalhe da implementação de um procedimento que não deve importar para o usuário do procedimento é a escolha do implementador para os nomes dos parâmetros formais do procedimento. Assim, os seguintes procedimentos não deveriam ser distinguíveis:</p>
-          <p class="code">
-               <span>(define (quadrado x) (* <em>x</em> x))</span>
-               <span>(define (quadrado y) (* y y))</span>
+          <pre><code class="linguage-scheme">
+               (define (quadrado x) (* <em>x</em> x))
+               (define (quadrado y) (* y y))
           </p>
           <p>Esse princípio &mdash; que o significado de um procedimento deve ser independente dos nomes dos parâmetros usados pelo seu autor &mdash; parece, à primeira vista, ser autoevidente, mas suas consequências são profundas. A consequência mais simples é que os nomes dos parâmetros de um procedimento devem ser locais ao corpo do procedimento. Por exemplo, usamos <em>quadrado</em> na definição de <em>bom-o-suficiente?</em> em nosso procedimento de raiz quadrada:</p>
-          <p class="code">
-               <span>(define (bom-o-suficiente? palpite x)<br>
+          <pre><code class="linguage-scheme">
+               (define (bom-o-suficiente? palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))</span>
           </p>
           <p>A intenção do autor de <em>bom-o-suficiente?</em> é determinar se o quadrado do primeiro argumento está dentro de uma tolerância dada do segundo argumento. Vemos que o autor de <em>bom-o-suficiente?</em> usou o nome <em>palpite</em> para se referir ao primeiro argumento e <em>x</em> para se referir ao segundo argumento. O argumento de <em>quadrado</em> é <em>palpite</em>. Se o autor de <em>quadrado</em> usasse <em>x</em> (como acima) para se referir a esse argumento, veríamos que o <em>x</em> em <em>bom-o-suficiente?</em> deve ser diferente do <em>x</em> em <em>quadrado</em>. Executar o procedimento <em>quadrado</em> não deve afetar o valor de <em>x</em> que é usado por <em>bom-o-suficiente?</em>, pois esse valor de <em>x</em> pode ser necessário para <em>bom-o-suficiente?</em> após <em>quadrado</em> terminar de calcular.</p>
@@ -531,21 +1188,21 @@
           <p>Na definição de <em>bom-o-suficiente?</em> acima, palpite e x são variáveis vinculadas, mas &lt;, -, <em>abs</em>, e square são livres. O significado de bom-o-suficiente? deve ser independente dos nomes que escolhemos para palpite e x, desde que sejam distintos e diferentes de &lt;, -, <em>abs</em>, e square. (Se renomeássemos palpite para <em>abs</em>, teríamos introduzido um bug ao capturar a variável <em>abs</em>. Ela teria mudado de livre para vinculada). No entanto, o significado de <em>bom-o-suficiente?</em> não é independente dos nomes de suas variáveis livres. Ele certamente depende do fato (externo a essa definição) de que o símbolo <em>abs</em> nomeia um procedimento para calcular o valor absoluto de um número. O <em>bom-o-suficiente?</em> calculará uma função diferente se substituirmos <em>abs</em> por <em>cos</em> em sua definição.</p>
           <h3>Definições Internas e Estrutura de Blocos</h3>
           <p>Até agora, temos um tipo de isolamento de nomes disponível: os parâmetros formais de um procedimento são locais ao corpo do procedimento. O programa de cálculo da raiz quadrada ilustra outra maneira pela qual gostaríamos de controlar o uso de nomes. O programa existente consiste em procedimentos separados:</p>
-          <p class="code">
-               <span>(define (quadrado x)<br>
+          <pre><code class="linguage-scheme">
+               (define (quadrado
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1.0 x))</span>
-               <span>(define (raizquad-iter palpite x)<br>
+               (define (raizquad-iter palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if (bom-o-suficiente? palpite x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palpite<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter (melhorar palpite x) x)))</span>
-               <span>(define (bom-o-suficiente? palpite x)<br>
+               (define (bom-o-suficiente? palpite
                &nbsp;&nbsp;&nbsp;(< (abs (- (square palpite) x)) 0.001))</span>
-               <span>(define (melhorar palpite x)<br>
+               (define (melhorar palpite
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(media palpite (/ x palpite)))</span>
           </p>
           <p>O problema com este programa é que o único procedimento importante para os usuários de <em>quadrado</em> é <em>quadrado</em>. Os outros procedimentos (<em>raizquad-iter</em>, <em>bom-o-suficiente?</em> e <em>melhorar</em>) apenas sobrecarregam suas mentes. Eles não podem definir qualquer outro procedimento chamado <em>bom-o-suficiente?</em> como parte de outro programa que funcione em conjunto com o programa de cálculo da raiz quadrada, porque <em>quadrado</em> precisa dele. O problema é especialmente grave na construção de grandes sistemas por muitos programadores separados. Por exemplo, na construção de uma grande biblioteca de procedimentos numéricos, muitas funções numéricas são calculadas como aproximações sucessivas e, portanto, podem ter procedimentos chamados <em>bom-o-suficiente?</em> e <em>melhorar</em> como procedimentos auxiliares. Gostaríamos de localizar os subprocedimentos, escondendo-os dentro de <em>quadrado</em>, para que <em>quadrado</em> pudesse coexistir com outras aproximações sucessivas, cada uma com seu próprio procedimento <em>bom-o-suficiente?</em> privado. Para tornar isso possível, permitimos que um procedimento tenha definições internas que são locais a esse procedimento. Por exemplo, no problema da raiz quadrada, podemos escrever:</p>
-          <p class="code">
-               <span>(define (quadrado x)<br>
+          <pre><code class="linguage-scheme">
+               (define (quadrado
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (bom-o-suficiente? palpite x)<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))<br>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (melhorar palpite x)<br>
@@ -557,8 +1214,8 @@
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(raizquad-iter 1.0 x))</span>
           </p>
           <p>Tal aninhamento de definições, chamado estrutura de blocos, é basicamente a solução certa para o problema mais simples de empacotamento de nomes. Mas há uma ideia ainda melhor em jogo aqui. Além de internalizar as definições dos procedimentos auxiliares, podemos simplificá-los. Como <em>x</em> é vinculado na definição de <em>quadrado</em>, os procedimentos <em>bom-o-suficiente?</em>, melhorar e <em>raizquad-iter</em>, que são definidos internamente a <em>quadrado</em>, estão no escopo de <em>x</em>. Assim, não é necessário passar <em>x</em> explicitamente para cada um desses procedimentos. Em vez disso, permitimos que <em>x</em> seja uma variável livre nas definições internas, como mostrado abaixo. Então, <em>x</em> obtém seu valor a partir do argumento com o qual o procedimento envolvente <em>quadrado</em> é chamado.<sup id="note-27"></sup> Essa disciplina é chamada de escopo léxico.</p>
-          <p class="code">
-               <span>(define (sqrt x)<br>
+          <pre><code class="linguage-scheme">
+               (define (sqrt
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (bom-o-suficiente? palpite)<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt; (abs (- (quadrado palpite) x)) 0.001))<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define (melhorar palpite)<br>
