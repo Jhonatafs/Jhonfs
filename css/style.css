@@ -1,3 +1,6 @@
+/* [ Core ]
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
 
 @font-face {
@@ -46,17 +49,20 @@ html, html * {
     scroll-behavior: smooth;
 }
 
+
+/* [ Page ]
+*/
 body {
     background-color: var(--background);
     color: var(--text);
     /*font-family: Candara, Geneva, Verdana, Tahoma, sans-serif;*/
     font-family: "Cardo", serif;
+}
 
+main {
     max-width: 700px;
     margin: auto;
 }
-
-/* Texte defaut */
 
 h1 {
     font-size: 2.7rem;
@@ -99,82 +105,27 @@ figure {
     caption-side: bottom !important;
 }
 
-/* ------------ */
 
-/* Nav Bar */
-
-#main-nav {
-    background-color: var(--nav);
-
-    display: flex;
-    justify-content: center;
-    align-items: self-start;
-
-    width: 100dvw;
-    padding: 1rem 0 .7rem;
-    box-shadow: 0px 1px 5px black;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
-
-#logo {
-    width: 50px;
-}
-
-#main-nav h1 {
-    /*font-size: 2.2rem;*/
-    margin: 0;
-    padding: 0;
-}
-
-#main-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    list-style: none;
-}
-
-#main-nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 1.3rem;
-
-    padding: .2rem .5rem 0;   
-    border-top: 2px dotted transparent;
-
-    transition: all .4s ease-in-out;
-}
-
-#main-nav a:hover {
-    border-top: 2px dotted var(--link);
-    color: var(--link);
-}
-
-/* ------- */
-
-/* Floating Button */
+/* [ Floating Buttons ]
+*/
 .floating-button {
     position: fixed;
-    right: .5rem;
+    right: 0;
     z-index: 9;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: .5rem;
+    gap: .0rem;
 }
 
 .floating-bottom-position {
-    bottom: .5rem;
+    bottom: 0;
 }
 
 .floating-top-position {
-    top: .5rem
+    top: 0;
 }
 
 .floating-button-formatting {
@@ -189,7 +140,7 @@ figure {
 
     cursor: pointer;
 
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
 
     transition: all .7s ease-in-out;
@@ -204,439 +155,53 @@ figure {
     display: none;
 }
 
-/* ---------- */
-
-/* Articles */
-
-article,
-main {
-    width: 96%; margin: auto;
-}
-
-article {
-    padding: 3rem 0 5rem;
-}
-
-article h1+p:first-letter,
-.word-cappilar:first-letter {
-    font-size: 5.5rem;
-    color: var(--link);
-    font-weight: bold;
-    line-height: 1;
-    initial-letter: 2;
-    padding-right: .5rem;
-    float: left;
-}
-
-article p,
-article li {
-    hyphens: auto;
-    hyphenate-character: "_";
-}
-
-article a:hover {
-    text-decoration: underline;
-}
-
-article table {
-    border-collapse: collapse;
-    caption-side: bottom;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-article td, th {
-    border: 1px solid var(--text);
-    padding: 0.7rem;
-    margin: 0;
-}
-
-article tr:nth-child(even) {
-    background-color: var(--nav);
-}
-
-article .quote {
-    width: 70%;
-    text-align: right;
-    margin-left: 20%;
-    font-size: 1.1rem !important;
-    text-align: justify;
- }
-
-article .code-inline {
-    background-color: #0e0e0edd;
-    color: white;
-    border-radius: 5px;
-    padding: .2rem .5rem;
-    font-size: 1.1rem;
-}
-
-/* -------- */
-
-/* Archive */
-
-#archive {
-    width: 94%;
-    
-    display: flex;
-    flex-direction: column;
-    gap: .7rem;
-
-    padding: 7rem 0 3rem;
-
-}
-
-#archive a {
-    background-color: transparent;
-    color: var(--text);
-    text-decoration: none;
-    box-shadow: 0 0 0 var(--nav);
-
-    display: flex;
-    flex-direction: column;
-    
-    border-radius: 0;
-    border: 3px dotted var(--link);
-    padding: .7rem 1rem;
-
-    transition: all .3s ease-in-out;
-}
-
-#archive a:hover {
-
-    background-color: var(--link);
-    color: var(--reverse-text);
-    box-shadow: 0 3px 3px black;
-
-    border-radius: 10px;
-    border-color: transparent;
-}
-
-#archive .archive-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    
-    display: inline-block;
-    margin: .2rem 0 .7rem;
-}
-
-#archive .archive-date {
-    font-size: 1rem;
-    text-align: right;
-}
-
-#chapter {
-    color: var(--text);
-    
-    display: inline-block;
-
-    font-size: 1.4rem;
-    
-    margin-top: 2rem;
-    padding-bottom: .7rem;
-    width: 100%;
-    
-    border-bottom: 2px solid var(--text);
-}
-
-#chapter::before {
-    font-family: 'Icons';
-    color: var(--foreground);
-    content: ' ';
-}
-
-/* ------- */
-
-/* Book Nav */
-
-#book-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background-color: var(--nav);
-    opacity: .9;
-    
-    max-width: 100dvw;
-    position: fixed;
-    /*bottom: -2.3rem;*/
-    bottom: 0;
-    left: auto;
-    z-index: 10;
-
-    width: 700px;
-    margin: 0;
-    padding: 0;
-    
-    box-shadow: 0px -2px 5px #00000056;
-    transition: all .3s ease-in-out;
-}
-
-#book-nav * {
-    margin: 0;
-    padding: 0;
-}
-
-#book-nav ul {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
-}
-
-#book-nav ul li {
-    list-style: none;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 20%;
-    
-    transition: .3s ease-in-out;
-}
-
-#book-nav a {
+.floating-button-icon {
     display: block;
-    text-decoration: none;
+    padding: .5rem;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 3rem;
+    right: 0;
+    z-index: 99;
+
+    display: none;
+
+    background-color: transparent;
+    color: var(--link);
+    opacity: .7;
+    
+    padding: .5rem;
+
+    cursor: pointer;
+
+    font-size: 2rem;
     text-align: center;
-    color: var(--text);
-    width: 100%;
+
+    transition: all .2s ease-in-out;
 }
 
-#book-nav ul a:hover {
-    background-color: var(--link);
-    color: var(--reverse-text);
-    cursor: pointer;
+#backToTop:hover {
+    opacity: 1;
 }
 
-#book-nav .disabled {
-    color: var(--disabled);
-}
 
-#book-nav .disabled:hover {
-    cursor: not-allowed;
-    background-color: transparent;
-    color: var(--disabled);
-}
+/* [ Projects ]
+*/
 
-/* -------- */
-
-/* Book */
-
-#book-cover {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 90dvh;
-
-    padding-bottom: 1rem;
-}
-
-#book-title {
-    font-size: 2.7rem;
-}
-
-#book-subtitle {
-    font-size: 1.9rem;
-}
-
-#book-author {
-    font-size: 1.8rem;
-}
-
-#book-cover img {
-    object-fit: cover;
-    padding: 4% 0 0;
-    height: 90dvh;
-}
-
-#book-cover-art {
-    font-size: 20dvw;
-}
-
-/* ---- */
-
-/* Footer */
-
-#footnotes hr {
-    width: 40%;
-    margin-right: 60%;
-    border-color: var(--foreground);
-}
-
-#footnotes p {
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-#footnotes a {
-    color: var(--link);
-}
-
-/* ------ */
-
-/* Footer */
-
-footer {
-    border-top: 1px dashed var(--nav);
-    box-shadow: 0 2px 3px #00000056;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 1rem;
-}
-
-footer ul {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 1rem;
-
-    padding: 0;
-    margin: 0;
-
+#projects li{
     list-style: none;
 }
 
-footer a {
-    text-decoration: none;
+#projects .date {
     color: var(--text);
-    font-size: 1.1rem;
-
-    transition: all .3s ease-in-out;
 }
 
-footer a:hover {
-    text-decoration: none;
-    color: var(--link);
-}
 
-footer .button-nostr {
-    background-color: transparent;
-    color: var(--text);
-    font-size: 1.1rem;
-    width: auto;
-    height: auto;
-}
-
-footer .button-nostr:hover {
-    color: var(--link);
-    cursor: pointer;
-}
-
-footer .footer-separator {
-    font-size: 1rem;
-    opacity: .3;
-}
-
-/* ----- */
-
-/* About */
-
-#main-about {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 95dvh;
-}
-
-#content-about {
-    position: relative;
-
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 1rem;
-
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px #00000056;
-
-    padding: 1rem;
-}
-
-#content-about img {
-    max-width: 30%;
-}
-
-#main-about .button-exit-relative {
-    position: absolute;
-    top: 0rem;
-    right: 0rem;
-
-    padding: .7rem 1rem;
-
-    text-decoration: none;
-}
-
-#content-about ul {
-    list-style: none;
-
-    display: flex;
-    justify-content: start;
-    gap: 1rem;
-
-    padding: 0;
-}
-
-#content-about .button-nostr {
-    background-color: transparent;
-    color: var(--link);
-    cursor: pointer;
-}
-
-/* ------ */
-
-@media screen and (max-width: 720px) {
-    body {max-width: 92dvw !important;}
-    
-    /* Book */
-
-    #book-title {
-        font-size: 8.5dvw;
+@media screen and (max-width: 800px) {
+    main {
+        max-width: 94dvw;
+        margin: auto;
     }
-    
-    #book-subtitle {
-        font-size: 6dvw;
-    }
-
-    #book-author {
-        font-size: 6dvw;
-    }
-    
-    #book-cover img {
-        object-fit: cover;
-        padding: 4% 0 0;
-        height: 90dvh;
-    }
-
-    #book-cover-art {
-        font-size: 50dvw;
-    }
-
-    #book-cover-page p {
-        font-size: 1.3rem;
-    }
-    
-    #book-nav {
-        width: 100%;
-        left: 0;
-    }
-
-    #content-about {
-        flex-wrap: wrap;
-    }
- }
-
-@media screen and (max-width: 600px) {
-
-    article h1+p:first-letter,
-    .word-cappilar:first-letter {
-        float: none;
-    }    
 }

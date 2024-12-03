@@ -10,13 +10,11 @@
 
 .icon_back::before {
     font-family: 'Icons';
-    font-size: 2.5rem;
     content: '󰮹';
 }
 
 .icon_next::before {
     font-family: 'Icons';
-    font-size: 2.5rem;
     content: '󰮺';
 }
 
@@ -47,7 +45,7 @@
 
 .icon_light::before {
     font-family: 'Icons';
-    content: '';
+    content: '󰌵';
 }
 
 .icon_top::before {
@@ -60,15 +58,18 @@
     content: '';
 }
 
+.icon_linkedin::before {
+    font-family: 'Icons';
+    content: '󰌻';
+}
+
 .icon_nostr::before {
     font-family: 'Others';
-    font-size: 120%;
     content: 'N';
 }
 
 .icon_info::before {
     font-family: 'Icons';
-    font-size: 90%;
     content: '';
 }
 
@@ -80,4 +81,34 @@
 .icon_download::before {
     font-family: 'Icons';
     content: '󰥦';
+}
+
+.icon_menuburguer::before {
+    font-family: 'Icons';
+    content: '󰍜';
+}
+
+.icon_close::before {
+    font-family: 'Icons';
+    content: '󰮫';
+}
+
+.icon_archive::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_calendar::before {
+    font-family: 'Icons';
+    content: '󰃭';
+}
+
+.icon_translate::before {
+    font-family: 'Icons';
+    content: '󰗊';
+}
+
+.icon_theme::before{
+    font-family: 'Icons';
+    content: '󰔎'; 
 }
