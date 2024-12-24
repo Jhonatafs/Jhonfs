@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs">
+     <meta name="description" content="Blog">
+     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+     <title>SICP | JhonFs</title>
+     <!--CSS-->
+     <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/css/book.css">
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/icons.css">
+     <link rel="stylesheet" href="/css/dracula.css">
+     <!--SCRIPT-->
+     <script src="/js/light.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+     <script>hljs.highlightAll();</script>
+</head>
+<body>
+     <div id="top"></div>
+     <!--Floating Buttons-->
+     <div class="floating-button floating-top-position">
+          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="floating-button-icon icon_theme"></span></button>
+     </div>
+     <button id="backToTop"><span class="icon_top"></span></button>
+     <!--Navegation book-->
+     <div id="book-nav">
+          <a href="/arquive/sicp-pt-br/14.html" id="back-page">Voltar</a>
+          <a href="/arquive/sicp-pt-br/4.html" id="content-page">Conteudo</a>
+          <a href="/index.html" id="exit-page">Sair</a>
+          <a href="/arquive/sicp-pt-br.html" id="cover-page">Capa</a>
+          <a href="/arquive/sicp-pt-br/16.html" id="next-page">Proximo</a>
+     </div>
+     <!--Content-->
+     <article>
+          <span id="chapter">Capítulo 1: Construindo abstrações com procedimentos</span>
+          <h1>1.1.5 O Modelo de Substituição para Aplicação de Procedimentos</h1>
+          <p>Para avaliar uma combinação cujo operador nomeia um procedimento composto, o interpretador segue um processo muito semelhante ao descrito na seção 1.1.3 para combinações cujos operadores nomeiam procedimentos primitivos. Ou seja, o interpretador avalia os elementos da combinação e aplica o procedimento (que é o valor do operador da combinação) aos argumentos (que são os valores dos operandos da combinação).</p>
+          <p>Podemos assumir que o mecanismo para aplicar procedimentos primitivos aos argumentos está embutido no interpretador. Para procedimentos compostos, o processo de aplicação é o seguinte:</p>
+          <blockquote>
+              <p>Para aplicar um procedimento composto a argumentos, avalie o corpo do procedimento substituindo cada parâmetro formal pelo argumento correspondente.</p>
+          </blockquote>
+          <p>Para ilustrar esse processo, vamos avaliar a combinação:</p>
+          <pre><code class="language-scheme">
+(f 5)
+          </code></pre>
+          <p>onde <span class="code">f</span> é o procedimento definido na seção 1.1.4. Começamos recuperando o corpo de <span class="code">f</span>:</p>
+          <pre><code class="language-scheme">
+(sum-of-squares (+ a 1) (* a 2))
+          </code></pre>
+          <p>Em seguida, substituímos o parâmetro formal <span class="code">a</span> pelo argumento <span class="code">5</span>:</p>
+          <pre><code class="language-scheme">
+(sum-of-squares (+ 5 1) (* 5 2))
+          </code></pre>
+          <p>Assim, o problema se reduz à avaliação de uma combinação com dois operandos e um operador <span class="code">sum-of-squares</span>. Avaliar essa combinação envolve três subproblemas. Devemos avaliar o operador para obter o procedimento a ser aplicado e avaliar os operandos para obter os argumentos. Agora, <span class="code">(+ 5 1)</span> produz <span class="code">6</span> e <span class="code">(* 5 2)</span> produz <span class="code">10</span>, então devemos aplicar o procedimento <span class="code">sum-of-squares</span> a <span class="code">6</span> e <span class="code">10</span>. Esses valores são substituídos pelos parâmetros formais <span class="code">x</span> e <span class="code">y</span> no corpo de <span class="code">sum-of-squares</span>, reduzindo a expressão para:</p>
+          <pre><code class="language-scheme">
+(+ (square 6) (square 10))
+          </code></pre>
+          <p>Se usarmos a definição de <span class="code">square</span>, isso se reduz a:</p>
+          <pre><code class="language-scheme">
+(+ (* 6 6) (* 10 10))
+          </code></pre>
+          <p>o que se reduz, por multiplicação, a:</p>
+          <pre><code class="language-scheme">
+(+ 36 100)
+          </code></pre>
+          <p>e finalmente a:</p>
+          <pre><code class="language-scheme">
+136
+          </code></pre>
+          <p>O processo que acabamos de descrever é chamado de <em>modelo de substituição para aplicação de procedimentos</em>. Ele pode ser tomado como um modelo que determina o "significado" da aplicação de procedimentos, na medida em que os procedimentos deste capítulo estão em questão. No entanto, há dois pontos que devem ser enfatizados:</p>
+          <ol>
+              <li>O propósito da substituição é nos ajudar a pensar sobre a aplicação de procedimentos, não fornecer uma descrição de como o interpretador realmente funciona. Interpretadores típicos não avaliam aplicações de procedimentos manipulando o texto de um procedimento para substituir valores pelos parâmetros formais. Na prática, a "substituição" é realizada usando um ambiente local para os parâmetros formais. Discutiremos isso mais detalhadamente nos capítulos 3 e 4 ao examinar a implementação de um interpretador em detalhe.</li>
+              <li>Ao longo deste livro, apresentaremos uma sequência de modelos cada vez mais elaborados de como os interpretadores funcionam, culminando com uma implementação completa de um interpretador e compilador no capítulo 5. O modelo de substituição é apenas o primeiro desses modelos — uma forma de começar a pensar formalmente sobre o processo de avaliação. Em geral, ao modelar fenômenos em ciência e engenharia, começamos com modelos simplificados e incompletos. À medida que examinamos as coisas em maior detalhe, esses modelos simples se tornam inadequados e devem ser substituídos por modelos mais refinados. O modelo de substituição não é uma exceção. Em particular, quando abordarmos no capítulo 3 o uso de procedimentos com "dados mutáveis", veremos que o modelo de substituição falha e deve ser substituído por um modelo mais complicado de aplicação de procedimentos.</li>
+          </ol>
+          <h2>Ordem aplicativa versus ordem normal</h2>
+          <p>De acordo com a descrição de avaliação dada na seção 1.1.3, o interpretador primeiro avalia o operador e os operandos e depois aplica o procedimento resultante aos argumentos resultantes. Essa não é a única maneira de realizar a avaliação. Um modelo alternativo de avaliação não avaliaria os operandos até que seus valores fossem necessários. Em vez disso, ele primeiro substituiria expressões de operandos por parâmetros até obter uma expressão envolvendo apenas operadores primitivos, e então realizaria a avaliação. Se usássemos esse método, a avaliação de:</p>
+          <pre><code class="language-scheme">
+(f 5)
+          </code></pre>
+          <p>prosseguiria de acordo com a sequência de expansões:</p>
+          <pre><code class="language-scheme">
+(sum-of-squares (+ 5 1            ) (* 5 2            ) )
+      
+(+              (square (+ 5 1)   ) (square (* 5 2)   ) )
+      
+(+              (* (+ 5 1) (+ 5 1)) (* (* 5 2) (* 5 2)) )
+          </code></pre>
+          <p>seguida pelas reduções:</p>
+          <pre><code class="language-scheme">
+(+              (* 6 6            ) (* 10 10) )
+      
+(+               36                  100      )
+      
+                          136
+          </code></pre>
+          <p>Isso dá a mesma resposta que nosso modelo de avaliação anterior, mas o processo é diferente. Em particular, as avaliações de <span class="code">(+ 5 1)</span> e <span class="code">(* 5 2)</span> são realizadas duas vezes aqui, correspondendo à redução da expressão:</p>
+          <pre><code class="language-scheme">
+(* x x)
+          </code></pre>
+          <p>com <span class="code">x</span> substituído, respectivamente, por <span class="code">(+ 5 1)</span> e <span class="code">(* 5 2)</span>.</p>
+          <p>Esse método alternativo de avaliação "expandir totalmente e depois reduzir" é conhecido como <em>avaliação por ordem normal</em>, em contraste com o método "avaliar os argumentos e depois aplicar" que o interpretador realmente usa, chamado de <em>avaliação por ordem aplicativa</em>. Pode-se mostrar que, para aplicações de procedimentos que podem ser modeladas usando substituição (incluindo todos os procedimentos nos dois primeiros capítulos deste livro) e que produzem valores legítimos, a avaliação por ordem normal e por ordem aplicativa produzem o mesmo valor. (Veja o exercício 1.5 para um exemplo de um valor "ilegítimo" onde as avaliações por ordem normal e por ordem aplicativa não dão o mesmo resultado.)</p>
+          <p>Lisp usa avaliação por ordem aplicativa, em parte devido à eficiência adicional obtida ao evitar avaliações múltiplas de expressões como as ilustradas com <span class="code">(+ 5 1)</span> e <span class="code">(* 5 2)</span> acima e, mais significativamente, porque a avaliação por ordem normal se torna muito mais complicada de lidar quando saímos do domínio de procedimentos que podem ser modelados por substituição. Por outro lado, a avaliação por ordem normal pode ser uma ferramenta extremamente valiosa, e investigaremos algumas de suas implicações nos capítulos 3 e 4.<sup><a href="#note-16">16</a></sup></p>
+          <hr id="footnote-line">
+          <section id="footnotes">
+              <p id="footnote-16"><sup><a href="#note-16">16</a></sup> No capítulo 3, introduziremos o processamento de streams, que é uma maneira de lidar com estruturas de dados aparentemente "infinitas" incorporando uma forma limitada de avaliação de ordem normal. Na seção <a href="88.html">4.2</a>, modificaremos o interpretador Scheme para produzir uma variante de ordem normal do Scheme.</p>
+          </section>
+      </article>      
+     <!--Script Scroll Top-->
+     <script src="/js/buttonToTop.js"></script>
+</body>
+</html>

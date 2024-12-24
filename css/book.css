@@ -1,0 +1,196 @@
+/*[ Default ]
+*/
+
+.color-link {
+    color: #6b4c97 !important
+}
+
+a {
+    color: #6b4c97 !important;
+}
+
+/*[Book Nav]
+*/
+
+#book-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 99dvw;
+    margin: auto;
+    background-color: var(--background);
+    opacity: .95;
+}
+
+#book-nav a {
+    display: inline-block;
+    cursor: pointer;
+
+    width: 20%;
+    padding: .5rem 0;
+
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#book-nav .disabled {
+    color: darkgray !important;
+    cursor: not-allowed;
+}
+
+
+/*[ Cover ]
+*/
+
+#book-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 99dvw;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
+
+#book-cover h1 {
+    font-size: 2.2rem;
+    text-align: left;
+    line-height: 140%;
+
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+#book-cover .author {
+    font-size: 1.6rem;
+    line-height: 160%;
+
+    margin: 1rem 0 0 0;
+    padding: 0;
+}
+
+/*[ Article ]
+*/
+
+article {
+    width: 700px;
+    margin: 1rem auto 5rem;
+    padding: 0;
+}
+
+article p {
+    line-height: 150%;
+}
+
+article p,
+article li {
+    hyphens: auto;
+    hyphenate-character: "_";
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+article .quote {
+    display: block;
+    padding: 0 5dvw 0 15dvw;
+    font-size: 1.4rem;
+    text-align: end;
+    line-height: 130%;
+    border-left: .3rem solid #6b4c97;
+}
+
+article h1+p:first-letter,
+.word-cappilar:first-letter {
+    font-size: 5.5rem;
+    color: #6b4c97;
+    font-weight: bold;
+    line-height: 1;
+    initial-letter: 2;
+    padding-right: .5rem;
+    float: left;
+}
+
+#chapter {
+    color: var(--text);
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    padding-bottom: .7rem;
+    width: 100%;
+    border-bottom: 2px solid var(--text);
+}
+
+#chapter::before {
+    font-family: 'Icons';
+    color: #6b4c97;
+    content: ' ';
+}
+
+article table {
+    border-collapse: collapse;
+    caption-side: bottom;
+    width: 100%;
+}
+
+article td,
+th {
+    border: 1px solid var(--text);
+    padding: 0.7rem;
+}
+
+article tr:nth-child(even) {
+    background-color: var(--nav);
+}
+
+#book-sumary li {
+    list-style: none;
+    line-height: 140%;
+}
+
+#book-sumary a {
+    transition: all .3s ease-in-out;
+}
+
+#book-sumary a:hover {
+    padding-left: .5rem;
+}
+
+#footnotes p {
+    font-size: 1.1rem;
+}
+
+article figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+article figure img {
+    max-width: max-content;
+    background-color: #6b6b6b2f;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 720px) {
+    article {
+        width: 96dvw;
+    }
+
+    article h1+p:first-letter,
+    .word-cappilar:first-letter {
+        float: none;
+    }
+}

@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
-     <title>Estrutura e Interpretação de Programas de Computador</title>
-     <!--CSS-->
-     <link rel="stylesheet" href="/css/normalize.css">
-     <link rel="stylesheet" href="/css/style.css">
-     <link rel="stylesheet" href="/css/icons.css">
-     <!--JS-->
-     <script src="/js/light.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="application-name" content="JhonFs">
+    <meta name="description" content="Blog">
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>SICP | JhonFs</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/book.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/icons.css">
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
+    <!--Style-->
+    <style>
+          #book-cover img{
+              height: 55dvh; 
+          }
+    </style>
 </head>
 <body>
+     <div id="top"></div>
+     <!--Floating Buttons-->
      <div class="floating-button floating-top-position">
-          <!--<a class="floating-button-formatting icon_top" href="#top"></a>-->
-        <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="icon_light"></span></button>
+          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="floating-button-icon icon_theme"></span></button>
      </div>
-    <div id="top"></div>
-     <nav id="book-nav">
-          <ul>
-               <!--Come back-->
-               <li><a class="icon_back disabled"></a></li>
-               <!--Home-->
-               <li><a class="icon_exit enabled" href="/index.html"></a></li>
-               <!--Cover-->
-               <li><a class="icon_cover disabled" ></a></li>
-               <!--Content-->
-               <li><a class="icon_content enabled" href="sicp-pt-br/4.html"></a></li>
-               <!--Next-->
-               <li><a class="icon_next enabled" href="sicp-pt-br/1.html"></a></li>
-          </ul>
-     </nav>
+     <button id="backToTop"><span class="icon_top"></span></button>
+
+     <div id="book-nav">
+          <a href="#" id="back-page" class="disabled">Voltar</a>
+          <a href="/arquive/sicp-pt-br/4.html" id="content-page">Conteudo</a>
+          <a href="/index.html" id="exit-page">Sair</a>
+          <a href="#" id="cover-page" class="disabled">Capa</a>
+          <a href="/arquive/sicp-pt-br/1.html" id="next-page">Proximo</a>
+     </div>
      <main id="book-cover">
-          <a href="sicp-pt-br/1.html">
-               <img src="/img/sicp-pt-br/cover-two.png">
-          </a>
+          <h1>Estrutura e Interpretação de <br>Programas de Computador</h1>
+          <img src="/img/sicp-pt-br/cover-three.png">
+          <span class="author">
+               Harold Abelson & Jay Sussman com<br>
+               Julie Sussman, prefácio de Alan J. Perlis
+          </span>
      </main>
+     <script src="/js/buttonToTop.js"></script>
 </body>
 </html>

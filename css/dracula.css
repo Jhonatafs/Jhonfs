@@ -13,7 +13,7 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: 0.5em 0.5rem 0.5rem 1.5rem;
   background: #282a36;
   border-radius: 15px;
 }
@@ -79,4 +79,73 @@
 
 .hljs-emphasis {
   font-style: italic;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/FiraCode-VF.ttf");
+}
+
+pre {
+  width: 100%;
+  margin: auto;
+}
+
+.hljs,
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link,
+.hljs-keyword,
+.hljs,
+.hljs-subst,
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword,
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong,
+.hljs-literal,
+.hljs-number,
+.hljs-emphasis,
+code {
+  font-family: 'Fira Code' !important;
+  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" !important;
+}
+
+code {
+  max-width: 100%;
+}
+
+.code {
+  font-family: "Fira Code";
+  font-size: 1.1rem !important;
+  font-style: italic;
+  background-color: #282a36af;
+  padding: .2rem .5rem .1rem;
+  border-radius: 3px;
+}
+
+#footnotes .code {
+  font-size: .8rem !important;
+  padding: .1rem .3rem !important;
 }

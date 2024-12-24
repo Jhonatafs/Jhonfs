@@ -3,12 +3,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
 
-@font-face {
-    font-family: "Fira Code";
-    src: url("/fonts/FiraCode-VF.ttf");
-}
-
-
 :root {
     --background: #1f1f1f;
     --foreground: #b69b6d;
@@ -43,7 +37,8 @@
     background-color: transparent;
 }
 
-html, html * {
+html,
+html * {
     scrollbar-color: var(--link) transparent;
     scrollbar-width: thin;
     scroll-behavior: smooth;
@@ -52,6 +47,18 @@ html, html * {
 
 /* [ Page ]
 */
+
+*,
+em,
+p,
+span,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Cardo", serif;
+}
+
 body {
     background-color: var(--background);
     color: var(--text);
@@ -68,19 +75,32 @@ h1 {
     font-size: 2.7rem;
     font-family: "IM Fell English", serif;
 }
-h2 {font-size: 2.0rem;}
-h3 {font-size: 1.8rem;}
-h4 {font-size: 1.6rem;}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 2.0rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+}
+
 p,
 li,
 th,
 tr {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     line-height: 140%;
     margin-bottom: .5rem;
 }
 
-.color-link {color: var(--link);}
+.color-link {
+    color: var(--link);
+}
+
 a {
     color: var(--link);
     text-decoration: none;
@@ -92,13 +112,6 @@ button {
     border: none;
     width: auto;
     height: auto;
-}
-
-code {
-    font-family: 'Fira Code' !important;
-    font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" !important;
-
-    width: 100% !important;
 }
 
 figure {
@@ -134,7 +147,7 @@ figure {
     background-color: transparent;
     color: var(--link);
     opacity: .7;
-    
+
     padding: 0;
     margin: 0;
 
@@ -171,7 +184,7 @@ figure {
     background-color: transparent;
     color: var(--link);
     opacity: .7;
-    
+
     padding: .5rem;
 
     cursor: pointer;
@@ -190,7 +203,7 @@ figure {
 /* [ Projects ]
 */
 
-#projects li{
+#projects li {
     list-style: none;
 }
 

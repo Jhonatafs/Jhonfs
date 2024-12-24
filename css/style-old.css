@@ -40,7 +40,8 @@
     background-color: transparent;
 }
 
-html, html * {
+html,
+html * {
     scrollbar-color: var(--link) transparent;
     scrollbar-width: thin;
     scroll-behavior: smooth;
@@ -62,9 +63,19 @@ h1 {
     font-size: 2.7rem;
     font-family: "IM Fell English", serif;
 }
-h2 {font-size: 2.0rem;}
-h3 {font-size: 1.8rem;}
-h4 {font-size: 1.6rem;}
+
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
 p,
 li,
 th,
@@ -74,7 +85,10 @@ tr {
     margin-bottom: .5rem;
 }
 
-.color-link {color: var(--link);}
+.color-link {
+    color: var(--link);
+}
+
 a {
     color: var(--link);
     text-decoration: none;
@@ -142,7 +156,7 @@ figure {
     color: var(--text);
     font-size: 1.3rem;
 
-    padding: .2rem .5rem 0;   
+    padding: .2rem .5rem 0;
     border-top: 2px dotted transparent;
 
     transition: all .4s ease-in-out;
@@ -181,7 +195,7 @@ figure {
     background-color: transparent;
     color: var(--link);
     opacity: .7;
-    
+
     padding: 0;
     margin: 0;
 
@@ -207,7 +221,8 @@ figure {
 
 article,
 main {
-    width: 96%; margin: auto;
+    width: 96%;
+    margin: auto;
 }
 
 article {
@@ -243,7 +258,8 @@ article table {
     padding: 0;
 }
 
-article td, th {
+article td,
+th {
     border: 1px solid var(--text);
     padding: 0.7rem;
     margin: 0;
@@ -259,7 +275,7 @@ article .quote {
     margin-left: 20%;
     font-size: 1.1rem !important;
     text-align: justify;
- }
+}
 
 article .code-inline {
     background-color: #0e0e0edd;
@@ -274,7 +290,7 @@ article .code-inline {
 
 #archive {
     width: 94%;
-    
+
     display: flex;
     flex-direction: column;
     gap: .7rem;
@@ -291,7 +307,7 @@ article .code-inline {
 
     display: flex;
     flex-direction: column;
-    
+
     border-radius: 0;
     border: 3px dotted var(--link);
     padding: .7rem 1rem;
@@ -312,7 +328,7 @@ article .code-inline {
 #archive .archive-title {
     font-size: 1.5rem;
     font-weight: 500;
-    
+
     display: inline-block;
     margin: .2rem 0 .7rem;
 }
@@ -324,15 +340,15 @@ article .code-inline {
 
 #chapter {
     color: var(--text);
-    
+
     display: inline-block;
 
     font-size: 1.4rem;
-    
+
     margin-top: 2rem;
     padding-bottom: .7rem;
     width: 100%;
-    
+
     border-bottom: 2px solid var(--text);
 }
 
@@ -350,10 +366,10 @@ article .code-inline {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     background-color: var(--nav);
     opacity: .9;
-    
+
     max-width: 100dvw;
     position: fixed;
     /*bottom: -2.3rem;*/
@@ -364,7 +380,7 @@ article .code-inline {
     width: 700px;
     margin: 0;
     padding: 0;
-    
+
     box-shadow: 0px -2px 5px #00000056;
     transition: all .3s ease-in-out;
 }
@@ -385,13 +401,13 @@ article .code-inline {
 
 #book-nav ul li {
     list-style: none;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 20%;
-    
+
     transition: .3s ease-in-out;
 }
 
@@ -535,7 +551,7 @@ footer .footer-separator {
 /* About */
 
 #main-about {
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -589,14 +605,16 @@ footer .footer-separator {
 /* ------ */
 
 @media screen and (max-width: 720px) {
-    body {max-width: 92dvw !important;}
-    
+    body {
+        max-width: 92dvw !important;
+    }
+
     /* Book */
 
     #book-title {
         font-size: 8.5dvw;
     }
-    
+
     #book-subtitle {
         font-size: 6dvw;
     }
@@ -604,7 +622,7 @@ footer .footer-separator {
     #book-author {
         font-size: 6dvw;
     }
-    
+
     #book-cover img {
         object-fit: cover;
         padding: 4% 0 0;
@@ -618,7 +636,7 @@ footer .footer-separator {
     #book-cover-page p {
         font-size: 1.3rem;
     }
-    
+
     #book-nav {
         width: 100%;
         left: 0;
@@ -627,74 +645,74 @@ footer .footer-separator {
     #content-about {
         flex-wrap: wrap;
     }
- }
+}
 
 @media screen and (max-width: 600px) {
 
     article h1+p:first-letter,
     .word-cappilar:first-letter {
         float: none;
-    }    
+    }
 }
 
 
 /* [ Header ] */
 header {
-  position: fixed;
-  z-index: 1;
-  width: 100vw;
-  background-color: #ffffff;
-  left: 0;
-  top: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    background-color: #ffffff;
+    left: 0;
+    top: 0;
 }
 
 #header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem 0 2rem;
-  height: 70px;
-  max-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 0 2rem;
+    height: 70px;
+    max-height: 70px;
 }
 
 #header .brand {
-  height: 4rem;
-  margin: auto 0;
+    height: 4rem;
+    margin: auto 0;
 }
 
 #burguer {
-  display: none;
-  cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
 
 #menu {
-  display: none;
-  position: fixed;
-  background-color: #fff;
-  z-index: 1;
-  left: 0;
+    display: none;
+    position: fixed;
+    background-color: #fff;
+    z-index: 1;
+    left: 0;
 }
 
 #header ul {
-  display: flex;
-  gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 #header li,
 #menu li {
-  list-style: none;
+    list-style: none;
 }
 
 #header a {
-  text-decoration: none;
-  padding: 1.5rem 0.2rem;
-  color: #000;
-  display: inline-block;
-  border-bottom: 3px solid transparent;
-  transition: all .4s ease-in-out;
+    text-decoration: none;
+    padding: 1.5rem 0.2rem;
+    color: #000;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    transition: all .4s ease-in-out;
 }
 
 #header a:hover {
-  border-bottom: 3px solid #204473;
-  color: #BF3636;
+    border-bottom: 3px solid #204473;
+    color: #BF3636;
 }

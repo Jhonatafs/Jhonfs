@@ -1,112 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Estrutura e Interpretação de Programas de Computador</title>
-     <!--CSS-->
-     <link rel="stylesheet" href="/css/normalize.css">
-     <link rel="stylesheet" href="/css/style.css">
-     <link rel="stylesheet" href="/css/icons.css">
-     <!--JS-->
-     <script src="/js/light.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="application-name" content="JhonFs">
+    <meta name="description" content="Blog">
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>SICP | JhonFs</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/book.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/icons.css">
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
 </head>
-
 <body>
-     <div class="floating-button floating-top-position">
-          <a class="floating-button-formatting icon_top" href="#top"></a>
-          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span
-                    class="icon_light"></span></button>
-     </div>
-     <div id="top"></div>
-     <nav id="book-nav">
-          <ul>
-               <!--Come back-->
-               <li><a class="icon_back enabled" href="6.html"></a></li>
-               <!--Home-->
-               <li><a class="icon_exit enabled" href="/index.html"></a></li>
-               <!--Cover-->
-               <li><a class="icon_cover enabled" href="../sicp-pt-br.html"></a></li>
-               <!--Content-->
-               <li><a class="icon_content enabled" href="4.html"></a></li>
-               <!--Next-->
-               <li><a class="icon_next enabled" href="8.html"></a></li>
-          </ul>
-     </nav>
-     <main>
+  <div id="top"></div>
+
+  <div class="floating-button floating-top-position">
+      <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="floating-button-icon icon_theme"></span></button>
+  </div>
+  <button id="backToTop"><span class="icon_top"></span></button>
+
+    <div id="book-nav">
+        <a href="/arquive/sicp-pt-br/6.html" id="back-page">Voltar</a>
+        <a href="/arquive/sicp-pt-br/4.html" id="content-page">Conteudo</a>
+        <a href="/index.html" id="exit-page">Sair</a>
+        <a href="/arquive/sicp-pt-br.html" id="cover-page">Capa</a>
+        <a href="/arquive/sicp-pt-br/8.html" id="next-page">Proximo</a>
+    </div>
+     <article>
           <h1>Prefácio à Primeira Edição</h1>
-          <span class="quote"><em>
-                    Um computador é como um violino. Você pode imaginar um novato tentando primeiro um fonógrafo e
-                    depois um violino. Este último, ele diz, soa terrível. Esse é o argumento que ouvimos de nossos
-                    humanistas e da maioria de nossos cientistas da computação. Programas de computador são bons, eles
-                    dizem, para propósitos específicos, mas não são flexíveis. Nem um violino, ou uma máquina de
-                    escrever, até que você aprenda a usá-los.
-                    <br><br>
-                    &ndash; Marvin Minsky, "Why Programming Is a Good Medium for Expressing Poorly-Understood and
-                    Sloppily-Formulated Ideas"</em></span>
-          <p>"A Estrutura e Interpretação de Programas de Computador" é a disciplina de nível básico em ciência da
-               computação no Instituto de Tecnologia de Massachusetts. É exigido de todos os alunos do MIT que se
-               especializam em engenharia elétrica ou ciência da computação, como um quarto do "currículo básico comum",
-               que também inclui duas disciplinas sobre circuitos e sistemas lineares e uma disciplina sobre o design de
-               sistemas digitais. Estamos envolvidos no desenvolvimento desta disciplina desde 1978, e ensinamos este
-               material em sua forma atual desde o outono de 1980 para entre 600 e 700 alunos a cada ano. A maioria
-               desses alunos teve pouco ou nenhum treinamento formal prévio em computação, embora muitos tenham brincado
-               um pouco com computadores e alguns tenham tido ampla experiência em programação ou design de hardware.
+          <span class="quote"><em>Um computador é como um violino. Você pode imaginar um novato tentando primeiro um fonógrafo e depois um violino. Este último, ele diz, soa terrível. Esse é o argumento que ouvimos de nossos humanistas e da maioria de nossos cientistas da computação. Programas de computador são bons, eles dizem, para propósitos específicos, mas não são flexíveis. Nem um violino, ou uma máquina de escrever, até que você aprenda a usá-los.
+               <br>
+               <br>
+               &ndash; Marvin Minsky, "Why Programming Is a Good Medium for Expressing Poorly-Understood and Sloppily-Formulated Ideas"</em></span>
+          <p>"A Estrutura e Interpretação de Programas de Computador" é a disciplina de nível básico em ciência da computação no Instituto de Tecnologia de Massachusetts. É exigido de todos os alunos do MIT que se especializam em engenharia elétrica ou ciência da computação, como um quarto do "currículo básico comum", que também inclui duas disciplinas sobre circuitos e sistemas lineares e uma disciplina sobre o design de sistemas digitais. Estamos envolvidos no desenvolvimento desta disciplina desde 1978, e ensinamos este material em sua forma atual desde o outono de 1980 para entre 600 e 700 alunos a cada ano. A maioria desses alunos teve pouco ou nenhum treinamento formal prévio em computação, embora muitos tenham brincado um pouco com computadores e alguns tenham tido ampla experiência em programação ou design de hardware.
           </p>
-          <p>Nosso design desta disciplina introdutória de ciência da computação reflete duas preocupações principais.
-               Primeiro, queremos estabelecer a ideia de que uma linguagem de computador não é apenas uma maneira de
-               fazer um computador executar operações, mas sim um novo meio formal para expressar ideias sobre
-               metodologia. Assim, os programas devem ser escritos para as pessoas lerem e, apenas incidentalmente, para
-               as máquinas executarem. Segundo, acreditamos que o material essencial a ser abordado por uma disciplina
-               neste nível não é a sintaxe de construções específicas de linguagem de programação, nem algoritmos
-               inteligentes para computar funções específicas de forma eficiente, nem mesmo a análise matemática de
-               algoritmos e os fundamentos da computação, mas sim as técnicas usadas para controlar a complexidade
-               intelectual de grandes sistemas de software.</p>
-          <p>Nosso objetivo é que os alunos que concluírem esta disciplina tenham uma boa noção dos elementos de estilo
-               e da estética da programação. Eles devem ter domínio das principais técnicas para controlar a
-               complexidade em um sistema grande. Eles devem ser capazes de ler um programa de 50 páginas, se ele for
-               escrito em um estilo exemplar. Eles devem saber o que não ler e o que não precisam entender em nenhum
-               momento. Eles devem se sentir seguros sobre modificar um programa, mantendo o espírito e o estilo do
-               autor original.</p>
-          <p>Essas habilidades não são de forma alguma exclusivas da programação de computadores. As técnicas que
-               ensinamos e utilizamos são comuns a todo o design de engenharia. Controlamos a complexidade construindo
-               abstrações que escondem detalhes quando apropriado. Controlamos a complexidade estabelecendo interfaces
-               convencionais que nos permitem construir sistemas combinando peças padrão e bem compreendidas de uma
-               maneira "misture e combine". Controlamos a complexidade estabelecendo novas linguagens para descrever um
-               design, cada uma das quais enfatiza aspectos particulares do design e desenfatiza outros.</p>
-          <p>Subjacente à nossa abordagem a este assunto está nossa convicção de que "ciência da computação" não é uma
-               ciência e que sua significância tem pouco a ver com computadores. A revolução da computação é uma
-               revolução na maneira como pensamos e na maneira como expressamos o que pensamos. A essência dessa mudança
-               é o surgimento do que pode ser melhor chamado de epistemologia procedural — o estudo da estrutura do
-               conhecimento de um ponto de vista imperativo, em oposição ao ponto de vista mais declarativo adotado por
-               disciplinas matemáticas clássicas. A matemática fornece uma estrutura para lidar precisamente com noções
-               de "o que é". A computação fornece uma estrutura para lidar precisamente com noções de "como fazer".</p>
-          <p>Ao ensinar nosso material, usamos um dialeto da linguagem de programação Lisp. Nunca ensinamos a linguagem
-               formalmente, porque não precisamos. Nós apenas a usamos, e os alunos a pegam em poucos dias. Esta é uma
-               grande vantagem das linguagens semelhantes a Lisp: elas têm muito poucas maneiras de formar expressões
-               compostas e quase nenhuma estrutura sintática. Todas as propriedades formais podem ser cobertas em uma
-               hora, como as regras do xadrez. Depois de um curto período, esquecemos os detalhes sintáticos da
-               linguagem (porque não há nenhum) e continuamos com as questões reais — descobrir o que queremos computar,
-               como decomporemos os problemas em partes gerenciáveis e como trabalharemos nas partes. Outra vantagem do
-               Lisp é que ele suporta (mas não impõe) mais estratégias de larga escala para decomposição modular de
-               programas do que qualquer outra linguagem que conhecemos. Podemos fazer abstrações de dados e
-               procedimentos, podemos usar funções de ordem superior para capturar padrões comuns de uso, podemos
-               modelar o estado local usando atribuição e mutação de dados, podemos vincular partes de um programa com
-               fluxos e avaliação atrasada, e podemos facilmente implementar linguagens embarcadas. Tudo isso é
-               embarcado em um ambiente interativo com excelente suporte para design, construção, teste e depuração de
-               programas incrementais. Agradecemos a todas as gerações de magos do Lisp, começando com John McCarthy,
-               que moldaram uma ferramenta fina de poder e elegância sem precedentes.</p>
-          <p>Scheme, o dialeto de Lisp que usamos, é uma tentativa de unir o poder e a elegância de Lisp e Algol. De
-               Lisp, pegamos o poder metalinguístico que deriva da sintaxe simples, da representação uniforme de
-               programas como objetos de dados e dos dados alocados em heap coletados como lixo. De Algol, pegamos o
-               escopo lexical e a estrutura de bloco, que são presentes dos pioneiros do design de linguagem de
-               programação que estavam no comitê Algol. Gostaríamos de citar John Reynolds e Peter Landin por seus
-               insights sobre a relação do cálculo lambda de Church com a estrutura das linguagens de programação.
-               Também reconhecemos nossa dívida com os matemáticos que exploraram esse território décadas antes dos
-               computadores aparecerem em cena. Esses pioneiros incluem Alonzo Church, Barkley Rosser, Stephen Kleene e
-               Haskell Curry.</p>
-     </main>
+          <p>Nosso design desta disciplina introdutória de ciência da computação reflete duas preocupações principais. Primeiro, queremos estabelecer a ideia de que uma linguagem de computador não é apenas uma maneira de fazer um computador executar operações, mas sim um novo meio formal para expressar ideias sobre metodologia. Assim, os programas devem ser escritos para as pessoas lerem e, apenas incidentalmente, para as máquinas executarem. Segundo, acreditamos que o material essencial a ser abordado por uma disciplina neste nível não é a sintaxe de construções específicas de linguagem de programação, nem algoritmos inteligentes para computar funções específicas de forma eficiente, nem mesmo a análise matemática de algoritmos e os fundamentos da computação, mas sim as técnicas usadas para controlar a complexidade intelectual de grandes sistemas de software.</p>
+          <p>Nosso objetivo é que os alunos que concluírem esta disciplina tenham uma boa noção dos elementos de estilo e da estética da programação. Eles devem ter domínio das principais técnicas para controlar a complexidade em um sistema grande. Eles devem ser capazes de ler um programa de 50 páginas, se ele for escrito em um estilo exemplar. Eles devem saber o que não ler e o que não precisam entender em nenhum momento. Eles devem se sentir seguros sobre modificar um programa, mantendo o espírito e o estilo do autor original.</p>
+          <p>Essas habilidades não são de forma alguma exclusivas da programação de computadores. As técnicas que ensinamos e utilizamos são comuns a todo o design de engenharia. Controlamos a complexidade construindo abstrações que escondem detalhes quando apropriado. Controlamos a complexidade estabelecendo interfaces convencionais que nos permitem construir sistemas combinando peças padrão e bem compreendidas de uma maneira "misture e combine". Controlamos a complexidade estabelecendo novas linguagens para descrever um design, cada uma das quais enfatiza aspectos particulares do design e desenfatiza outros.</p>
+          <p>Subjacente à nossa abordagem a este assunto está nossa convicção de que "ciência da computação" não é uma ciência e que sua significância tem pouco a ver com computadores. A revolução da computação é uma revolução na maneira como pensamos e na maneira como expressamos o que pensamos. A essência dessa mudança é o surgimento do que pode ser melhor chamado de epistemologia procedural — o estudo da estrutura do conhecimento de um ponto de vista imperativo, em oposição ao ponto de vista mais declarativo adotado por disciplinas matemáticas clássicas. A matemática fornece uma estrutura para lidar precisamente com noções de "o que é". A computação fornece uma estrutura para lidar precisamente com noções de "como fazer".</p>
+          <p>Ao ensinar nosso material, usamos um dialeto da linguagem de programação Lisp. Nunca ensinamos a linguagem formalmente, porque não precisamos. Nós apenas a usamos, e os alunos a pegam em poucos dias. Esta é uma grande vantagem das linguagens semelhantes a Lisp: elas têm muito poucas maneiras de formar expressões compostas e quase nenhuma estrutura sintática. Todas as propriedades formais podem ser cobertas em uma hora, como as regras do xadrez. Depois de um curto período, esquecemos os detalhes sintáticos da linguagem (porque não há nenhum) e continuamos com as questões reais — descobrir o que queremos computar, como decomporemos os problemas em partes gerenciáveis e como trabalharemos nas partes. Outra vantagem do Lisp é que ele suporta (mas não impõe) mais estratégias de larga escala para decomposição modular de programas do que qualquer outra linguagem que conhecemos. Podemos fazer abstrações de dados e procedimentos, podemos usar funções de ordem superior para capturar padrões comuns de uso, podemos modelar o estado local usando atribuição e mutação de dados, podemos vincular partes de um programa com fluxos e avaliação atrasada, e podemos facilmente implementar linguagens embarcadas. Tudo isso é embarcado em um ambiente interativo com excelente suporte para design, construção, teste e depuração de programas incrementais. Agradecemos a todas as gerações de magos do Lisp, começando com John McCarthy, que moldaram uma ferramenta fina de poder e elegância sem precedentes.</p>
+          <p>Scheme, o dialeto de Lisp que usamos, é uma tentativa de unir o poder e a elegância de Lisp e Algol. De Lisp, pegamos o poder metalinguístico que deriva da sintaxe simples, da representação uniforme de programas como objetos de dados e dos dados alocados em heap coletados como lixo. De Algol, pegamos o escopo lexical e a estrutura de bloco, que são presentes dos pioneiros do design de linguagem de programação que estavam no comitê Algol. Gostaríamos de citar John Reynolds e Peter Landin por seus insights sobre a relação do cálculo lambda de Church com a estrutura das linguagens de programação. Também reconhecemos nossa dívida com os matemáticos que exploraram esse território décadas antes dos computadores aparecerem em cena. Esses pioneiros incluem Alonzo Church, Barkley Rosser, Stephen Kleene e Haskell Curry.</p>
+     </article>
+     <script src="/js/buttonToTop.js"></script>
 </body>
 
 </html>

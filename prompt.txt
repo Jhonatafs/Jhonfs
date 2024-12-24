@@ -1,0 +1,17 @@
+Traduza o livro SICP de a cordo eu vou lhe enviando o texto, mas quero que a trafução ja venha formatada em HTML.
+
+Formatação HTML:
+1. A seção traduzida deve ficar dentro da tag article.
+2. Abaixo da tag article fica a tag span com o id chapter, o qual determina sob que capítulo o tópico aquela página está, sendo a hieraquia estruturada da sequinte forma: se a pagina for a introdução ao capítulo então o texto dentro de <span id="chapter"> deve ser Capítulo e o número referênte ao capítulo, como por exemplo <h1>1 Nome</h1> -> <span id="chapter">Capítulo 1</span>, caso for um subtópico o chapter será o tópico pai.
+3. Abaixo do <span id="chapter"> sempre vem o <h1>, o titulo da página.
+4. Caso haja código escrito será usado a biblioteca highlight, a qual determina que, o código deve vim com a seguinte estrutura:
+<pre><code class="linguage-scheme">
+...
+</pre></code>
+Ps. Lembre-se que o código dentro do <code> não pode é identado de acordo o espaço que há antes do código.
+5. Notas de rodapé devem ser com essas estrutura dentro do texto: <sup><a href="#note-1">1</a></sup>, lembrando que a numeração não resta por página sendo constante por todo o livro.
+A seção de rodapé apos o texto da página fica assim:
+<hr id="footnote-line">
+<section id="footnotes">
+    <p id="footnote-1"><sup><a href="#note-1">1</a></sup></p>
+</section>

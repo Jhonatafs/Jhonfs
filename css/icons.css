@@ -88,6 +88,11 @@
     content: '󰍜';
 }
 
+.icon_menuburguerstart::before {
+    font-family: 'Icons';
+    content: '';
+}
+
 .icon_close::before {
     font-family: 'Icons';
     content: '󰮫';
@@ -108,7 +113,12 @@
     content: '󰗊';
 }
 
-.icon_theme::before{
+.icon_theme::before {
     font-family: 'Icons';
-    content: '󰔎'; 
+    content: '󰔎';
+}
+
+.icon_linkexternal::before {
+    font-family: 'Icons';
+    content: '';
 }

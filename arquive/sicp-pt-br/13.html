@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs">
+     <meta name="description" content="Blog">
+     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+     <title>SICP | JhonFs</title>
+     <!--CSS-->
+     <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/css/book.css">
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/icons.css">
+     <link rel="stylesheet" href="/css/dracula.css">
+     <!--SCRIPT-->
+     <script src="/js/light.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+     <script>hljs.highlightAll();</script>
+</head>
+<body>
+     <div id="top"></div>
+     <!--Floating Buttons-->
+     <div class="floating-button floating-top-position">
+          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="floating-button-icon icon_theme"></span></button>
+     </div>
+     <button id="backToTop"><span class="icon_top"></span></button>
+     <!--Navegation book-->
+     <div id="book-nav">
+          <a href="/arquive/sicp-pt-br/12.html" id="back-page">Voltar</a>
+          <a href="/arquive/sicp-pt-br/4.html" id="content-page">Conteudo</a>
+          <a href="/index.html" id="exit-page">Sair</a>
+          <a href="/arquive/sicp-pt-br.html" id="cover-page">Capa</a>
+          <a href="/arquive/sicp-pt-br/14.html" id="next-page">Proximo</a>
+     </div>
+     <!--Content-->
+     <article>
+          <span id="chapter">Capítulo 1: ... 1.1 Os Elementos da Programação</span>
+          <h1>1.1.3 Avaliando Combinações</h1>
+          <p>Um de nossos objetivos neste capítulo é isolar questões sobre o pensamento procedural. Como exemplo, consideremos que, ao avaliar combinações, o interpretador segue um procedimento.</p>
+          <p>Para avaliar uma combinação, faça o seguinte:</p>
+          <ol>
+              <li>Avalie as subexpressões da combinação.</li>
+              <li>Aplica o procedimento que é o valor da subexpressão mais à esquerda (o operador) aos argumentos que são os valores das outras subexpressões (os operandos).</li>
+          </ol>
+          <p>Mesmo essa regra simples ilustra alguns pontos importantes sobre processos em geral. Primeiro, observe que o primeiro passo determina que, para realizar o processo de avaliação de uma combinação, devemos primeiro realizar o processo de avaliação em cada elemento da combinação.<sup id="note-10"></sup> Assim, a regra de avaliação é recursiva por natureza; isto é, inclui, como um de seus passos, a necessidade de invocar a própria regra.<sup><a href="#footnote-10">10</a></sup></p>
+          <p>Observe como a ideia de recursão pode ser usada de forma sucinta para expressar o que, no caso de uma combinação profundamente aninhada, seria de outra forma considerado um processo bastante complicado. Por exemplo, avaliar</p>
+          <pre><code class="language-scheme">
+(* (+ 2 (* 4 6))
+     (+ 3 5 7))
+          </code></pre>
+          <p>requer que a regra de avaliação seja aplicada a quatro combinações diferentes. Podemos obter uma imagem desse processo representando a combinação na forma de uma árvore, como mostrado na figura 1.1. Cada combinação é representada por um nó com ramificações correspondentes ao operador e aos operandos da combinação que partem dele. Os nós terminais (isto é, nós sem ramificações) representam operadores ou números. Visualizando a avaliação em termos da árvore, podemos imaginar que os valores dos operandos "percolam para cima", começando nos nós terminais e depois se combinando em níveis cada vez mais altos. Em geral, veremos que a recursão é uma técnica muito poderosa para lidar com objetos hierárquicos, em forma de árvore. De fato, a forma "percolando valores para cima" da regra de avaliação é um exemplo de um tipo geral de processo conhecido como acumulação em árvore.</p>
+          <figure>
+               <img src="/img/sicp-pt-br/ch1-Z-G-1.gif" alt="imagem do calculo do processo (* (+ 2 (* 4 6))(+ 3 5 7)) em um fluxograma de arvore">
+               <figcaption>Figura 1.1: Representação em árvore, mostrando o valor de cada subcombinação.</figcaption>
+          </figure>
+          <p>Em seguida, observe que a aplicação repetida do primeiro passo nos leva ao ponto em que precisamos avaliar, não combinações, mas expressões primitivas, como numerais, operadores incorporados ou outros nomes. Lidamos com os casos primitivos estipulando que:</p>
+          <ul>
+              <li>os valores dos numerais são os números que eles nomeiam,</li>
+              <li>os valores dos operadores incorporados são as sequências de instruções de máquina que realizam as operações correspondentes, e</li>
+              <li>os valores de outros nomes são os objetos associados a esses nomes no ambiente.</li>
+          </ul>
+          <p>Podemos considerar a segunda regra como um caso especial da terceira, estipulando que símbolos como <span class="code">+</span> e <span class="code">*</span> também estão incluídos no ambiente global, associados às sequências de instruções de máquina que são seus "valores". O ponto-chave é notar o papel do ambiente em determinar o significado dos símbolos nas expressões. Em uma linguagem interativa como Lisp, é sem sentido falar do valor de uma expressão como <span class="code">(+ x 1)</span> sem especificar informações sobre o ambiente que forneceria um significado para o símbolo <span class="code">x</span> (ou mesmo para o símbolo <span class="code">+</span>). Como veremos no capítulo 3, a noção geral de ambiente como fornecendo um contexto no qual a avaliação ocorre desempenhará um papel importante em nossa compreensão da execução de programas.</p>
+          <p>Observe que a regra de avaliação dada acima não lida com definições. Por exemplo, avaliar <span class="code">(define x 3)</span> não aplica <span class="code">define</span> a dois argumentos, um dos quais é o valor do símbolo <span class="code">x</span> e o outro é <span class="code">3</span>, pois o propósito de <span class="code">define</span> é precisamente associar <span class="code">x</span> a um valor. (Isto é, <span class="code">(define x 3)</span> não é uma combinação.)</p>
+          <p>Essas exceções à regra geral de avaliação são chamadas de formas especiais. <span class="code">Define</span> é o único exemplo de uma forma especial que vimos até agora, mas encontraremos outras em breve. Cada forma especial tem sua própria regra de avaliação. Os diversos tipos de expressões (cada um com sua regra de avaliação associada) constituem a sintaxe da linguagem de programação.<sup id="note-11"></sup> Em comparação com a maioria das outras linguagens de programação, Lisp tem uma sintaxe muito simples; isto é, a regra de avaliação para expressões pode ser descrita por uma regra geral simples juntamente com regras especializadas para um pequeno número de formas especiais.<sup><a href="#footnote-11">11</a></sup></p>
+          <hr id="footnote-line">
+          <section id="footnotes">             
+               <p id="footnote-10"><sup><a href="#note-10">10</a></sup> Pode parecer estranho que a regra de avaliação diga, como parte do primeiro passo, que devemos avaliar o elemento mais à esquerda de uma combinação, uma vez que neste ponto isso só pode ser um operador como + ou * representando um procedimento primitivo embutido, como adição ou multiplicação. Veremos mais tarde que é útil poder trabalhar com combinações cujos operadores são eles próprios expressões compostas.</p> 
+               <p id="footnote-11"><sup><a href="#note-11">11</a></sup> Formas sintáticas especiais que são simplesmente estruturas de superfície alternativas convenientes para coisas que podem ser escritas de maneiras mais uniformes são às vezes chamadas de açúcar sintático, para usar uma frase cunhada por Peter Landin. Em comparação com os usuários de outras linguagens, os programadores Lisp, como regra, estão menos preocupados com questões de sintaxe. (Em contraste, examine qualquer manual Pascal e observe quanta parte dele é dedicada a descrições de sintaxe.) Esse desprezo pela sintaxe se deve em parte à flexibilidade do Lisp, que torna fácil alterar a sintaxe de superfície, e em parte à observação de que muitos construtos sintáticos "convenientes", que tornam a linguagem menos uniforme, acabam causando mais problemas do que valem a pena quando os programas se tornam grandes e complexos. Nas palavras de Alan Perlis, "O açúcar sintático causa câncer de ponto-e-vírgula".</p> 
+      </article>
+      
+     <!--Script Scroll Top-->
+     <script src="/js/buttonToTop.js"></script>
+</body>
+</html>

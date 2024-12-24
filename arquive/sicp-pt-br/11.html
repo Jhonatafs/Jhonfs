@@ -1,42 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Estrutura e Interpretação de Programas de Computador</title>
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="application-name" content="JhonFs">
+     <meta name="description" content="Blog">
+     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+     <title>SICP | JhonFs</title>
      <!--CSS-->
      <link rel="stylesheet" href="/css/normalize.css">
+     <link rel="stylesheet" href="/css/book.css">
      <link rel="stylesheet" href="/css/style.css">
      <link rel="stylesheet" href="/css/icons.css">
-     <!--JS-->
+     <link rel="stylesheet" href="/css/dracula.css">
+     <!--SCRIPT-->
      <script src="/js/light.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+     <script>hljs.highlightAll();</script>
 </head>
 <body>
+     <div id="top"></div>
+     <!--Floating Buttons-->
      <div class="floating-button floating-top-position">
-          <a class="floating-button-formatting" href="#top">⌅</a>
-          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()">☀</button>
+          <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="floating-button-icon icon_theme"></span></button>
      </div>
-    <div id="top"></div>
-     <nav id="book-nav">
-          <ul>
-               <!--Come back-->
-               <li><a class="icon_back enabled" href="9.html"></a></li>
-               <!--Home-->
-               <li><a class="icon_exit enabled" href="/index.html"></a></li>
-               <!--Cover-->
-               <li><a class="icon_cover enabled" href="../sicp-pt-br.html"></a></li>
-               <!--Content-->
-               <li><a class="icon_content enabled" href="4.html"></a></li>
-               <!--Next-->
-               <li><a class="icon_next enabled" href="11.html"></a></li>
-          </ul>
-     </nav>
+     <button id="backToTop"><span class="icon_top"></span></button>
+     <!--Navegation book-->
+     <div id="book-nav">
+          <a href="/arquive/sicp-pt-br/10.html" id="back-page">Voltar</a>
+          <a href="/arquive/sicp-pt-br/4.html" id="content-page">Conteudo</a>
+          <a href="/index.html" id="exit-page">Sair</a>
+          <a href="/arquive/sicp-pt-br.html" id="cover-page">Capa</a>
+          <a href="/arquive/sicp-pt-br/12.html" id="next-page">Proximo</a>
+     </div>
+     <!--Content-->
      <article>
-          <h1 id="1.2">1.2 Procedimentos e os Processos que Eles Geram</h1>
-          <p>Agora consideramos os elementos da programação: usamos operações aritméticas primitivas, combinamos essas operações e abstraímos essas operações compostas definindo-as como procedimentos compostos. Mas isso não é suficiente para nos permitir dizer que sabemos programar. Nossa situação é análoga à de alguém que aprendeu as regras de como as peças se movem no xadrez, mas não sabe nada sobre aberturas, táticas ou estratégias típicas. Como o jogador de xadrez novato, ainda não conhecemos os padrões comuns de uso no domínio. Não temos o conhecimento de quais movimentos valem a pena fazer (quais procedimentos valem a pena definir). Não temos a experiência para prever as consequências de fazer um movimento (executar um procedimento).</p>
-          <p>A capacidade de visualizar as consequências das ações em consideração é crucial para se tornar um programador especialista, assim como em qualquer atividade sintética e criativa. Para se tornar um fotógrafo especialista, por exemplo, é preciso aprender a olhar para uma cena e saber o quão escura cada região aparecerá em uma impressão para cada escolha possível de condições de exposição e desenvolvimento. Só então é possível raciocinar para trás, planejando enquadramento, iluminação, exposição e desenvolvimento para obter os efeitos desejados. O mesmo ocorre com a programação, onde planejamos o curso de ação a ser tomado por um processo e onde controlamos o processo por meio de um programa. Para nos tornarmos especialistas, precisamos aprender a visualizar os processos gerados por vários tipos de procedimentos. Só depois de desenvolvermos tal habilidade é que podemos aprender a construir de forma confiável programas que exibam o comportamento desejado.</p>
-          <p>Um procedimento é um padrão para a evolução local de um processo computacional. Ele especifica como cada estágio do processo é construído sobre o estágio anterior. Gostaríamos de ser capazes de fazer declarações sobre o comportamento geral, ou global , de um processo cuja evolução local foi especificada por um procedimento. Isso é muito difícil de fazer em geral, mas podemos pelo menos tentar descrever alguns padrões típicos de evolução de processo.</p>
-          <p>Nesta seção, examinaremos algumas ``formas'' comuns para processos gerados por procedimentos simples. Também investigaremos as taxas nas quais esses processos consomem os importantes recursos computacionais de tempo e espaço. Os procedimentos que consideraremos são muito simples. Seu papel é como o desempenhado por padrões de teste em fotografia: como padrões prototípicos supersimplificados, em vez de exemplos práticos por si só.</p>
-     </main>
+          <span id="chapter">Capítulo 1: ... 1.1 Os Elementos da Programação</span>
+          <h1>1.1.1 Expressões</h1>
+          <p>Uma maneira fácil de começar a programar é examinar algumas interações típicas com um interpretador do dialeto Scheme do Lisp. Imagine que você está sentado em um terminal de computador. Você digita uma expressão, e o interpretador responde exibindo o resultado de avaliar essa expressão.</p>
+          <p>Um tipo de expressão primitiva que você pode digitar é um número. (Mais precisamente, a expressão que você digita consiste nos numerais que representam o número na base 10.) Se você apresentar ao Lisp um número</p>
+          <pre><code class="language-scheme">
+486
+          </code></pre>
+          <p>o interpretador responderá imprimindo<sup id="note-5"></sup><sup><a href="#footnote-5">5</a></sup></p>
+          <pre><code class="language-scheme">
+486
+          </code></pre>
+          <p>Expressões que representam números podem ser combinadas com uma expressão que representa um procedimento primitivo (como <span class="code">+</span> ou <span class="code">*</span>) para formar uma expressão composta que representa a aplicação do procedimento a esses números. Por exemplo:</p>
+          <pre><code class="language-scheme">
+(+ 137 349)
+486
+
+(- 1000 334)
+666
+
+(* 5 99)
+495
+
+(/ 10 5)
+2
+
+(+ 2.7 10)
+12.7
+          </code></pre>
+          <p>Expressões como essas, formadas delimitando uma lista de expressões entre parênteses para denotar a aplicação de procedimento, são chamadas de combinações. O elemento mais à esquerda na lista é chamado de operador, e os outros elementos são chamados de operandos. O valor de uma combinação é obtido aplicando o procedimento especificado pelo operador aos argumentos que são os valores dos operandos.</p>
+          <p>A convenção de colocar o operador à esquerda dos operandos é conhecida como notação de prefixo, e pode ser um pouco confusa no início porque se afasta significativamente da convenção matemática usual. No entanto, a notação de prefixo tem várias vantagens. Uma delas é que ela pode acomodar procedimentos que podem receber um número arbitrário de argumentos, como nos exemplos a seguir:</p>
+          <pre><code class="language-scheme">
+(+ 21 35 12 7)
+75
+
+(* 25 4 12)
+1200
+          </code></pre>
+          <p>Não pode haver ambiguidade, pois o operador é sempre o elemento mais à esquerda e toda a combinação é delimitada pelos parênteses.</p>
+          <p>Uma segunda vantagem da notação de prefixo é que ela se estende de forma direta para permitir que as combinações sejam aninhadas, ou seja, que tenham combinações cujos elementos sejam eles mesmos combinações:</p>
+          <pre><code class="language-scheme">
+(+ (* 3 5) (- 10 6))
+19
+          </code></pre>
+          <p>Não há limite (em princípio) para a profundidade desse aninhamento e para a complexidade geral das expressões que o interpretador Lisp pode avaliar. Somos nós, humanos, que nos confundimos com expressões ainda relativamente simples, como</p>
+          <pre><code class="language-scheme">
+(+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
+          </code></pre>
+          <p>que o interpretador avaliaria prontamente como <span class="code">57</span>. Podemos nos ajudar escrevendo tal expressão no formato:</p>
+          <pre><code class="language-scheme">
+(+ (* 3
+     (+ (* 2 4)
+     (+ 3 5)))
+(+ (- 10 7)
+     6))
+          </code></pre>
+          <p>seguindo uma convenção de formatação conhecida como <em>pretty-printing</em>, na qual cada combinação longa é escrita de forma que os operandos fiquem alinhados verticalmente. As indentações resultantes exibem claramente a estrutura da expressão.<sup id="note-6"></sup><sup><a href="#footnote-6">6</a></sup></p>
+          <p>Mesmo com expressões complexas, o interpretador sempre opera no mesmo ciclo básico: ele lê uma expressão do terminal, avalia a expressão e imprime o resultado. Este modo de operação é frequentemente expresso dizendo-se que o interpretador opera em um <em>loop</em> de leitura-avaliação-impressão. Observe, em particular, que não é necessário instruir explicitamente o interpretador a imprimir o valor da expressão.<sup id="note-7"></sup><sup><a href="#footnote-7">7</a></sup></p>
+          <hr id="footnote-line">
+          <section id="footnotes">
+               <p id="footnote-5"><sup><a href="#note-5">5</a></sup> Ao longo deste livro, quando quisermos enfatizar a distinção entre a entrada digitada pelo usuário e a resposta impressa pelo interpretador, mostraremos esta última em caracteres inclinados.</p> 
+               <p id="footnote-6"><sup><a href="#note-6">6</a></sup> Sistemas Lisp normalmente fornecem recursos para ajudar o usuário a formatar expressões. Dois recursos especialmente úteis são um que recua automaticamente para a posição correta de impressão bonita sempre que uma nova linha é iniciada e outro que destaca o parêntese esquerdo correspondente sempre que um parêntese direito é digitado.</p> 
+               <p id="footnote-7"><sup><a href="#note-7">7</a></sup> Lisp obedece à convenção de que toda expressão tem um valor. Essa convenção, juntamente com a antiga reputação do Lisp como uma linguagem ineficiente, é a fonte da piada de Alan Perlis (parafraseando Oscar Wilde) de que "os programadores Lisp conhecem o valor de tudo, mas o custo de nada".</p> 
+          </section>
+      </article>      
+     <!--Script Scroll Top-->
+     <script src="/js/buttonToTop.js"></script>
 </body>
 </html>
