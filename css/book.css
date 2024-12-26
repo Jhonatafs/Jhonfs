@@ -14,19 +14,21 @@ a {
 
 #book-nav {
     position: fixed;
-    left: 0;
+    left: 50%;
     bottom: 0;
     z-index: 2;
+    transform: translate(-50%, 0);
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    width: 99dvw;
-    margin: auto;
-    background-color: var(--background);
-    opacity: .95;
+    width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--nav);
+    opacity: .90;
 }
 
 #book-nav a {
@@ -38,11 +40,18 @@ a {
 
     text-align: center;
     font-size: 1.2rem;
+    color: var(--text) !important;
 }
 
 #book-nav .disabled {
     color: darkgray !important;
     cursor: not-allowed;
+}
+
+@media screen and (max-width: 720px) {
+    #book-nav {
+        width: 99dvw;
+    }
 }
 
 
