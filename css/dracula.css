@@ -138,10 +138,13 @@ code {
 
 .code {
   font-family: "Fira Code";
-  font-size: 1.1rem !important;
+  font-size: 1.2rem !important;
   font-style: italic;
-  background-color: #282a36af;
-  padding: .2rem .5rem .1rem;
+
+  color: #f8f8f2 !important;
+  background-color: #282a36;
+  
+  padding: .1rem .5rem .1rem;
   border-radius: 3px;
 }
 
