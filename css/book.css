@@ -17,14 +17,14 @@ a {
     left: 50%;
     bottom: 0;
     z-index: 2;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -1%);
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    width: 700px;
+    width: 702px;
     margin: 0 auto;
     padding: 0;
     background-color: var(--nav);
@@ -32,20 +32,40 @@ a {
 }
 
 #book-nav a {
-    display: inline-block;
+    display: block;
     cursor: pointer;
 
     width: 20%;
-    padding: .5rem 0;
+    height: 2.3rem;
+    padding: 0;
+    margin: 0;
 
     text-align: center;
     font-size: 1.2rem;
     color: var(--text) !important;
 }
 
+#book-nav a:hover {
+    background-color: #6b4c97;
+}
+
 #book-nav .disabled {
     color: darkgray !important;
     cursor: not-allowed;
+}
+
+#book-nav .icon {
+    display: inline-block;
+
+    padding: 0;
+    margin: .2rem 0 0;
+    font-size: 1.6rem;
+}
+
+#book-nav .icon_next,
+#book-nav .icon_back {
+    font-size: 1.9rem;
+    margin: 0;
 }
 
 @media screen and (max-width: 720px) {
@@ -172,6 +192,12 @@ article tr:nth-child(even) {
 
 #book-sumary a:hover {
     padding-left: .5rem;
+}
+
+#footnote-line {
+    width: 40%;
+    margin-right: 60%;
+    margin-top: 4rem;
 }
 
 #footnotes p {

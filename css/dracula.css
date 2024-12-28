@@ -148,6 +148,18 @@ code {
   border-radius: 3px;
 }
 
+.code-in-note {
+  font-family: "Fira Code";
+  font-size: .8rem !important;
+  font-style: italic;
+
+  color: #f8f8f2 !important;
+  background-color: #282a36;
+  
+  padding: .2rem .5rem .1rem;
+  border-radius: 3px;
+}
+
 #footnotes .code {
   font-size: .8rem !important;
   padding: .1rem .3rem !important;
