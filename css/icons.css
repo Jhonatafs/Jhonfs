@@ -122,3 +122,18 @@
     font-family: 'Icons';
     content: '';
 }
+
+.icon_html::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_css::before {
+    font-family: 'Icons';
+    content: '';
+}
+
+.icon_javascript::before {
+    font-family: 'Icons';
+    content: '';
+}
