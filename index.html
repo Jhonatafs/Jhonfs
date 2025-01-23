@@ -1,51 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="application-name" content="JhonFs">
-    <meta name="description" content="Blog">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="application-name" content="JhonFs" />
+    <meta name="description" content="Blog" />
     <link rel="icon" type="image/png" href="/img/fovicon.svg" />
     <title>JhonFs</title>
     <!--CSS-->
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/icons.css"> 
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
     <!--SCRIPT-->
     <script src="/js/light.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="top"></div>
 
     <div class="floating-button floating-top-position">
-        <a class="floating-button-formatting floating-button-icon icon_translate" href="/index-en.html"></a>
-        <button class="floating-button-formatting" id="button-light" onclick="lightStatus()"><span class="floating-button-icon icon_theme"></span></button>
+      <a
+        class="floating-button-formatting floating-button-icon icon_translate"
+        href="/index-en.html"
+      ></a>
+      <button
+        class="floating-button-formatting"
+        id="button-light"
+        onclick="lightStatus()"
+      >
+        <span class="floating-button-icon icon_theme"></span>
+      </button>
     </div>
     <button id="backToTop"><span class="icon_top"></span></button>
 
-    <main>      
-        <section id="about">
-            <h1>JhonFS</h1>
-            <p>Bem-vindo ao meu espaço na web! Me chamo Jhonata, sou estudante de Ciências da Computação e criei este site como um projeto pessoal, você me acha no <a href="https://www.linkedin.com/in/jhonfs/" target="_blank" class="icon_linkedin"> LinkedIn</a>, no <a href="https://github.com/Jhonatafs/Jhonfs" target="_blank" class="icon_github"> Github</a> e e-mail yonatan.fs@proton.me</p>
-        </section>
-        <section id="projects">
-            <h2>Projetos Pessoais</h2>
-            <ul>
-                <li><a href="/arquive/sicp-pt-br.html">Tradução do Livros <em>Structure and Interpretation of Computer Programs</em>, 2ª edição para o português</a></li>
-            </ul>
-        </section>
-        <section id="projects">
-            <h2>Trabalhos</h2>
-            <ul>
-                <li><a href="https://dome-of-war.vercel.app" target="_blank">Dome Of War</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Acadêmia</h2>
-            <p><strong>Bacharelado em Ciências da Computação</strong> &ndash; Estácio <br>termino previsto para 2026</p>
-        </section>
+    <main>
+      <section id="about">
+        <h1>JhonFS</h1>
+        <p>
+          Bem-vindo ao meu espaço na web! Me chamo Jhonata, sou estudante de
+          Ciências da Computação e criei este site como um projeto pessoal, você
+          me acha no
+          <a
+            href="https://www.linkedin.com/in/jhonfs/"
+            target="_blank"
+            class="icon_linkedin"
+          >
+            LinkedIn</a
+          >, no
+          <a
+            href="https://github.com/Jhonatafs/Jhonfs"
+            target="_blank"
+            class="icon_github"
+          >
+            Github</a
+          >
+          e e-mail yonatan.fs@proton.me
+        </p>
+      </section>
+      <section>
+        <h2>Acadêmia</h2>
+        <p>
+          <strong>Bacharelado em Ciências da Computação</strong> &ndash; Estácio
+          <br />termino previsto para 2026
+        </p>
+      </section>
+      <hr />
+      <section class="cards">
+        <h2>Projetos Pessoais</h2>
+        <ul>
+          <li>
+            <a href="/arquive/notasdeestudocs.html"
+              >Notas de Estudo [<em>Ciências da Computação</em>]</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="cards">
+        <h2>Trabalhos</h2>
+        <ul>
+          <li>
+            <span class="icon_web"></span>
+            <a href="https://dome-of-war.vercel.app" target="_blank"
+              ><span style="font-weight: 400">Site: </span>Dome of War
+              <br />
+              <span class="technology">[ HTML | CSS | JS ]</span></a
+            >
+          </li>
+        </ul>
+      </section>
     </main>
     <script src="/js/buttonToTop.js"></script>
-</body>
+  </body>
 </html>

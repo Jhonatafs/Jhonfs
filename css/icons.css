@@ -1,139 +1,139 @@
 @font-face {
-    font-family: "Icons";
-    src: url("/fonts/SymbolsNerdFont-Regular.ttf");
+  font-family: "Icons";
+  src: url("/fonts/SymbolsNerdFont-Regular.ttf");
 }
 
 @font-face {
-    font-family: "Others";
-    src: url("/fonts/Other-Symbols.otf");
+  font-family: "Others";
+  src: url("/fonts/Other-Symbols.otf");
 }
 
 .icon_back::before {
-    font-family: 'Icons';
-    content: '󰮹';
+  font-family: "Icons";
+  content: "󰮹";
 }
 
 .icon_next::before {
-    font-family: 'Icons';
-    content: '󰮺';
+  font-family: "Icons";
+  content: "󰮺";
 }
 
 .icon_home::before {
-    font-family: 'Icons';
-    content: '󰮹';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_exit::before {
-    font-family: 'Icons';
-    content: '󰩈';
+  font-family: "Icons";
+  content: "󰩈";
 }
 
 .icon_cover::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_content::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_chip::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_light::before {
-    font-family: 'Icons';
-    content: '󰌵';
+  font-family: "Icons";
+  content: "󰌵";
 }
 
 .icon_top::before {
-    font-family: 'Icons';
-    content: '󱕑';
+  font-family: "Icons";
+  content: "󱕑";
 }
 
 .icon_github::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_linkedin::before {
-    font-family: 'Icons';
-    content: '󰌻';
+  font-family: "Icons";
+  content: "󰌻";
 }
 
 .icon_nostr::before {
-    font-family: 'Others';
-    content: 'N';
+  font-family: "Others";
+  content: "N";
 }
 
 .icon_info::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_close::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_download::before {
-    font-family: 'Icons';
-    content: '󰥦';
+  font-family: "Icons";
+  content: "󰥦";
 }
 
 .icon_menuburguer::before {
-    font-family: 'Icons';
-    content: '󰍜';
+  font-family: "Icons";
+  content: "󰍜";
 }
 
 .icon_menuburguerstart::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_close::before {
-    font-family: 'Icons';
-    content: '󰮫';
+  font-family: "Icons";
+  content: "󰮫";
 }
 
 .icon_archive::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_calendar::before {
-    font-family: 'Icons';
-    content: '󰃭';
+  font-family: "Icons";
+  content: "󰃭";
 }
 
 .icon_translate::before {
-    font-family: 'Icons';
-    content: '󰗊';
+  font-family: "Icons";
+  content: "󰗊";
 }
 
 .icon_theme::before {
-    font-family: 'Icons';
-    content: '󰔎';
+  font-family: "Icons";
+  content: "󰔎";
 }
 
 .icon_linkexternal::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_html::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_css::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }
 
 .icon_javascript::before {
-    font-family: 'Icons';
-    content: '';
+  font-family: "Icons";
+  content: "";
 }

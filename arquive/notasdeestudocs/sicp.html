@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="application-name" content="JhonFs" />
+    <meta name="description" content="Blog" />
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>JhonFs</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/article.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
+  </head>
+  <body>
+    <div id="top"></div>
+
+    <div class="floating-button floating-top-position">
+      <!--<a
+        class="floating-button-formatting floating-button-icon icon_translate"
+        href="/index-en.html"
+      ></a>-->
+      <a
+        class="floating-button-formatting floating-button-icon icon_home"
+        href="/index.html"
+        style="font-size: 20px"
+      ></a>
+      <button
+        class="floating-button-formatting"
+        id="button-light"
+        onclick="lightStatus()"
+      >
+        <span class="floating-button-icon icon_theme"></span>
+      </button>
+    </div>
+    <button id="backToTop"><span class="icon_top"></span></button>
+
+    <article id="main">
+      <h1>Estrutura e Interpretação de Programas de Computador</h1>
+      <p>
+        <em
+          >Anotações do Livro
+          <strong lang="en"
+            >Structure and Interpretation of Computer Progams</strong
+          >
+          <a
+            class="icon_linkexternal"
+            href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html"
+            target="_blank"
+          ></a
+          >, e do curso <strong>MIT 6.001</strong> de 1986.
+          <a
+            class="icon_linkexternal"
+            href="https://www.youtube.com/playlist?list=PLE18841CABEA24090"
+            target="_blank"
+          ></a
+        ></em>
+      </p>
+      <br />
+      <h2>A Ciência da Computação: Uma Questão de Nome</h2>
+      <p>
+        O nome "Ciência da Computação", embora a palavra "ciência" (do latim
+        <em>scientia</em>) expresse o conceito de conhecimento sistematizado e
+        objetivo, está mais relacionado à ARTE. O mesmo ocorre com a palavra
+        "computação" (do latim <em>computatio</em>), que traz a ideia de
+        computar e utilizar computadores, ou de calcular e fazer cálculos. No
+        entanto, essas palavras não capturam o verdadeiro espírito da área. A
+        Ciência da Computação está muito mais ligada a fazer arte com o
+        conhecimento ou instruções imperativas do que a cálculos e máquinas.
+      </p>
+      <h2>
+        Conhecimento da Matemática vs da
+        <span style="text-decoration: line-through">Ciência da Computação</span>
+      </h2>
+      <p>
+        O conhecimento matemático é um conhecimento
+        <strong>declarativo,</strong> &mdash; O que é verdade? &mdash; veja o
+        exemplo:
+      </p>
+
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <msqrt>
+            <mi>x</mi>
+          </msqrt>
+          <mo>=</mo>
+          <mi>y</mi>
+          <mo>&#160;</mo>
+          <mo lang="pt-br">tal&#160;que</mo>
+          <mo>&#160;</mo>
+          <msup>
+            <mi>y</mi>
+            <mn>2</mn>
+          </msup>
+          <mo>=</mo>
+          <mi>x</mi>
+          <mo>&#160;</mo>
+          <mo lang="pt-br">e</mo>
+          <mo>&#160;</mo>
+          <mi>y</mi>
+          <mo>&geq;</mo>
+          <mn>0</mn>
+        </mrow>
+      </math>
+
+      <p>
+        Já o conhecimento da
+        <span style="text-decoration: line-through">ciência da computação</span>
+        é <strong>imperativo</strong>, &mdash; Como fazer? &mdash; veja o
+        exemplo:
+      </p>
+      <p>Para encontrar uma aproximação da raiz quadrada de <em>X</em>:</p>
+      <ol>
+        <li>Faça uma estimativa <em>G</em>.</li>
+        <li>
+          Melhore a estimativa calculando a média entre <em>G</em> e
+          <em>X</em>/<em>G</em>
+        </li>
+        <li>
+          Continue aprimorando a estimativa até que ela seja suficientemente
+          precisa.
+        </li>
+      </ol>
+      <h2>Procedimento e Processo</h2>
+      <ul>
+        <li>
+          O procedimento é a descrição estática de como resolver um problema (o
+          "plano" ou "receita").
+        </li>
+        <li>
+          O processo é a execução dinâmica desse plano pelo computador (o "ato
+          de cozinhar" seguindo a receita).
+        </li>
+      </ul>
+      <p>
+        Durante o estudo da
+        <span style="text-decoration: line-through">Ciência da Computação</span
+        >, o foco está em descrever procedimentos (discrições) que gerem
+        diferentes tipos de processos (execuções), controlando seu comportamento
+        para atingir os resultados desejados.
+      </p>
+      <h2>Linguagens de Programação</h2>
+      <p>
+        Linguagens de programação são sistemas de notação usados para criar
+        programas. Aprender sua sintaxe é relativamente simples, mas dominar a
+        aplicação criativa e eficiente dessas regras exige prática. À medida que
+        os programas crescem, aumenta a complexidade.
+      </p>
+      <p>
+        Essas linguagens são ferramentas para formalizar conhecimento imperativo
+        através de procedimentos computacionais. Essas linguagens devem incluir:
+      </p>
+      <ul>
+        <li>
+          Elementos primitivos: Elementos básicos (dados simples e procedimentos
+          simples).
+        </li>
+        <li>
+          Meios de Combinação: Regras para construir estruturas complexas a
+          partir das primitivas.
+        </li>
+        <li>
+          Meios de Abstração<sup id="note1"><a href="#ref1">1</a></sup
+          >: Mecanismos para tratar estruturas complexas como primitivas,
+          permitindo que continuemos a construir sobre elas.
+        </li>
+      </ul>
+      <h2>Técnicas de controle de complexidade</h2>
+      <p>
+        Um conceito fundamental no controle da complexidade é a abstração, que
+        permite "esconder" detalhes internos de um sistema. Isso inclui:
+      </p>
+      <ul>
+        <li></li>
+      </ul>
+      <p></p>
+      <hr />
+      <section id="reference">
+        <p></p>
+        <p id="ref1">
+          <sup><a href="#note1">1</a></sup> A abstração é uma técnica ou
+          conceito que permite "esconder" detalhes. Por exemplo, quando chamamos
+          um "carro" de <em>carro</em>, estamos usando uma abstração. Essa
+          palavra generaliza um conjunto de elementos, como motor, volante,
+          bancos, e outros componentes, que, juntos, formam o objeto complexo
+          que conhecemos como carro.
+        </p>
+        <p>
+          Assim, abstração ajuda a focar no conceito geral, sem se perder nos
+          detalhes técnicos de cada parte. Na prática, a abstração é essencial
+          para controlar a complexidade, permitindo que elementos complexos
+          sejam tratados como primitivos. Isso possibilita construir sistemas
+          ainda mais sofisticados, baseando-se em camadas de abstração. Por
+          exemplo, na programação, funções ou classes encapsulam detalhes
+          internos, expondo apenas o necessário para quem as utiliza.
+        </p>
+      </section>
+    </article>
+    <script src="/js/buttonToTop.js"></script>
+  </body>
+</html>

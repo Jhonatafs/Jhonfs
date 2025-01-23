@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap");
+
+:root {
+  --background: #1f1f1f;
+  --foreground: #282828;
+  --text: #e0e0e0;
+  --reverse-text: #121212;
+  --link: #38bdf8;
+  --nav: #1c1c1c;
+  --disabled: #4b5563;
+}
+
+.light-theme {
+  --background: #ffffff;
+  --foreground: #d1d1d1;
+  --text: #0e0e0e;
+  --reverse-text: #f9fafb;
+  --link: #2563eb;
+  --nav: #c7bdab;
+  --disabled: #4b5563;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border: 2px solid var(--link);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+
+html,
+html * {
+  scrollbar-color: var(--link) transparent;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  /*font-family: Candara, Geneva, Verdana, Tahoma, sans-serif;*/
+  font-family: "Cardo", serif;
+}
+
+*,
+em,
+p,
+span,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Cardo", serif;
+}
+
+h1 {
+  font-size: 2.7rem;
+  font-family: "IM Fell English", serif;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+p,
+li,
+th,
+tr {
+  font-size: 1.6rem;
+  line-height: 140%;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: auto;
+  height: auto;
+}
+
+main,
+#main {
+  max-width: 700px;
+  margin: auto;
+  padding-bottom: 3rem;
+}
+
+@media screen and (max-width: 800px) {
+  main,
+  #main {
+    max-width: 94dvw;
+    margin: auto;
+  }
+}
+
+figure {
+  caption-side: bottom !important;
+}
+
+/* [ Floating Buttons ]
+*/
+.floating-button {
+  position: fixed;
+  right: 0;
+  z-index: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0rem;
+
+  opacity: 0.9;
+  background-color: var(--background);
+  border-radius: 0 0 0 10px;
+}
+
+.floating-bottom-position {
+  bottom: 0;
+}
+
+.floating-top-position {
+  top: 0;
+}
+
+.floating-button-formatting {
+  display: inline-block;
+
+  background-color: transparent;
+  color: var(--link);
+  opacity: 0.7;
+
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+
+  font-size: 2rem;
+  text-align: center;
+
+  transition: all 0.7s ease-in-out;
+}
+
+.floating-button-formatting:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+.floating-button-disabled {
+  display: none;
+}
+
+.floating-button-icon {
+  display: block;
+  padding: 0.5rem;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 3rem;
+  right: 0;
+  z-index: 99;
+
+  display: none;
+
+  background-color: transparent;
+  color: var(--link);
+  opacity: 0.7;
+
+  padding: 0.5rem;
+
+  cursor: pointer;
+
+  font-size: 2rem;
+  text-align: center;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#backToTop:hover {
+  opacity: 1;
+}
