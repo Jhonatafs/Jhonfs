@@ -62,18 +62,22 @@ h5 {
 h1 {
   font-size: 2.7rem;
   font-family: "IM Fell English", serif;
+  margin-bottom: 1.9rem;
 }
 
 h2 {
   font-size: 2.2rem;
+  margin-bottom: 1.6rem;
 }
 
 h3 {
   font-size: 2rem;
+  margin-bottom: 1.3rem;
 }
 
 h4 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
 }
 
 p,
@@ -83,6 +87,7 @@ tr {
   font-size: 1.6rem;
   line-height: 140%;
   margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 a {
@@ -115,6 +120,18 @@ main,
 
 figure {
   caption-side: bottom !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+figure figcaption {
+  text-align: center;
+  color: var(--disabled);
 }
 
 /* [ Floating Buttons ]
