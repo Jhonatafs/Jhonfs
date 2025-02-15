@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="application-name" content="JhonFs" />
+    <meta name="description" content="Blog" />
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>JhonFs</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/article.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/dracula.css" />
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+  <body>
+    <div id="top"></div>
+
+    <div class="floating-button floating-top-position">
+      <!--<a
+        class="floating-button-formatting floating-button-icon icon_translate"
+        href="/index-en.html"
+      ></a>-->
+      <a
+        class="floating-button-formatting floating-button-icon icon_home"
+        href="/index.html"
+        style="font-size: 20px"
+      ></a>
+      <button
+        class="floating-button-formatting"
+        id="button-light"
+        onclick="lightStatus()"
+      >
+        <span class="floating-button-icon icon_theme"></span>
+      </button>
+    </div>
+    <button id="backToTop"><span class="icon_top"></span></button>
+
+    <div id="nav-page">
+      <a href="/arquive/notasdeestudo.html">Voltar</a>
+      <a href="content.html">Conteudo</a>
+      <a href="p2.html">Proximo</a>
+    </div>
+
+    <article id="main">
+      <h1 id="remove-margin">
+        Estrutura e Interpretação de Programas de Computador
+      </h1>
+      <span id="subtitle"
+      >Notas do livro
+      <em lang="en"
+      >Structure and Interpretation of Computer Programs (SICP)</em
+      >, e do curso <em>CS 61A </em> de
+      <span lang="en">Brian Harvey’s Berkeley</span></span
+      >
+      
+      <span id="nav-line"><a href="/index.html">Início</a> &gt; <a href="/arquive/notasdeestudo.html">Notas de Estudo</a> &gt; <a href="">Estrutura e Interpretação de Programas de Computador</a></span>
+
+      <p class="word-cappilar">
+        O nome "Ciência da Computação", embora a palavra "ciência" (do latim
+        scientia) expresse o conceito de conhecimento sistematizado e objetivo,
+        está mais relacionado à ARTE. O mesmo ocorre com a palavra "computação"
+        (do latim computatio), que traz a ideia de computar e utilizar
+        computadores. No entanto, essas palavras não capturam o verdadeiro
+        espírito da área. A Ciência da Computação está muito mais ligada a fazer
+        arte com o conhecimento ou instruções imperativas do que a cálculos e
+        máquinas.
+      </p>
+      <p>
+        Também não tem foco no conhecimento matemático apesar de beber na fonte
+        da mesma, pois enquanto a matemática foca no que é verdade a ciência da
+        computação foca em como fazer, por exemplo:
+      </p>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <msqrt>
+            <mi>x</mi>
+          </msqrt>
+          <mo>=</mo>
+          <mi>y</mi>
+          <mo>&#160;</mo>
+          <mo lang="pt-br">tal&#160;que</mo>
+          <mo>&#160;</mo>
+          <msup>
+            <mi>y</mi>
+            <mn>2</mn>
+          </msup>
+          <mo>=</mo>
+          <mi>x</mi>
+          <mo>&#160;</mo>
+          <mo lang="pt-br">e</mo>
+          <mo>&#160;</mo>
+          <mi>y</mi>
+          <mo>&geq;</mo>
+          <mn>0</mn>
+        </mrow>
+      </math>
+      <p></p>
+      <p>
+        A sentença a cima prova que a raiz de <em>x</em> é <em>y</em> assim como
+        <em>y</em><sup>2</sup> é <em>x</em> enquanto <em>y</em> não for
+        negativo. Agora na computação não tentemos provar se a raiz de
+        <em>x</em> é <em>y</em>, mas criar um algorítimo lógico que dita &mdash;
+        impera (mandar como soberano), por isso imperativo &mdash; como a
+        maquina vai utilizar seus recursos, vejamos as regras para calcular a
+        raiz pelo método de Newton:
+      </p>
+      <ol>
+        <li>
+          <strong>Escolha um palpite inicial:</strong> Qualquer número positivo
+          pode ser usado como palpite inicial, mas quanto mais próximo da raiz
+          real, mais rápido o método convergirá.
+        </li>
+        <li>
+          <strong>Iteração:</strong> Calcule um novo palpite usando a fórmula:
+        </li>
+        <ul>
+          <li style="list-style-type: symbols('→')">
+            Novo palpite = (Palpite Atual + <em>x</em> / Palpite Atual) / 2
+          </li>
+        </ul>
+        <li>
+          <strong>Repita o cálculo</strong> até que a diferença absoluta entre o
+          novo palpite e o palpite anterior for menor que uma tolerância
+          pré-definida (por exemplo, 0.0009), o novo palpite é considerado uma
+          aproximação suficientemente boa para a raiz quadrada de <em>x</em>.
+          Caso contrário, volte ao passo <strong>2</strong>.
+        </li>
+      </ol>
+      <p>
+        Agora usando uma linguagem de programação para fazer o passo-passo a
+        cima, irei imperar, ditar sobre o computador o que quero:
+      </p>
+      <pre><code class="language-scheme">
+;; Código retirado do Livro SICP, em Scheme LISP
+;; O qual está dizendo a maquina:
+
+;; Use para calcular o quadrado de x
+(define (quadrado x)
+  (* x x))
+
+;; Use para calcular a média de dois números
+(define (media x y)
+  (/ (+ x y) 2))
+
+;; Use para melhorar a estimativa da raiz
+;; quadrada utilizando o método de Newton-Raphson
+(define (melhora-estimativa estimativa numero)
+  (media estimativa (/ numero estimativa)))
+
+;; Use para verificar se a estimativa é
+;; suficientemente precisa.
+(define (estimativa-boa-o-suficiente? estimativa numero)
+  (&lt; (abs (- (quadrado estimativa) numero)) 0.001))
+
+;; Repita até a estimativa se boa o suficiente
+(define (raiz-iterativa estimativa numero)
+  (if (estimativa-boa-o-suficiente? estimativa numero)
+      estimativa
+      (raiz-iterativa (melhora-estimativa estimativa numero) numero)))
+
+;; Inicie o calculo por aqui
+(define (raiz numero)
+  (raiz-iterativa 1.0 numero))
+
+;; Calcule e exiba a raiz quadrada de 625
+(raiz 625)
+      </code></pre>
+      <p>
+        Agora que tem uma ideia do que é Ciências da Computação e o que ela faz bora entender os detalhes.
+      </p>
+    </article>
+    <script src="/js/buttonToTop.js"></script>
+  </body>
+</html>

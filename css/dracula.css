@@ -89,6 +89,7 @@
 pre {
   width: 100%;
   margin: auto;
+  display: inline-block;
 }
 
 .hljs,
@@ -128,39 +129,44 @@ pre {
 .hljs-number,
 .hljs-emphasis,
 code {
-  font-family: 'Fira Code' !important;
-  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" !important;
-}
-
-code {
+  font-family: "Fira Code" !important;
+  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero",
+    "onum" !important;
   max-width: 100%;
 }
 
 .code {
   font-family: "Fira Code";
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
   font-style: italic;
 
   color: #f8f8f2 !important;
   background-color: #282a36;
-  
-  padding: .1rem .5rem .1rem;
+
+  padding: 0.1rem 0.5rem 0.1rem;
   border-radius: 3px;
+}
+
+.exercise-answer .code {
+  font-size: 1.3rem !important;
+  font-style: normal;
+  font-weight: 600;
+  padding: 0.1rem 0.7rem 0.1rem 0.3rem;
 }
 
 .code-in-note {
   font-family: "Fira Code";
-  font-size: .8rem !important;
+  font-size: 0.8rem !important;
   font-style: italic;
 
   color: #f8f8f2 !important;
   background-color: #282a36;
-  
-  padding: .2rem .5rem .1rem;
+
+  padding: 0.2rem 0.5rem 0.1rem;
   border-radius: 3px;
 }
 
 #footnotes .code {
-  font-size: .8rem !important;
-  padding: .1rem .3rem !important;
+  font-size: 0.8rem !important;
+  padding: 0.1rem 0.3rem !important;
 }

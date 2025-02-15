@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap");
 
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/FiraCode-VF.ttf");
+}
+
 :root {
   --background: #1f1f1f;
   --foreground: #282828;
@@ -41,6 +46,16 @@ html * {
   scroll-behavior: smooth;
 }
 
+html {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 body {
   background-color: var(--background);
   color: var(--text);
@@ -55,7 +70,8 @@ span,
 h2,
 h3,
 h4,
-h5 {
+h5,
+mrow {
   font-family: "Cardo", serif;
 }
 
@@ -80,14 +96,27 @@ h4 {
   margin-bottom: 1rem;
 }
 
+h5 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
 p,
 li,
 th,
-tr {
+tr,
+.span {
   font-size: 1.6rem;
   line-height: 140%;
   margin-bottom: 0.5rem;
   margin-top: 0;
+}
+
+mrow {
+  font-size: 1.4rem;
+  line-height: 140%;
+  margin-bottom: 0.5rem;
 }
 
 a {
@@ -101,6 +130,23 @@ button {
   border: none;
   width: auto;
   height: auto;
+}
+
+code {
+  font-family: "Fira Code";
+}
+
+.span {
+  display: inline-block;
+}
+
+li + pre,
+.span + pre {
+  margin: 0 0 1rem;
+}
+
+pre + p {
+  margin-top: 1rem;
 }
 
 main,
