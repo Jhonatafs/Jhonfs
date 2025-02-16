@@ -126,8 +126,9 @@
           elementos para formar expressões mais complexas;
         </li>
         <li>
-          E os <strong>meios de abstração</strong> os quais permitem dar nomes e
-          manipular elementos compostos.
+          E os <strong>meios de abstração</strong
+          ><sup id="sup1"><a href="#ref1">1</a></sup> os quais permitem dar
+          nomes e manipular elementos compostos.
         </li>
       </ul>
       <p>
@@ -680,6 +681,120 @@ amo-estudar ;; Retorna #t
 
 ;; (cube-root n) ;; Raiz cubica de n
       </code></pre>
+      <h3>Técnicas de controle de complexidade</h3>
+      <p>
+        A ciência da computação não lida com objetos reais, mas com objetos
+        virtuais<sup id="sup2"><a href="#ref2">2</a></sup
+        >. Esses objetos são imaginados ou idealizados para representar
+        conceitos e sistemas complexos de forma simplificada. Não há distinção
+        significativa entre o que é possível construir e o que é possível
+        imaginar, desde que se tenha o conhecimento necessário para transformar
+        a ideia em realidade.
+      </p>
+      <h4>Abstração de Caixa-Preta</h4>
+      <p>
+        A abstração de caixa-preta é uma técnica fundamental na computação e em
+        outras engenharias. Ela simplifica a manipulação de sistemas complexos
+        ao ocultar detalhes internos do funcionamento de um processo, expondo
+        apenas suas interfaces: as entradas e saídas. Esse conceito facilita a
+        compreensão, reutilização e ampliação de sistemas, permitindo que cada
+        caixa seja tratada como uma unidade funcional
+      </p>
+      <p>Exemplos práticos</p>
+      <ul>
+        <li>
+          Aqui, o método usado para calcular a raiz quadrada é abstraído como
+          uma caixa-preta: você sabe o que entra e o que sai, mas não precisa
+          entender os detalhes do cálculo.
+        </li>
+        <li>
+          <figure>
+            <img
+              src="img/img-1.png"
+              alt="Diagrama ilustrando o cálculo da raiz quadrada. O número 9 entra no processo e o resultado, 3, sai."
+            />
+          </figure>
+        </li>
+        <li>
+          A técnica permite que sistemas sejam escalados sem aumento
+          significativo na complexidade. Por exemplo:
+        </li>
+        <li>
+          <figure>
+            <img
+              src="img/img-2.png"
+              alt="Diagrama mostrando o cálculo das raízes quadradas de 9 e 100, seguido da soma dos resultados (3 e 10), obtendo 13."
+            />
+          </figure>
+        </li>
+        <li>As caixas-pretas podem conter outras caixas-pretas.</li>
+        <li>
+          <figure>
+            <img
+              src="img/img-3.png"
+              alt="Diagrama que ilustra o método de Newton para calcular a raiz quadrada de 4, mostrando a entrada (4), a saída (2) e o processo iterativo de aproximação como auxiliar do primeiro."
+            />
+          </figure>
+        </li>
+      </ul>
+      <h5>Generalização e Operações Genéricas</h5>
+      <p>
+        Outra perspectiva da abstração de caixa-preta é sua utilização para
+        criar operações genéricas. Um exemplo comum são as bibliotecas
+        disponíveis em linguagens de programação. Essas bibliotecas são grandes
+        caixas-pretas compostas por várias outras caixas menores, que encapsulam
+        funcionalidades reutilizáveis. Elas permitem que desenvolvedores foquem
+        na solução de problemas de alto nível, sem se preocupar com os detalhes
+        de implementação subjacentes.
+      </p>
+      <section id="reference">
+        <hr />
+        <p id="ref1">
+          <sup><a href="#sup1">1</a></sup> A abstração é uma técnica ou conceito
+          que permite "esconder" detalhes. Por exemplo, quando chamamos um
+          "carro" de <em>carro</em>, estamos usando uma abstração. Essa palavra
+          generaliza um conjunto de elementos, como motor, volante, bancos, e
+          outros componentes, que, juntos, formam o objeto complexo que
+          conhecemos como carro.
+        </p>
+        <p>
+          Assim, abstração ajuda a focar no conceito geral, sem se perder nos
+          detalhes técnicos de cada parte. Na prática, a abstração é essencial
+          para controlar a complexidade, permitindo que elementos complexos
+          sejam tratados como primitivos. Isso possibilita construir sistemas
+          ainda mais sofisticados, baseando-se em camadas de abstração. Por
+          exemplo, na programação, funções ou classes encapsulam detalhes
+          internos, expondo apenas o necessário para quem as utiliza.
+        </p>
+        <p id="ref2">
+          <sup><a href="sup2">2</a></sup> No contexto filosófico, o real e o
+          virtual são formalizações que diferenciam o tangível do imaginário. Na
+          ciência da computação, lidamos com sistemas idealizados, abstraídos e
+          tratados como se estivessem numa "caixa mágica". Essa "caixa" é uma
+          metáfora para sistemas computacionais que parecem possuir uma espécie
+          de "espírito", capaz de executar as ideias previamente idealizadas e
+          definidas por nós. Por meio dessas abstrações, é possível simplificar,
+          organizar e manipular sistemas complexos, permitindo que o foco esteja
+          em como esses objetos interagem e se comportam, em vez de nos detalhes
+          técnicos de sua implementação interna.
+        </p>
+        <p>
+          Caso deseje aprofundar-se nessa discussão filosófica, aqui estão
+          algumas fontes relevantes:
+        </p>
+        <ul>
+          <li>
+            <em>Curso Online de Filosofia (COF): Aula 7</em>, por Olavo de
+            Carvalho em 16/05/2009
+            <a
+              href="https://archive.org/details/COFemAudio/COF007.aac"
+              target="_blank"
+              class="icon_linkexternal"
+            ></a>
+          </li>
+          <li><em>O Que É O Virtual?</em> Obra de Pierre Lévy</li>
+        </ul>
+      </section>
     </article>
     <script src="/js/buttonToTop.js"></script>
   </body>
