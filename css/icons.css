@@ -9,8 +9,7 @@
 }
 
 .icon_back::before {
-  font-family: "Icons";
-  content: "󰮹";
+  font-family: "Icons";/
 }
 
 .icon_next::before {

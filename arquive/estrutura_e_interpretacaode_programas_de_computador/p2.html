@@ -620,16 +620,65 @@ amo-estudar ;; Retorna #t
         next-guess                      ;; Alterei o retorno
         (sqrt-iter next-guess x))))     ;; Alterei o atributo
 
-(define (improve guess x)
-  (average guess (/ x guess)))
-
-(define (average x y) 
-  (/ (+ x y) 2))
+(define (improvee guess x)
+  (/ ( + guess (/ x guess)) 2)) ;; Simplifiquei
 
 (define (sqrt x)
   (sqrt-iter 1.0 x))
 
-(sqrt 0.00001)
+;; (sqrt n) ;; Raiz quadrada de n
+      </code></pre>
+      <h4>Exercício 1.8:</h4>
+      <p>
+        O método de Newton para raízes cúbicas é baseado no fato de que, se y é
+        uma aproximação da raiz cúbica de x , então uma aproximação melhor é
+        dada pelo valor
+      </p>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>x</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo>/</mo>
+                </mrow>
+                <msup>
+                  <mi>y</mi>
+                  <mn>2</mn>
+                </msup>
+              </mrow>
+              <mo>+</mo>
+              <mn>2</mn>
+              <mi>y</mi>
+            </mrow>
+            <mn>3</mn>
+          </mfrac>
+          <mo>.</mo>
+        </mrow>
+      </math>
+      <p>
+        Use essa fórmula para implementar um procedimento de raiz cúbica análogo
+        ao procedimento de raiz quadrada.
+      </p>
+      <pre><code class="language-scheme">
+(define (good-enough? guess next-guess)
+  (
+    ;; Mesmo código
+  ))
+
+(define (cube-root-iter guess x)    ;; Alterei o nome da função
+  (
+    ;; Mesmo código
+    (cube-root-iter next-guess x))) ;;...
+
+(define (improve y x) ;; Mudei o atributo guess por y
+  (/ (+ (/ x (* y y)) (* 2 y)) 3)) ;; Mudei o corpo
+
+(define (cube-root x) ;; Mudei o nome da função
+  (cube-root-iter 1.0 x)) ;; ...
+
+;; (cube-root n) ;; Raiz cubica de n
       </code></pre>
     </article>
     <script src="/js/buttonToTop.js"></script>
