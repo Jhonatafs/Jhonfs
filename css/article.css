@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
 figure {
   display: flex;
@@ -55,12 +55,12 @@ h1 + p:first-letter,
 }
 
 .exercise-answer {
-  font-family: "Caveat", serif !important;
+  font-family: "Indie Flower", serif !important;
   font-weight: 400;
 }
 
 .exercise-answer * {
-  font-family: "Caveat", serif !important;
+  font-family: "Indie Flower", serif !important;
 }
 
 @media screen and (max-width: 720px) {
