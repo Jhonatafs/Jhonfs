@@ -554,12 +554,12 @@ amo-estudar ;; Retorna #t
         quadradas? Explique.
       </p>
       <p class="exercise-answer">
-        O <span class="code">if</span> é uma forma espécial que somente avalia
+        O <span class="code">if</span> é uma forma especial que somente avalia
         <span class="code">else-clause</span> se o
-        <span class="code">predicate</span>for falso, o
-        <span class="code">new-if</span> torna possivel avaliar o
+        <span class="code">predicate</span> for falso, o
+        <span class="code">new-if</span> torna possível avaliar o
         <span class="code">else-clause</span> independente do
-        <span class="code">predicate</span>criando um
+        <span class="code">predicate</span> criando um
         <span lang="en">loop</span> infinito ao chamar a função
         <span class="code">sqrt-iter</span> recursivamente.
       </p>
@@ -581,23 +581,23 @@ amo-estudar ;; Retorna #t
       </p>
       <ol class="exercise-answer">
         <li>
-          O código estipula um diferença entre o palpite e a raiz de um milésimo
-          (1/100 ou 0,001), isso limita o código a achar raizes que se enquadre
-          nessa limitação.
+          O código estipula uma diferença entre o palpite e a raiz de um
+          milésimo (1/100 ou 0,001), isso limita o código a achar raízes que se
+          enquadre nessa limitação.
         </li>
         <li>
-          Quando os numeros são muito pequenos &mdash; proximos de 0 (zero)
+          Quando os números são muito pequenos &mdash; próximos de 0 (zero)
           &mdash; a probabilidade de o retorno da raiz ser precoce por conta do
-          ponto <em>1.</em> é grande. Exemplo: A raiz quadrada de 0.0001 é 0.01
+          ponto <em>1.</em> é grande. Exemplo: A raiz quadrada de 0.0001 é 0.01,
           porém o código retorna 0.03230844833048122, uma diferença de
           0,02230844833048122 (≈ 69,05%).
         </li>
         <li>
-          Agora quando com numeros muito grandes a situação <em>2.</em> também
-          pode ser aplicada, porém só é relevante quando há casas decimeis em
-          ordem de um décimo de milésimo (1/10000 ou 0,0001) de grandeza. Porém
-          quando há números &gt;= quatorze casas décimais em minha maquina o
-          código não retorna o resultado por falta de potência computacional.
+          Agora quando com números muito grandes a situação <em>2.</em> também
+          pode ser aplicada, porém, só é relevante quando há casas decimeis em
+          ordem de um décimo de milésimo (1/10000 ou 0,0001) de grandeza.
+          Entretanto, quando há números &gt;= quatorze casas decimais não
+          retorna o resultado por falta de potência computacional.
         </li>
       </ol>
       <pre><code class="language-scheme">
@@ -606,14 +606,14 @@ amo-estudar ;; Retorna #t
   (&lt;
     (abs (- guess next-guess ))
     (* guess 0.001))) ;; 0.1% de tolerância, poderia ser (/ guess 100)
-;; A idéia é comparar o palpite novo com o antigo
+;; A ideia é comparar o palpite novo com o antigo
 ;; caso a diferença for 1% então #t (true)
 
 ;; Restante do código para que a resposta funcione
 (define (sqrt-iter guess x)
   ;; Com let crio uma variável local next-guess
-  ;; para que entre como atributo em good-enough?
-  ;; (let &lt;variavel&gt; &lt;valor&gt;) ou
+  ;; para entrar como atributo em good-enough?
+  ;; (let &lt;variável&gt; &lt;valor&gt;) ou
   ;; (let (&lt;var1&gt; &lt;valor1&gt;) (&lt;var2&gt; &lt;valor2&gt;))
   (let ((next-guess (improve guess x))) ;; Acrescentei a linha
     (if (good-enough? guess next-guess) ;; Alterei os atributos
