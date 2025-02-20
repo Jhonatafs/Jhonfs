@@ -1,66 +1,77 @@
+/*[ Importes ]*/
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap");
 
 @font-face {
   font-family: "Fira Code";
-  src: url("/fonts/FiraCode-VF.ttf");
+  src: url("../fonts/FiraCode-VF.ttf");
 }
 
+/*[ Temas ]*/
+
 :root {
-  --background: #1f1f1f;
-  --foreground: #282828;
-  --text: #e0e0e0;
-  --reverse-text: #121212;
-  --link: #38bdf8;
-  --nav: #1c1c1c;
-  --disabled: #4b5563;
+  --background-color: #1e1e1e; /* Fundo escuro */
+  --text-color: #e0e0e0; /* Texto claro */
+  --primary-color: #fc44ad; /* Cor primária (destaque) */
+  --secondary-text-color: #a0a0a0; /* Texto secundário */
+  --highlight-background: #282a36; /* Fundo de destaque */
+  --hover-color: #4a90e2; /* Cor de hover */
+  --error-color: #d9534f; /* Cor de erro */
+  --success-color: #5cb85c; /* Cor de sucesso */
 }
 
 .light-theme {
-  --background: #ffffff;
-  --foreground: #d1d1d1;
-  --text: #0e0e0e;
-  --reverse-text: #f9fafb;
-  --link: #2563eb;
-  --nav: #c7bdab;
-  --disabled: #4b5563;
+  --background-color: #f9f9f9; /* Fundo claro */
+  --text-color: #333333; /* Texto escuro */
+  --primary-color: #2a5db0; /* Cor primária (destaque) */
+  --secondary-text-color: #666666; /* Texto secundário */
+  --highlight-background: #2729354d; /* Fundo de destaque */
+  --hover-color: #4a90e2; /* Cor de hover */
+  --error-color: #d9534f; /* Cor de erro */
+  --success-color: #5cb85c; /* Cor de sucesso */
 }
 
-::-webkit-scrollbar {
+/*[ Floating Buttons ]*/
+
+#backToTop {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+
+  display: none;
+
   background-color: transparent;
-  width: 9px;
+  color: var(--primary-color);
+  opacity: 0.3;
+
+  padding: 1rem;
+
+  cursor: pointer;
+
+  font-size: 2rem;
+  text-align: center;
+
+  transition: all 0.2s ease-in-out;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border: 2px solid var(--link);
+#backToTop:hover {
+  opacity: 1;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: transparent;
-}
-
-html,
-html * {
-  scrollbar-color: var(--link) transparent;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-}
+/*[ Pagina Web ]*/
 
 html {
   font-size: 16px;
-}
-
-@media screen and (max-width: 800px) {
-  html {
-    font-size: 14px;
-  }
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--text);
-  /*font-family: Candara, Geneva, Verdana, Tahoma, sans-serif;*/
-  font-family: "Cardo", serif;
+  max-width: 100dvw;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 *,
@@ -75,39 +86,56 @@ mrow {
   font-family: "Cardo", serif;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: auto;
+  height: auto;
+}
+
 h1 {
-  font-size: 2.7rem;
+  font-size: 3.2rem;
   font-family: "IM Fell English", serif;
+  margin-top: 2.5rem;
   margin-bottom: 1.9rem;
 }
-
 h2 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
+  margin-top: 2rem;
   margin-bottom: 1.6rem;
 }
-
+h2::before {
+  content: "# ";
+  color: var(--primary-color);
+}
 h3 {
-  font-size: 2rem;
+  font-size: 2.1rem;
+  margin-top: 2rem;
   margin-bottom: 1.3rem;
 }
-
 h4 {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
-
 h5 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+  margin-bottom: 0.9rem;
   opacity: 0.9;
 }
-
+h6 {
+  font-size: 1.5rem;
+  margin-top: 1.7rem;
+  margin-bottom: 0.9rem;
+  opacity: 0.8;
+}
 p,
 li,
 th,
-tr,
-.span {
-  font-size: 1.6rem;
+tr {
+  font-size: 1.4rem;
   line-height: 140%;
   margin-bottom: 0.5rem;
   margin-top: 0;
@@ -120,98 +148,46 @@ mrow {
 }
 
 a {
-  color: var(--link);
+  font-size: 1.4rem;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
-button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  width: auto;
-  height: auto;
-}
-
+p code,
 code {
-  font-family: "Fira Code";
+  font-family: "Fira Code" !important;
+  font-size: 70%;
+  background-color: var(--highlight-background);
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
 }
 
-.span {
-  display: inline-block;
-}
-
-li + pre,
-.span + pre {
-  margin: 0 0 1rem;
-}
-
-pre + p {
-  margin-top: 1rem;
-}
-
-main,
-#main {
-  max-width: 700px;
-  margin: auto;
-  padding-bottom: 3rem;
-}
-
-@media screen and (max-width: 800px) {
-  main,
-  #main {
-    max-width: 94dvw;
-    margin: auto;
-  }
-}
-
-figure {
-  caption-side: bottom !important;
-  width: 100%;
+header * {
   margin: 0;
   padding: 0;
 }
-
-figure img {
-  max-width: 100%;
-}
-
-figure figcaption {
-  text-align: center;
-  color: var(--disabled);
-}
-
-/* [ Floating Buttons ]
-*/
-.floating-button {
-  position: fixed;
-  right: 0;
-  z-index: 9;
-
+header {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
-  gap: 0rem;
-
-  opacity: 0.9;
-  background-color: var(--background);
-  border-radius: 0 0 0 10px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 2.5rem;
+  margin-bottom: 3rem;
+}
+header #buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1rem;
 }
 
-.floating-bottom-position {
-  bottom: 0;
-}
-
-.floating-top-position {
-  top: 0;
-}
-
-.floating-button-formatting {
+header button {
   display: inline-block;
 
   background-color: transparent;
-  color: var(--link);
-  opacity: 0.7;
+  color: var(--text-color);
 
   padding: 0;
   margin: 0;
@@ -224,42 +200,72 @@ figure figcaption {
   transition: all 0.7s ease-in-out;
 }
 
-.floating-button-formatting:hover {
-  text-decoration: none;
-  opacity: 1;
-}
-
-.floating-button-disabled {
-  display: none;
-}
-
-.floating-button-icon {
-  display: block;
-  padding: 0.5rem;
-}
-
-#backToTop {
-  position: fixed;
-  bottom: 3rem;
-  right: 0;
-  z-index: 99;
-
-  display: none;
-
-  background-color: transparent;
-  color: var(--link);
-  opacity: 0.7;
-
-  padding: 0.5rem;
-
-  cursor: pointer;
-
+header .icon_translate {
   font-size: 2rem;
-  text-align: center;
-
-  transition: all 0.2s ease-in-out;
 }
 
-#backToTop:hover {
-  opacity: 1;
+header a {
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+}
+
+header a:hover,
+header button:hover {
+  color: var(--primary-color);
+}
+
+header .brand a {
+  font-size: 2.7rem;
+}
+
+article,
+main {
+  width: 800px;
+  max-width: 800px;
+  min-height: calc(100dvh - 70px);
+  margin: 0 auto 2rem;
+}
+
+.brand,
+.brand * {
+  font-family: "IM Fell English", serif;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  max-width: 800px;
+  margin: auto;
+  padding-bottom: 0.5rem;
+}
+
+footer * {
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+footer a:hover {
+  color: var(--primary-color);
+}
+
+/*[ Smartphones ]*/
+@media screen and (max-width: 812px) {
+  /*[ Page Web ]*/
+  html {
+    font-size: 14px;
+  }
+
+  footer,
+  article,
+  main {
+    width: 90dvw;
+    max-width: 90dvw;
+  }
 }
