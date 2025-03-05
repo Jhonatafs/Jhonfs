@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="application-name" content="Notas: MIT 6.001" />
+    <meta name="description" content="Blog" />
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>JhonFs: Notas MIT 6.001</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normilize.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/highlight.css" />
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="top"></div>
+      <button id="backToTop"><span class="icon_angles_up"></span></button>
+      <script src="/js/buttonToTop.js"></script>
+      <header>
+        <a href="/index.html" class="brand icon_home"></a>
+        <div id="buttons">
+          <!--<a class="icon_translate" href="#"></a>-->
+          <button id="button-light" onclick="lightStatus()">
+            <span class="icon_theme"></span>
+          </button>
+        </div>
+      </header>
+      <article>
+        <h1>Anotações Prévias</h1>
+        <p>
+          O termo "Ciência da Computação" pode ser um pouco enganoso à primeira
+          vista. Embora "ciência" (do latim scientia) remeta à ideia de
+          conhecimento sistematizado e objetivo, e "computação" (do latim
+          computatio) traga a noção de cálculo e uso de computadores, a
+          verdadeira essência dessa disciplina está mais próxima da arte de
+          criar soluções por meio de instruções imperativas do que de simples
+          cálculos matemáticos.
+        </p>
+        <p>
+          Diferente da matemática, que busca provar verdades universais, a
+          Ciência da Computação se preocupa em descobrir e definir procedimentos
+          para alcançar um objetivo. A matemática, por exemplo, pode definir a
+          raiz quadrada de um número <code>x</code> da seguinte forma:
+        </p>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" class="math-center">
+          <mrow>
+            <msqrt>
+              <mi>x</mi>
+            </msqrt>
+            <mo>=</mo>
+            <mi>y</mi>
+            <mo>&#160;</mo>
+            <mo lang="pt-br">tal&#160;que</mo>
+            <mo>&#160;</mo>
+            <msup>
+              <mi>y</mi>
+              <mn>2</mn>
+            </msup>
+            <mo>=</mo>
+            <mi>x</mi>
+            <mo>&#160;</mo>
+            <mo lang="pt-br">e</mo>
+            <mo>&#160;</mo>
+            <mi>y</mi>
+            <mo>&geq;</mo>
+            <mn>0</mn>
+          </mrow>
+        </math>
+        <p>
+          Essa sentença prova que a raiz quadrada de <code>x</code> é
+          <code>y</code>, desde que <code>y</code> seja não negativo. Na
+          computação, porém, não nos preocupamos em provar essa relação
+          matemática. Em vez disso, focamos em criar um algoritmo lógico que
+          dita — ou impera (do latim imperare, que significa "mandar como
+          soberano", daí o termo "imperativo") — como a máquina deve utilizar
+          seus recursos para calcular a raiz quadrada de <code>x</code>.
+        </p>
+        <p>
+          A computação, portanto, é uma disciplina que combina a precisão da
+          matemática com a criatividade da arte, resultando em soluções práticas
+          e eficientes para problemas complexos. Ela não se limita a provar
+          verdades, mas sim a orquestrar o funcionamento de sistemas para que
+          executem tarefas de maneira inteligente e eficaz.
+        </p>
+        <p>
+          Para ilustrar essa ideia, podemos implementar um algoritmo simples em
+          Scheme que calcula a raiz quadrada de um número <code>x</code> usando
+          o método de Newton-Raphson. Esse método é um exemplo de como a
+          computação traduz conceitos matemáticos em instruções imperativas para
+          a máquina. Na prática, tudo que segue após <code>;;</code> é
+          considerado comentário (ignorado pelo interpretador), servindo apenas
+          para documentar a lógica humana por trás do código:
+        </p>
+        <pre><code class="language-scheme">
+;; Calcula a raiz quadrada de x via método de
+;; Newton-Raphson
+(define (raiz x)
+  (define (melhorar-aproximacao palpite)
+    ;; Refina a estimativa atual
+    (/ (+ palpite (/ x palpite)) 2))
+  
+  (define (boa-aproximacao? palpite)
+    ;; Verifica precisão
+    (&lt;= (abs (- (* palpite palpite) x)) 0.0001))
+  
+  ;; Loop recursivo de aprimoramento
+  (define (iterar palpite)
+    (if (boa-aproximacao? palpite)
+        palpite
+        (iterar (melhorar-aproximacao palpite))))
+  
+  ;; Inicia com estimativa inicial 1.0
+  (iterar 1.0))  
+
+;; Exemplo de uso:
+(raiz 25)
+;; Retorna ≈5.000000000053722
+        </code></pre>
+        <p>
+          Nesse código, a função <code>interar</code> implementa o método de
+          <span lang="en">Newton-Raphson</span> para aproximar a raiz quadrada
+          de <code>x</code>. A função <code>melhorar-aproximacao</code> ajusta a
+          estimativa atual, enquanto <code>boa-aproximacao?</code> verifica se a
+          estimativa está próxima o suficiente do valor real. Esse é um exemplo
+          clássico de como a computação transforma conceitos matemáticos em
+          instruções imperativas para resolver problemas de maneira eficiente.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

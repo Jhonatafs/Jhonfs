@@ -1,0 +1,138 @@
+code {
+  font-size: 70% !important;
+
+  background-color: var(--code-bg);
+  color: var(--code-text);
+
+  padding: 0.1rem 0.5rem 0.1rem;
+  border-radius: 3px;
+}
+
+pre {
+  width: calc(100% - 20px) !important;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  border: 10px solid var(--code-bg);
+  border-radius: 15px;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0;
+
+  background-color: var(--code-bg);
+  color: var(--code-text);
+}
+
+.hljs,
+.hljs *,
+pre code {
+  font-size: clamp(0.8rem, 0.6rem + 0.25vw, 1rem) !important;
+}
+
+.hljs,
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link,
+.hljs-keyword,
+.hljs,
+.hljs-subst,
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword,
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong,
+.hljs-literal,
+.hljs-number,
+.hljs-emphasis,
+code {
+  font-family: "Fira Code" !important;
+  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero",
+    "onum" !important;
+  max-width: 100% !important;
+}
+
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+  color: var(--code-built-in);
+}
+
+.hljs-keyword {
+  color: var(--code-keyword);
+}
+
+.hljs,
+.hljs-subst {
+  color: var(--code-text);
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword {
+  font-style: italic;
+  color: var(--code-title);
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: var(--code-string);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: var(--code-comment);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-literal,
+.hljs-number {
+  color: var(--code-literal);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}

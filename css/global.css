@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Fira Code";
-  src: url("../fonts/FiraCode-VF.ttf");
+  src: url("/fonts/FiraCode-VF.ttf");
 }
 
 /*[ Temas ]*/
@@ -17,6 +17,15 @@
   --hover-color: #4a90e2; /* Cor de hover */
   --error-color: #d9534f; /* Cor de erro */
   --success-color: #5cb85c; /* Cor de sucesso */
+
+  --code-bg: #282a36;
+  --code-text: #f8f8f2;
+  --code-built-in: #8be9fd;
+  --code-keyword: #ff79c6;
+  --code-title: #50fa7b;
+  --code-string: #f1fa8c;
+  --code-comment: #6272a4;
+  --code-literal: #bd93f9;
 }
 
 .light-theme {
@@ -28,6 +37,22 @@
   --hover-color: #4a90e2; /* Cor de hover */
   --error-color: #d9534f; /* Cor de erro */
   --success-color: #5cb85c; /* Cor de sucesso */
+
+  --code-bg: #eceff0;
+  --code-text: #282a36;
+  --code-built-in: #005f87;
+  --code-keyword: #d7005f;
+  --code-title: #008700;
+  --code-string: #af8700;
+  --code-comment: #808080;
+  --code-literal: #5f00af;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  font-family: "Cardo", serif;
 }
 
 /*[ Floating Buttons ]*/
@@ -60,30 +85,12 @@
 
 /*[ Pagina Web ]*/
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-}
-
 body {
   max-width: 100dvw;
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-}
-
-*,
-em,
-p,
-span,
-h2,
-h3,
-h4,
-h5,
-mrow {
-  font-family: "Cardo", serif;
 }
 
 button {
@@ -94,14 +101,19 @@ button {
   height: auto;
 }
 
+body * {
+  font-size: clamp(1rem, 0.8rem + 0.5vw, 1.5rem);
+}
+
 h1 {
-  font-size: 3.2rem;
+  font-size: clamp(2.2rem, 2.3rem + 0.5vw, 2.7rem);
   font-family: "IM Fell English", serif;
   margin-top: 2.5rem;
   margin-bottom: 1.9rem;
 }
+
 h2 {
-  font-size: 2.3rem;
+  font-size: clamp(2rem, 1.8rem + 0.5vw, 2.5rem);
   margin-top: 2rem;
   margin-bottom: 1.6rem;
 }
@@ -110,56 +122,67 @@ h2::before {
   color: var(--primary-color);
 }
 h3 {
-  font-size: 2.1rem;
+  font-size: clamp(1.6rem, 1.5rem + 0.5vw, 2.1rem);
   margin-top: 2rem;
   margin-bottom: 1.3rem;
 }
 h4 {
-  font-size: 1.9rem;
+  font-size: clamp(1.3rem, 1.2rem + 0.5vw, 1.8rem);
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 h5 {
-  font-size: 1.7rem;
+  font-size: clamp(1.1rem, 0.9rem + 0.5vw, 1.6rem);
   margin-top: 2rem;
   margin-bottom: 0.9rem;
   opacity: 0.9;
 }
 h6 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 0.9rem + 0.5vw, 1.6rem);
   margin-top: 1.7rem;
   margin-bottom: 0.9rem;
   opacity: 0.8;
 }
+
 p,
 li,
 th,
 tr {
-  font-size: 1.4rem;
   line-height: 140%;
+  hyphens: auto;
   margin-bottom: 0.5rem;
   margin-top: 0;
 }
 
+p *,
+* strong {
+  font-size: 100%;
+}
+
 mrow {
-  font-size: 1.4rem;
   line-height: 140%;
   margin-bottom: 0.5rem;
 }
 
+.math-center {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
 a {
-  font-size: 1.4rem;
   color: var(--primary-color);
   text-decoration: none;
 }
 
-p code,
-code {
-  font-family: "Fira Code" !important;
-  font-size: 70%;
-  background-color: var(--highlight-background);
-  padding: 0.3rem 0.5rem;
-  border-radius: 5px;
+abbr {
+  font-size: 100%;
+}
+
+sup,
+msup mn {
+  font-size: 70% !important;
 }
 
 header * {
@@ -193,15 +216,15 @@ header button {
   margin: 0;
 
   cursor: pointer;
-
-  font-size: 2rem;
   text-align: center;
 
   transition: all 0.7s ease-in-out;
 }
 
-header .icon_translate {
-  font-size: 2rem;
+header .icon_translate,
+header .icon_home,
+header .icon_theme {
+  font-size: clamp(2rem, 1.8rem + 0.5vw, 2.5rem);
 }
 
 header a {
@@ -215,15 +238,19 @@ header button:hover {
 }
 
 header .brand a {
-  font-size: 2.7rem;
+  font-size: clamp(2.2rem, 2.3rem + 0.5vw, 2.7rem);
 }
 
-article,
 main {
   width: 800px;
   max-width: 800px;
   min-height: calc(100dvh - 70px);
   margin: 0 auto 2rem;
+}
+
+article {
+  max-width: 100%;
+  padding-bottom: 2rem;
 }
 
 .brand,
@@ -236,16 +263,18 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 800px;
   max-width: 800px;
   margin: auto;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0;
+
+  box-shadow: 0px -2px 2px 0px black;
 }
 
 footer * {
-  font-size: 1.3rem;
+  font-size: clamp(1.4rem, 0.8rem + 0.5vw, 2rem);
   margin: 0;
   padding: 0;
   color: var(--text-color);
@@ -263,7 +292,6 @@ footer a:hover {
   }
 
   footer,
-  article,
   main {
     width: 90dvw;
     max-width: 90dvw;

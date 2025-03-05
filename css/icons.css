@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Icons";
-  src: url("../fonts/SymbolsNerdFont-Regular.ttf");
+  src: url("../fonts/SymbolsNerdFontMono-Regular.ttf");
 }
 
 .icon_github::before {
   font-family: "Icons";
-  content: "";
+  content: "";
 }
 
 .icon_linkedin::before {
   font-family: "Icons";
-  content: "󰌻";
+  content: "";
 }
 
 .icon_translate::before {
@@ -36,4 +36,9 @@
 .icon_calendar::before {
   font-family: "Icons";
   content: "";
+}
+
+.icon_home::before {
+  font-family: "Icons";
+  content: "";
 }
