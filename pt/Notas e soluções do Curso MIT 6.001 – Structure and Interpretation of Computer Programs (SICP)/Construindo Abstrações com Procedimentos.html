@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="application-name" content="Notas: MIT 6.001" />
+    <meta name="description" content="Blog" />
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>JhonFs: Notas MIT 6.001</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normilize.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/highlight.css" />
+    <link rel="stylesheet" href="/css/article.css" />
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="top"></div>
+      <button id="backToTop"><span class="icon_angles_up"></span></button>
+      <script src="/js/buttonToTop.js"></script>
+
+      <nav role="navigation">
+        <!--Based on the code of Erik Terwan (24th of November 2015, MIT License)-->
+        <div id="menuToggle">
+          <input type="checkbox" id="menuCheckbox" />
+
+          <!--Icon Hamburguer-->
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <ul id="menu">
+            <div class="nav-page">
+              <li>
+                <a href="Anotações Prévias.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_page_previous"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="/index.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_home"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="Guia.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_content"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_page_next"
+                  ></label
+                ></a>
+              </li>
+            </div>
+            <hr />
+            <li>
+              <a href="#title"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >Capitulo 1</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.1</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.2</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.3</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.4</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.5"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.5</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.6"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.6</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.7"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.7</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.8"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.8</label
+                ></a
+              >
+            </li>
+            <hr />
+            <div class="buttons">
+              <a
+                href="https://github.com/Jhonatafs"
+                class="icon_github"
+                target="_blank"
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/jhonfs/"
+                class="icon_linkedin"
+                target="_blank"
+              ></a>
+              <a href="#"><label
+                for="menuCheckbox"
+                onclick="this.parentNode.click();"
+                class="icon_translate disabled"
+              ></a>
+              <button id="button-light" onclick="lightStatus()">
+                <span class="icon_theme"></span>
+              </button>
+            </div>
+          </ul>
+        </div>
+      </nav>
+      <article>
+        <h1 id="title">Construção e abstração com procedimentos</h1>
+        <p>Segundo Locke, a mente humana realiza três operações básicas:</p>
+        <ol>
+          <li>
+            <strong>Combinar: </strong>Ao combinar ideias simples gera ideias
+            complexas.
+          </li>
+          <li>
+            <strong>Relacionar: </strong>Ao relacionar ideias espandimos o que é
+            conhecido.
+          </li>
+          <li>
+            <strong>Abstrair: </strong>Ao abstrair características específicas,
+            ela forma conceitos gerais ou abstrações<sup id="sup1"
+              ><a href="#ref1">1</a></sup
+            >.
+          </li>
+        </ol>
+        <p>
+          Esses três atos mentais trabalham em conjunto para moldar nossa
+          compreensão do mundo. Entender isso facilitará na comprienção da
+          computação e suas linguagens.
+        </p>
+        <p>
+          Ja a base da computação é formada por 3 seres abstratos, os dados, os
+          procedimentos e os processos.
+        </p>
+        <ol>
+          <li><strong>Dados: </strong>São informações.</li>
+          <li>
+            <strong>Procedimentos: </strong>São as intruções de como manipular
+            os dados.
+          </li>
+          <li>
+            <strong>Processos: </strong>É a ação, a execução do procedimento, o
+            ato de manipular os dados.
+          </li>
+        </ol>
+
+        <h2 id="1.1">1.1 Os Elementos da Programação</h2>
+        <p>
+          Para aprender qualquer linguagem de programação é preciso entender
+          quais são as suas:
+        </p>
+        <ul>
+          <li>
+            <strong>expressões primitivas</strong> (componentes básicos da
+            linguagem, como números, strings e booleanos);
+          </li>
+          <li>
+            <strong>meios de combinação</strong> (mecanismos que combinam
+            elementos para formar expressões mais complexas);
+          </li>
+          <li>
+            E os <strong>meios de abstração</strong> (os quais permitem dar
+            nomes e manipular elementos compostos, como os dados, procedimentos
+            e processos).
+          </li>
+        </ul>
+        <h3 id="1.1.1-4">
+          1.1.1 Expreções, <br />
+          1.1.2 Nomes e o Ambiente e <br />
+          1.1.3 Avaliando Combinações <br />
+          1.1.4 Procedimentos Compostos
+        </h3>
+        <p>
+          Uma <strong>expressão</strong> é o meio usado para expressar algo para
+          a maquina. Se quero expressar a valor dez, digito <code>10</code>, se
+          quero nomear uma expressão dafino um nome para ela e depois o seu
+          valor:
+        </p>
+        <pre><code class="language-scheme">
+;; Dados simples
+10      ;; Retorna 10
+"Nome"  ;; Retorna "Nome"
+
+;; Nomeando Dados (Variaveis)
+;; (define &lt;nome&gt;&lt;dado&gt; )
+(define idade 20)       ;; Numero
+(define nome "Fulano")  ;; String
+(define amo-estudar #t) ;; Booleano
+                        ;;(#t Verdade, #f Falso)
+
+;; Chamando as Variaveis
+idade       ;; Retorna 20
+nome        ;; Retorna "Fulano"
+amo-estudar ;; Retorna #t
+     </code></pre>
+        <br />
+        <p>
+          São pelos <strong>meios de combinação</strong> que criamos
+          procedimentos mais robustos, permitindo expressar conceitos mais
+          complexos, vejamos:
+        </p>
+        <pre><code class="language-scheme">
+;; Números inteiros
+(define a 10)
+(define b 5)
+
+;; Operações aritméticas
+(+ a b)  ;; Soma: 15
+(- a b)  ;; Subtração: 5
+(* a b)  ;; Multiplicação: 50
+(/ a b)  ;; Divisão: 2
+
+(* 10 (/ (- (+ a b) (- a b))  2));; Retorna 50
+
+;; String
+(define nome "Fulano")
+(define sobrenome "de Tal")
+
+;; Concatenando strings
+(string-append nome " " sobrenome)  ;; Retorna "Fulano de Tal"
+
+;; Expressões lógicas (Booleano)
+;; Operador 'and'
+(and #t #t)  ;; Retorna #t
+(and #t #f)  ;; Retorna #f
+(and #f #t)  ;; Retorna #f
+(and #f #f)  ;; Retorna #f
+
+;; Operador 'or'
+(or #t #t)  ;; Retorna #t
+(or #t #f)  ;; Retorna #t
+(or #f #t)  ;; Retorna #t
+(or #f #f)  ;; Retorna #f
+
+;; Operador 'not'
+(not #t)  ;; Retorna #f
+(not #f)  ;; Retorna #t
+
+;; Combinando Expressões Lógicas
+(and (or #t #f) (not #f))  ;; Retorna #t
+      </code></pre>
+        <br />
+        <p>
+          Para manipular expressões, expressões primitivas, meios de combinação
+          como se fosse um unico elemento, um objeto abstrato usa-se funções. As
+          quais são uma entidade que recebe argumentos e retorna um valor:
+        </p>
+        <pre><code class="language-scheme">
+;; A estrutura da função é:
+;; (define (nome-da-função &lt;parâmetro&gt;)
+;;    &lt;corpo&gt;)
+
+;; Definindo uma função simples
+(define (quadrado x)
+  (* x x))
+
+;; Usando a função
+(quadrado 5)  ;; Retorna 25
+    </code></pre>
+        <p>
+          A função <code>quadrado</code> recebe o parâmetro <code>x</code> e
+          utiliza-se de meios de combinação para calcular o quadrado de um
+          número qualquer representado pelo parâmetro <code>x</code>.
+        </p>
+        <p>
+          Outra tipo de função é a anônima, ou seja, uma função que não tem
+          nome. Em Scheme, funções anônimas ou lambda são criadas usando a
+          palavra-chave lambda. Elas são úteis para criar funções temporárias ou
+          para passar funções como argumentos para outras funções:
+        </p>
+        <pre><code class="linguage-scheme">
+;; Definindo uma função anônima. Estrutura:
+;; ((lambda (&lt;parâmetro&gt;) (&lt;corpo&gt;)) &lt;valor-do-parâmetro&gt;)
+((lambda (x) (* x x)) 3)  ;; Retorna 9
+
+;; Usando lambda em uma função definida
+(define quadrado (lambda (x) (* x x)))
+(quadrado 3)  ;; Retorna 9
+    </code></pre>
+        <h3 id="1.1.5">
+          1.1.5 Modelo de Substituição para Aplicação de Procedimentos
+        </h3>
+
+        <p>
+          O <strong>modelo de substituição</strong> é uma técnica que descreve a
+          execução de funções como um processo de substituição, onde as chamadas
+          de procedimento são substituídas por seus corpos, com os argumentos
+          apropriados.
+        </p>
+        <pre><code class="language">
+(define (square x)
+    (* x x)) ;; Corpo
+      
+(square 3) ;; Chamada
+      </code></pre>
+
+        <p>O modelo de substituição segue três passos principais:</p>
+        <ol>
+          <li>
+            <strong>Expansão (Substituição):</strong> A chamada do procedimento
+            é substituída pelo seu corpo, trocando os parâmetros formais pelos
+            valores dos argumentos.
+          </li>
+          <pre><code class="language-scheme">
+;; Isso (square 3) é substituido por:
+(* 3 3)
+        </code></pre>
+          <li>
+            <strong>Redução (Avaliação):</strong> A expressão resultante é
+            avaliada até que se torne um valor.
+          </li>
+          <pre><code class="language-scheme">
+;; Isso (* 3 3) retorna:
+9
+        </code></pre>
+          <li>
+            <strong>Encerramento:</strong> Quando o resultado final é um valor
+            atômico (exemplo: um número), o processo termina.
+          </li>
+        </ol>
+        <p>
+          O modelo de substituição permite visualizar dois estilos de avaliação:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Avaliação Aplicativa (Applicative Order - "Eager"):</strong>
+            Avalia primeiro os argumentos, depois substitui a função.
+          </li>
+          <li>
+            <strong>Avaliação Normal (Normal Order - "Lazy"):</strong> A função
+            é expandida antes da avaliação dos argumentos.
+          </li>
+        </ul>
+        <h4 id="1.1.5.1">Comparação com código</h4>
+        <pre><code class="language-scheme">
+(define (square x)
+(* x x))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; #Applicative Order - "Eager"
+;; Exemplo 1: Cálculo desnecessário
+
+(square (+ 3 4))     ;; Chamada
+→ (square 7)         ;; Primeiro avaliamos (+ 3 4)
+→ (* 7 7)            ;; Agora substituímos o corpo
+→ 49                 ;; Reduzimos para o resultado final
+
+;; Aqui, avaliar (+ 3 4) antes faz sentido, pois será usado na função.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; #Normal Order - "Lazy"
+;; Exemplo 1: Cálculo adiado
+
+(square (+ 3 4))       ;; Chamada
+→ (* (+ 3 4) (+ 3 4))  ;; Primeiro substituímos a função sem avaliar os argumentos
+→ (* 7 7)              ;; Agora avaliamos (+ 3 4), quando necessário
+→ 49
+
+;; Mesmo resultado, mas os argumentos foram avaliados apenas quando precisaram ser usados.
+      </code></pre>
+        <pre><code class="language-scheme">
+(define (choose-first x y)
+  x)  ;; Apenas retorna x, ignorando y
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; #Applicative Order - "Eager"
+;; Exemplo 2: Avaliação desnecessária
+
+(choose-first 3 (* 1000 1000))  
+→ (choose-first 3 1000000)  ;; Avaliamos (* 1000 1000) primeiro (mesmo sem precisar!)
+→ 3                         ;; Apenas retorna x, então o cálculo foi inútil!
+
+;; Aqui, o cálculo (* 1000 1000) foi feito mesmo sem necessidade!
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; #Normal Order - "Lazy"
+;; Exemplo 2: Cálculo evitado
+
+(choose-first 3 (* 1000 1000))  
+→ 3  ;; Nunca avaliamos (* 1000 1000) porque o segundo argumento não foi usado!
+
+;; Aqui, evitamos o cálculo desnecessário!
+      </code></pre>
+        <pre><code class="language-scheme">
+;; Exemplo 3: Erro inevitável
+(choose-first 3 (/ 1 0))  ;; #Applicative Order - "Eager"
+→ (choose-first 3 ERRO)   ;; Avalia (/ 1 0) antes → erro!
+                          ;; Erro: Não se pode dividir por 0
+
+;; Erro ocorre mesmo que y não seja usado!
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(choose-first 3 (/ 1 0))  ;; #Normal Order - "Lazy"
+→ 3                       ;; Nunca avaliamos (/ 1 0), então evitamos o erro!
+
+;; Aqui, evitamos o cálculo desnecessário!
+      </code></pre>
+        <hr />
+        <h2 class="exercises" id="exercises1">Exercícios</h2>
+        <h3 id="e_1.1">Exercício 1.1:</h3>
+        <p>
+          Abaixo está uma sequência de expressões. Qual é o resultado impresso
+          pelo interpretador em resposta a cada expressão? Suponha que a
+          sequência seja avaliada na ordem em que é apresentada.
+        </p>
+        <pre><code class="language-scheme">
+10
+;; 10
+
+(+ 5 3 4)
+;; 12
+
+(- 9 1)
+;; 8
+
+(/ 6 2)
+;; 3
+
+(+ (* 2 4) (- 4 6))
+;; 6 
+
+(define a 3)
+;; 
+
+(define b (+ a 1))
+;;
+
+(+ a b (* a b))
+;; 19
+
+(= a b)
+;; #f
+
+(if (and (> b a) (&lt; b (* a b)))
+     b
+     a)
+;; 4
+
+(cond ((= a 4) 6)
+      ((= b 4) (+ 6 7 a))
+      (else 25)) ;; 16
+(+ 2 (if (> b a) b a))
+;; 6
+
+(* (cond ((> a b) a)
+         ((&lt; a b) b)
+         (else -1))
+   (+ a 1))
+;; 16
+      </code></pre>
+        <h3 id="e_1.2">Exercício 1.2:</h3>
+        <p>Traduza a seguinte expressão para a forma prefixa:</p>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <mrow>
+                <mn>5</mn>
+                <mo>+</mo>
+                <mn>4</mn>
+                <mo>+</mo>
+                <mo stretchy="false">(</mo>
+                <mn>2</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mo stretchy="false">(</mo>
+                <mn>3</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mo stretchy="false">(</mo>
+                <mn>6</mn>
+                <mo>+</mo>
+                <mfrac>
+                  <mn>4</mn>
+                  <mn>5</mn>
+                </mfrac>
+                <mo stretchy="false">)</mo>
+                <mo stretchy="false">)</mo>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mrow>
+                <mn>3</mn>
+                <mo stretchy="false">(</mo>
+                <mn>6</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mn>2</mn>
+                <mo stretchy="false">)</mo>
+                <mo stretchy="false">(</mo>
+                <mn>2</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mn>7</mn>
+                <mo stretchy="false">)</mo>
+              </mrow>
+            </mfrac>
+          </mrow>
+        </math>
+        <pre><code class="language-scheme">
+(/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
+   (* 3 (- 6 2) (- 2 7)))
+      </code></pre>
+        <h3 id="e_1.3">Exercício 1.3:</h3>
+        <p>
+          Defina um procedimento que receba três números como argumentos e
+          retorne a soma dos quadrados dos dois maiores números.
+        </p>
+        <pre><code class="language-scheme">
+(define (quadrado n)
+  (* n n))
+
+;; Solução 1
+(define (maiores x y z)
+  (if (or                     ;; x² + y²
+        (and (= x y) (= y z)) ;; x = y = z {xy}
+        (and (> y x) (> x z)) ;; y > x > z {xy}
+        (and (> x y) (> y z)) ;; x > y > z {xy}
+        (and (> y z) (= x y)) ;; x = y > z {xy}
+      )
+      (+ (quadrado x) (quadrado y))
+      
+  (if (or                     ;; z² + x²
+        (and (> z x) (> x y))  ;; z > x > y {xz}
+        (and (> x z) (>= z y)) ;; x > z > y {xz}
+        (and (> x y) (= x z))  ;; z = x > y {xz}
+      ) 
+      (+ (quadrado z) (quadrado x))
+      
+  (if (or                     ;; z² + y²
+        (and (> z y) (>= y x)) ;; z > y > x {yz}
+        (and (> y z) (>= z x)) ;; y > z > x {yz}
+        (and (> y x) (= z y))  ;; z = y > x {yz}
+      )
+            (+ (quadrado z) (quadrado y))
+            -1))))
+
+"Tudo diferente"
+(maiores 1 2 3) 
+(maiores 1 3 2) 
+(maiores 2 1 3) 
+(maiores 2 3 1) 
+(maiores 3 1 2) 
+(maiores 3 2 1) 
+"Tudo igual"
+(maiores 1 1 1) 
+"Dois menores"
+(maiores 2 1 1)
+(maiores 1 2 1)
+(maiores 1 1 2)
+"Dois maiores"
+(maiores 1 2 2) 
+(maiores 2 1 2) 
+(maiores 2 2 1) 
+      </code></pre>
+        <h3 id="e_1.4">Exercício 1.4:</h3>
+        <p>
+          Observe que nosso modelo de avaliação permite combinações cujos
+          operadores são expressões compostas. Use essa observação para
+          descrever o comportamento do seguinte procedimento:
+        </p>
+        <pre><code class="language-scheme">
+;; (define (a-plus-abs-b a b)
+;;  ((if (> b 0) + -) a b))
+
+(a-plus-abs-b a b)    ;; Chamada
+→ (                   ;; Expansão
+→ (if (> b 0)         ;; Expansão {Se b > 0 então:
+→     +               ;; + se não:
+→     -)              ;; -}
+→ a b)                ;; Sendo b &gt;  0 fica (+ a b)
+                      ;; Sendo b &lt;= 0 fica (- a b)
+      </code></pre>
+        <h3 id="e_1.5">Exercício 1.5:</h3>
+        <p>
+          Ben Bitdiddle inventou um teste para determinar se o interpretador que
+          ele enfrenta está usando avaliação em ordem aplicativa ou em ordem
+          normal. Ele define os seguintes dois procedimentos:
+        </p>
+        <pre><code class="language-scheme">
+(define (p) (p))
+
+(define (test x y) 
+   (if (= x 0) 
+       0 
+       y))
+      </code></pre>
+        <p>Então ele avalia a expressão:</p>
+        <pre><code class="language-scheme">
+(test 0 (p))
+
+;; Resposta
+→  if (#t)    ;; 0 = 0
+→  0          ;; Resultado
+;; y             Essa parte nunca é chamada
+      </code></pre>
+        <h3 id="e_1.6">Exercício 1.6:</h3>
+        <p>
+          Alyssa P. Hacker não entende por que
+          <code>if</code> precisa ser fornecido como uma forma especial. “Por
+          que não posso simplesmente defini-lo como um procedimento ordinário em
+          termos de <code>cond?</code>”, ela pergunta. A amiga de Alyssa, Eva Lu
+          Ator, afirma que isso pode ser feito, e ela define uma nova versão de
+          <code>if</code>:
+        </p>
+        <pre><code class="language-scheme">
+(define (new-if predicate 
+        then-clause 
+        else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+      </code></pre>
+        <p>Eva demonstra o programa para Alyssa:</p>
+        <pre><code class="language-scheme">
+(new-if (= 2 3) 0 5)
+5
+
+(new-if (= 1 1) 0 5)
+0
+        </code></pre>
+        <p>
+          Encantada, Alyssa usa <code>new-if</code> para reescrever o programa
+          de raiz quadrada:
+        </p>
+        <pre><code class="language-scheme">
+(define (sqrt-iter guess x)
+  (new-if (good-enough? guess x)
+          guess
+          (sqrt-iter (improve guess x) x)))
+        </code></pre>
+        <p>
+          O que acontece quando Alyssa tenta usar isso para calcular raízes
+          quadradas? Explique.
+        </p>
+        <p class="exercise-answer">
+          O <code>if</code> é uma forma especial que somente avalia
+          <code>else-clause</code> se o <code>predicate</code> for falso, o
+          <code>new-if</code> torna possível avaliar o
+          <code>else-clause</code> independente do
+          <code>predicate</code> criando um <span lang="en">loop</span> infinito
+          ao chamar a função <code>sqrt-iter</code> recursivamente.
+        </p>
+        <h3 id="e_1.7">Exercício 1.7:</h3>
+        <p>
+          O teste <code>good-enough?</code> usado no cálculo de raízes quadradas
+          não será muito eficaz para encontrar as raízes quadradas de números
+          muito pequenos. Além disso, em computadores reais, as operações
+          aritméticas são quase sempre realizadas com precisão limitada. Isso
+          torna nosso teste inadequado para números muito grandes. Explique
+          essas afirmações, com exemplos mostrando como o teste falha para
+          números pequenos e grandes. Uma estratégia alternativa para
+          implementar <code>good-enough?</code> é observar como
+          <code>guess</code>
+          muda de uma iteração para a próxima, e parar quando a mudança é uma
+          fração muito pequena do palpite. Projete um procedimento de raiz
+          quadrada que use esse tipo de teste final. Isso funciona melhor para
+          números pequenos e grandes?
+        </p>
+        <ol class="exercise-answer">
+          <li>
+            O código estipula uma diferença entre o palpite e a raiz de um
+            milésimo (1/100 ou 0,001), isso limita o código a achar raízes que
+            se enquadre nessa limitação.
+          </li>
+          <li>
+            Quando os números são muito pequenos &mdash; próximos de 0 (zero)
+            &mdash; a probabilidade de o retorno da raiz ser precoce por conta
+            do ponto <em>1.</em> é grande. Exemplo: A raiz quadrada de 0.0001 é
+            0.01, porém o código retorna 0.03230844833048122, uma diferença de
+            0,02230844833048122 (≈ 69,05%).
+          </li>
+          <li>
+            Agora quando com números muito grandes a situação <em>2.</em> também
+            pode ser aplicada, porém, só é relevante quando há casas decimeis em
+            ordem de um décimo de milésimo (1/10000 ou 0,0001) de grandeza.
+            Entretanto, quando há números &gt;= quatorze casas decimais não
+            retorna o resultado por falta de potência computacional.
+          </li>
+        </ol>
+        <pre><code class="language-scheme">
+;; Essa é a resposta
+(define (good-enough? guess next-guess)
+  (&lt;
+    (abs (- guess next-guess ))
+    (* guess 0.001))) ;; 0.1% de tolerância, poderia ser (/ guess 100)
+;; A ideia é comparar o palpite novo com o antigo
+;; caso a diferença for 1% então #t (true)
+
+;; Restante do código para que a resposta funcione
+(define (sqrt-iter guess x)
+  ;; Com let crio uma variável local next-guess
+  ;; para entrar como atributo em good-enough?
+  ;; (let &lt;variável&gt; &lt;valor&gt;) ou
+  ;; (let (&lt;var1&gt; &lt;valor1&gt;) (&lt;var2&gt; &lt;valor2&gt;))
+  (let ((next-guess (improve guess x))) ;; Acrescentei a linha
+    (if (good-enough? guess next-guess) ;; Alterei os atributos
+        next-guess                      ;; Alterei o retorno
+        (sqrt-iter next-guess x))))     ;; Alterei o atributo
+
+(define (improvee guess x)
+  (/ ( + guess (/ x guess)) 2)) ;; Simplifiquei
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+;; (sqrt n) ;; Raiz quadrada de n
+      </code></pre>
+        <h3 id="e_1.8">Exercício 1.8:</h3>
+        <p>
+          O método de Newton para raízes cúbicas é baseado no fato de que, se y
+          é uma aproximação da raiz cúbica de x , então uma aproximação melhor é
+          dada pelo valor
+        </p>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>/</mo>
+                  </mrow>
+                  <msup>
+                    <mi>y</mi>
+                    <mn>2</mn>
+                  </msup>
+                </mrow>
+                <mo>+</mo>
+                <mn>2</mn>
+                <mi>y</mi>
+              </mrow>
+              <mn>3</mn>
+            </mfrac>
+            <mo>.</mo>
+          </mrow>
+        </math>
+        <p>
+          Use essa fórmula para implementar um procedimento de raiz cúbica
+          análogo ao procedimento de raiz quadrada.
+        </p>
+        <pre><code class="language-scheme">
+(define (good-enough? guess next-guess)
+  (
+    ;; Mesmo código
+  ))
+
+(define (cube-root-iter guess x)    ;; Alterei o nome da função
+  (
+    ;; Mesmo código
+    (cube-root-iter next-guess x))) ;;...
+
+(define (improve y x) ;; Mudei o atributo guess por y
+  (/ (+ (/ x (* y y)) (* 2 y)) 3)) ;; Mudei o corpo
+
+(define (cube-root x) ;; Mudei o nome da função
+  (cube-root-iter 1.0 x)) ;; ...
+
+;; (cube-root n) ;; Raiz cubica de n
+      </code></pre>
+        <h2>Técnicas de controle de complexidade</h2>
+        <p>
+          A ciência da computação não lida com objetos reais, mas com objetos
+          virtuais<sup id="sup2"><a href="#ref2">2</a></sup
+          >. Esses objetos são imaginados ou idealizados para representar
+          conceitos e sistemas complexos de forma simplificada. Não há distinção
+          significativa entre o que é possível construir e o que é possível
+          imaginar, desde que se tenha o conhecimento necessário para
+          transformar a ideia em realidade.
+        </p>
+        <h3>Abstração de Caixa-Preta</h3>
+        <p>
+          A abstração de caixa-preta é uma técnica fundamental na computação e
+          em outras engenharias. Ela simplifica a manipulação de sistemas
+          complexos ao ocultar detalhes internos do funcionamento de um
+          processo, expondo apenas suas interfaces: as entradas e saídas. Esse
+          conceito facilita a compreensão, reutilização e ampliação de sistemas,
+          permitindo que cada caixa seja tratada como uma unidade funcional
+        </p>
+        <p>Exemplos práticos</p>
+        <ul>
+          <li>
+            Aqui, o método usado para calcular a raiz quadrada é abstraído como
+            uma caixa-preta: você sabe o que entra e o que sai, mas não precisa
+            entender os detalhes do cálculo.
+          </li>
+          <li>
+            <figure>
+              <img
+                src="img/img-1.png"
+                alt="Diagrama ilustrando o cálculo da raiz quadrada. O número 9 entra no processo e o resultado, 3, sai."
+              />
+            </figure>
+          </li>
+          <li>
+            A técnica permite que sistemas sejam escalados sem aumento
+            significativo na complexidade. Por exemplo:
+          </li>
+          <li>
+            <figure>
+              <img
+                src="img/img-2.png"
+                alt="Diagrama mostrando o cálculo das raízes quadradas de 9 e 100, seguido da soma dos resultados (3 e 10), obtendo 13."
+              />
+            </figure>
+          </li>
+          <li>As caixas-pretas podem conter outras caixas-pretas.</li>
+          <li>
+            <figure>
+              <img
+                src="img/img-3.png"
+                alt="Diagrama que ilustra o método de Newton para calcular a raiz quadrada de 4, mostrando a entrada (4), a saída (2) e o processo iterativo de aproximação como auxiliar do primeiro."
+              />
+            </figure>
+          </li>
+        </ul>
+        <h4>Generalização e Operações Genéricas</h4>
+        <p>
+          Outra perspectiva da abstração de caixa-preta é sua utilização para
+          criar operações genéricas. Um exemplo comum são as bibliotecas
+          disponíveis em linguagens de programação. Essas bibliotecas são
+          grandes caixas-pretas compostas por várias outras caixas menores, que
+          encapsulam funcionalidades reutilizáveis. Elas permitem que
+          desenvolvedores foquem na solução de problemas de alto nível, sem se
+          preocupar com os detalhes de implementação subjacentes.
+        </p>
+        <section id="reference">
+          <hr />
+          <p id="ref1">
+            <sup><a href="#sup1">1</a></sup> A abstração é uma técnica ou
+            conceito que permite "esconder" detalhes. Por exemplo, quando
+            chamamos um "carro" de <em>carro</em>, estamos usando uma abstração.
+            Essa palavra generaliza um conjunto de elementos, como motor,
+            volante, bancos, e outros componentes, que, juntos, formam o objeto
+            complexo que conhecemos como carro.
+          </p>
+          <p>
+            Assim, abstração ajuda a focar no conceito geral, sem se perder nos
+            detalhes técnicos de cada parte. Na prática, a abstração é essencial
+            para controlar a complexidade, permitindo que elementos complexos
+            sejam tratados como primitivos. Isso possibilita construir sistemas
+            ainda mais sofisticados, baseando-se em camadas de abstração. Por
+            exemplo, na programação, funções ou classes encapsulam detalhes
+            internos, expondo apenas o necessário para quem as utiliza.
+          </p>
+          <p id="ref2">
+            <sup><a href="sup2">2</a></sup> No contexto filosófico, o real e o
+            virtual são formalizações que diferenciam o tangível do imaginário.
+            Na ciência da computação, lidamos com sistemas idealizados,
+            abstraídos e tratados como se estivessem numa "caixa mágica". Essa
+            "caixa" é uma metáfora para sistemas computacionais que parecem
+            possuir uma espécie de "espírito", capaz de executar as ideias
+            previamente idealizadas e definidas por nós. Por meio dessas
+            abstrações, é possível simplificar, organizar e manipular sistemas
+            complexos, permitindo que o foco esteja em como esses objetos
+            interagem e se comportam, em vez de nos detalhes técnicos de sua
+            implementação interna.
+          </p>
+          <p>
+            Caso deseje aprofundar-se nessa discussão filosófica, aqui estão
+            algumas fontes relevantes:
+          </p>
+          <ul>
+            <li>
+              <em>Curso Online de Filosofia (COF): Aula 7</em>, por Olavo de
+              Carvalho em 16/05/2009
+              <a
+                href="https://archive.org/details/COFemAudio/COF007.aac"
+                target="_blank"
+                class="icon_linkexternal"
+              ></a>
+            </li>
+            <li><em>O Que É O Virtual?</em> Obra de Pierre Lévy</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

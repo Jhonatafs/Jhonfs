@@ -40,5 +40,25 @@
 
 .icon_home::before {
   font-family: "Icons";
-  content: "";
+  content: "";
+}
+
+.icon_nav::before {
+  font-family: "Icons";
+  content: "";
+}
+
+.icon_page_next::before {
+  font-family: "Icons";
+  content: "󰮱";
+}
+
+.icon_page_previous::before {
+  font-family: "Icons";
+  content: "󰮳";
+}
+
+.icon_content::before {
+  font-family: "Icons";
+  content: "";
 }

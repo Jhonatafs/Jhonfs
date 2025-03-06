@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/normilize.css" />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/icons.css" />
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/article.css" />
     <!--SCRIPT-->
     <script src="/js/light.js"></script>
   </head>
@@ -21,15 +21,75 @@
       <div id="top"></div>
       <button id="backToTop"><span class="icon_angles_up"></span></button>
       <script src="/js/buttonToTop.js"></script>
-      <header>
-        <a href="/index.html" class="brand icon_home"></a>
-        <div id="buttons">
-          <!--<a class="icon_translate" href="#"></a>-->
-          <button id="button-light" onclick="lightStatus()">
-            <span class="icon_theme"></span>
-          </button>
+      <nav role="navigation">
+        <!--Based on the code of Erik Terwan (24th of November 2015, MIT License)-->
+        <div id="menuToggle">
+          <input type="checkbox" id="menuCheckbox" />
+
+          <!--Icon Hamburguer-->
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <ul id="menu">
+            <div class="nav-page">
+              <li>
+                <a href="#"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_page_previous disabled"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="/index.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_home"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_content disabled"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="Anotações Prévias.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_page_next"
+                  ></label
+                ></a>
+              </li>
+            </div>
+            <hr />
+            <div class="buttons">
+              <a
+                href="https://github.com/Jhonatafs"
+                class="icon_github"
+                target="_blank"
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/jhonfs/"
+                class="icon_linkedin"
+                target="_blank"
+              ></a>
+              <a href="#" class="icon_translate disabled"></a>
+              <button id="button-light" onclick="lightStatus()">
+                <span class="icon_theme"></span>
+              </button>
+            </div>
+          </ul>
         </div>
-      </header>
+      </nav>
       <article>
         <h1>
           Notas e soluções do Curso
@@ -63,7 +123,9 @@
             <a href="Anotações Prévias.html">Anotações Prévias</a>
           </li>
           <li>
-            <a href="">1. Construindo Abstrações com Procedimentos</a>
+            <a href="Construindo Abstrações com Procedimentos.html"
+              >1. Construindo Abstrações com Procedimentos</a
+            >
           </li>
           <ul>
             <li>

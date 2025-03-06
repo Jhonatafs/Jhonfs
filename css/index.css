@@ -48,3 +48,8 @@ h2 {
 p {
   font-size: 1.2rem;
 }
+
+footer {
+  position: fixed;
+  bottom: 15px;
+}
