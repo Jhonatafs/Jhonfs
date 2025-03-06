@@ -41,7 +41,7 @@
           <ul id="menu">
             <div class="nav-page">
               <li>
-                <a href="Anotações Prévias.html"
+                <a href="1. Construindo Abstrações com Procedimentos.html"
                   ><label
                     for="menuCheckbox"
                     onclick="this.parentNode.click();"
@@ -79,72 +79,126 @@
             </div>
             <hr />
             <li>
-              <a href="#title"
-                ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >Capitulo 1</label
-                ></a
-              >
-            </li>
-            <li>
               <a href="#1.1"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1</label
+                  >1.1 Os Elementos da Programação</label
                 ></a
               >
             </li>
             <li>
               <a href="#1.1.1-4"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.1</label
+                  >1.1.1 Expreções</label
                 ></a
               >
             </li>
             <li>
               <a href="#1.1.1-4"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.2</label
+                  >1.1.2 Nomes e o Ambiente</label
                 ></a
               >
             </li>
             <li>
               <a href="#1.1.1-4"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.3</label
+                  >1.1.3 Avaliando Combinações</label
                 ></a
               >
             </li>
             <li>
               <a href="#1.1.1-4"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.4</label
-                ></a
+                  >1.1.4 Procedimentos Compostos
+                </label></a
               >
             </li>
             <li>
               <a href="#1.1.5"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.5</label
+                  >1.1.5 Modelo de Substituição para Aplicação de
+                  Procedimentos</label
                 ></a
               >
             </li>
             <li>
               <a href="#1.1.6"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.6</label
+                  >1.1.6 Expressões Condicionais e Predicados</label
                 ></a
               >
             </li>
+            <ul class="exercises">
+              <li>
+                <a href="#e_1.1"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.1</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.2"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.2</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.3"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.3</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.4"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.4</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.5"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.5</label
+                  ></a
+                >
+              </li>
+            </ul>
             <li>
               <a href="#1.1.7"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.7</label
-                ></a
+                  >1.1.7 Exemplo: Raízes Quadradas pelo Método de Newton
+                </label></a
               >
             </li>
+            <ul class="exercises">
+              <li>
+                <a href="#e_1.6"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.6</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.7"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.7</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.8"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.8</label
+                  ></a
+                >
+              </li>
+            </ul>
             <li>
               <a href="#1.1.8"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
-                  >1.1.8</label
+                  >1.1.8 Procedimentos como Abstrações de Caixa Preta</label
                 ></a
               >
             </li>
@@ -160,11 +214,7 @@
                 class="icon_linkedin"
                 target="_blank"
               ></a>
-              <a href="#"><label
-                for="menuCheckbox"
-                onclick="this.parentNode.click();"
-                class="icon_translate disabled"
-              ></a>
+              <a href="#" class="icon_translate disabled"></a>
               <button id="button-light" onclick="lightStatus()">
                 <span class="icon_theme"></span>
               </button>
@@ -173,46 +223,7 @@
         </div>
       </nav>
       <article>
-        <h1 id="title">Construção e abstração com procedimentos</h1>
-        <p>Segundo Locke, a mente humana realiza três operações básicas:</p>
-        <ol>
-          <li>
-            <strong>Combinar: </strong>Ao combinar ideias simples gera ideias
-            complexas.
-          </li>
-          <li>
-            <strong>Relacionar: </strong>Ao relacionar ideias espandimos o que é
-            conhecido.
-          </li>
-          <li>
-            <strong>Abstrair: </strong>Ao abstrair características específicas,
-            ela forma conceitos gerais ou abstrações<sup id="sup1"
-              ><a href="#ref1">1</a></sup
-            >.
-          </li>
-        </ol>
-        <p>
-          Esses três atos mentais trabalham em conjunto para moldar nossa
-          compreensão do mundo. Entender isso facilitará na comprienção da
-          computação e suas linguagens.
-        </p>
-        <p>
-          Ja a base da computação é formada por 3 seres abstratos, os dados, os
-          procedimentos e os processos.
-        </p>
-        <ol>
-          <li><strong>Dados: </strong>São informações.</li>
-          <li>
-            <strong>Procedimentos: </strong>São as intruções de como manipular
-            os dados.
-          </li>
-          <li>
-            <strong>Processos: </strong>É a ação, a execução do procedimento, o
-            ato de manipular os dados.
-          </li>
-        </ol>
-
-        <h2 id="1.1">1.1 Os Elementos da Programação</h2>
+        <h1 id="1.1">1.1 Os Elementos da Programação</h1>
         <p>
           Para aprender qualquer linguagem de programação é preciso entender
           quais são as suas:
@@ -232,12 +243,12 @@
             e processos).
           </li>
         </ul>
-        <h3 id="1.1.1-4">
+        <h2 id="1.1.1-4">
           1.1.1 Expreções, <br />
           1.1.2 Nomes e o Ambiente e <br />
           1.1.3 Avaliando Combinações <br />
           1.1.4 Procedimentos Compostos
-        </h3>
+        </h2>
         <p>
           Uma <strong>expressão</strong> é o meio usado para expressar algo para
           a maquina. Se quero expressar a valor dez, digito <code>10</code>, se
@@ -345,9 +356,9 @@ amo-estudar ;; Retorna #t
 (define quadrado (lambda (x) (* x x)))
 (quadrado 3)  ;; Retorna 9
     </code></pre>
-        <h3 id="1.1.5">
+        <h2 id="1.1.5">
           1.1.5 Modelo de Substituição para Aplicação de Procedimentos
-        </h3>
+        </h2>
 
         <p>
           O <strong>modelo de substituição</strong> é uma técnica que descreve a
@@ -400,7 +411,7 @@ amo-estudar ;; Retorna #t
             é expandida antes da avaliação dos argumentos.
           </li>
         </ul>
-        <h4 id="1.1.5.1">Comparação com código</h4>
+        <h3 id="1.1.5.1">Comparação com código</h3>
         <pre><code class="language-scheme">
 (define (square x)
 (* x x))
@@ -469,8 +480,9 @@ amo-estudar ;; Retorna #t
 
 ;; Aqui, evitamos o cálculo desnecessário!
       </code></pre>
+        <h2 id="1.1.6">1.1.6 Expressões Condicionais e Predicados</h2>
+        <p>...</p>
         <hr />
-        <h2 class="exercises" id="exercises1">Exercícios</h2>
         <h3 id="e_1.1">Exercício 1.1:</h3>
         <p>
           Abaixo está uma sequência de expressões. Qual é o resultado impresso
@@ -590,33 +602,33 @@ amo-estudar ;; Retorna #t
       
   (if (or                     ;; z² + x²
         (and (> z x) (> x y))  ;; z > x > y {xz}
-        (and (> x z) (>= z y)) ;; x > z > y {xz}
+        (and (> x z) (>= z y)) ;; x > z >= y {xz}
         (and (> x y) (= x z))  ;; z = x > y {xz}
       ) 
       (+ (quadrado z) (quadrado x))
       
   (if (or                     ;; z² + y²
-        (and (> z y) (>= y x)) ;; z > y > x {yz}
-        (and (> y z) (>= z x)) ;; y > z > x {yz}
+        (and (> z y) (>= y x)) ;; z > y >= x {yz}
+        (and (> y z) (>= z x)) ;; y > z >= x {yz}
         (and (> y x) (= z y))  ;; z = y > x {yz}
       )
             (+ (quadrado z) (quadrado y))
             -1))))
 
-"Tudo diferente"
+;; Tudo diferente
 (maiores 1 2 3) 
 (maiores 1 3 2) 
 (maiores 2 1 3) 
 (maiores 2 3 1) 
 (maiores 3 1 2) 
 (maiores 3 2 1) 
-"Tudo igual"
+;; Tudo igual
 (maiores 1 1 1) 
-"Dois menores"
+;; Dois menores
 (maiores 2 1 1)
 (maiores 1 2 1)
 (maiores 1 1 2)
-"Dois maiores"
+;; Dois maiores
 (maiores 1 2 2) 
 (maiores 2 1 2) 
 (maiores 2 2 1) 
@@ -662,6 +674,120 @@ amo-estudar ;; Retorna #t
 →  0          ;; Resultado
 ;; y             Essa parte nunca é chamada
       </code></pre>
+        <h2 id="1.1.7">
+          1.1.7 Exemplo: Raízes Quadradas pelo Método de Newton
+        </h2>
+        <p>
+          A Ciência da Computação é a arte de criar instruções eficazes (como
+          fazer), diferindo-se da matemática, que busca verdades absolutas (o
+          que é). Por exemplo:
+        </p>
+        <ul>
+          <li>
+            <strong>Matemática:</strong> Define a raiz quadrada como
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <mrow>
+                <msqrt>
+                  <mi>x</mi>
+                </msqrt>
+                <mo>=</mo>
+                <mi>y</mi>
+                <mo>&#160;</mo>
+                <mo lang="pt-br">tal&#160;que</mo>
+                <mo>&#160;</mo>
+                <msup>
+                  <mi>y</mi>
+                  <mn>2</mn>
+                </msup>
+                <mo>=</mo>
+                <mi>x</mi>
+                <mo>&#160;</mo>
+                <mo lang="pt-br">e</mo>
+                <mo>&#160;</mo>
+                <mi>y</mi>
+                <mo>&geq;</mo>
+                <mn>0</mn>
+              </mrow>
+            </math>
+          </li>
+          <li>
+            <strong>Computação:</strong> Exige um procedimento para calcular
+            <em>y</em>, como o método iterativo de Newton.
+          </li>
+        </ul>
+        <p>
+          O método de Newton consiste em melhorar iterativamente uma estimativa
+          até atingir precisão desejada:
+        </p>
+        <ol>
+          <li>
+            <strong>Palpite Inicial:</strong> Comece com uma estimativa (ex:
+            <em>y </em>= 1).
+          </li>
+          <li>
+            <strong>Iteração:</strong> Calcule a média entre <em>y</em> e
+            <em>x</em>/<em>y</em>:
+            <br />
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <msub>
+                <mi>y</mi>
+                <mrow>
+                  <mi>n</mi>
+                  <mi>o</mi>
+                  <mi>v</mi>
+                  <mi>o</mi>
+                </mrow>
+              </msub>
+              <mo>=</mo>
+              <mfrac>
+                <mrow>
+                  <mi>y</mi>
+                  <mo>+</mo>
+                  <mfrac>
+                    <mi>x</mi>
+                    <mi>y</mi>
+                  </mfrac>
+                </mrow>
+                <mn>2</mn>
+              </mfrac>
+            </math>
+          </li>
+          <li>
+            <strong>Critério de Parada:</strong> Repita até ∣<em>y²</em> -
+            <em>x</em>∣ &lt; tolerância.
+          </li>
+        </ol>
+        <p>Implementação em Scheme (LISP):</p>
+        <pre><code class="language-scheme">
+;; Calcula o quadrado de um número
+(define (quadrado x) 
+  (* x x))
+
+;; Define a média entre dois números
+(define (media x y) 
+  (/ (+ x y) 2))
+
+;; Refina a estimativa usando o método de Newton
+(define (melhora-estimativa estimativa x)
+  (media estimativa (/ x estimativa)))
+
+;; Verifica se a estimativa é suficientemente precisa
+(define (estimativa-boa? estimativa x)
+  (< (abs (- (quadrado estimativa) x)) 0.001))
+
+;; Processo iterativo (recursivo) para busca da raiz
+(define (raiz-iterativa estimativa x)
+  (if (estimativa-boa? estimativa x)
+      estimativa
+      (raiz-iterativa (melhora-estimativa estimativa x) x)))
+
+;; Função principal: inicia com estimativa = 1.0
+(define (raiz x)
+  (raiz-iterativa 1.0 x))
+
+;; Exemplo: Raiz de 625 ≈ 25.0
+(raiz 625) 
+        </code></pre>
         <h3 id="e_1.6">Exercício 1.6:</h3>
         <p>
           Alyssa P. Hacker não entende por que
@@ -825,26 +951,25 @@ amo-estudar ;; Retorna #t
 
 ;; (cube-root n) ;; Raiz cubica de n
       </code></pre>
-        <h2>Técnicas de controle de complexidade</h2>
+        <h2 id="1.1.8">1.1.8 Procedimentos como Abstrações de Caixa Preta</h2>
         <p>
-          A ciência da computação não lida com objetos reais, mas com objetos
-          virtuais<sup id="sup2"><a href="#ref2">2</a></sup
+          A computação não lida com objetos reais, mas com objetos virtuais<sup
+            id="sup2"
+            ><a href="#ref2">2</a></sup
           >. Esses objetos são imaginados ou idealizados para representar
           conceitos e sistemas complexos de forma simplificada. Não há distinção
           significativa entre o que é possível construir e o que é possível
           imaginar, desde que se tenha o conhecimento necessário para
           transformar a ideia em realidade.
         </p>
-        <h3>Abstração de Caixa-Preta</h3>
         <p>
-          A abstração de caixa-preta é uma técnica fundamental na computação e
-          em outras engenharias. Ela simplifica a manipulação de sistemas
-          complexos ao ocultar detalhes internos do funcionamento de um
-          processo, expondo apenas suas interfaces: as entradas e saídas. Esse
-          conceito facilita a compreensão, reutilização e ampliação de sistemas,
-          permitindo que cada caixa seja tratada como uma unidade funcional
+          Abstração de caixa-preta é nada mais que uma técnica de abstração a
+          qual simplifica a manipulação de sistemas complexos ao ocultar
+          detalhes internos do funcionamento de um processo, expondo apenas suas
+          interfaces: as entradas e saídas. Esse conceito facilita a
+          compreensão, reutilização e ampliação de sistemas, permitindo que cada
+          caixa seja tratada como uma unidade funcional:
         </p>
-        <p>Exemplos práticos</p>
         <ul>
           <li>
             Aqui, o método usado para calcular a raiz quadrada é abstraído como
@@ -881,37 +1006,10 @@ amo-estudar ;; Retorna #t
             </figure>
           </li>
         </ul>
-        <h4>Generalização e Operações Genéricas</h4>
-        <p>
-          Outra perspectiva da abstração de caixa-preta é sua utilização para
-          criar operações genéricas. Um exemplo comum são as bibliotecas
-          disponíveis em linguagens de programação. Essas bibliotecas são
-          grandes caixas-pretas compostas por várias outras caixas menores, que
-          encapsulam funcionalidades reutilizáveis. Elas permitem que
-          desenvolvedores foquem na solução de problemas de alto nível, sem se
-          preocupar com os detalhes de implementação subjacentes.
-        </p>
         <section id="reference">
           <hr />
-          <p id="ref1">
-            <sup><a href="#sup1">1</a></sup> A abstração é uma técnica ou
-            conceito que permite "esconder" detalhes. Por exemplo, quando
-            chamamos um "carro" de <em>carro</em>, estamos usando uma abstração.
-            Essa palavra generaliza um conjunto de elementos, como motor,
-            volante, bancos, e outros componentes, que, juntos, formam o objeto
-            complexo que conhecemos como carro.
-          </p>
-          <p>
-            Assim, abstração ajuda a focar no conceito geral, sem se perder nos
-            detalhes técnicos de cada parte. Na prática, a abstração é essencial
-            para controlar a complexidade, permitindo que elementos complexos
-            sejam tratados como primitivos. Isso possibilita construir sistemas
-            ainda mais sofisticados, baseando-se em camadas de abstração. Por
-            exemplo, na programação, funções ou classes encapsulam detalhes
-            internos, expondo apenas o necessário para quem as utiliza.
-          </p>
           <p id="ref2">
-            <sup><a href="sup2">2</a></sup> No contexto filosófico, o real e o
+            <sup><a href="#sup2">2</a></sup> No contexto filosófico, o real e o
             virtual são formalizações que diferenciam o tangível do imaginário.
             Na ciência da computação, lidamos com sistemas idealizados,
             abstraídos e tratados como se estivessem numa "caixa mágica". Essa
@@ -923,22 +1021,6 @@ amo-estudar ;; Retorna #t
             interagem e se comportam, em vez de nos detalhes técnicos de sua
             implementação interna.
           </p>
-          <p>
-            Caso deseje aprofundar-se nessa discussão filosófica, aqui estão
-            algumas fontes relevantes:
-          </p>
-          <ul>
-            <li>
-              <em>Curso Online de Filosofia (COF): Aula 7</em>, por Olavo de
-              Carvalho em 16/05/2009
-              <a
-                href="https://archive.org/details/COFemAudio/COF007.aac"
-                target="_blank"
-                class="icon_linkexternal"
-              ></a>
-            </li>
-            <li><em>O Que É O Virtual?</em> Obra de Pierre Lévy</li>
-          </ul>
         </section>
       </article>
     </main>

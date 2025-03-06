@@ -62,3 +62,8 @@
   font-family: "Icons";
   content: "";
 }
+
+.icon_quest::before {
+  font-family: "Icons";
+  content: "";
+}
