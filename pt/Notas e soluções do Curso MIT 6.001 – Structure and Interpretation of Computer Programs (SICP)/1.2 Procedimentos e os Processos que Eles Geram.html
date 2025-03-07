@@ -149,7 +149,92 @@
       </nav>
       <article>
         <h1 id="1.2">1.2 Procedimentos e os Processos que Eles Geram</h1>
-        <h2 id="1.2.1"></h2>
+        <p>
+          O que é um bom programador? Um bom programador é definido por
+          habilidades que vão além do conhecimento técnico básico (como
+          operações e sintaxe). Os elementos essenciais são:
+        </p>
+        <ol>
+          <li>Capacidade de Visualizar Processos</li>
+          <ul>
+            <li>
+              <strong>Antecipar consequências:</strong> Saber prever como um
+              procedimento ou linha de código afetará o fluxo do programa, a
+              eficiência, a manutenção e o resultado final.
+            </li>
+            <li>
+              <strong>Simulação mental:</strong> Entender como o processo gerado
+              por um código se desenrola, passo a passo, incluindo estados
+              intermediários e possíveis erros.
+            </li>
+          </ul>
+          <li>Experiência com Padrões e Estratégias</li>
+          <ul>
+            <li>
+              <strong>Conhecimento de "movimentos valiosos":</strong> Dominar
+              padrões de projeto, algoritmos eficientes e boas práticas.
+            </li>
+            <li>
+              <strong>Abstração eficaz:</strong> Saber combinar operações
+              primitivas em procedimentos úteis e reutilizáveis.
+            </li>
+          </ul>
+          <li>Planejamento Sintético e Raciocínio Lógico</li>
+          <ul>
+            <li>
+              <strong>Pensamento reverso:</strong> Trabalhar de trás para frente
+              a partir do resultado desejado (como um fotógrafo planeja
+              exposição).
+            </li>
+            <li>
+              <strong>Controle do processo:</strong> Garantir execução ordenada
+              e confiável do programa.
+            </li>
+          </ul>
+          <li>Aprendizado Contínuo com a Prática</li>
+          <ul>
+            <li>
+              <strong>Experiência acumulada:</strong> Desenvolver intuição
+              através da exposição a cenários complexos.
+            </li>
+            <li>
+              <strong>Adaptação:</strong> Ajustar estratégias conforme o
+              contexto (como técnicas fotográficas).
+            </li>
+          </ul>
+        </ol>
+
+        <h2 id="1.2.1">1.2.1 Recursão Linear e Iteração</h2>
+        <ol>
+          <li><mark>Processo</mark> Recursivo Linear:</li>
+          <ul>
+            <li>
+              Expansão (acúmulo de operações) seguida de contração (execução das
+              operações).
+            </li>
+            <li>
+              Requer memória proporcional a <em>n</em> (crescimento linear),
+              pois o interpretador rastreia a cadeia de operações pendentes.
+            </li>
+          </ul>
+          <li><mark>Processo</mark> Iterativo Linear:</li>
+          <ul>
+            <li>Usa variáveis de estado atualizadas iterativamente:</li>
+            <li>
+              Mantém estado fixo, evoluindo em espaço constante (memória fixa),
+              mesmo para grandes <em>n</em>.
+            </li>
+          </ul>
+        </ol>
+        <p>
+          Sintaxe recursiva (porém com chamadas de cauda) gera processo
+          iterativo. Mantendo um espaço constante, pois o estado é totalmente
+          descrito pelas variáveis a cada passo. Exemplos em outras linguagens é
+          o <code>for</code> e o <code>while</code>. A recursão sintática
+          (código que chama a si mesmo) não implica necessariamente um processo
+          recursivo (com crescimento de memória). Um procedimento recursivo pode
+          gerar um processo iterativo se for tail-recursive (recursão de cauda).
+        </p>
         <h2 id="1.2.2"></h2>
         <h2 id="1.2.3"></h2>
         <h2 id="1.2.4"></h2>
