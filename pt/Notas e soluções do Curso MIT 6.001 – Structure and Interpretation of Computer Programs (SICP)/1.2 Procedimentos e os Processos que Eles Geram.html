@@ -233,8 +233,36 @@
           o <code>for</code> e o <code>while</code>. A recursão sintática
           (código que chama a si mesmo) não implica necessariamente um processo
           recursivo (com crescimento de memória). Um procedimento recursivo pode
-          gerar um processo iterativo se for tail-recursive (recursão de cauda).
+          gerar um processo iterativo se for tail-recursive<sup id="sup3"
+            ><a href="#ref3">3</a></sup
+          >
+          (recursão de cauda).
         </p>
+        <hr />
+        <h3 id="e_1.1">Exercício 1.9:</h3>
+        <p>
+          Cada um dos seguintes dois procedimentos define um método para
+          adicionar dois inteiros positivos em termos dos procedimentos inc, que
+          incrementa seu argumento em 1, e dec, que decrementa seu argumento em
+          1.
+        </p>
+        <pre><code class="language-scheme">
+(define (+ a b)
+  (if (= a 0) 
+      b 
+      (inc (+ (dec a) b))))
+
+(define (+ a b)
+  (if (= a 0) 
+      b 
+      (+ (dec a) (inc b))))
+        </code></pre>
+        <p>
+          Usando o modelo de substituição, ilustre o processo gerado por cada
+          procedimento ao avaliar (+ 4 5). Esses processos são iterativos ou
+          recursivos?
+        </p>
+
         <h2 id="1.2.2"></h2>
         <h2 id="1.2.3"></h2>
         <h2 id="1.2.4"></h2>
@@ -243,6 +271,21 @@
 
         <section id="reference">
           <hr />
+          <p id="ref3">
+            <sup><a href="#sup3">3</a></sup> Uma função é tail-recursive se a
+            última ação executada antes de retornar for uma chamada direta a si
+            mesma (sem operações pendentes). Em outras palavras, a chamada
+            recursiva é a última operação no fluxo de execução, não havendo
+            necessidade de processamento adicional após o retorno da recursão.
+          </p>
+          <p>
+            Por que é importante? Em linguagens que suportam otimização de
+            chamada de cauda (TCO), como Scheme, processos tail-recursive são
+            executados em espaço constante (O(1)), ou seja, não acumulam pilha
+            de chamadas. Isso evita estouro de pilha (stack overflow) para
+            grandes iterações e torna a recursão tão eficiente quanto um loop
+            imperativo.
+          </p>
         </section>
       </article>
     </main>
