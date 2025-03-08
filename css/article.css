@@ -131,7 +131,7 @@ mark {
  */
 #menu {
   position: absolute;
-  max-width: 280px !important;
+  max-width: 50dvw;
   width: max-content;
   max-height: calc(100dvh + 50px);
   height: max-content;
@@ -153,6 +153,13 @@ mark {
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
+@media screen and (max-width: 940px) {
+  #menu {
+    max-width: 100dvw;
+    width: 100dvw;
+  }
+}
+
 #menu * {
   font-size: 0.9rem;
   line-height: 1;
@@ -172,12 +179,16 @@ mark {
 }
 
 #menu .exercises {
-  padding-left: 1.4rem !important;
-  list-style: "- ";
+  padding-left: 0.5rem !important;
+  list-style: "";
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: 1.5rem;
+  column-gap: 0.5rem;
+}
+
+#menu .exercises * {
+  font-size: 0.7rem;
 }
 
 #menu li label {

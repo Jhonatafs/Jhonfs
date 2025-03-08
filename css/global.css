@@ -1,5 +1,6 @@
 /*[ Importes ]*/
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Cardo:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
 @font-face {
   font-family: "Fira Code";
@@ -64,6 +65,9 @@ html {
 
 math,
 math *,
+table,
+th,
+td,
 * {
   font-family: "Cardo", serif;
 }
@@ -192,6 +196,10 @@ a {
   text-decoration: none;
 }
 
+strong {
+  font-size: 1em;
+}
+
 span,
 abbr {
   font-size: 100%;
@@ -213,6 +221,45 @@ mfrac * {
 
 sup {
   line-height: 0%;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 2px solid var(--text-color);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.39);
+  font-size: 0.9em;
+}
+
+th,
+td {
+  padding: 0.3rem;
+}
+
+table .comment {
+  font-size: 0.8em;
+  color: var(--secondary-text-color);
+}
+
+figure {
+  display: flex;
+}
+
+figure img {
+  margin: 0;
+  padding: 0;
+}
+
+figcaption,
+figcaption * {
+  font-size: 0.7rem;
+  margin: 0;
+  padding: 0;
 }
 
 header * {
@@ -364,13 +411,13 @@ footer a:hover {
   }
 }
 
-@media (min-width: 481px) and (max-width: 720px) {
+@media screen and (min-width: 481px) and (max-width: 720px) {
   html {
     font-size: 18px;
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   html {
     font-size: 17px;
   }
@@ -380,4 +427,25 @@ footer a:hover {
   color: var(--secondary-text-color) !important;
   opacity: 0.5 !important;
   cursor: no-drop !important;
+}
+
+.monospace {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.p-tag-with-text-as-image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 720px) {
+  .p-tag-with-text-as-image {
+    flex-direction: column-reverse;
+  }
 }

@@ -18,6 +18,7 @@
     <script src="/js/light.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/markdown.min.js"></script>
     <script>
       hljs.highlightAll();
     </script>
@@ -41,7 +42,7 @@
           <ul id="menu">
             <div class="nav-page">
               <li>
-                <a href="1. Construindo Abstrações com Procedimentos.html"
+                <a href="1.1 Os Elementos da Programação.html"
                   ><label
                     for="menuCheckbox"
                     onclick="this.parentNode.click();"
@@ -68,7 +69,8 @@
                 ></a>
               </li>
               <li>
-                <a href="#"
+                <a
+                  href="1.3 Formulando Abstrações com Procedimentos de Ordem Superior.html"
                   ><label
                     for="menuCheckbox"
                     onclick="this.parentNode.click();"
@@ -92,6 +94,22 @@
                 ></a
               >
             </li>
+            <ul class="exercises">
+              <li>
+                <a href="#e_1.9"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.9</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.10"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.10</label
+                  ></a
+                >
+              </li>
+            </ul>
             <li>
               <a href="#1.2.2"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
@@ -99,6 +117,22 @@
                 ></a
               >
             </li>
+            <ul class="exercises">
+              <li>
+                <a href="#e_1.11"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.11</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.12"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.12</label
+                  ></a
+                >
+              </li>
+            </ul>
             <li>
               <a href="#1.2.3"
                 ><label for="menuCheckbox" onclick="this.parentNode.click();"
@@ -160,7 +194,7 @@
             <li>
               <strong>Antecipar consequências:</strong> Saber prever como um
               procedimento ou linha de código afetará o fluxo do programa, a
-              eficiência, a manutenção e o resultado final.
+              eficiência, a manutenção e o resultado.
             </li>
             <li>
               <strong>Simulação mental:</strong> Entender como o processo gerado
@@ -229,9 +263,9 @@
         <p>
           Sintaxe recursiva (porém com chamadas de cauda) gera processo
           iterativo. Mantendo um espaço constante, pois o estado é totalmente
-          descrito pelas variáveis a cada passo. Exemplos em outras linguagens é
+          descrito pelas variáveis a cada passo. Exemplos em outras linguagens:
           o <code>for</code> e o <code>while</code>. A recursão sintática
-          (código que chama a si mesmo) não implica necessariamente um processo
+          (código que chama a si) não implica necessariamente um processo
           recursivo (com crescimento de memória). Um procedimento recursivo pode
           gerar um processo iterativo se for tail-recursive<sup id="sup3"
             ><a href="#ref3">3</a></sup
@@ -239,7 +273,7 @@
           (recursão de cauda).
         </p>
         <hr />
-        <h3 id="e_1.1">Exercício 1.9:</h3>
+        <h4 id="e_1.9">Exercício 1.9:</h4>
         <p>
           Cada um dos seguintes dois procedimentos define um método para
           adicionar dois inteiros positivos em termos dos procedimentos inc, que
@@ -262,13 +296,509 @@
           procedimento ao avaliar (+ 4 5). Esses processos são iterativos ou
           recursivos?
         </p>
+        <pre><code class="language-scheme">
+(+ 4 5)                         ;; Chamada do procedimento 1
+(inc (+ 3 5))                   ;; Passo 1: inc é adiado
+(inc (inc (+ 2 5)))             ;; Passo 2: incs acumulam
+(inc (inc (inc (+ 1 5))))       ;; Passo 3
+(inc (inc (inc (inc (+ 0 5))))) ;; Passo 4: caso-base (a=0)
+(inc (inc (inc (inc 5))))       ;; Passo 5: contração começa
+(inc (inc (inc 6)))             ;; Passo 6
+(inc (inc 7))                   ;; Passo 7
+(inc 8)                         ;; Passo 8
+9                               ;; Resultado
 
-        <h2 id="1.2.2"></h2>
-        <h2 id="1.2.3"></h2>
-        <h2 id="1.2.4"></h2>
-        <h2 id="1.2.5"></h2>
-        <h2 id="1.2.6"></h2>
+;; Gera um processo recursivo com crescimento linear de
+;; espaço (O(n)) devido às operações adiadas (inc).
 
+(+ 4 5) ;; Chamada do procedimento 2
+(+ 3 6) ;; Passo 1: atualizar a e b
+(+ 2 7) ;; Passo 2
+(+ 1 8) ;; Passo 3
+(+ 0 9) ;; Passo 4: caso-base (a=0)
+9       ;; Resultado
+
+;; Gera um processo iterativo (via recursão de cauda)
+;; com espaço constante (O(1)). A recursão de cauda
+;; permite que o interpretador reutilize o frame de
+;; pilha, otimizando a memória.
+
+        </code></pre>
+        <p></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Característica</th>
+              <th>Procedimento 1</th>
+              <th>Procedimento 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tipo de processo</strong></td>
+              <td>Recursivo linear</td>
+              <td>Iterativo (tail-recursive)</td>
+            </tr>
+            <tr>
+              <td>
+                <strong
+                  >Complexidade espacial<sup
+                    ><a href="#1.2.3">1.2.3</a></sup
+                  ></strong
+                >
+              </td>
+              <td>O(n) <span class="comment">onde n = a</span> <br /></td>
+              <td>O(1) <span class="comment">(espaço constante)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Operações pendentes</strong></td>
+              <td>
+                Sim <span class="comment">(<code>inc</code> acumulados)</span>
+              </td>
+              <td>
+                Não <span class="comment">(estado atualizado diretamente)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 id="e_1.10">Exercício 1.10:</h4>
+        <p>
+          O seguinte procedimento calcula uma função matemática chamada função
+          de Ackermann.
+        </p>
+        <pre><code class="language-scheme">
+(define (A x y)
+  (cond ((= y 0) 0)
+        ((= x 0) (* 2 y))
+        ((= y 1) 2)
+        (else (A (- x 1)
+                 (A x (- y 1))))))
+        </code></pre>
+        <p>Quais são os valores das seguintes expressões?</p>
+        <pre><code class="language-scheme">
+(A 1 10)
+1024 ;; Resposta
+     ;; Complexidade Espacial O(n)
+     ;; Complexidade Temporal O(n)
+
+(A 2 4)
+65536 ;; Resposta
+      ;; Complexidade Espacial O(n)
+      ;; Complexidade Temporal O(2^n) (exponencial)
+
+(A 3 3)
+65536 ;; Resposta
+      ;; Complexidade Espacial O(n)
+      ;; Complexidade Temporal não primitiva-recursiva
+        </code></pre>
+        <p>
+          Considere os seguintes procedimentos, onde A é o procedimento definido
+          acima:
+        </p>
+        <pre><code class="language-scheme">
+(define (f n) (A 0 n))
+(define (g n) (A 1 n))
+(define (h n) (A 2 n))
+(define (k n) (* 5 n n))
+        </code></pre>
+        <p>
+          Dê definições matemáticas concisas para as funções computadas pelos
+          procedimentos <code>f</code>, <code>g</code> e <code>h</code> para
+          valores inteiros positivos de <code>n</code>. Por exemplo,
+          <code>(k n)</code> computa <em>5n²</em>.
+        </p>
+        <pre><code class="language-scheme">
+(f n) ;; Sendo n > 0
+;; f(n) = 2n
+
+(g n) ;; Sendo n > 0
+;; g(n) = 2^n
+
+(h n) ;; Sendo n > 0
+;; h(n) = 2↑↑n = 2^(h(n-1)) = 2^(2^(h(n-1))) = 2^(2^(2^(...^(2))))
+;; Exemplo:
+;;;; h(1) = 2
+;;;; h(2) = 2^2 = 4
+;;;; h(3) = 2^(2^2) = 16
+;;;; h(4) = 2^(2^(2^2)) = 65536
+        </code></pre>
+        <h2 id="1.2.2">1.2.2 Recursão em Árvore</h2>
+        <ul>
+          <li>
+            Padrão de função recursiva que gera estruturas semelhantes a
+            árvores.
+          </li>
+          <li>
+            Cada chamada recursiva cria "ramos" que se dividem até atingir um
+            caso-base.
+          </li>
+          <li>
+            O número de passos cresce rapidamente, proporcional ao número de nós
+            na árvore. O crescimento temporal é exponencial.
+          </li>
+          <li>
+            O espaço necessário cresce proporcional à profundidade da árvore.
+            Apenas os nós ativos na recursão são armazenados na memória. O
+            crescimento espacial é linear.
+          </li>
+          <li>
+            É natural para problemas com estruturas hierárquicas (ex: árvores de
+            dados). Mas é ineficiente para entradas grandes devido a cálculos
+            redundantes e aí entra a função interativa.
+          </li>
+        </ul>
+        <h4 id="e_1.11">Exercício 1.11:</h4>
+        <p>
+          Uma função <em>f</em> é definida pela regra que <em>f(n) = n</em> se
+          <em>n &lt; 3</em> e
+          <em>f(n) = f(n - 1) + 2f(n - 2) + 3f(n - 3)</em> se <em>n >= 3</em>.
+          Escreva um procedimento que computa <em>f</em> por meio de um processo
+          recursivo. Escreva um procedimento que computa <em>f</em> por meio de
+          um processo iterativo.
+        </p>
+        <pre><code class="language-scheme">
+;; f(n) = n para n  &lt; 3
+;; f(n) =  f(n-1) + 
+;;        2f(n-2) +
+;;        3f(n-3) para n >= 3
+
+;; Como a função já foi dada de forma 
+;; recursiva apenas escrevo como é
+
+(define (f n)
+  (if (n &lt; 3)
+      n
+      (+ (f (- n 1))
+         (* 2 (f (- n 2)))
+         (* 3 (f (- n 3)))
+      )
+  )
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Usarei i para f(n) iterativo
+
+;; Se n &lt; 3 é retornado n
+;;
+;; (if (n &lt; 3) n ...)
+;; 
+
+;; f(n-1) => Chamarei de 'a'
+;; f(n-2) => Chamarei de 'b'
+;; f(n-3) => Chamarei de 'c'
+;; 
+;; O valor base é quando 'n' = 3 então o
+;;  valor inicial é:  a = 2
+;;                    b = 1
+;;                    c = 0
+
+;; Para cada i(n) onde n &gt; 3 o cálculo
+;; fica: (+ a (- 2 b) (* 3 c))
+
+;; Quando n > 3 é preciso calcular várias
+;; vezes f(n), para isso preciso atualiza
+;; os valores durante o processo a fim de
+;; não criar um processo recursivo, onde:
+;; 'c' será o valor antigo de 'b'
+;; 'b' será o valor antigo de 'a'
+;; 'a' será o valor do Resultado.
+;;
+;; Logo preciso de um loop e uma variável
+;; de controle que pare o loop quando igual
+;; ao valor de 'n', já que o cálculo será
+;; feito a partir do valor de base e o
+;; cálculo repetirá n vezes:
+;;
+;; (define (loop controle a b c)
+;;     (if (= n controle)
+;;         controle
+;;         (loop (+ 1 controle)
+;;               (+ a (- 2 b) (* 3 c))
+;;               a                  
+;;               b
+;;               
+;;         )
+;;     )
+;; )
+
+;; O Procedimento completo fica:
+(define (i n)
+  (define (loop controle a b c)
+    (if (= n controle)
+        a ;; Aqui retorna o valor do cálculo
+        (loop ;; Chamada para atualizar os valores
+              (+ 1 controle) ;; Mecanismo de stop
+              (+ a (* 2 b) (* 3 c)) ;; Novo 'a'
+              a ;; Novo 'b'                  
+              b ;; Novo 'c'
+              
+        )
+    )
+  )
+  (if (&lt; n 3)
+      3
+      ;; Aqui determino o valor inicial de 'a',
+      ;; 'b', 'c' e da variável de controle:
+      ;; (loop &lt;a&gt; &lt;b&gt; &lt;c&gt; &lt;controle&gt;)  
+      (loop 2 2 1 0)   
+  )
+)
+        </code></pre>
+        <h4 id="e_1.12">Exercício 1.12:</h4>
+        <br />
+        <p class="p-tag-with-text-as-image">
+          <span class="monospace" style="display: block">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;1<br />
+            &nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;1<br />
+            1&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;1<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.
+          </span>
+          <span
+            >O seguinte padrão de números é chamado
+            <em>Triângulo de Pascal</em>. Os números nas bordas do triângulo são
+            todos 1, e cada número dentro do triângulo é a soma dos dois números
+            acima dele. Escreva um procedimento que computa elementos do
+            <em>Triângulo de Pascal</em> por meio de um processo
+            recursivo.</span
+          >
+        </p>
+
+        <pre><code class="language-scheme">
+;; Primeiro preciso entender a estrutura:
+;; - O triangulo é formado por linhas (l)
+;; - O número da linha determina quantos números
+;;   haverá nela, exemplo:
+;;   • Linha 1 = 1 número
+;;   • Linha 2 = 2 números
+;;   • Linha 3 = 3 número
+;;   • ...
+;; - A primeira posição (p) na linha pode ser zero
+;;   ou 1, vou usar 1 como posição inicial, pois
+;;   se eu usar 0 o número de elementos (números)
+;;   em cada linha será 'l' + 1 e não 'l'. O Que
+;;   evita eu ter que implementar algo para deixar
+;;   natural para o usuário final.
+;; - As outras posição é definida pela soma de 2
+;;   números da linha de anterior, sendo:
+;;   • O primeiro número da mesma posição
+;;     (+ (- l 1) ← Linha Anterior
+;;        (p))    ← Posição do número atual
+;;   • O segundo número da posição anterior
+;;     (+ (- l 1)  ← Linha Anterior
+;;        (p + 1)) ← Posição do número anterior
+;; Então a função fica:
+
+(define (pascal l p)
+  (cond 
+    ;; Verifica se a posição é inválida
+    ((or (&lt; p 1) (> p l)) 0) ;; Retorna 0 para posições inválidas
+
+    ;; Converte linhas negativas para positivas
+    ((&lt;= l 0) (pascal (abs l) p)) ;; Evita linhas *negativas
+
+    ;; Casos-base: bordas da linha
+    ((= p 1) 1) ;; Primeira posição da linha → 1
+    ((= p l) 1) ;; Última posição da linha → 1
+
+    ;; Passo recursivo: soma dos dois elementos acima
+    (else 
+      (+ (pascal (- l 1) p)        ;; Elemento acima (n-1, p)
+         (pascal (- l 1) (- p 1))  ;; Elemento acima à esquerda (n-1, p-1)
+      )
+    ) 
+  )      
+)      
+ 
+;; A função acima responde à questão, mas peguei 
+;; o código de Sicp-Solutions.net para imprimir 
+;; todo o triângulo. O código cria estruturas de 
+;; repetição, as quais vão percorrer linha por linha, 
+;; posição por posição e imprimir cada elemento. 
+;; Tentei alinhar os resultados para ficar um 
+;; triângulo diferente de um triângulo retângulo, 
+;; porém não deu certo, pois os números vão ficando 
+;; maiores, deixando o lado direito curvo. 
+
+(define (display-pascal-row n)
+  (define (column-iter i)
+    (display (pascal n i))
+    (display "  ")
+    (if (= i n)
+        (newline)
+        (column-iter (+ i 1))
+    )
+  )  
+  (column-iter 1)
+)
+
+
+(define (display-pascal n)
+  (define (display-pascal-iter i)
+    (display-pascal-row i)
+    (if (= i n)
+        (newline)
+        (display-pascal-iter (+ i 1))
+    )
+  )
+  (display-pascal-iter 1)
+)
+        </code></pre>
+        <h4 id="e_1.13">Exercício 1.13:</h4>
+        <p>
+          Prove que <em>Fib(n)</em> é o inteiro mais próximo de
+          φ<sup>n</sup>/√5, onde <em>φ = (1 + √5)/2</em>.<br />
+          Dica: Seja <em>ψ = (1 - √5)/2</em>. Use indução e a definição dos
+          números de Fibonacci para provar que
+          <em>Fib(n) = (φ<sup>n</sup> - ψ<sup>n</sup>)/√5</em>.
+        </p>
+        <p>...</p>
+
+        <!--
+          <h2 id="1.2.4">1.2.4 Exponenciação</h2>
+          <h2 id="1.2.5">1.2.5 Máximo Divisor Comum</h2>
+          <h2 id="1.2.6">1.2.6 Exemplo: Teste de Primalidade</h2>
+          -->
+        <h2 id="1.2.3">1.2.3 Ordens de Crescimento</h2>
+        <p>
+          Ordens de Crescimento são uma maneira de descrever como o consumo de
+          recursos (como tempo ou espaço) de um processo computacional aumenta à
+          medida que o tamanho do problema cresce. Imagine que você tem um
+          algoritmo que leva R(n) passos para ser executado, onde <em>n</em> é o
+          tamanho da entrada. Se <em>R(n) = Θ(n²)</em>, isso significa que, para
+          entradas grandes, o tempo de execução do seu algoritmo crescerá
+          aproximadamente como o quadrado do tamanho da entrada:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Processo Linear</strong>:
+            <ul>
+              <li>
+                Se um processo requer <em>Θ(n)</em> passos, o número de
+                operações cresce linearmente com <em>n</em>.
+              </li>
+              <li>
+                <strong>Exemplo</strong>: Se você dobrar o tamanho do problema
+                (<em>n</em>), o número de operações também dobrará.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Processo Quadrático</strong>:
+            <ul>
+              <li>
+                Se um processo requer <em>Θ(n<span>2</span>)</em> passos, o
+                número de operações cresce quadraticamente com <em>n</em>.
+              </li>
+              <li>
+                <strong>Exemplo</strong>: Dobrar o tamanho do problema
+                quadruplicará o número de operações.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Processo Exponencial</strong>:
+            <ul>
+              <li>
+                Se um processo requer <em>Θ(ϕ<sup>n</sup>)</em> passos (onde
+                <em>ϕ</em> é a razão áurea), o número de operações cresce
+                exponencialmente com <em>n</em>.
+              </li>
+              <li>
+                <strong>Exemplo</strong>: Cada incremento no tamanho do problema
+                multiplicará o número de operações por um fator constante.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Processo Logarítmico</strong>:
+            <ul>
+              <li>
+                Se um processo requer <em>Θ(log n)</em>passos, o número de
+                operações cresce lentamente, mesmo quando <em>n</em> aumenta
+                significativamente.
+              </li>
+              <li>
+                <strong>Exemplo</strong>: Dobrar o tamanho do problema aumenta o
+                número de operações por uma quantidade constante.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Processo Não Primitivo-Recursivo</strong>:
+            <ul>
+              <li>
+                Se um processo requer uma função
+                <strong>não primitiva-recursiva</strong>, como a Função de
+                Ackermann <em>A(n, n)</em>, o número de operações cresce de
+                forma extremamente rápida, ultrapassando qualquer função
+                primitiva-recursiva.
+              </li>
+              <li>
+                <strong>Exemplo</strong>: A Função de Ackermann
+                <em>A(4, n)
+                </em> já produz números tão grandes que são
+                praticamente incomputáveis para valores modestos de <em>n</em>.
+              </li>
+              <li>
+                <strong>Característica</strong>: O crescimento é tão acelerado
+                que não pode ser descrito por funções como exponenciais,
+                fatoriais ou torres de potências.
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de Processo</th>
+              <th>Ordem de Crescimento</th>
+              <th>Exemplo de Comportamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Logarítmico</strong></td>
+              <td>Θ(log n)</td>
+              <td>Crescimento muito lento.</td>
+            </tr>
+            <tr>
+              <td><strong>Linear</strong></td>
+              <td>Θ(n)</td>
+              <td>Crescimento proporcional ao tamanho do problema.</td>
+            </tr>
+            <tr>
+              <td><strong>Quadrático</strong></td>
+              <td>Θ(n<sup>2</sup>)</td>
+              <td>Crescimento rápido, mas gerenciável.</td>
+            </tr>
+            <tr>
+              <td><strong>Exponencial</strong></td>
+              <td>Θ(ϕ<sup>n</sup>)</td>
+              <td>Crescimento explosivo, impraticável para n grande.</td>
+            </tr>
+            <tr>
+              <td><strong>Não Primitivo-Recursivo</strong></td>
+              <td>Θ(A(n, n))</td>
+              <td>Crescimento extremamente rápido, incomputável.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 id="e_1.14">Exercício 1.14:</h4>
+        <figure>
+          <figcaption>
+            Figura retirada de
+            <a
+              href="https://sicp-solutions.net/post/sicp-solution-exercise-1-14/"
+              target="_blank"
+              >Sicp-Solutions</a
+            >
+          </figcaption>
+          <img src="img/fig-e_1.14.svg" alt="" />
+        </figure>
         <section id="reference">
           <hr />
           <p id="ref3">
@@ -281,10 +811,11 @@
           <p>
             Por que é importante? Em linguagens que suportam otimização de
             chamada de cauda (TCO), como Scheme, processos tail-recursive são
-            executados em espaço constante (O(1)), ou seja, não acumulam pilha
-            de chamadas. Isso evita estouro de pilha (stack overflow) para
-            grandes iterações e torna a recursão tão eficiente quanto um loop
-            imperativo.
+            executados em espaço constante (O(1))<sup
+              ><a href="#1.2.3">1.2.3</a></sup
+            >, ou seja, não acumulam pilha de chamadas. Isso evita estouro de
+            pilha (stack overflow) para grandes iterações e torna a recursão tão
+            eficiente quanto um loop imperativo.
           </p>
         </section>
       </article>
