@@ -191,6 +191,13 @@ li {
   margin-top: 0;
 }
 
+p code,
+li code,
+td code,
+th code {
+  font-size: 70% !important;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -224,7 +231,7 @@ sup {
 }
 
 table {
-  width: 100%;
+  max-width: 100% !important;
 }
 
 table,
@@ -244,6 +251,11 @@ td {
 table .comment {
   font-size: 0.8em;
   color: var(--secondary-text-color);
+}
+
+td code,
+th code {
+  word-wrap: break-word;
 }
 
 figure {

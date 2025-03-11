@@ -60,7 +60,7 @@
                 ></a>
               </li>
               <li>
-                <a href="Guia.html"
+                <a href="Guia.html#guia"
                   ><label
                     for="menuCheckbox"
                     onclick="this.parentNode.click();"
@@ -267,35 +267,14 @@
           o <code>for</code> e o <code>while</code>. A recursão sintática
           (código que chama a si) não implica necessariamente um processo
           recursivo (com crescimento de memória). Um procedimento recursivo pode
-          gerar um processo iterativo se for tail-recursive<sup id="sup3"
-            ><a href="#ref3">3</a></sup
+          gerar um processo iterativo se for tail-recursive<sup id="sup4"
+            ><a href="#ref4">4</a></sup
           >
           (recursão de cauda).
         </p>
         <hr />
-        <h4 id="e_1.9">Exercício 1.9:</h4>
-        <p>
-          Cada um dos seguintes dois procedimentos define um método para
-          adicionar dois inteiros positivos em termos dos procedimentos inc, que
-          incrementa seu argumento em 1, e dec, que decrementa seu argumento em
-          1.
-        </p>
-        <pre><code class="language-scheme">
-(define (+ a b)
-  (if (= a 0) 
-      b 
-      (inc (+ (dec a) b))))
-
-(define (+ a b)
-  (if (= a 0) 
-      b 
-      (+ (dec a) (inc b))))
-        </code></pre>
-        <p>
-          Usando o modelo de substituição, ilustre o processo gerado por cada
-          procedimento ao avaliar (+ 4 5). Esses processos são iterativos ou
-          recursivos?
-        </p>
+        <h4 id="e_1.9">Exercício 1.9: Resposta</h4>
+        <p>Processo Recursivo:</p>
         <pre><code class="language-scheme">
 (+ 4 5)                         ;; Chamada do procedimento 1
 (inc (+ 3 5))                   ;; Passo 1: inc é adiado
@@ -307,105 +286,31 @@
 (inc (inc 7))                   ;; Passo 7
 (inc 8)                         ;; Passo 8
 9                               ;; Resultado
-
-;; Gera um processo recursivo com crescimento linear de
-;; espaço (O(n)) devido às operações adiadas (inc).
-
+        </code></pre>
+        <p>Processo Interativo:</p>
+        <pre><code class="language-scheme">
 (+ 4 5) ;; Chamada do procedimento 2
 (+ 3 6) ;; Passo 1: atualizar a e b
 (+ 2 7) ;; Passo 2
 (+ 1 8) ;; Passo 3
 (+ 0 9) ;; Passo 4: caso-base (a=0)
 9       ;; Resultado
-
-;; Gera um processo iterativo (via recursão de cauda)
-;; com espaço constante (O(1)). A recursão de cauda
-;; permite que o interpretador reutilize o frame de
-;; pilha, otimizando a memória.
-
         </code></pre>
-        <p></p>
-        <table>
-          <thead>
-            <tr>
-              <th>Característica</th>
-              <th>Procedimento 1</th>
-              <th>Procedimento 2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Tipo de processo</strong></td>
-              <td>Recursivo linear</td>
-              <td>Iterativo (tail-recursive)</td>
-            </tr>
-            <tr>
-              <td>
-                <strong
-                  >Complexidade espacial<sup
-                    ><a href="#1.2.3">1.2.3</a></sup
-                  ></strong
-                >
-              </td>
-              <td>O(n) <span class="comment">onde n = a</span> <br /></td>
-              <td>O(1) <span class="comment">(espaço constante)</span></td>
-            </tr>
-            <tr>
-              <td><strong>Operações pendentes</strong></td>
-              <td>
-                Sim <span class="comment">(<code>inc</code> acumulados)</span>
-              </td>
-              <td>
-                Não <span class="comment">(estado atualizado diretamente)</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <h4 id="e_1.10">Exercício 1.10:</h4>
-        <p>
-          O seguinte procedimento calcula uma função matemática chamada função
-          de Ackermann.
-        </p>
-        <pre><code class="language-scheme">
-(define (A x y)
-  (cond ((= y 0) 0)
-        ((= x 0) (* 2 y))
-        ((= y 1) 2)
-        (else (A (- x 1)
-                 (A x (- y 1))))))
-        </code></pre>
-        <p>Quais são os valores das seguintes expressões?</p>
+        <h4 id="e_1.10">Exercício 1.10: Resposta</h4>
+        <p>Os valores das expressões são:</p>
         <pre><code class="language-scheme">
 (A 1 10)
 1024 ;; Resposta
-     ;; Complexidade Espacial O(n)
-     ;; Complexidade Temporal O(n)
 
 (A 2 4)
 65536 ;; Resposta
-      ;; Complexidade Espacial O(n)
-      ;; Complexidade Temporal O(2^n) (exponencial)
 
 (A 3 3)
 65536 ;; Resposta
-      ;; Complexidade Espacial O(n)
-      ;; Complexidade Temporal não primitiva-recursiva
         </code></pre>
         <p>
-          Considere os seguintes procedimentos, onde A é o procedimento definido
-          acima:
-        </p>
-        <pre><code class="language-scheme">
-(define (f n) (A 0 n))
-(define (g n) (A 1 n))
-(define (h n) (A 2 n))
-(define (k n) (* 5 n n))
-        </code></pre>
-        <p>
-          Dê definições matemáticas concisas para as funções computadas pelos
-          procedimentos <code>f</code>, <code>g</code> e <code>h</code> para
-          valores inteiros positivos de <code>n</code>. Por exemplo,
-          <code>(k n)</code> computa <em>5n²</em>.
+          Definições matemáticas para <code>(f n)</code>, <code>(g n)</code>,
+          <code>(h n)</code>, <code>(k n)</code>
         </p>
         <pre><code class="language-scheme">
 (f n) ;; Sendo n > 0
@@ -421,6 +326,8 @@
 ;;;; h(2) = 2^2 = 4
 ;;;; h(3) = 2^(2^2) = 16
 ;;;; h(4) = 2^(2^(2^2)) = 65536
+
+;; (k n) => 5n^2
         </code></pre>
         <h2 id="1.2.2">1.2.2 Recursão em Árvore</h2>
         <ul>
@@ -447,24 +354,69 @@
             redundantes e aí entra a função interativa.
           </li>
         </ul>
-        <h4 id="e_1.11">Exercício 1.11:</h4>
-        <p>
-          Uma função <em>f</em> é definida pela regra que <em>f(n) = n</em> se
-          <em>n &lt; 3</em> e
-          <em>f(n) = f(n - 1) + 2f(n - 2) + 3f(n - 3)</em> se <em>n >= 3</em>.
-          Escreva um procedimento que computa <em>f</em> por meio de um processo
-          recursivo. Escreva um procedimento que computa <em>f</em> por meio de
-          um processo iterativo.
-        </p>
+        <h4 id="e_1.11">Exercício 1.11: Resposta</h4>
+        <p>Regra:</p>
+        <math display="block">
+          <mrow>
+            <mi>f</mi>
+            <mo>(</mo>
+            <mi>n</mi>
+            <mo>)</mo>
+            <mo>=</mo>
+            <mrow>
+              <mo>{</mo>
+              <mtable columnalign="left left" rowspacing="0.2em">
+                <mtr>
+                  <mtd>
+                    <mi>n</mi>
+                  </mtd>
+                  <mtd>
+                    <mtext>para</mtext>
+                    <mi>n</mi>
+                    <mo><</mo>
+                    <mn>3</mn>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>n</mi>
+                    <mo>−</mo>
+                    <mn>1</mn>
+                    <mo>)</mo>
+                    <mo>+</mo>
+                    <mn>2</mn>
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>n</mi>
+                    <mo>−</mo>
+                    <mn>2</mn>
+                    <mo>)</mo>
+                    <mo>+</mo>
+                    <mn>3</mn>
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>n</mi>
+                    <mo>−</mo>
+                    <mn>3</mn>
+                    <mo>)</mo>
+                  </mtd>
+                  <mtd>
+                    <mtext>para</mtext>
+                    <mi>n</mi>
+                    <mo>≥</mo>
+                    <mn>3</mn>
+                  </mtd>
+                </mtr>
+              </mtable>
+              <mo>}</mo>
+            </mrow>
+          </mrow>
+        </math>
+        <br />
+        <p>Para <em>f(n)</em> como procedimento recursivo:</p>
         <pre><code class="language-scheme">
-;; f(n) = n para n  &lt; 3
-;; f(n) =  f(n-1) + 
-;;        2f(n-2) +
-;;        3f(n-3) para n >= 3
-
-;; Como a função já foi dada de forma 
-;; recursiva apenas escrevo como é
-
 (define (f n)
   (if (n &lt; 3)
       n
@@ -474,122 +426,122 @@
       )
   )
 )
+        </code></pre>
+        <br />
+        <br />
+        <p>Para <em>f(n)</em> como procedimento interativo:</p>
+        <ol>
+          <li>Se n &lt; 3 é retornado n</li>
+          <pre><code class="language-scheme">
+(if (n &lt; 3) n ...)
+          </code></pre>
+          <li>Preciso armazenar os valores:</li>
+          <ul>
+            <li><code>f(n-1) = a</code></li>
+            <li><code>f(n-3) = b</code></li>
+            <li><code>f(n-2) = c</code></li>
+          </ul>
+          <li>O valor base é quando <code>n = 3</code>, então:</li>
+          <ul>
+            <li>Valor inicial: <code>a = 2</code></li>
+            <li>Valor inicial: <code>b = 1</code></li>
+            <li>Valor inicial: <code>c = 0</code></li>
+          </ul>
+          <li>
+            Quando <code>n &gt; 3</code> é preciso calcular várias vezes
+            <em>f(n)</em>, para isso preciso atualiza os valores durante o
+            processo a fim de não criar um processo recursivo, onde:
+            <ul>
+              <li><code>c = b</code></li>
+              <li><code>b = a</code></li>
+              <li><code>a = f(n-1) + 2f(n-2) + 3f(n-3)</code></li>
+            </ul>
+            Logo preciso de um loop e uma variável de controle que pare o loop
+            quando igual ao valor de <code>n</code>, já que o cálculo será feito
+            a partir do valor de base e o cálculo repetirá n vezes:
+          </li>
+        </ol>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Usarei i para f(n) iterativo
-
-;; Se n &lt; 3 é retornado n
-;;
-;; (if (n &lt; 3) n ...)
-;; 
-
-;; f(n-1) => Chamarei de 'a'
-;; f(n-2) => Chamarei de 'b'
-;; f(n-3) => Chamarei de 'c'
-;; 
-;; O valor base é quando 'n' = 3 então o
-;;  valor inicial é:  a = 2
-;;                    b = 1
-;;                    c = 0
-
-;; Para cada i(n) onde n &gt; 3 o cálculo
-;; fica: (+ a (- 2 b) (* 3 c))
-
-;; Quando n > 3 é preciso calcular várias
-;; vezes f(n), para isso preciso atualiza
-;; os valores durante o processo a fim de
-;; não criar um processo recursivo, onde:
-;; 'c' será o valor antigo de 'b'
-;; 'b' será o valor antigo de 'a'
-;; 'a' será o valor do Resultado.
-;;
-;; Logo preciso de um loop e uma variável
-;; de controle que pare o loop quando igual
-;; ao valor de 'n', já que o cálculo será
-;; feito a partir do valor de base e o
-;; cálculo repetirá n vezes:
-;;
-;; (define (loop controle a b c)
-;;     (if (= n controle)
-;;         controle
-;;         (loop (+ 1 controle)
-;;               (+ a (- 2 b) (* 3 c))
-;;               a                  
-;;               b
-;;               
-;;         )
-;;     )
-;; )
-
-;; O Procedimento completo fica:
+        <pre><code class="language-scheme">
+(define (loop controle a b c)
+  (if (= n controle)
+      controle
+      (loop (+ 1 controle)
+            (+ a (* 2 b) (* 3 c))
+            a                  
+            b
+            
+      )
+  )
+)
+        </code></pre>
+        <br />
+        <br />
+        <p>O Procedimento completo fica:</p>
+        <pre><code class="language-scheme">
 (define (i n)
   (define (loop controle a b c)
     (if (= n controle)
-        a ;; Aqui retorna o valor do cálculo
-        (loop ;; Chamada para atualizar os valores
-              (+ 1 controle) ;; Mecanismo de stop
+        a                           ;; Aqui retorna o valor do cálculo
+        (loop                       ;; Chamada para atualizar os valores
+              (+ 1 controle)        ;; Mecanismo de stop
               (+ a (* 2 b) (* 3 c)) ;; Novo 'a'
-              a ;; Novo 'b'                  
-              b ;; Novo 'c'
-              
+              a                     ;; Novo 'b'                  
+              b                     ;; Novo 'c'
         )
     )
   )
+
   (if (&lt; n 3)
       3
-      ;; Aqui determino o valor inicial de 'a',
-      ;; 'b', 'c' e da variável de controle:
-      ;; (loop &lt;a&gt; &lt;b&gt; &lt;c&gt; &lt;controle&gt;)  
+                                    ;; Aqui determino o valor inicial de 'a',
+                                    ;; 'b', 'c' e da variável de controle:
+                                    ;; (loop &lt;a&gt; &lt;b&gt; &lt;c&gt; &lt;controle&gt;)  
       (loop 2 2 1 0)   
   )
 )
         </code></pre>
-        <h4 id="e_1.12">Exercício 1.12:</h4>
-        <br />
-        <p class="p-tag-with-text-as-image">
-          <span class="monospace" style="display: block">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;1<br />
-            &nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;1<br />
-            1&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;1<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.
-          </span>
-          <span
-            >O seguinte padrão de números é chamado
-            <em>Triângulo de Pascal</em>. Os números nas bordas do triângulo são
-            todos 1, e cada número dentro do triângulo é a soma dos dois números
-            acima dele. Escreva um procedimento que computa elementos do
-            <em>Triângulo de Pascal</em> por meio de um processo
-            recursivo.</span
-          >
-        </p>
-
-        <pre><code class="language-scheme">
-;; Primeiro preciso entender a estrutura:
-;; - O triangulo é formado por linhas (l)
-;; - O número da linha determina quantos números
-;;   haverá nela, exemplo:
-;;   • Linha 1 = 1 número
-;;   • Linha 2 = 2 números
-;;   • Linha 3 = 3 número
-;;   • ...
-;; - A primeira posição (p) na linha pode ser zero
-;;   ou 1, vou usar 1 como posição inicial, pois
-;;   se eu usar 0 o número de elementos (números)
-;;   em cada linha será 'l' + 1 e não 'l'. O Que
-;;   evita eu ter que implementar algo para deixar
-;;   natural para o usuário final.
-;; - As outras posição é definida pela soma de 2
-;;   números da linha de anterior, sendo:
-;;   • O primeiro número da mesma posição
-;;     (+ (- l 1) ← Linha Anterior
-;;        (p))    ← Posição do número atual
-;;   • O segundo número da posição anterior
-;;     (+ (- l 1)  ← Linha Anterior
-;;        (p + 1)) ← Posição do número anterior
-;; Então a função fica:
-
+        <h4 id="e_1.12">Exercício 1.12: Resposta</h4>
+        <ul>
+          <li>O triangulo é formado por linhas (l)</li>
+          <li>
+            O número da linha determina quantos números haverá nela, exemplo:
+          </li>
+          <ul>
+            <li>Linha 1 = 1 número</li>
+            <li>Linha 2 = 2 números</li>
+            <li>Linha 3 = 3 números</li>
+            <li>...</li>
+          </ul>
+          <li>
+            A primeira posição <code>p</code> na linha pode ser zero ou 1, vou
+            usar 1 como posição inicial, pois se eu usar 0 o número de elementos
+            em cada linha será <code>l + 1</code> e não <code>l</code>. O Que
+            evita eu ter que implementar algo para deixar natural para o usuário
+            final.
+          </li>
+          <li>
+            As outras posição é definida pela soma de 2 números da linha de
+            anterior, sendo:
+            <ul>
+              <li>
+                O primeiro número da mesma posição:
+                <pre><code class="language-scheme">
+(+ (- l 1)  ;; Linha Anterior
+   (p))     ;; Posição do número atual
+                </code></pre>
+              </li>
+              <li>
+                O segundo número da posição anterior
+                <pre><code class="language-scheme">
+(+ (- l 1)  ;; Linha Anterior
+   (+ p 1)) ;; Posição do número atual
+                </code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>Então a função fica:</li>
+          <pre><code class="language-scheme">
 (define (pascal l p)
   (cond 
     ;; Verifica se a posição é inválida
@@ -605,54 +557,15 @@
     ;; Passo recursivo: soma dos dois elementos acima
     (else 
       (+ (pascal (- l 1) p)        ;; Elemento acima (n-1, p)
-         (pascal (- l 1) (- p 1))  ;; Elemento acima à esquerda (n-1, p-1)
+          (pascal (- l 1) (- p 1))  ;; Elemento acima à esquerda (n-1, p-1)
       )
     ) 
   )      
 )      
- 
-;; A função acima responde à questão, mas peguei 
-;; o código de Sicp-Solutions.net para imprimir 
-;; todo o triângulo. O código cria estruturas de 
-;; repetição, as quais vão percorrer linha por linha, 
-;; posição por posição e imprimir cada elemento. 
-;; Tentei alinhar os resultados para ficar um 
-;; triângulo diferente de um triângulo retângulo, 
-;; porém não deu certo, pois os números vão ficando 
-;; maiores, deixando o lado direito curvo. 
+          </code></pre>
+        </ul>
 
-(define (display-pascal-row n)
-  (define (column-iter i)
-    (display (pascal n i))
-    (display "  ")
-    (if (= i n)
-        (newline)
-        (column-iter (+ i 1))
-    )
-  )  
-  (column-iter 1)
-)
-
-
-(define (display-pascal n)
-  (define (display-pascal-iter i)
-    (display-pascal-row i)
-    (if (= i n)
-        (newline)
-        (display-pascal-iter (+ i 1))
-    )
-  )
-  (display-pascal-iter 1)
-)
-        </code></pre>
-        <h4 id="e_1.13">Exercício 1.13:</h4>
-        <p>
-          Prove que <em>Fib(n)</em> é o inteiro mais próximo de
-          φ<sup>n</sup>/√5, onde <em>φ = (1 + √5)/2</em>.<br />
-          Dica: Seja <em>ψ = (1 - √5)/2</em>. Use indução e a definição dos
-          números de Fibonacci para provar que
-          <em>Fib(n) = (φ<sup>n</sup> - ψ<sup>n</sup>)/√5</em>.
-        </p>
+        <h4 id="e_1.13">Exercício 1.13: Resposta</h4>
         <p>...</p>
 
         <!--
@@ -681,7 +594,7 @@
               </li>
               <li>
                 <strong>Exemplo</strong>: Se você dobrar o tamanho do problema
-                (<em>n</em>), o número de operações também dobrará.
+                <em>n</em>, o número de operações também dobrará.
               </li>
             </ul>
           </li>
@@ -689,8 +602,8 @@
             <strong>Processo Quadrático</strong>:
             <ul>
               <li>
-                Se um processo requer <em>Θ(n<span>2</span>)</em> passos, o
-                número de operações cresce quadraticamente com <em>n</em>.
+                Se um processo requer <em>Θ(n<sup>2</sup>)</em> passos, o número
+                de operações cresce quadraticamente com <em>n</em>.
               </li>
               <li>
                 <strong>Exemplo</strong>: Dobrar o tamanho do problema
@@ -738,8 +651,7 @@
               </li>
               <li>
                 <strong>Exemplo</strong>: A Função de Ackermann
-                <em>A(4, n)
-                </em> já produz números tão grandes que são
+                <em>A(4, n) </em> já produz números tão grandes que são
                 praticamente incomputáveis para valores modestos de <em>n</em>.
               </li>
               <li>
@@ -762,32 +674,33 @@
           <tbody>
             <tr>
               <td><strong>Logarítmico</strong></td>
-              <td>Θ(log n)</td>
+              <td><em>Θ(log n)</em></td>
               <td>Crescimento muito lento.</td>
             </tr>
             <tr>
               <td><strong>Linear</strong></td>
-              <td>Θ(n)</td>
+              <td><em>Θ(n)</em></td>
               <td>Crescimento proporcional ao tamanho do problema.</td>
             </tr>
             <tr>
               <td><strong>Quadrático</strong></td>
-              <td>Θ(n<sup>2</sup>)</td>
+              <td><em>Θ(n<sup>2</sup>)</em></td>
               <td>Crescimento rápido, mas gerenciável.</td>
             </tr>
             <tr>
               <td><strong>Exponencial</strong></td>
-              <td>Θ(ϕ<sup>n</sup>)</td>
+              <td><em>Θ(ϕ<sup>n</sup>)</em></td>
               <td>Crescimento explosivo, impraticável para n grande.</td>
             </tr>
             <tr>
               <td><strong>Não Primitivo-Recursivo</strong></td>
-              <td>Θ(A(n, n))</td>
+              <td><em>Θ(A(n, n))</em></td>
               <td>Crescimento extremamente rápido, incomputável.</td>
             </tr>
           </tbody>
         </table>
-        <h4 id="e_1.14">Exercício 1.14:</h4>
+        <h4 id="e_1.14">Exercício 1.14: Resposta</h4>
+        <p>Árvore ilustrativa do processo <code>count-change</code>:</p>
         <figure>
           <figcaption>
             Figura retirada de
@@ -799,10 +712,73 @@
           </figcaption>
           <img src="img/fig-e_1.14.svg" alt="" />
         </figure>
+        <p>A Imagem representa:</p>
+        <pre><code class="language-scheme">
+(count-change 11) ;; Chamada Inicial
+;; (cc 11 5) → (+ (cc 11 4) (cc -39 5))
+;; (cc 11 4) → (+ (cc 11 3) (cc -14 4))
+;; (cc 11 3) → (+ (cc 11 2) (cc   1 3))
+;; (cc 11 2) → (+ (cc 11 1) (cc   6 2))
+;; (cc 11 1) → (+ (cc 11 0) (cc  10 1))
+;; (cc 10 1) → (+ (cc 10 0) (cc   9 1))
+;; (cc  9 1) → (+ (cc  9 0) (cc   8 1))
+;; (cc  8 1) → (+ (cc  8 0) (cc   7 1))
+;; (cc  7 1) → (+ (cc  7 0) (cc   6 1))
+;; (cc  6 1) → (+ (cc  6 0) (cc   5 1))
+;; (cc  5 1) → (+ (cc  5 0) (cc   4 1))
+;; (cc  4 1) → (+ (cc  4 0) (cc   3 1))
+;; (cc  3 1) → (+ (cc  3 0) (cc   2 1))
+;; (cc  2 1) → (+ (cc  2 0) (cc   1 1))
+;; (cc  1 1) → (+ (cc  1 0) (cc   0 1))
+;; (cc  0 1) → Retorna 1.
+4
+        </code></pre>
+        <p>
+          Análise de crescimento espacial<sup id="sup5"
+            ><a href="#ref5">5</a></sup
+          >:
+        </p>
+        <ul>
+          <li>Não há estruturas de dados além das variáveis locais.</li>
+          <li>
+            A profundidade da recursão é proporcional ao valor de
+            <code>amount</code>.
+          </li>
+          <li>
+            As variáveis locais são constantes em cada chamada. Como o espaço é
+            dominado pala profundidade de chamadas de <code>amunt</code> o
+            crescimento é linear <em>Θ(n)</em>
+          </li>
+        </ul>
+        <p>Análise de crescimento temporal:</p>
+        <ul>
+          <li>O algoritmo é recursivo, sem loops explícitos.</li>
+          <li>Cada chamada recursiva gera duas novas chamadas:</li>
+          <ul>
+            <li>Uma para <code>(cc amount (- kinds-of-coins 1))</code></li>
+            <li>
+              Outra para
+              <code
+                >(cc (- amount (first-denomination kinds-of-coins))
+                kinds-of-coins)</code
+              >
+            </li>
+            <li>
+              O número de chamadas cresce exponencialmente com o valor de
+              <code>amount</code>, porque cada chamada pode gerar duas novas
+              chamadas.
+            </li>
+          </ul>
+          <p>Conclusão:</p>
+          <ul>
+            <li>Ordem de Crescimento Espacial: <em>Θ(n)</em></li>
+            <li>Ordem de Crescimento Temporal: <em>Θ(2<sup>n</sup>)</em></li>
+          </ul>
+        </ul>
         <section id="reference">
           <hr />
-          <p id="ref3">
-            <sup><a href="#sup3">3</a></sup> Uma função é tail-recursive se a
+          <p id="ref4">
+            <sup><a href="#sup4">4</a></sup> Uma função é tail-recursive se a
             última ação executada antes de retornar for uma chamada direta a si
             mesma (sem operações pendentes). Em outras palavras, a chamada
             recursiva é a última operação no fluxo de execução, não havendo
@@ -811,12 +787,145 @@
           <p>
             Por que é importante? Em linguagens que suportam otimização de
             chamada de cauda (TCO), como Scheme, processos tail-recursive são
-            executados em espaço constante (O(1))<sup
-              ><a href="#1.2.3">1.2.3</a></sup
+            executados em espaço constante <em>(Θ(1))</em
+            ><sup><a href="#1.2.3">1.2.3</a></sup
             >, ou seja, não acumulam pilha de chamadas. Isso evita estouro de
             pilha (stack overflow) para grandes iterações e torna a recursão tão
             eficiente quanto um loop imperativo.
           </p>
+          <p id="ref5">
+            <sup><a href="#sup5">5</a></sup> Discas:
+          </p>
+          <ul id="ref5">
+              <li><sup><a href="#sup5">5</a></sup> Discas: Ordem de Crescimento Temporal:</li>
+              <ol>
+                <li>
+                  Conte o número de operações:
+                  <ul>
+                    <li>
+                      Pergunte-se: "Quantas operações o algoritmo realiza para uma
+                      entrada de tamanho <code>n</code>?".
+                    </li>
+                    <li>Como usar: Para loops, conte o número de
+                      iterações. Para recursão, analise o número de chamadas.
+                    </li>
+                  </ul>
+                </li>
+                <li>Analise estruturas de repetição (loops):
+                  <ul>
+                    <li>
+                      Loops aninhados geralmente indicam crescimento polinomial
+                      (ex.: <code>O(n<sup>2</sup>)</code> para dois loops).
+                    </li>
+                    <li>
+                      <strong>Como usar:</strong> Identifique o número de loops e
+                      sua relação com o tamanho da entrada.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Verifique chamadas recursivas:</strong>
+                  <p>
+                    Recursão pode levar a crescimento exponencial
+                    <code>O(2<sup>n</sup>)</code> ou logarítmico
+                    <code>O(log n)</code>, dependendo de como o problema é
+                    dividido.
+                  </p>
+                  <p>
+                    <strong>Como usar:</strong> Analise quantas chamadas são
+                    geradas em cada passo e como o tamanho do problema é
+                    reduzido.
+                  </p>
+                </li>
+                <li>
+                  <strong>Observe operações internas:</strong>
+                  <p>
+                    Operações dentro de loops ou recursões contribuem para o
+                    tempo total.
+                  </p>
+                  <p>
+                    <strong>Como usar:</strong> Multiplique o número de
+                    iterações pelo custo das operações internas.
+                  </p>
+                </li>
+                <li>
+                  <strong>Use a notação Big-O:</strong>
+                  <p>
+                    Simplifique a análise ignorando constantes e termos de menor
+                    ordem.
+                  </p>
+                  <p>
+                    <strong>Como usar:</strong> Foque no termo dominante da
+                    função de custo.
+                  </p>
+                </li>
+              </ol>
+            </li>
+          </ul>
+            <ul id="ref6">
+              <li><sup><a href="#sup6">6</a></sup> Discas: Ordem de Crescimento Espacial:</li>
+              <ol>
+                <li>
+                  <strong>Analise a estrutura de dados utilizada:</strong>
+                  <p>
+                    Estruturas como arrays, listas ou matrizes ocupam espaço
+                    proporcional ao tamanho da entrada.
+                  </p>
+                  <li>
+                    <strong>Como usar:</strong> Verifique o tamanho das
+                    estruturas de dados em função de <code>n</code>.
+                  </li>
+                </li>
+                <li>
+                  <strong>Verifique a profundidade da recursão:</strong>
+                  <li>
+                    Em algoritmos recursivos, o espaço é determinado pela
+                    profundidade da pilha de chamadas.
+                  </li>
+                  <li>
+                    <strong>Como usar:</strong> Analise quantas chamadas
+                    recursivas são feitas antes de atingir o caso base.
+                  </li>
+                </li>
+                <li>
+                  <strong>Observe variáveis temporárias:</strong>
+                  <li>
+                    Variáveis criadas em cada iteração ou chamada recursiva
+                    contribuem para o espaço.
+                  </li>
+                  <li>
+                    <strong>Como usar:</strong> Conte o número de variáveis e
+                    seu tamanho em função de <code>n</code>.
+                  </li>
+                </li>
+                <li>Verifique alocações dinâmicas:</li>
+                <ul>
+                  <li>
+                    Alocações de memória durante a execução (ex.: criar novas
+                    listas) aumentam o espaço.
+                </li>
+                  <li>
+                    <strong>Como usar:</strong> Identifique quanta memória é
+                    alocada em função de <code>n</code>.
+                  </li>
+                </ul>
+                <li
+                    >Analise o uso de memória em função da entrada:</li
+                  >
+                  <ul>
+                  
+                    <li>
+                    Pergunte-se: "Como o uso de memória aumenta à medida que a
+                    entrada cresce?".
+                  </li>
+                  <li>
+                    <strong>Como usar:</strong> Relacione o espaço utilizado com
+                    o tamanho da entrada <code>n</code>.
+                  </li>
+                </ul>
+              </ol>
+            </li>
+          </ul>
         </section>
       </article>
     </main>

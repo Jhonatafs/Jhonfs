@@ -25,7 +25,16 @@ h1 {
 }
 
 #reference * {
-  font-size: 80%;
+  font-size: 0.8rem;
+}
+
+#reference li {
+  margin: 0;
+}
+
+#reference code,
+#reference code * {
+  font-size: 0.7rem;
 }
 
 mark {

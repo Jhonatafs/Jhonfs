@@ -1,5 +1,5 @@
 code {
-  font-size: 70% !important;
+  font-size: 70%;
 
   background-color: var(--code-bg);
   color: var(--code-text);
@@ -17,6 +17,10 @@ pre {
   display: inline-block;
 }
 
+pre code {
+  font-size: 0.7rem;
+}
+
 .hljs {
   display: block;
   overflow-x: auto;
@@ -24,12 +28,6 @@ pre {
 
   background-color: var(--code-bg);
   color: var(--code-text);
-}
-
-.hljs,
-.hljs *,
-pre code {
-  font-size: clamp(0.8rem, 0.6rem + 0.25vw, 1rem) !important;
 }
 
 .hljs,
@@ -72,7 +70,7 @@ code {
   font-family: "Fira Code" !important;
   font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero",
     "onum" !important;
-  max-width: 100% !important;
+  max-width: 100%;
 }
 
 .hljs-built_in,
