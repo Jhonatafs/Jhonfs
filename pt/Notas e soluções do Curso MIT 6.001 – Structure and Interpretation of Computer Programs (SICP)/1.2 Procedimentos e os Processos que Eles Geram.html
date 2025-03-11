@@ -750,7 +750,12 @@
             crescimento é linear <em>Θ(n)</em>
           </li>
         </ul>
-        <p>Análise de crescimento temporal:</p>
+        <p>
+          Análise de crescimento temporal<sup id="sup6"
+            ><a href="#ref6">6</a></sup
+          >:
+        </p>
+
         <ul>
           <li>O algoritmo é recursivo, sem loops explícitos.</li>
           <li>Cada chamada recursiva gera duas novas chamadas:</li>
@@ -769,12 +774,232 @@
               chamadas.
             </li>
           </ul>
-          <p>Conclusão:</p>
-          <ul>
-            <li>Ordem de Crescimento Espacial: <em>Θ(n)</em></li>
-            <li>Ordem de Crescimento Temporal: <em>Θ(2<sup>n</sup>)</em></li>
-          </ul>
         </ul>
+        <p>Conclusão:</p>
+        <ul>
+          <li>Ordem de Crescimento Espacial: <em>Θ(n)</em></li>
+          <li>Ordem de Crescimento Temporal: <em>Θ(2<sup>n</sup>)</em></li>
+        </ul>
+        <h4 id="e_1.14">Exercício 1.15: Resposta</h4>
+        <p>
+          O procedimento <code>p</code> é aplicado 5 vezes quando
+          <code>(sine 12.15)</code>
+        </p>
+        <pre><code class="language-scheme">
+(sine 12.15)
+=> (p (sine 4.05))                 ;; 1ª aplicação de p
+=> (p (p (sine 1.35)))             ;; 2ª aplicação de p
+=> (p (p (p (sine 0.45))))         ;; 3ª aplicação de p
+=> (p (p (p (p (sine 0.15)))))     ;; 4ª aplicação de p
+=> (p (p (p (p (p (sine 0.05)))))) ;; 5ª aplicação de p
+=> (p (p (p (p (p 0.05)))))        ;; Caso base atingido
+0.05
+        </code></pre>
+        <br />
+        <br />
+        <p>
+          No procedimento <code>sine</code>, o argumento <em>a</em> é reduzido
+          exponencialmente a cada passo (dividido por 3), o que caracteriza um
+          processo de <strong>divisão recursiva</strong>. Isso difere de um
+          crescimento linear ou exponencial:
+        </p>
+        <ul>
+          <li>
+            Redução por fator constante (3):
+            <math>
+              <mtable>
+                <!-- Explicação da redução -->
+                <mtr>
+                  <mtd>
+                    <mo> </mo>
+                    <mfrac>
+                      <mi>a</mi>
+                      <msup>
+                        <mn>3</mn>
+                        <mi>k</mi>
+                      </msup>
+                    </mfrac>
+                    <mo>,</mo>
+                    <mspace width="0.5em" />
+                    <mi>k</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mo>,</mo>
+                    <mn>2</mn>
+                    <mo>,</mo>
+                    <mn>3</mn>
+                    <mo>,</mo>
+                    <mo>…</mo>
+                  </mtd>
+                </mtr>
+              </mtable>
+            </math>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            Se fosse <em>linear</em>, os passos seriam proporcional a
+            <em>a</em> (ex: <em>k = a/3</em>)
+          </li>
+          <li>
+            Se fosse <em>exponencial</em>, passos cresceriam como 3<sup
+              style="font-size: 0.7rem !important"
+              >k</sup
+            >
+            (impraticável).
+          </li>
+        </ul>
+        <p>
+          Por que logaritmo? O logaritmo resolve equações onde a incógnita está
+          no expoente. Na condição
+          <math>
+            <mfrac>
+              <mi>a</mi>
+              <msup>
+                <mn>3</mn>
+                <mi style="font-size: 0.7rem !important">k</mi>
+              </msup>
+            </mfrac>
+            <mo>≤</mo>
+            <mn>0.1</mn>
+          </math>
+          , isolamos 3 <sup style="font-size: 0.8rem !important">k</sup> e
+          aplicamos
+          <em>log<sub style="font-size: 0.9rem !important">3</sub></em> para
+          extrair <em>k</em>:
+        </p>
+
+        <math display="block">
+          <mtable>
+            <mtr>
+              <mtd>
+                <msup>
+                  <mn>3</mn>
+                  <mi style="font-size: 0.8rem !important">k</mi>
+                </msup>
+                <mo>≥</mo>
+                <mfrac>
+                  <mi>a</mi>
+                  <mn>0.1</mn>
+                </mfrac>
+                <mo> ⇒ </mo>
+                <mi>k</mi>
+                <mo>≥</mo>
+                <msub>
+                  <mi>log</mi>
+                  <mn>3</mn>
+                </msub>
+                <mo>(</mo>
+                <mfrac>
+                  <mi>a</mi>
+                  <mn>0.1</mn>
+                </mfrac>
+                <mo>)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </math>
+        <br />
+        <p>
+          Simplificação: Usando a propriedade
+          <math>
+            <msub>
+              <mi>log</mi>
+              <mn>3</mn>
+            </msub>
+            <mo>(</mo>
+            <mfrac>
+              <mi>a</mi>
+              <mi>b</mi>
+            </mfrac>
+            <mo>)</mo>
+            <mo>=</mo>
+            <msub>
+              <mi>log</mi>
+              <mn>3</mn>
+            </msub>
+            <mo>(</mo>
+            <mi>a</mi>
+            <mo>)</mo>
+            <mo>−</mo>
+            <msub>
+              <mi>log</mi>
+              <mn>3</mn>
+            </msub>
+            <mo>(</mo>
+            <mi>b</mi>
+            <mo>)</mo>
+          </math>
+          , obtemos:
+        </p>
+        <math display="block">
+          <mtable>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>log</mi>
+                  <mn>3</mn>
+                </msub>
+                <mo>(</mo>
+                <mfrac>
+                  <mi>a</mi>
+                  <mn>0.1</mn>
+                </mfrac>
+                <mo>)</mo>
+                <mo>=</mo>
+                <msub>
+                  <mi>log</mi>
+                  <mn>3</mn>
+                </msub>
+                <mo>(</mo>
+                <mi>a</mi>
+                <mo>)</mo>
+                <mo>−</mo>
+                <msub>
+                  <mi>log</mi>
+                  <mn>3</mn>
+                </msub>
+                <mo>(</mo>
+                <mn>0.1</mn>
+                <mo>)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </math>
+        <br />
+        <p>
+          O uso do logaritmo é natural já que a redução é exponencial (base 3).
+          Isso resulta em uma complexidade espacial e temporal
+          <math>
+            <mi>Θ</mi>
+            <mo>(</mo>
+            <mi>log</mi>
+            <mo>⁡</mo>
+            <mi>a</mi>
+            <mo>)</mo>
+          </math>
+          , muito mais eficiente que soluções lineares (
+          <math>
+            <mi>Θ</mi>
+            <mo>(</mo>
+            <mi>a</mi>
+            <mo>)</mo>
+          </math>
+          ) ou exponenciais (
+          <math>
+            <mi>Θ</mi>
+            <mo>(</mo>
+            <msup>
+              <mn>3</mn>
+              <mi style="font-size: 0.8rem !important">k</mi>
+            </msup>
+            <mo>)</mo>
+          </math>
+          ).
+        </p>
+        <h2 id="1.2.4">1.2.4 Exponenciação</h2>
+        <p></p>
+
         <section id="reference">
           <hr />
           <p id="ref4">
@@ -794,138 +1019,125 @@
             eficiente quanto um loop imperativo.
           </p>
           <p id="ref5">
-            <sup><a href="#sup5">5</a></sup> Discas:
+            <sup><a href="#sup5">5</a></sup> Discas: Ordem de Crescimento
+            Temporal:
           </p>
-          <ul id="ref5">
-              <li><sup><a href="#sup5">5</a></sup> Discas: Ordem de Crescimento Temporal:</li>
-              <ol>
-                <li>
-                  Conte o número de operações:
-                  <ul>
-                    <li>
-                      Pergunte-se: "Quantas operações o algoritmo realiza para uma
-                      entrada de tamanho <code>n</code>?".
-                    </li>
-                    <li>Como usar: Para loops, conte o número de
-                      iterações. Para recursão, analise o número de chamadas.
-                    </li>
-                  </ul>
-                </li>
-                <li>Analise estruturas de repetição (loops):
-                  <ul>
-                    <li>
-                      Loops aninhados geralmente indicam crescimento polinomial
-                      (ex.: <code>O(n<sup>2</sup>)</code> para dois loops).
-                    </li>
-                    <li>
-                      <strong>Como usar:</strong> Identifique o número de loops e
-                      sua relação com o tamanho da entrada.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Verifique chamadas recursivas:</strong>
-                  <p>
-                    Recursão pode levar a crescimento exponencial
-                    <code>O(2<sup>n</sup>)</code> ou logarítmico
-                    <code>O(log n)</code>, dependendo de como o problema é
-                    dividido.
-                  </p>
-                  <p>
-                    <strong>Como usar:</strong> Analise quantas chamadas são
-                    geradas em cada passo e como o tamanho do problema é
-                    reduzido.
-                  </p>
-                </li>
-                <li>
-                  <strong>Observe operações internas:</strong>
-                  <p>
-                    Operações dentro de loops ou recursões contribuem para o
-                    tempo total.
-                  </p>
-                  <p>
-                    <strong>Como usar:</strong> Multiplique o número de
-                    iterações pelo custo das operações internas.
-                  </p>
-                </li>
-                <li>
-                  <strong>Use a notação Big-O:</strong>
-                  <p>
-                    Simplifique a análise ignorando constantes e termos de menor
-                    ordem.
-                  </p>
-                  <p>
-                    <strong>Como usar:</strong> Foque no termo dominante da
-                    função de custo.
-                  </p>
-                </li>
-              </ol>
-            </li>
-          </ul>
-            <ul id="ref6">
-              <li><sup><a href="#sup6">6</a></sup> Discas: Ordem de Crescimento Espacial:</li>
-              <ol>
-                <li>
-                  <strong>Analise a estrutura de dados utilizada:</strong>
-                  <p>
-                    Estruturas como arrays, listas ou matrizes ocupam espaço
-                    proporcional ao tamanho da entrada.
-                  </p>
-                  <li>
-                    <strong>Como usar:</strong> Verifique o tamanho das
-                    estruturas de dados em função de <code>n</code>.
-                  </li>
-                </li>
-                <li>
-                  <strong>Verifique a profundidade da recursão:</strong>
-                  <li>
-                    Em algoritmos recursivos, o espaço é determinado pela
-                    profundidade da pilha de chamadas.
-                  </li>
-                  <li>
-                    <strong>Como usar:</strong> Analise quantas chamadas
-                    recursivas são feitas antes de atingir o caso base.
-                  </li>
-                </li>
-                <li>
-                  <strong>Observe variáveis temporárias:</strong>
-                  <li>
-                    Variáveis criadas em cada iteração ou chamada recursiva
-                    contribuem para o espaço.
-                  </li>
-                  <li>
-                    <strong>Como usar:</strong> Conte o número de variáveis e
-                    seu tamanho em função de <code>n</code>.
-                  </li>
-                </li>
-                <li>Verifique alocações dinâmicas:</li>
-                <ul>
-                  <li>
-                    Alocações de memória durante a execução (ex.: criar novas
-                    listas) aumentam o espaço.
-                </li>
-                  <li>
-                    <strong>Como usar:</strong> Identifique quanta memória é
-                    alocada em função de <code>n</code>.
-                  </li>
-                </ul>
-                <li
-                    >Analise o uso de memória em função da entrada:</li
-                  >
-                  <ul>
-                  
-                    <li>
-                    Pergunte-se: "Como o uso de memória aumenta à medida que a
-                    entrada cresce?".
-                  </li>
-                  <li>
-                    <strong>Como usar:</strong> Relacione o espaço utilizado com
-                    o tamanho da entrada <code>n</code>.
-                  </li>
-                </ul>
-              </ol>
-            </li>
-          </ul>
+          <ol>
+            <li>Conte o número de operações:</li>
+            <ul>
+              <li>
+                Pergunte-se: "Quantas operações o algoritmo realiza para uma
+                entrada de tamanho <code>n</code>?".
+              </li>
+              <li>
+                Como usar: Para loops, conte o número de iterações. Para
+                recursão, analise o número de chamadas.
+              </li>
+            </ul>
+            <li>Analise estruturas de repetição (loops):</li>
+            <ul>
+              <li>
+                Loops aninhados geralmente indicam crescimento polinomial (ex.:
+                <code>O(n<sup>2</sup>)</code> para dois loops).
+              </li>
+              <li>
+                Como usar: Identifique o número de loops e sua relação com o
+                tamanho da entrada.
+              </li>
+            </ul>
+            <li>Verifique chamadas recursivas:</li>
+            <ul>
+              <li>
+                Recursão pode levar a crescimento exponencial
+                <code>O(2<sup>n</sup>)</code> ou logarítmico
+                <code>O(log n)</code>, dependendo de como o problema é dividido.
+              </li>
+              <li>
+                Como usar: Analise quantas chamadas são geradas em cada passo e
+                como o tamanho do problema é reduzido.
+              </li>
+            </ul>
+            <li>Observe operações internas:</li>
+            <ul>
+              <li>
+                Operações dentro de loops ou recursões contribuem para o tempo
+                total.
+              </li>
+              <li>
+                Como usar: Multiplique o número de iterações pelo custo das
+                operações internas.
+              </li>
+            </ul>
+            <li>Use a notação Big-O:</li>
+            <ul>
+              <li>
+                Simplifique a análise ignorando constantes e termos de menor
+                ordem.
+              </li>
+              <li>Como usar: Foque no termo dominante da função de custo.</li>
+            </ul>
+          </ol>
+          <p id="ref6">
+            <sup><a href="#sup6">6</a></sup> Discas: Ordem de Crescimento
+            Espacial:
+          </p>
+          <ol>
+            <li>Analise a estrutura de dados utilizada:</li>
+            <ul>
+              <li>
+                Estruturas como arrays, listas ou matrizes ocupam espaço
+                proporcional ao tamanho da entrada.
+              </li>
+              <li>
+                Como usar: Verifique o tamanho das estruturas de dados em função
+                de <code>n</code>.
+              </li>
+            </ul>
+            <li>Verifique a profundidade da recursão:</li>
+            <ul>
+              <li>
+                Em algoritmos recursivos, o espaço é determinado pela
+                profundidade da pilha de chamadas.
+              </li>
+              <li>
+                Como usar: Analise quantas chamadas recursivas são feitas antes
+                de atingir o caso base.
+              </li>
+            </ul>
+            <li>Observe variáveis temporárias:</li>
+            <ul>
+              <li>
+                Variáveis criadas em cada iteração ou chamada recursiva
+                contribuem para o espaço.
+              </li>
+              <li>
+                Como usar: Conte o número de variáveis e seu tamanho em função
+                de <code>n</code>.
+              </li>
+            </ul>
+            <li>Verifique alocações dinâmicas:</li>
+            <ul>
+              <li>
+                Alocações de memória durante a execução (ex.: criar novas
+                listas) aumentam o espaço.
+              </li>
+              <li>
+                Como usar: Identifique quanta memória é alocada em função de
+                <code>n</code>.
+              </li>
+            </ul>
+            <li>Analise o uso de memória em função da entrada:</li>
+            <ul>
+              <li>
+                Pergunte-se: "Como o uso de memória aumenta à medida que a
+                entrada cresce?".
+              </li>
+              <li>
+                Como usar: Relacione o espaço utilizado com o tamanho da entrada
+                <code>n</code>.
+              </li>
+            </ul>
+          </ol>
         </section>
       </article>
     </main>

@@ -222,7 +222,8 @@ msup > mn {
 }
 
 mfrac > mn,
-mfrac * {
+mfrac *,
+.smallfont {
   font-size: 90%;
 }
 
