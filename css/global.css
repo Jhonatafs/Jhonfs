@@ -213,9 +213,10 @@ abbr {
 }
 
 sup,
+sub,
 sup a,
-msup > mn {
-  font-size: 0.9em !important;
+.smallsup {
+  font-size: 0.8em !important;
   font-weight: bolder;
   margin: 0;
   padding: 0;
@@ -224,7 +225,11 @@ msup > mn {
 mfrac > mn,
 mfrac *,
 .smallfont {
-  font-size: 90%;
+  font-size: 0.8em !important;
+}
+
+mtext {
+  padding: 0.3rem;
 }
 
 sup {

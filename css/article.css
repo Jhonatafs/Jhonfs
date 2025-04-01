@@ -245,3 +245,11 @@ mark {
 #menu .buttons * {
   font-size: 1rem;
 }
+
+/*
+ * Emphasis
+ */
+
+.emphasis {
+  color: var(--secondary-text-color);
+}
