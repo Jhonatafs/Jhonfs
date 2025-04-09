@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="application-name" content="Notas: Gramática Latina" />
+    <meta name="description" content="Blog" />
+    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <title>JhonFs: Notas Gramática Latina - Lição 1</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normilize.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/article.css" />
+    <!--SCRIPT-->
+    <script src="/js/light.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="top"></div>
+      <button id="backToTop"><span class="icon_angles_up"></span></button>
+      <script src="/js/buttonToTop.js"></script>
+
+      <nav role="navigation">
+        <!--Based on the code of Erik Terwan (24th of November 2015, MIT License)-->
+        <div id="menuToggle">
+          <input type="checkbox" id="menuCheckbox" />
+
+          <!--Icon Hamburguer-->
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <ul id="menu">
+            <div class="nav-page">
+              <li>
+                <a href="1. Construindo Abstrações com Procedimentos.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_page_previous"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="/index.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_home"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="Guia.html#guia"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_content"
+                  ></label
+                ></a>
+              </li>
+              <li>
+                <a href="1.2 Procedimentos e os Processos que Eles Geram.html"
+                  ><label
+                    for="menuCheckbox"
+                    onclick="this.parentNode.click();"
+                    class="icon_page_next"
+                  ></label
+                ></a>
+              </li>
+            </div>
+            <hr />
+            <li>
+              <a href="#1.1"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1 Os Elementos da Programação</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.1 Expressões</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.2 Nomes e o Ambiente</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.3 Avaliando Combinações</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.1-4"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.4 Procedimentos Compostos
+                </label></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.5"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.5 Modelo de Substituição para Aplicação de
+                  Procedimentos</label
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#1.1.6"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.6 Expressões Condicionais e Predicados</label
+                ></a
+              >
+            </li>
+            <ul class="exercises">
+              <li>
+                <a href="#e_1.1"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.1</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.2"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.2</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.3"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.3</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.4"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.4</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.5"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.5</label
+                  ></a
+                >
+              </li>
+            </ul>
+            <li>
+              <a href="#1.1.7"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.7 Exemplo: Raízes Quadradas pelo Método de Newton
+                </label></a
+              >
+            </li>
+            <ul class="exercises">
+              <li>
+                <a href="#e_1.6"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.6</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.7"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.7</label
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="#e_1.8"
+                  ><label for="menuCheckbox" onclick="this.parentNode.click();">
+                    Quest. 1.8</label
+                  ></a
+                >
+              </li>
+            </ul>
+            <li>
+              <a href="#1.1.8"
+                ><label for="menuCheckbox" onclick="this.parentNode.click();"
+                  >1.1.8 Procedimentos como Abstrações de Caixa Preta</label
+                ></a
+              >
+            </li>
+            <hr />
+            <div class="buttons">
+              <a
+                href="https://github.com/Jhonatafs"
+                class="icon_github"
+                target="_blank"
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/jhonfs/"
+                class="icon_linkedin"
+                target="_blank"
+              ></a>
+              <a href="#" class="icon_translate disabled"></a>
+              <button id="button-light" onclick="lightStatus()">
+                <span class="icon_theme"></span>
+              </button>
+            </div>
+          </ul>
+        </div>
+      </nav>
+      <article>
+        <h1 id="licao-1">Lição 1 &mdash; Nominativo</h1>
+        <p><strong>Questionário</strong></p>
+        <ol>
+          <li>
+            Quantos elementos podemos encontrar numa oração?<br />
+            <span class="answer">Podemos encontrar 6 elementos.</span>
+          </li>
+          <li>
+            Quais são os elementos que podemos encontrar numa oração?<br />
+            <span class="answer"
+              >sujeito, vocativo, adjunto adnominal restritivo, adjunto
+              adverbial, objeto indireto e direto.<sup id="sup1"
+                ><a href="#ref1">1</a></sup
+              ></span
+            >
+          </li>
+          <li>
+            Que é sujeito?<br />
+            <span class="answer"
+              >É a entidade que pratica a ação expressa pelo verbo.</span
+            >
+          </li>
+          <li>
+            Como se descobre o sujeito de uma oração?<br />
+            <span class="answer"
+              >Identificando que ou quem (entidade) fez a ação verbal.</span
+            >
+          </li>
+          <li>
+            Construa 5 orações e ponha um traço debaixo do sujeito. Aqui estão 5
+            orações com o sujeito sublinhado:<br />
+            <span class="answer">
+              1. <u>O sol</u> brilha intensamente hoje.<br />
+              2. <u>As crianças</u> brincam no parque.<br />
+              3. <u>Meu irmão</u> adora jogar futebol.<br />
+              4. <u>Aquele carro</u> novo é muito bonito.<br />
+              5. <u>Nós</u> vamos viajar nas férias.
+            </span>
+          </li>
+          <li>
+            Indique onde está o sujeito das seguintes orações (Copie frase por
+            frase, inteira, sublinhando o sujeito):
+            <ol style="list-style: lower-alpha">
+              <li>
+                A filosofia é a ciência de todas as coisas.<br />
+                <span class="answer"
+                  ><u>A filosofia</u> é a ciência de todas as coisas.
+                </span>
+              </li>
+              <li>
+                O fundamento da justiça é a fé.<br />
+                <span class="answer"
+                  >O fundamento da justiça é <u>a fé</u>.
+                </span>
+              </li>
+              <li>
+                O autor desse livro é Pedro.<br />
+                <span class="answer">O autor desse livro é <u>Pedro</u>. </span>
+              </li>
+              <li>
+                De todas as coisas, a mais eficiente é o bom humor.<br />
+                <span class="answer"
+                  >De todas as coisas, a mais eficiente é <u>o bom humor</u>
+                </span>
+              </li>
+              <li>
+                É necessária a moderação.<br />
+                <span class="answer">É necessária <u>a moderação</u>. </span>
+              </li>
+              <li>
+                Nesse lugar foi encontrado um esqueleto.<br />
+                <span class="answer"
+                  >Nesse lugar foi encontrado <u>um esqueleto</u>.
+                </span>
+              </li>
+              <li>
+                São caducas as riquezas.<br />
+                <span class="answer">São caducas <u>as riquezas</u>. </span>
+              </li>
+              <li>
+                Nesse ano o rei morreu.<br />
+                <span class="answer">Nesse ano <u>o rei</u> morreu. </span>
+              </li>
+            </ol>
+          </li>
+          <li>
+            Em latim, quantas funções podem desempenhar as palavras?<br />
+            <span class="answer"
+              >uma mesma palavra pode deenpenhar até 6 funções.</span
+            >
+          </li>
+          <li>
+            Que é caso?<br />
+            <span class="answer"
+              >É representação morfológica que indica o papel gramatical
+              específico que essa palavra desempenha dentro da estrutura da
+              frase.</span
+            >
+          </li>
+          <li>
+            Quantos casos existem em latim?<br />
+            <span class="answer">Existe 6 casos</span>
+          </li>
+          <li>
+            Cada caso em latim tem nome especial?<br />
+            <span class="answer">Sim</span>
+          </li>
+          <li>
+            Como se distinguem os casos em latim?<br />
+            <span class="answer">Pela terminação</span>
+          </li>
+          <li>
+            Conhece o nome de algum caso latino? <em>Qual(is)?</em> <br />
+            <span class="answer"
+              >Sim, nominativo, vocativo, ablativo, genitivo, dativo e
+              acusativo</span
+            >
+          </li>
+          <li>
+            Quando uma palavra exerce na oração a função de sujeito, em que caso
+            deve estar no latim?<br />
+            <span class="answer">Nominativo</span>
+          </li>
+          <li>
+            Qual a função do nominativo?<br />
+            <span class="answer">Indicar o agente da ação verbal.</span>
+          </li>
+          <li>
+            Nas seguintes orações, quais as palavras que devem ir para o
+            nominativo? (Proceda como na pergunta 6):
+            <ul style="list-style: lower-alpha">
+              <li>
+                O filho do vizinho estudou.<br />
+                <span class="answer"><u>O filho do vizinho</u> estudou.</span>
+              </li>
+              <li>
+                O sol sempre ilumina a terra.<br />
+                <span class="answer"><u>O sol</u> sempre ilumina a terra.</span>
+              </li>
+              <li>
+                A terra é iluminada pelo sol.<br />
+                <span class="answer"><u>A terra</u> é iluminada pelo sol.</span>
+              </li>
+              <li>
+                Nem sempre a lua ilumina a terra durante a noite.<br />
+                <span class="answer"
+                  >Nem sempre <u>a lua</u> ilumina a terra durante a
+                  noite.</span
+                >
+              </li>
+              <li>
+                O sol tem luz própria, ao passo que a lua não tem.<br />
+                <span class="answer"
+                  ><u>O sol</u> tem luz própria, ao passo que <u>a lua</u> não
+                  tem.</span
+                >
+              </li>
+              <li>
+                A fonética constitui a primeira parte da gramática.<br />
+                <span class="answer"
+                  ><u>A fonética</u> constitui a primeira parte da
+                  gramática.</span
+                >
+              </li>
+              <li>
+                O nominativo indica o sujeito da oração.<br />
+                <span class="answer"
+                  ><u>O nominativo</u> indica o sujeito da oração.</span
+                >
+              </li>
+              <li>
+                O sujeito de uma oração vai em latim para o caso nominativo.<br />
+                <span class="answer"
+                  ><u>O sujeito de uma oração</u> vai em latim para o caso
+                  nominativo.</span
+                >
+              </li>
+              <li>
+                Procede mal o aluno que pretende acertar as respostas do
+                questionário sem antes ter estudado bem a lição.<br />
+                <span class="answer"
+                  >Procede mal
+                  <u
+                    >o aluno que pretende acertar as respostas do questionário
+                    sem antes ter estudado bem a lição</u
+                  ><sup id="sup2"><a href="#ref2">2</a></sup
+                  >.</span
+                >
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <section id="reference">
+          <hr />
+          <p id="ref1">
+            <sup><a href="#sup1">1</a></sup> A existência do verbo é pressuposta
+            quando se fala em oração.
+          </p>
+          <p id="ref2">
+            <sup><a href="#sup2">2</a></sup> Na frase há duas orações: 1ª
+            <em>Procede</em> mal o <u>aluno</u>..., 2ª ...que
+            <em>pretende</em> acertar as respostas do questionário sem antes ter
+            estudado bem a lição. Mas há apenas um sujeito, pois a segunda
+            oração está ligada à primeira pelo pronome relativo "que" e tem a
+            função de especificar qual aluno está sendo mencionado.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Indie+Flower&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
 figure {
   display: flex;
   flex-direction: column;
@@ -252,4 +254,37 @@ mark {
 
 .emphasis {
   color: var(--secondary-text-color);
+}
+
+/*
+ * Quote
+ */
+
+.quote {
+  margin-left: 30dvw;
+  font-size: 0.8em;
+  color: var(--secondary-text-color);
+}
+
+.quote * {
+  font-size: 1em;
+}
+
+/*
+ * Answer
+ */
+
+.answer,
+.answer * {
+  font-family: "Indie Flower", cursive;
+}
+
+.answer {
+  font-weight: 900;
+  font-size: 80%;
+  color: var(--secondary-text-color);
+}
+
+.answer * {
+  font-size: 100%;
 }
