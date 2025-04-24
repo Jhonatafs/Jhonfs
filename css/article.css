@@ -298,6 +298,14 @@ mark {
   font-size: 100%;
 }
 
+.answer strong {
+  font-weight: 500;
+}
+
+.answer em {
+  font-style: italic !important;
+}
+
 /*
  * Notes board
  */

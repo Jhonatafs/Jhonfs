@@ -198,11 +198,6 @@ th code {
   font-size: 70% !important;
 }
 
-* em,
-em {
-  font-style: italic !important;
-}
-
 a {
   color: var(--primary-color);
   text-decoration: none;
