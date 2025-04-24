@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Indie+Flower&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 figure {
   display: flex;
@@ -282,16 +283,36 @@ mark {
  */
 
 .answer,
-.answer * {
-  font-family: "Indie Flower", cursive;
-}
-
-.answer {
-  font-weight: 900;
-  font-size: 80%;
+.answer *,
+.notesboard,
+.notesboard * {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
   color: var(--secondary-text-color);
 }
 
-.answer * {
+.answer *,
+.notesboard * {
   font-size: 100%;
+}
+
+/*
+ * Notes board
+ */
+
+.notesboard {
+  border: 2px dotted var(--secondary-text-color);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px 0;
+  width: fit-content;
+  font-size: 0.9rem;
+}
+
+.notesboard h5 {
+  margin: 0 0 10px;
+  padding: 0;
+  text-align: right;
 }

@@ -67,3 +67,8 @@
   font-family: "Icons";
   content: "";
 }
+
+.icon_link_externo::after {
+  font-family: "Icons";
+  content: " ";
+}
