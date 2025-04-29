@@ -1,0 +1,83 @@
+/* highlight.css - Tema Dinâmico Integrado */
+.hljs {
+  display: inline-block;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+  background: var(--alt-bg-color);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+  font-size: 100%;
+}
+
+/* Sistema de Cores Dinâmicas */
+.hljs-keyword {
+  color: var(--hljs-keyword);
+}
+.hljs-type {
+  color: var(--hljs-type);
+}
+.hljs-built_in {
+  color: var(--hljs-builtin);
+}
+.hljs-literal {
+  color: var(--hljs-number);
+}
+.hljs-number {
+  color: var(--hljs-number);
+}
+.hljs-string {
+  color: var(--hljs-string);
+}
+.hljs-regexp {
+  color: var(--hljs-string);
+}
+.hljs-tag {
+  color: var(--hljs-tag);
+}
+.hljs-name {
+  color: var(--hljs-tag);
+}
+.hljs-attr {
+  color: var(--hljs-attribute);
+}
+.hljs-function {
+  color: var(--hljs-keyword);
+}
+.hljs-params {
+  color: var(--hljs-params);
+}
+.hljs-property {
+  color: var(--hljs-params);
+}
+.hljs-comment {
+  color: var(--hljs-comment);
+  font-style: italic;
+}
+.hljs-doctag {
+  color: var(--hljs-meta);
+}
+.hljs-meta {
+  color: var(--hljs-meta);
+}
+.hljs-template-tag {
+  color: var(--hljs-template-variable);
+}
+.hljs-variable {
+  color: var(--hljs-template-variable);
+}
+.hljs-selector-class {
+  color: var(--hljs-attribute);
+}
+.hljs-selector-id {
+  color: var(--hljs-builtin);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-link {
+  text-decoration: underline;
+}

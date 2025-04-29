@@ -1,0 +1,165 @@
+/* --- Estilos Específicos para Artigos --- */
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/FiraCode-VF.ttf");
+}
+
+/*-----------------------------------------*/
+
+.site-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1025px) {
+  .site-main {
+    margin: 0;
+    margin-left: calc(
+      200px + 1dvw + var(--spacing-unit) +
+        ((100dvw - (800px + 200px + 1dvw + var(--spacing-unit))) / 3)
+    );
+  }
+}
+
+.article-container {
+  max-width: 100%; /* Pode ajustar para largura ideal de leitura */
+}
+
+.full-article h1 {
+  font-size: 2.8rem; /* Um pouco maior para o título principal */
+  padding-top: calc(var(--spacing-unit) * 4);
+  margin: 0;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.full-article .subtitle {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-unit);
+  font-style: italic;
+}
+
+.full-article .article-meta {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-unit);
+}
+
+.back-link {
+  display: inline-block; /* Para permitir margin */
+  margin-bottom: var(--spacing-unit);
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.back-link.bottom-link {
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.back-link:hover {
+  color: var(--primary-color);
+}
+
+/* Estilos para conteúdo dentro do artigo */
+.full-article h2 {
+  padding-top: calc(var(--spacing-unit) * 2.5);
+  margin: 0;
+  margin-bottom: var(--spacing-unit);
+  padding-bottom: calc(var(--spacing-unit) * 0.3);
+  border-bottom: 1px solid var(--border-color); /* Linha sutil abaixo de H2 */
+}
+
+.full-article h3 {
+  padding-top: calc(var(--spacing-unit) * 2);
+  margin: 0;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.full-article p,
+.full-article ul,
+.full-article ol,
+.full-article blockquote,
+.full-article pre {
+  margin-bottom: calc(var(--spacing-unit) * 1.2); /* Espaçamento consistente */
+}
+
+.full-article ul,
+.full-article ol {
+  padding-left: calc(
+    var(--spacing-unit) * 2
+  ); /* Indentação padrão para listas */
+}
+.full-article ul ul, /* Listas aninhadas */
+.full-article ol ol,
+.full-article ul ol,
+.full-article ol ul {
+  margin-bottom: 0; /* Menos espaço em listas aninhadas */
+}
+
+.full-article blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: calc(var(--spacing-unit) * 1.5);
+  margin-left: 0; /* Reset margin padrão */
+  margin-right: 0;
+  font-style: italic;
+  color: var(--secondary-color);
+  background-color: var(--alt-bg-color); /* Fundo sutil */
+  padding-top: calc(var(--spacing-unit) * 0.5);
+  padding-bottom: calc(var(--spacing-unit) * 0.5);
+  border-radius: 0 4px 4px 0; /* Cantos arredondados */
+  transition: var(--theme-transition), border-color 0.3s ease;
+}
+.full-article blockquote p {
+  margin-bottom: 0; /* Remove margin do parágrafo dentro do blockquote */
+}
+
+/* Estilo para blocos de código */
+.full-article pre {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: var(--spacing-unit);
+  overflow-x: auto; /* Barra de rolagem horizontal se o código for largo */
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: var(--theme-transition), border-color 0.3s ease;
+}
+
+.full-article code {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero",
+    "onum" !important;
+  background-color: transparent; /* Código dentro de pre não precisa de fundo extra */
+  padding: 0; /* Reset padding */
+}
+
+/* Estilo para código inline (fora de <pre>) */
+.full-article p code,
+.full-article th > code,
+.full-article td > code,
+.full-article li > code,
+.full-article h2 > code,
+.full-article h2 > code,
+.full-article h3 > code,
+.full-article h4 > code,
+.full-article h5 > code,
+.full-article h6 > code,
+:not(pre) > code {
+  background-color: var(--alt-bg-color);
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+  font-size: 0.775em; /* Ligeiramente menor */
+  transition: var(--theme-transition);
+}
+
+/* Ajuste específico para links em títulos (para não herdar cor do link) */
+.full-article h1 a,
+.full-article h2 a,
+.full-article h3 a {
+  color: inherit; /* Herda cor do título */
+  text-decoration: none;
+}
+.full-article h1 a:hover,
+.full-article h2 a:hover,
+.full-article h3 a:hover {
+  text-decoration: underline;
+}

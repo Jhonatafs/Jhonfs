@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="application-name" content="JhonFs" />
+    <meta
+      name="description"
+      content="Blog: projetos autorais, resumos de capítulos, tutoriais de programação e reflexões sobre educação e vida intelectual."
+    />
+
+    <!-- Open Graph / Twitter Meta Tags -->
+    <meta property="og:title" content="JhonFs" />
+    <meta
+      property="og:description"
+      content="Blog: projetos autorais, resumos de capítulos, tutoriais de programação e reflexões sobre educação e vida intelectual."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jhonfs.com/" />
+    <meta
+      property="og:image"
+      content="https://jhonfs.com/img/favicon-96x96.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/img/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Jhonfs" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!---->
+    <title>Jhonfs</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-container">
+        <a href="index.html" class="site-title">JhonFs</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#artigos">Artigos</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+          </ul>
+        </nav>
+        <button
+          id="theme-toggle"
+          class="theme-toggle-button"
+          aria-label="Alternar tema"
+        >
+          ☀️
+        </button>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="hero">
+        <div class="container">
+          <h1>Explorando Conhecimento, Construindo Soluções.</h1>
+          <p class="subtitle">
+            Um diário de bordo autodidata sobre Computação, Lógica, Filosofia e
+            os projetos que nascem dessa jornada.
+          </p>
+        </div>
+      </section>
+
+      <section id="artigos" class="content-section">
+        <div class="container">
+          <h2>Últimos Artigos</h2>
+          <div class="article-list">
+            <article class="article-preview">
+              <h3>
+                <a href="/pt/sicp-capitulo-1-abstracoes-procedimentos.html"
+                  >Construindo Abstrações com Procedimentos</a
+                >
+              </h3>
+              <p>
+                Análise e resumo do Capítulo 1 do SICP: Os elementos da
+                programação, processos recursivos vs iterativos, ordens de
+                crescimento e procedimentos de ordem superior...
+              </p>
+              <small>Publicado em: 28 de Abril de 2025</small>
+            </article>
+            <!--article class="article-preview">
+              <h3>
+                <a href="#"
+                  >Princípios de Design para Desenvolvedores: Além do Código</a
+                >
+              </h3>
+              <p>
+                Como conceitos básicos de design podem melhorar a interface e a
+                experiência do usuário em seus projetos, mesmo sem ser um
+                designer profissional...
+              </p>
+              <small>Publicado em: 15 de Abril de 2025</small>
+            </article>
+            <article-- class="article-preview">
+              <h3>
+                <a href="#"
+                  >A Lógica por Trás do Jogo: Gamedev e Raciocínio Lógico</a
+                >
+              </h3>
+              <p>
+                Explorando como a lógica formal e o pensamento estruturado são
+                fundamentais no desenvolvimento de jogos, desde a IA até a
+                mecânica...
+              </p>
+              <small>Publicado em: 02 de Abril de 2025</small>
+            </article-->
+          </div>
+          <div class="section-link">
+            <a href="#">Ver todos os artigos &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos" class="content-section alt-bg">
+        <div class="container">
+          <h2>Projetos Recentes</h2>
+          <div class="project-list">
+            <div class="project-preview">
+              <h3>
+                <a
+                  href="[LINK_GITHUB_SICP]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Tradução SICP PT-BR</a
+                >
+              </h3>
+              <p>
+                Tradução completa para o Português do livro "Structure and
+                Interpretation of Computer Programs". Um projeto para tornar
+                conhecimento acessível.
+              </p>
+              <small>Tecnologias: HTML, Git</small>
+            </div>
+            <div class="project-preview">
+              <h3>
+                <a
+                  href="https://github.com/Jhonatafs/lqm-file-extractor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Extrator de Arquivos LQM</a
+                >
+              </h3>
+              <p>
+                Ferramenta para extração e conversão de arquivos LQM criados
+                pelo QuickMemo - LG
+              </p>
+              <small>Tecnologias: Python</small>
+            </div>
+            <!--div class="project-preview">
+              <h3>
+                <a
+                  href="[LINK_PROJETO_3]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Ferramenta de Linha de Comando X</a
+                >
+              </h3>
+              <p>
+                Script em [Linguagem, ex: Python] para automatizar [tarefa
+                específica]. Publicado como projeto open-source.
+              </p>
+              <small>Tecnologias: Python, Argparse</small>
+            </div-->
+          </div>
+          <div class="section-link">
+            <a href="#">Ver todos os projetos &rarr;</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          &copy; <span id="current-year"></span> JhonFs. Compartilhando a
+          jornada do aprendizado.
+        </p>
+        <div class="footer-links">
+          <a
+            href="https://github.com/Jhonatafs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="icon icon_github"
+            aria-label="GitHub"
+          >
+            <span class="visually-hidden">GitHub</span>
+          </a>
+          |
+          <a
+            href="https://www.linkedin.com/in/jhonfs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="icon icon_linkedin"
+            aria-label="LinkedIn"
+          >
+            <span class="visually-hidden">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

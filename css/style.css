@@ -1,0 +1,446 @@
+/* --- Reset Básico & Variáveis --- */
+:root {
+  /* Modo Claro (Default) */
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --primary-color: #0d6efd; /* Azul como exemplo */
+  --secondary-color: #6c757d; /* Cinza */
+  --border-color: #dee2e6;
+  --alt-bg-color: #f8f9fa;
+  --link-color: var(--primary-color);
+  --link-hover-color: #0a58ca;
+  --header-bg: var(--bg-color);
+  --button-bg: var(--primary-color);
+  --button-text: #ffffff;
+
+  --font-family-base: "Inter", sans-serif;
+  --line-height-base: 1.6;
+  --container-max-width: 960px;
+  --spacing-unit: 16px;
+
+  /* Transição suave para o tema */
+  --theme-transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Variáveis para highlight.js (Modo Claro) */
+  --hljs-keyword: #0d6efd; /* Azul primário */
+  --hljs-type: #d35400; /* Laranja escuro */
+  --hljs-builtin: #2980b9; /* Azul médio */
+  --hljs-string: #22863a; /* Verde */
+  --hljs-number: #c0392b; /* Vermelho terroso */
+  --hljs-attribute: #8e44ad; /* Roxo */
+  --hljs-tag: #e67e22; /* Laranja */
+  --hljs-params: #2c3e50; /* Cinza azulado */
+  --hljs-meta: #6c757d; /* Cinza secundário */
+  --hljs-comment: #6c757d; /* Herda secondary-color */
+  --hljs-template-variable: #16a085; /* Verde água */
+}
+
+/* Modo Escuro */
+body.dark-mode {
+  --bg-color: #1a1a1a; /* Um cinza bem escuro */
+  --text-color: #e9ecef;
+  --primary-color: #4dabf7; /* Um azul mais claro para contraste */
+  --secondary-color: #adb5bd;
+  --border-color: #495057;
+  --alt-bg-color: #212529; /* Um cinza escuro um pouco mais claro */
+  --link-color: var(--primary-color);
+  --link-hover-color: #74c0fc;
+  --header-bg: var(--alt-bg-color);
+  --button-bg: var(--primary-color);
+  --button-text: #1a1a1a;
+
+  --hljs-keyword: #4dabf7; /* Azul claro */
+  --hljs-type: #ff9f43; /* Laranja neon */
+  --hljs-builtin: #3498db; /* Azul vibrante */
+  --hljs-string: #2ecc71; /* Verde limão */
+  --hljs-number: #e74c3c; /* Vermelho vivo */
+  --hljs-attribute: #9b59b6; /* Roxo claro */
+  --hljs-tag: #f1c40f; /* Amarelo dourado */
+  --hljs-params: #bdc3c7; /* Cinza claro */
+  --hljs-meta: #adb5bd; /* Cinza médio */
+  --hljs-template-variable: #1abc9c; /* Turquesa */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* --- Estilos Base --- */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+  width: 100dvw !important;
+  max-width: 100dvw !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: calc(var(--spacing-unit) * 0.75);
+  line-height: 1.3;
+  font-weight: 700; /* Negrito para títulos */
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+h3 {
+  font-size: 1.5rem;
+  margin-top: calc(var(--spacing-unit) * 1.5);
+}
+
+p {
+  margin-bottom: var(--spacing-unit);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+small {
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+}
+
+/* Estilos para o botão Voltar ao Topo */
+.back-to-top {
+  display: none; /* Esconde o botão por padrão */
+  position: fixed; /* Fixa o botão na tela */
+  bottom: calc(var(--spacing-unit) * 2 + 40px); /* Distância do fundo */
+  right: calc(
+    var(--spacing-unit) * 2
+  ); /* Posiciona à esquerda do botão Ir ao Final (ajuste 50px conforme necessário) */
+  z-index: 99; /* Garante que o botão fique acima de outros elementos */
+  border: none;
+  background-color: var(--header-bg); /* Cor de fundo usando sua variável */
+  color: var(--button-text); /* Cor do ícone/texto usando sua variável */
+  width: 30px; /* Largura do botão */
+  height: 30px; /* Altura do botão (para torná-lo circular) */
+  border-radius: 50%; /* Torna o botão circular */
+  cursor: pointer;
+  display: flex; /* Usa flexbox para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Transição suave */
+  opacity: 0; /* Inicia totalmente transparente */
+  pointer-events: none; /* Desabilita cliques quando transparente */
+}
+
+.back-to-top:hover {
+  background-color: var(--secondary-color); /* Cor no hover */
+}
+
+/* Estilos para o botão Ir ao Final (similar ao Voltar ao Topo, com ajuste na posição) */
+.go-to-bottom {
+  display: none; /* Esconde o botão por padrão */
+  position: fixed; /* Fixa o botão na tela */
+  bottom: calc(var(--spacing-unit) * 2); /* Distância do fundo */
+  right: calc(var(--spacing-unit) * 2); /* Distância da direita */
+  z-index: 99; /* Garante que o botão fique acima de outros elementos */
+  border: none;
+  background-color: var(--header-bg); /* Cor de fundo */
+  color: var(--button-text); /* Cor do ícone/texto */
+  width: 30px; /* Largura */
+  height: 30px; /* Altura */
+  border-radius: 50%; /* Circular */
+  cursor: pointer;
+  display: flex; /* Centralizar ícone */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Transição */
+  opacity: 0; /* Inicia transparente */
+  pointer-events: none; /* Desabilita cliques */
+}
+
+.go-to-bottom:hover {
+  background-color: var(--secondary-color); /* Cor no hover */
+}
+
+/* Classe para mostrar os botões (será adicionada via JavaScript) */
+/* Aplica-se a ambos os botões */
+.back-to-top.show,
+.go-to-bottom.show {
+  opacity: 1; /* Torna o botão visível */
+  pointer-events: auto; /* Habilita cliques */
+}
+
+/* Estilo para os ícones SVG dentro dos botões */
+.back-to-top svg,
+.go-to-bottom svg {
+  display: block;
+  width: 24px; /* Tamanho do ícone */
+  height: 24px;
+}
+
+/* Classe para mostrar o botão (será adicionada via JavaScript) */
+.back-to-top.show {
+  opacity: 1; /* Torna o botão visível */
+  pointer-events: auto; /* Habilita cliques */
+}
+
+/* Estilo para o ícone SVG dentro do botão */
+.back-to-top svg {
+  display: block;
+  width: 24px; /* Tamanho do ícone */
+  height: 24px;
+}
+
+/* --- Layout --- */
+.container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-unit);
+  padding-right: var(--spacing-unit);
+}
+
+.content-section {
+  padding: calc(var(--spacing-unit) * 3) 0;
+}
+
+.content-section.alt-bg {
+  background-color: var(--alt-bg-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--theme-transition), border-color 0.3s ease;
+}
+
+/* --- Header --- */
+.site-header {
+  padding: var(--spacing-unit) 0;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--header-bg);
+  position: sticky; /* Fixa o header no topo */
+  top: 0;
+  z-index: 10;
+  transition: var(--theme-transition), border-color 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.site-title:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: calc(var(--spacing-unit) * 1.5);
+}
+
+.main-nav a {
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.main-nav a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.theme-toggle-button {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  font-size: 1.2rem; /* Tamanho do emoji/ícone */
+  line-height: 1;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.theme-toggle-button:hover {
+  background-color: var(--alt-bg-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding: calc(var(--spacing-unit) * 4) 0;
+  text-align: center;
+}
+.hero h1 {
+  margin-bottom: var(--spacing-unit);
+}
+.hero .subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Listas de Artigos e Projetos --- */
+.article-list,
+.project-list {
+  display: grid;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+/* Para telas maiores, exibir em colunas */
+@media (min-width: 768px) {
+  .article-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Exemplo */
+  }
+  .project-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Exemplo */
+  }
+}
+
+.article-preview,
+.project-preview {
+  border: 1px solid var(--border-color);
+  padding: calc(var(--spacing-unit) * 1.5);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.2s ease;
+}
+
+.article-preview:hover,
+.project-preview:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra sutil no hover */
+}
+
+body.dark-mode .article-preview:hover,
+body.dark-mode .project-preview:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais visível no modo escuro */
+}
+
+.article-preview h3,
+.project-preview h3 {
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-size: 1.25rem;
+}
+.article-preview h3 a,
+.project-preview h3 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.article-preview h3 a:hover,
+.project-preview h3 a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.project-preview small {
+  /* Tags de tecnologia */
+  display: block;
+  margin-top: var(--spacing-unit);
+  font-style: italic;
+}
+
+.section-link {
+  margin-top: calc(var(--spacing-unit) * 2);
+  text-align: right;
+}
+.section-link a {
+  font-weight: 700;
+}
+
+/* --- Footer --- */
+.site-footer {
+  padding: 0.5rem 0 0.7rem;
+  margin-top: calc(var(--spacing-unit) * 3);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  transition: var(--theme-transition), border-color 0.3s ease;
+}
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.site-footer p {
+  margin: 0;
+  padding: 0;
+}
+.footer-links {
+  margin-top: 0;
+}
+.footer-links a {
+  color: var(--secondary-color);
+  margin: 0 0.5rem;
+}
+.footer-links a:hover {
+  color: var(--link-color);
+}
+
+/* Visibilidade dos Icones */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- Responsividade Simples --- */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: var(--spacing-unit);
+  }
+  .main-nav ul {
+    justify-content: center;
+    flex-wrap: wrap; /* Quebra a linha se não couber */
+  }
+  .theme-toggle-button {
+    position: absolute; /* Para não atrapalhar o layout */
+    top: var(--spacing-unit);
+    right: var(--spacing-unit);
+  }
+}
