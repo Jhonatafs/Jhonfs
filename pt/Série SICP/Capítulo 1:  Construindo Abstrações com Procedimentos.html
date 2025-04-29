@@ -157,14 +157,14 @@
             href="https://jhonatafs.github.io/sicp-pt-br/html/1_002e1.html#g_t1_002e1"
             >1.1</a
           >, começa a mostrar as cartas: quais são as ferramentas básicas que
-          qualquer linguagem de programação realmente poderosa te dá pra você
+          qualquer linguagem de programação realmente poderosa te dá para você
           começar a construir o que quiser. É como um kit básico de
           sobrevivência do programador.
         </p>
         <p>
-          O livro diz que são três mecanismos essenciais, os alicerces pra gente
-          pegar ideias simples combiná-la, gerando idéias complexas. Os
-          mecanismos são:
+          O livro diz que são três mecanismos essenciais, os quais permitem que
+          ideias simples, tonem-se ideias complexas e compostas. Os mecanismos
+          são:
         </p>
         <ol type="1">
           <li><strong>Expressões Primitivas</strong></li>
@@ -177,9 +177,9 @@
         </h3>
         <p>
           Pensa nos Léptons na física. Aquelas partículas que são a menor
-          unidade que a gente conhece, que não dá pra dividir mais e que,
+          unidade que a gente conhece, que não dá para dividir mais e que,
           combinadas de jeitos diferentes, formam <em>tudo</em> que a gente vê e
-          sente – elétrons, neutrinos, e daí pra frente, construindo átomos,
+          sente – elétrons, neutrinos, e daí para frente, construindo átomos,
           moléculas, a gente, as ideias… É o bloco de construção fundamental.
         </p>
         <p>
@@ -196,8 +196,8 @@
           </li>
           <li>
             <strong>Nomes (ou variáveis):</strong> Identificadores que a gente
-            usa pra se referir a um valor guardado em algum lugar. Tipo
-            <code>pi</code> pra 3.14159.
+            usa para se referir a um valor guardado em algum lugar. Tipo
+            <code>pi</code> para 3.14159.
           </li>
         </ul>
         <p>
@@ -254,7 +254,7 @@
           Ter um monte de estruturas combinadas é legal, mas e se você quiser
           usar a mesma estrutura várias vezes sem ter que escrever tudo de novo?
           Ou se você quiser se referir a uma ideia complexa por um nome simples?
-          É pra isso que servem os <strong>meios de abstração</strong>.
+          É para isso que servem os <strong>meios de abstração</strong>.
         </p>
         <p>
           O meio de abstração mais básico no SICP
@@ -275,7 +275,7 @@
           valor 10 sob um nome que talvez diga algo sobre o que ele representa.
         </p>
         <p>
-          A gente também usa <code>define</code> pra dar nome a procedimentos
+          A gente também usa <code>define</code> para dar nome a procedimentos
           que a gente cria:
         </p>
         <pre><code class="language-scheme">
@@ -289,13 +289,13 @@
         </p>
         <p>
           E é aqui que entra a ideia da “Caixa Preta”. Uma vez que a gente
-          define um procedimento e dá um nome pra ele, a gente pode simplesmente
-          usar esse nome sem ter que pensar nos detalhes de como ele faz o
-          trabalho por dentro. É como uma caixa preta: você sabe o que entra (os
-          argumentos) e o que sai (o resultado), mas não precisa se preocupar
-          com a engrenagem interna. Essa capacidade de usar abstrações como
-          caixas pretas é fundamental pra gente conseguir construir sistemas
-          grandes e complexos sem surtar!
+          define um procedimento e dá um nome para ele, a gente pode
+          simplesmente usar esse nome sem ter que pensar nos detalhes de como
+          ele faz o trabalho por dentro. É como uma caixa preta: você sabe o que
+          entra (os argumentos) e o que sai (o resultado), mas não precisa se
+          preocupar com a engrenagem interna. Essa capacidade de usar abstrações
+          como caixas pretas é fundamental para gente conseguir construir
+          sistemas grandes e complexos sem surtar!
         </p>
         <p>
           A abstração é a chave para gerenciar a complexidade. É como dar nomes
@@ -312,8 +312,8 @@
           >
           é essa tríade. A linguagem te dá os
           <strong>elementos simples</strong> (primitivas), te dá um jeito de
-          <strong>combinar</strong> eles pra fazer coisas mais complexas, e te
-          dá um jeito de <strong>dar nome</strong> a essas coisas pra você
+          <strong>combinar</strong> eles para fazer coisas mais complexas, e te
+          dá um jeito de <strong>dar nome</strong> a essas coisas para você
           conseguir pensar e trabalhar com elas de forma mais fácil (abstração).
         </p>
         <p>
@@ -336,7 +336,7 @@
             href="https://jhonatafs.github.io/sicp-pt-br/html/1_002e1.html#g_t1_002e1"
             >1.1</a
           >
-          – o SICP joga a gente pra outro nível no tópico
+          – o SICP joga a gente para outro nível no tópico
           <a
             href="https://www.google.com/search?q=https://jhonatafs.github.io/sicp-pt-br/html/1_002e2.html%23g_t1_002e2"
             >1.2</a
@@ -348,7 +348,7 @@
         </p>
         <p>
           Essa mudança de chave é vital! Não basta só saber <em>escrever</em> o
-          procedimento pra calcular alguma coisa; a gente precisa entender
+          procedimento para calcular alguma coisa; a gente precisa entender
           <em>como</em> a máquina executa isso, passo a passo. É aí que
           começamos a ver as diferentes “formas” de processos computacionais.
         </p>
@@ -386,7 +386,7 @@
               <code>(* 4 (fatorial 3))</code> e assim por diante, até chegar no
               <code>(fatorial 1)</code>. Aí, ela começa a ‘desempilhar’ e fazer
               as contas. Esse é um <strong>processo recursivo</strong> – ele
-              cresce e precisa de mais memória (espaço) pra lembrar das
+              cresce e precisa de mais memória (espaço) para lembrar das
               operações pendentes, na proporção do tamanho da entrada
               (linearmente, por isso recursivo <em>linear</em>).
             </p>
@@ -398,12 +398,12 @@
                 (Linear):</strong
               >
               Essa é a versão que talvez a gente não pense logo de cara, mas que
-              é super eficiente. A gente usa variáveis pra manter o estado atual
-              da computação – tipo, qual o produto acumulado até agora e qual o
-              próximo número a multiplicar. No Scheme, a gente faz isso de um
-              jeito esperto, geralmente com uma função auxiliar que se chama
-              recursivamente, mas de um jeito que o interpretador otimiza pra
-              virar um loop (chamada de cauda recursiva). Fica algo assim:
+              é super eficiente. A gente usa variáveis para manter o estado
+              atual da computação – tipo, qual o produto acumulado até agora e
+              qual o próximo número a multiplicar. No Scheme, a gente faz isso
+              de um jeito esperto, geralmente com uma função auxiliar que se
+              chama recursivamente, mas de um jeito que o interpretador otimiza
+              pra virar um loop (chamada de cauda recursiva). Fica algo assim:
             </p>
             <pre><code class="language-scheme">
 (define (fatorial n)
@@ -432,7 +432,7 @@
             >a forma do <em>procedimento</em> (como você escreve o código) não é
             necessariamente a forma do <em>processo</em> (como a máquina
             executa)</strong
-          >. O SICP usa o fatorial pra deixar isso cristalino.
+          >. O SICP usa o fatorial para deixar isso cristalino.
         </p>
         <h3 id="recursão-em-árvore-quando-o-processo-se-ramifica">
           Recursão em Árvore: Quando o Processo se Ramifica
@@ -440,7 +440,7 @@
         <p>
           Saindo do linear, a gente topa com a
           <strong>recursão em árvore</strong>. O exemplo clássico é o cálculo
-          dos números de Fibonacci. Pra calcular <code>fib(n)</code>, você
+          dos números de Fibonacci. Para calcular <code>fib(n)</code>, você
           precisa de <code>fib(n-1)</code> e <code>fib(n-2)</code>. Cada cálculo
           de <code>fib</code> ‘ramifica’ em dois outros, criando uma árvore de
           computações.
@@ -469,11 +469,11 @@
           A Ordem do Caos (ou da Eficiência): Ordens de Crescimento
         </h3>
         <p>
-          Pra gente não ficar só na intuição sobre se um processo é eficiente ou
-          não, o SICP introduz a ideia de
+          Para gente não ficar só na intuição sobre se um processo é eficiente
+          ou não, o SICP introduz a ideia de
           <strong>ordens de crescimento</strong> (usando a notação Theta, Θ). É
           uma forma de medir, de maneira grosseira, como o
-          <em>consumo de recursos</em> (tempo que leva pra rodar e espaço de
+          <em>consumo de recursos</em> (tempo que leva para rodar e espaço de
           memória que usa) de um processo cresce conforme a entrada (o
           <code>n</code>) aumenta.
         </p>
@@ -501,7 +501,7 @@
           </li>
         </ul>
         <p>
-          Entender as ordens de crescimento é fundamental pra gente ter uma
+          Entender as ordens de crescimento é fundamental para gente ter uma
           noção de performance sem precisar medir o tempo exato em
           milissegundos. É sobre a <em>taxa</em> de crescimento.
         </p>
@@ -511,15 +511,15 @@
             href="https://www.google.com/search?q=https://jhonatafs.github.io/sicp-pt-br/html/1_002e2.html%23g_t1_002e2"
             >1.2</a
           >
-          te força a olhar pra dentro da caixa preta. Não é mais só sobre a
+          te força a olhar para dentro da caixa preta. Não é mais só sobre a
           receita (o procedimento), mas sobre o cozimento (o processo). A gente
           aprende que a mesma receita pode ser cozinhada de formas diferentes,
           gerando processos com dinâmicas (e eficiências!) bem distintas. A
           distinção entre procedimento recursivo/iterativo (como você escreve) e
           processo recursivo/iterativo (como a máquina executa) é um dos grandes
           “aha!” moments dessa seção. E começar a pensar em ordens de
-          crescimento te dá uma ferramenta poderosa pra comparar a ‘potência’ ou
-          o ‘custo’ dos seus processos. É a matemática voltando pra te dar
+          crescimento te dá uma ferramenta poderosa para comparar a ‘potência’
+          ou o ‘custo’ dos seus processos. É a matemática voltando para te dar
           superpoderes analíticos!
         </p>
         <h2 id="formulando-abstrações-com-procedimentos-de-ordem-superior">
@@ -554,7 +554,7 @@
         </p>
         <ul>
           <li>
-            Passar um procedimento como <strong>argumento</strong> pra outro
+            Passar um procedimento como <strong>argumento</strong> para outro
             procedimento.
           </li>
           <li>
@@ -611,7 +611,7 @@
               lista de números (<code>a</code> até <code>b</code>) e somar
               coisas. Mas ele é meio lerdo e não sabe
               <em>o que exatamente</em> ele tem que somar em cada posição. Você
-              tem que dar essa instrução pra ele!
+              tem que dar essa instrução para ele!
             </p>
             <p>
               O argumento <code>termo</code> é exatamente isso: é o
@@ -646,7 +646,7 @@
               qualquer. É uma <strong>funçãozinha</strong>, um
               <strong>procedimento</strong>, que o <code>soma</code> chama em
               cada passo para saber “qual o valor que eu pego dessa posição aqui
-              pra somar?”. Você tá dando pra ele a <em>regra</em> de como
+              para somar?”. Você tá dando para ele a <em>regra</em> de como
               transformar a posição atual no valor a ser somado.
             </p>
           </li>
@@ -657,7 +657,7 @@
             <p>
               Beleza, o <code>soma</code> sabe qual valor pegar na posição
               <code>a</code> (usando o procedimento <code>termo</code>). Mas e
-              depois? Como ele anda pra próxima posição?
+              depois? Como ele anda para próxima posição?
             </p>
             <p>
               O argumento <code>proximo</code> diz isso a ele: é o
@@ -688,7 +688,7 @@
               <strong>funçãozinha</strong>, um <strong>procedimento</strong>,
               que o <code>soma</code> chama em cada passo para saber “qual a
               próxima posição que eu tenho que ir depois dessa?”. Você tá dando
-              pra ele a <em>regra</em> de como avançar na sua “lista” ou
+              para ele a <em>regra</em> de como avançar na sua “lista” ou
               “sequência” de números.
             </p>
           </li>
@@ -698,17 +698,17 @@
           Porque o procedimento <code>soma</code> em si é totalmente
           <strong>genérico</strong>. Ele não sabe se tá somando inteiros,
           quadrados ou inversos. Ele só sabe seguir as instruções que você dá
-          pra ele através dos procedimentos <code>termo</code> e
+          para ele através dos procedimentos <code>termo</code> e
           <code>proximo</code>. Você “programa” o comportamento específico da
           soma (o que somar e como avançar) passando
           <em>outros procedimentos</em> como dados para ele.
         </p>
         <p>
           É como ter um robô que sabe somar, mas você troca os “olhos” (o
-          procedimento <code>termo</code> que diz o que ele vê/pega pra somar) e
-          as “pernas” (o procedimento <code>proximo</code> que diz como ele anda
-          para a próxima posição). O robô (<code>soma</code>) é o mesmo, mas o
-          que ele faz muda completamente dependendo dos “acessórios” (os
+          procedimento <code>termo</code> que diz o que ele vê/pega para somar)
+          e as “pernas” (o procedimento <code>proximo</code> que diz como ele
+          anda para a próxima posição). O robô (<code>soma</code>) é o mesmo,
+          mas o que ele faz muda completamente dependendo dos “acessórios” (os
           procedimentos) que você dá a ele.
         </p>
         <p>
@@ -723,7 +723,7 @@
         <p>
           Às vezes, você precisa passar um procedimento como argumento, mas ele
           é tão simples ou tão específico praquele lugar que dar um nome
-          <code>define</code> pra ele parece exagero. Pra isso, o SICP te
+          <code>define</code> para ele parece exagero. Para isso, o SICP te
           apresenta o <code>lambda</code>.
         </p>
         <p>
@@ -754,14 +754,14 @@
         <p>
           E é nesse ponto que o livro também mostra o <code>let</code>. O
           <code>let</code> não cria procedimentos novos diretamente como o
-          <code>lambda</code>, mas ele é uma ferramenta útil pra criar variáveis
-          temporárias, com um escopo bem restrito, só para usar ali, naquele
-          pedaço de código.
+          <code>lambda</code>, mas ele é uma ferramenta útil para criar
+          variáveis temporárias, com um escopo bem restrito, só para usar ali,
+          naquele pedaço de código.
         </p>
         <p>
           Pensa assim: às vezes, dentro de um cálculo, você precisa calcular um
-          valor intermediário e dar um nome pra ele rapidinho só pra organizar a
-          conta, mas não quer que esse nome “vaze” e atrapalhe o resto do seu
+          valor intermediário e dar um nome para ele rapidinho só para organizar
+          a conta, mas não quer que esse nome “vaze” e atrapalhe o resto do seu
           programa. O <code>let</code> faz exatamente isso!
         </p>
         <pre><code class="language-scheme">
@@ -808,7 +808,7 @@
           <strong>métodos computacionais gerais</strong>. Não é mais sobre
           resolver <em>um</em> problema específico (tipo calcular uma raiz de
           9); é sobre implementar o <em>método</em> de encontrar raízes que
-          funcione pra <em>qualquer</em> função.
+          funcione para <em>qualquer</em> função.
         </p>
         <p>O livro demonstra isso com exemplos como:</p>
         <ul>
