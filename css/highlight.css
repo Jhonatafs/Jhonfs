@@ -1,5 +1,5 @@
 code {
-  font-size: 70%;
+  font-size: 70% !important;
 
   background-color: var(--code-bg);
   color: var(--code-text);
@@ -18,7 +18,7 @@ pre {
 }
 
 pre code {
-  font-size: 0.7rem;
+  font-size: 0.8rem !important;
 }
 
 .hljs {

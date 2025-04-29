@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="application-name" content="JhonFs" />
-    <meta name="description" content="Blog" />
-    <link rel="icon" type="image/png" href="/img/fovicon.svg" />
+    <meta
+      name="description"
+      content="Blog: projetos autorais, resumos de capítulos, tutoriais de programação e reflexões sobre educação e vida intelectual."
+    />
+    <link rel="icon" type="image/svg+xml" href="/img/fovicon.svg" />
     <title>JhonFs</title>
     <!--CSS-->
-    <link rel="stylesheet" href="/css/normilize.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/icons.css" />
     <link rel="stylesheet" href="/css/index.css" />
@@ -21,57 +24,97 @@
       <div id="top"></div>
       <button id="backToTop"><span class="icon_angles_up"></span></button>
       <script src="/js/buttonToTop.js"></script>
-      <section id="projects">
-        <h2>Projetos</h2>
+      <section id="projetos" aria-labelledby="titulo-projetos">
+        <h2 id="titulo-projetos">Projetos</h2>
         <ul>
           <li>
-            <a
-              href="pt/Notas do livro Gramática Latina de Napoleão M. de Almeida.html"
-              >Notas do livro <em>Gramática Latina</em> de
-              <em>Napoleão M. de Almeida</em></a
-            >
-            <time datetime="" class="metadata icon_calendar"
-              >&nbsp;&nbsp;Em processo</time
-            >
+            <article aria-labelledby="proj-sicp-pt-br">
+              <h3 id="proj-sicp-pt-br">
+                Tradução do livro
+                <em>Structure and Interpretation of Computer Programs</em>
+              </h3>
+              <p>
+                Projeto completo de tradução do SICP para o português,
+                atualmente somente na versão HTML, EPUB e PDF previsto para Maio
+                de 2025.
+              </p>
+              <p>
+                <a
+                  href="https://github.com/Jhonatafs/sicp-pt-br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon_link_externo"
+                >
+                  Repositório no GitHub
+                </a>
+                <br />
+                <a
+                  href="https://jhonatafs.github.io/sicp-pt-br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon_link_externo"
+                >
+                  Leitura em HTML
+                </a>
+              </p>
+              <time datetime="2025-02-26" class="metadata icon_calendar">
+                26 de fevereiro de 2025
+              </time>
+            </article>
           </li>
           <li>
-            <a
-              href="pt/Notas e soluções do Curso MIT 6.001 – Structure and Interpretation of Computer Programs (SICP)/Guia.html"
-              >Notas e soluções do Curso
-              <abbr title="Massachusetts Institute of Technology">MIT</abbr>
-              6.001 &ndash; Structure and Interpretation of Computer Programs
-              (<abbr title="Structure and Interpretation of Computer Programs"
-                >SICP</abbr
-              >)</a
-            >
-            <time datetime="" class="metadata icon_calendar"
-              >&nbsp;&nbsp;Em processo</time
-            >
-          </li>
-          <li>
-            <a href="https://jhonatafs.github.io/sicp-pt-br/" target="_blank">
-              [Tradução]
-              <em>Structure and Interpretation of Computer Programs</em>, 2º
-              ed.</a
-            >
-            <time datetime="2025-02-26" class="metadata icon_calendar"
-              >&nbsp;&nbsp;26 de fevereiro de 2025</time
-            >
+            <article aria-labelledby="proj-lqm-file-extractor">
+              <h3 id="proj-lqm-file-extractor">lqm-file-extractor</h3>
+              <p>
+                Ferramenta para extração e conversão de arquivos LQM, escrita em
+                Python.
+              </p>
+              <p>
+                <a
+                  href="https://github.com/Jhonatafs/lqm-file-extractor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon_link_externo"
+                >
+                  Repositório no GitHub
+                </a>
+              </p>
+              <time datetime="2025-03-10" class="metadata icon_calendar">
+                10 de março de 2025
+              </time>
+            </article>
           </li>
         </ul>
       </section>
-      <!--<section id="work">
-        <h2>Trabalhos</h2>
+      <section id="artigos" aria-labelledby="titulo-artigos">
+        <h2 id="titulo-artigos">Artigos</h2>
         <ul>
-          <li>...</li>
+          <li>
+            <article aria-labelledby="art-sicp-cap1">
+              <h3 id="art-sicp-cap1">
+                Série SICP – Capítulo 1: Construindo Abstrações com
+                Procedimentos
+              </h3>
+              <p>
+                Resumo e explicação dos principais conceitos do primeiro
+                capítulo de SICP, incluindo métricas de ordem superior e
+                abstração de procedimentos.
+              </p>
+              <p>
+                <a
+                  href="/pt/Série SICP/Capítulo 1:  Construindo Abstrações com Procedimentos.html"
+                >
+                  Ler artigo completo
+                </a>
+              </p>
+              <time datetime="2025-04-15" class="metadata icon_calendar">
+                15 de abril de 2025
+              </time>
+            </article>
+          </li>
+          <!-- Mais artigos aqui -->
         </ul>
       </section>
-      <section id="articles">
-        <h2>Artigos</h2>
-        <ul>
-          <li>...</li>
-        </ul>
-      </section>-->
     </main>
     <footer>
       <div id="social-media">

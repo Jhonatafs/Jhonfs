@@ -71,4 +71,5 @@
 .icon_link_externo::after {
   font-family: "Icons";
   content: " ";
+  font-size: 70%;
 }
