@@ -27,25 +27,12 @@ Aqui apresento alguns dos projetos em que trabalhei, destacando as tecnologias u
     * Tecnologias: Python
     * Link: [https://github.com/Jhonatafs/lqm-file-extractor](https://github.com/Jhonatafs/lqm-file-extractor)
 
-## Tecnologias Utilizadas
-
-O site utiliza as seguintes tecnologias:
-
-* HTML
-* CSS (incluindo Normalize.css)
-* JavaScript
-* Fontes do Google Fonts (Inter)
-
 ## Contato e Redes Sociais
 
 Você pode me encontrar nas seguintes plataformas:
 
 * GitHub: [https://github.com/Jhonatafs](https://github.com/Jhonatafs)
 * LinkedIn: [https://www.linkedin.com/in/jhonfs/](https://www.linkedin.com/in/jhonfs/)
-
-## Licença
-
-Favor verificar a licença no repositório do GitHub.
 
 ---
 
