@@ -2,11 +2,11 @@
 /* Mantém o Modo Claro (Sépia) */
 :root {
   --bg-color: #fbf0e6;
-  --text-color: #4a3a2b;
-  --primary-color: #8b4513;
+  --text-color: hwb(29 17% 90%);
+  --primary-color: hwb(25 7% 55%);
   --secondary-color: #7a6a5d;
-  --border-color: #d3c4b3;
-  --alt-bg-color: #f0e3d4;
+  --border-color: hwb(32 70% 17%);
+  --alt-bg-color: hwb(32 83% 6%);
   --link-color: var(--primary-color);
   --link-hover-color: #a0522d;
   --header-bg: var(--bg-color);
@@ -123,6 +123,7 @@ a:hover {
 
 small {
   color: var(--secondary-color);
+  font-weight: 500;
   font-size: 0.875rem;
 }
 
@@ -297,6 +298,7 @@ small {
 }
 .hero .subtitle {
   font-size: 1.2rem;
+  font-weight: 500;
   color: var(--secondary-color);
   max-width: 700px;
   margin-left: auto;
@@ -379,6 +381,7 @@ body.dark-mode .project-preview:hover {
   text-align: center;
   color: var(--secondary-color);
   font-size: 0.9rem;
+  font-weight: 500;
   transition: var(--theme-transition), border-color 0.3s ease;
 }
 .site-footer .container {
@@ -396,6 +399,7 @@ body.dark-mode .project-preview:hover {
 }
 .footer-links a {
   color: var(--secondary-color);
+  font-weight: 500;
   margin: 0 0.5rem;
 }
 .footer-links a:hover {
