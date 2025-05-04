@@ -23,11 +23,11 @@
 }
 
 .article-container {
-  max-width: 100%; /* Pode ajustar para largura ideal de leitura */
+  max-width: 100%;
 }
 
 .full-article h1 {
-  font-size: 2.8rem; /* Um pouco maior para o título principal */
+  font-size: 2.8rem;
   padding-top: calc(var(--spacing-unit) * 4);
   margin: 0;
   margin-bottom: calc(var(--spacing-unit) * 0.5);
@@ -47,7 +47,7 @@
 }
 
 .back-link {
-  display: inline-block; /* Para permitir margin */
+  display: inline-block;
   margin-bottom: var(--spacing-unit);
   font-weight: 700;
   color: var(--secondary-color);
@@ -61,12 +61,16 @@
 }
 
 /* Estilos para conteúdo dentro do artigo */
+.full-article * {
+  hyphens: auto !important;
+}
+
 .full-article h2 {
   padding-top: calc(var(--spacing-unit) * 2.5);
   margin: 0;
   margin-bottom: var(--spacing-unit);
   padding-bottom: calc(var(--spacing-unit) * 0.3);
-  border-bottom: 1px solid var(--border-color); /* Linha sutil abaixo de H2 */
+  border-bottom: 1px solid var(--border-color);
 }
 
 .full-article h3 {
@@ -80,37 +84,35 @@
 .full-article ol,
 .full-article blockquote,
 .full-article pre {
-  margin-bottom: calc(var(--spacing-unit) * 1.2); /* Espaçamento consistente */
+  margin-bottom: calc(var(--spacing-unit) * 1.2);
 }
 
 .full-article ul,
 .full-article ol {
-  padding-left: calc(
-    var(--spacing-unit) * 2
-  ); /* Indentação padrão para listas */
+  padding-left: calc(var(--spacing-unit) * 2);
 }
-.full-article ul ul, /* Listas aninhadas */
+.full-article ul ul,
 .full-article ol ol,
 .full-article ul ol,
 .full-article ol ul {
-  margin-bottom: 0; /* Menos espaço em listas aninhadas */
+  margin-bottom: 0;
 }
 
 .full-article blockquote {
   border-left: 4px solid var(--primary-color);
   padding-left: calc(var(--spacing-unit) * 1.5);
-  margin-left: 0; /* Reset margin padrão */
+  margin-left: 0;
   margin-right: 0;
   font-style: italic;
   color: var(--secondary-color);
-  background-color: var(--alt-bg-color); /* Fundo sutil */
+  background-color: var(--alt-bg-color);
   padding-top: calc(var(--spacing-unit) * 0.5);
   padding-bottom: calc(var(--spacing-unit) * 0.5);
-  border-radius: 0 4px 4px 0; /* Cantos arredondados */
+  border-radius: 0 4px 4px 0;
   transition: var(--theme-transition), border-color 0.3s ease;
 }
 .full-article blockquote p {
-  margin-bottom: 0; /* Remove margin do parágrafo dentro do blockquote */
+  margin-bottom: 0;
 }
 
 /* Estilo para blocos de código */
@@ -118,7 +120,7 @@
   border: 1px solid var(--border-color);
   border-radius: 6px;
   padding: var(--spacing-unit);
-  overflow-x: auto; /* Barra de rolagem horizontal se o código for largo */
+  overflow-x: auto;
   font-size: 0.9rem;
   line-height: 1.5;
   transition: var(--theme-transition), border-color 0.3s ease;
@@ -128,8 +130,8 @@
   font-family: "Fira Code", "Courier New", Courier, monospace;
   font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero",
     "onum" !important;
-  background-color: transparent; /* Código dentro de pre não precisa de fundo extra */
-  padding: 0; /* Reset padding */
+  background-color: transparent;
+  padding: 0;
 }
 
 /* Estilo para código inline (fora de <pre>) */
@@ -147,7 +149,7 @@
   background-color: var(--alt-bg-color);
   padding: 0.2em 0.4em;
   border-radius: 5px;
-  font-size: 0.775em; /* Ligeiramente menor */
+  font-size: 0.775em;
   transition: var(--theme-transition);
 }
 
@@ -155,11 +157,55 @@
 .full-article h1 a,
 .full-article h2 a,
 .full-article h3 a {
-  color: inherit; /* Herda cor do título */
+  color: inherit;
   text-decoration: none;
 }
 .full-article h1 a:hover,
 .full-article h2 a:hover,
 .full-article h3 a:hover {
   text-decoration: underline;
+}
+
+/* Quebra de palavras */
+.full-article * {
+  hyphens: auto;
+}
+
+.full-article a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* --- Container Responsivo para Tabelas --- */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: calc(var(--spacing-unit) * 1.2);
+}
+
+/* --- Estilos para a Tabela Dentro do Wrapper --- */
+.table-wrapper table {
+  width: fit-content;
+  max-width: 800px !important;
+  min-width: 600px;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+/* --- Estilos Básicos para Células --- */
+.table-wrapper th,
+.table-wrapper td {
+  border: 1px solid var(--border-color);
+  padding: 0.6em 0.8em;
+  text-align: left;
+  white-space: wrap;
+}
+
+.table-wrapper th {
+  background-color: var(--alt-bg-color);
+  font-weight: bold;
 }

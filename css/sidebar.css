@@ -1,74 +1,92 @@
-/* --- Estilos da Barra Lateral/Menu Suspenso --- */
+/* ==========================================================================
+   Sidebar & Responsive Menu Styles
+   ========================================================================== */
+
+/* --- Base Setup --- */
 
 aside {
   margin: 0;
   padding: 0;
 }
 
-/* Oculta o checkbox */
+/* --- Menu Toggle Checkbox (Control Mechanism) --- */
+
+/* Visually hide the checkbox used to toggle the menu state */
 .menu-toggle {
   display: none;
 }
 
-/* Estilo para o botão de abrir o menu (visível apenas em telas pequenas) */
+/* ==========================================================================
+   Menu Toggle Button (Hamburger Icon)
+   ========================================================================== */
+
+/* --- Base Styles for the Button Container --- */
+
 .menu-toggle-button {
-  display: none; /* Começa escondido e aparece via media query */
-  position: fixed; /* Fixo na tela */
+  /* Hidden by default, shown via media query for smaller screens */
+  display: none;
+  position: fixed;
   top: var(--spacing-unit);
   left: var(--spacing-unit);
-  z-index: 30; /* Acima de tudo */
-  background-color: transparent; /* Fundo transparente */
-  /* Removida cor do texto e borda sutil aqui, pois o estilo das spans cuidará disso */
-  padding: 0; /* Remove padding para controle total pelas spans */
-  width: 40px; /* Largura e altura fixas do contêiner do ícone */
+  z-index: 30;
+  background-color: transparent;
+  padding: 0;
+  width: 40px;
   height: 30px;
   cursor: pointer;
-  /* Removido border e border-radius */
-  /* Removido transition */
+  border: none;
 
-  /* Adicionados estilos flexbox para centralizar as spans */
+  /* Flexbox used to position the span lines */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  -webkit-user-select: none; /* Para evitar seleção de texto no ícone */
+  -webkit-user-select: none;
   user-select: none;
 }
 
-/* Estilos para as spans do hambúrguer */
+/* --- Styles for the Hamburger Lines (spans) --- */
+
 .menu-toggle-button span {
+  /* Hidden by default, shown via media query */
   display: none;
-  width: 33px; /* Largura da linha do hambúrguer */
-  height: 4px; /* Altura da linha */
+  width: 33px;
+  height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: var(--text-color); /* Cor da linha */
+  background: var(--text-color);
   border-radius: 3px;
   z-index: 1;
-  /*transform-origin: 4px 0px; /* Ponto de origem para a rotação */
 
-  /* Transição para a animação */
+  /* Animation setup */
+
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
+/* Specific transform origins for the first and last lines for the 'X' animation */
 .menu-toggle-button span:first-child {
   transform-origin: 0% 0%;
 }
 
 .menu-toggle-button span:nth-last-child(2) {
+  /* Targets the second-to-last span (the bottom line in a 3-line setup) */
   transform-origin: 0% 100%;
 }
 
-/* Transformação para o "X" quando o menu está aberto */
+/* --- Hamburger to 'X' Transformation (Checked State) --- */
+
+/* Applies when the hidden checkbox .menu-toggle is checked */
+
+/* Rotate first line */
 .menu-toggle:checked ~ .layout-container .menu-toggle-button span {
   opacity: 1;
   transform: rotate(45deg) translate(-5px, -7px);
-  background: var(--text-color); /* Mantém a cor do texto no modo aberto */
+  background: var(--text-color);
 }
 
-/* Oculta a linha do meio quando o menu está aberto */
+/* Hide middle line */
 .menu-toggle:checked
   ~ .layout-container
   .menu-toggle-button
@@ -77,7 +95,7 @@ aside {
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/* Gira a última linha na direção oposta */
+/* Rotate last line (second-to-last span) */
 .menu-toggle:checked
   ~ .layout-container
   .menu-toggle-button
@@ -85,8 +103,14 @@ aside {
   transform: rotate(-45deg) translate(-4px, 14px);
 }
 
-/* Estilo da barra lateral */
+/* ==========================================================================
+   Sidebar Styles
+   ========================================================================== */
+
+/* --- Base Sidebar Styles (Desktop / Default View) --- */
+
 .sidebar {
+  /* Dimensions and positioning for the default fixed sidebar */
   width: calc(200px + 1dvw);
   background-color: transparent;
   color: var(--text-color);
@@ -95,40 +119,40 @@ aside {
   z-index: 15;
   flex-shrink: 0;
 
+  /* Fixed positioning centered vertically */
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
   left: var(--spacing-unit);
 
+  /* Size constraints and scrolling */
   max-height: 70vh;
   overflow-y: auto;
   align-self: flex-start;
 
+  /* Smooth transitions for responsive changes */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo para o contêiner principal do layout */
-.layout-container {
-  display: flex;
-  gap: calc(var(--spacing-unit) * 2);
-  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
-  max-width: calc(var(--container-max-width) + 250px + var(--spacing-unit) * 2);
-  margin: 0 auto;
-}
+/* --- Sidebar Internal Structure & Content --- */
 
-/* Estilos das seções dentro da barra lateral */
+/* Sections within the sidebar */
 .sidebar-section {
   margin-bottom: calc(var(--spacing-unit) * 1.5);
   padding-bottom: var(--spacing-unit);
   border-bottom: 1px solid var(--border-color);
 }
+
+/* Remove border from the last section */
 .sidebar-section:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
 }
 
-.sidebar-section h3 {
+/* Section headings (e.g., "Navegação") */
+.sidebar-section h4 {
+  /* Changed from h3 based on HTML, adjust if needed */
   font-size: 1rem;
   margin-top: 0;
   margin-bottom: calc(var(--spacing-unit) * 0.8);
@@ -137,13 +161,18 @@ aside {
   letter-spacing: 0.05em;
 }
 
+/* General list styling within sections */
 .sidebar-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
+
 .sidebar-section li {
   margin-bottom: calc(var(--spacing-unit) * 0.4);
 }
+
+/* General link styling within sections */
 .sidebar-section a {
   color: var(--text-color);
   text-decoration: none;
@@ -152,10 +181,13 @@ aside {
   padding: 0.1rem 0;
   font-size: 0.9rem;
 }
+
 .sidebar-section a:hover {
   color: var(--primary-color);
   text-decoration: underline;
 }
+
+/* Specific styling for the top buttons section */
 .sidebar-content .buttons ul {
   display: flex;
   flex-direction: row;
@@ -164,7 +196,7 @@ aside {
   align-items: center;
 }
 
-/* Estilo para o botão de tema na sidebar (ajustado) */
+/* Style for the Theme Toggle Button *within the sidebar* */
 .sidebar .theme-toggle-button {
   width: auto;
   display: inline-block;
@@ -176,13 +208,18 @@ aside {
   color: var(--text-color);
   border-radius: 5px;
   cursor: pointer;
+  line-height: 1;
   transition: background-color 0.2s ease, border-color 0.2s ease,
     color 0.2s ease;
 }
+
 .sidebar .theme-toggle-button:hover {
   background-color: var(--alt-bg-color);
 }
-.icon {
+
+/* Styling for other general icons (GitHub, LinkedIn, Home) */
+.sidebar .icon {
+  /* Assuming .icon is used on the <a> tags for these */
   display: inline-block;
   text-align: center;
   padding: 0.03rem 0.3rem !important;
@@ -194,73 +231,103 @@ aside {
   cursor: pointer;
 }
 
-.icon:hover {
+.sidebar .icon:hover {
   text-decoration: none !important;
+  background-color: var(--alt-bg-color);
 }
 
-/* Estilo específico para a navegação do artigo (TOC) */
+/* --- Table of Contents Specific Styles --- */
+
 .table-of-contents ul ul {
+  /* Indentation and styling for nested TOC lists */
   padding-left: calc(var(--spacing-unit) * 1);
   margin-top: calc(var(--spacing-unit) * 0.4);
   border-left: 1px solid var(--border-color);
 }
+
 .table-of-contents ul ul li {
   margin-bottom: calc(var(--spacing-unit) * 0.2);
 }
+
+/* Font size adjustments for TOC levels */
 .table-of-contents ul a {
   font-size: 0.85rem;
 }
+
 .table-of-contents ul ul a {
   font-size: 0.75rem;
 }
 
-/* --- Responsividade (Telas Menores) --- */
+/* ==========================================================================
+   Layout Container (Affects Sidebar Positioning)
+   ========================================================================== */
+
+/* Base styles for the main layout container */
+.layout-container {
+  display: flex;
+  gap: calc(var(--spacing-unit) * 2);
+  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+  /* Max width calculation includes sidebar width */
+  max-width: calc(
+    var(--container-max-width) + 200px + 1dvw + var(--spacing-unit) * 2
+  );
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Responsive Styles (Media Queries)
+   ========================================================================== */
+
+/* --- Breakpoint: max-width: 1024px (Tablet/Small Laptop) --- */
+/* Sidebar transitions from fixed side element to hidden slide-out menu */
 @media (max-width: 1024px) {
-  /* Breakpoint para telas menores */
-
-  .sidebar {
-    background-color: var(--bg-color);
-    width: 200px;
-  }
-
+  /* Adjust layout container for smaller screens */
   .layout-container {
     flex-direction: column;
     padding: var(--spacing-unit);
     gap: var(--spacing-unit);
+    max-width: 100%;
   }
 
-  /* Oculta a barra lateral por padrão em telas menores */
+  /* Sidebar becomes a hidden, fixed-position menu */
   .sidebar {
-    position: fixed; /* Volta para fixed para o deslize e overlay */
+    background-color: var(--bg-color);
+    position: fixed;
     top: 0;
-    left: -300px; /* Esconde a sidebar para a esquerda */
+    left: -300px;
     bottom: 0;
-    width: 300px; /* Largura do menu suspenso */
+    width: 300px;
     border-right: none;
-    border-bottom: none;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transform: translateX(0);
     z-index: 20;
-    max-height: none; /* Remove altura máxima */
+    max-height: none;
     overflow-y: auto;
     padding-top: calc(var(--spacing-unit) * 4);
+    transform: translateY(0);
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  /* Mostra o botão de abrir o menu em telas pequenas */
+  /* Show the hamburger button */
   .menu-toggle-button {
-    display: flex; /* Volta a ser flex para telas pequenas */
-    /* Mantém a posição fixa e z-index */
+    display: flex;
   }
 
-  /* Estilo para o menu suspenso quando o checkbox está marcado */
+  /* Show the hamburger lines */
+  .menu-toggle-button span {
+    display: block;
+  }
+
+  /* Sidebar slides in when the toggle checkbox is checked */
   #menu-toggle:checked ~ .layout-container .sidebar {
     transform: translateX(300px);
     box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
   }
 
-  /* Adiciona um overlay ao conteúdo principal quando o menu estiver aberto */
+  /* --- Overlay for Main Content --- */
+
+  /* Creates a dark overlay behind the open menu */
   .layout-container::before {
     content: "";
     position: fixed;
@@ -272,50 +339,32 @@ aside {
     z-index: 10;
     display: none;
     cursor: pointer;
-  }
-
-  #menu-toggle:checked ~ .layout-container::before {
-    display: block;
-  }
-
-  /* Ao clicar no overlay, desmarca o checkbox para fechar o menu */
-  .layout-container::before {
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
+  /* Show overlay when the menu is open */
   #menu-toggle:checked ~ .layout-container::before {
-    pointer-events: auto;
-  }
-
-  /* Oculta o menu-toggle-button quando o menu está aberto para evitar cliques acidentais */
-  #menu-toggle:checked ~ .menu-container .menu-toggle-button {
-    display: none; /* Esconde o botão hambúrguer quando o menu está aberto */
-  }
-
-  /* Ajustes adicionais para o conteúdo principal em telas pequenas */
-  .content-area {
-    padding: 0;
-  }
-  .article-container {
-    padding-left: var(--spacing-unit);
-    padding-right: var(--spacing-unit);
-  }
-}
-
-/* Media query para telas pequenas */
-@media (max-width: 1024px) {
-  .menu-toggle-button span {
     display: block;
+    pointer-events: auto;
+    opacity: 1;
   }
+
+  /* Note: The actual closing via overlay click needs JavaScript */
+  /* The CSS here just styles the overlay appearance */
 }
 
-/* Media query para telas muito pequenas */
-@media (max-width: 480px) {
+/* --- Breakpoint: max-width: 768px (Mobile Landscape / Large Phone) --- */
+@media (max-width: 768px) {
+  /* Adjust sidebar width and position for smaller screens */
   .sidebar {
-    width: 85%;
-    left: -85%;
+    width: 85dvw !important;
+    left: -85dvw !important;
   }
+
+  /* Adjust slide-in transform based on the new width */
   #menu-toggle:checked ~ .layout-container .sidebar {
-    transform: translateX(85%);
+    transform: translateX(85dvw);
   }
 }

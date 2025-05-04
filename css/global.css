@@ -1,5 +1,8 @@
-/* --- Reset Básico & Variáveis --- */
-/* Mantém o Modo Claro (Sépia) */
+/* ==========================================================================
+   Global Styles & Theme Variables
+   ========================================================================== */
+
+/* --- Root Variables (Light Theme / Sepia - Default) --- */
 :root {
   --bg-color: #fbf0e6;
   --text-color: hwb(29 17% 90%);
@@ -20,6 +23,7 @@
 
   --theme-transition: background-color 0.3s ease, color 0.3s ease;
 
+  /* Highlight.js Variables (Light) */
   --hljs-keyword: #8b4513;
   --hljs-type: #b8860b;
   --hljs-builtin: #c04000;
@@ -33,33 +37,35 @@
   --hljs-template-variable: #5f9ea0;
 }
 
+/* --- Dark Mode Theme Variables --- */
 body.dark-mode {
-  /* --- Modo Escuro --- */
-  --bg-color: #252526; /* Fundo cinza escuro */
-  --text-color: #cccccc; /* Texto cinza claro, bom contraste com o fundo */
-  --primary-color: #569cd6; /* Azul suave para elementos interativos e links */
-  --secondary-color: #9a9a9a; /* Cinza um pouco mais escuro que o texto, para elementos secundários */
-  --border-color: #444444; /* Cinza escuro para bordas */
-  --alt-bg-color: #333333; /* Fundo alternativo, um pouco mais escuro que o principal */
+  --bg-color: #252526;
+  --text-color: #cccccc;
+  --primary-color: #569cd6;
+  --secondary-color: #9a9a9a;
+  --border-color: #444444;
+  --alt-bg-color: #333333;
   --link-color: var(--primary-color);
-  --link-hover-color: #4682b4; /* Azul no hover */
+  --link-hover-color: #4682b4;
   --header-bg: var(--bg-color);
   --button-bg: var(--primary-color);
-  --button-text: #252526; /* Texto escuro para contraste no botão */
+  --button-text: #252526;
 
-  --hljs-keyword: #569cd6; /* Azul */
-  --hljs-type: #4ec9b0; /* Ciano */
-  --hljs-builtin: #dcdcaa; /* Amarelo claro */
-  --hljs-string: #ce9178; /* Laranja suave */
-  --hljs-number: #b5cea8; /* Verde claro */
-  --hljs-attribute: #9cdcee; /* Azul claro */
-  --hljs-tag: #569cd6; /* Azul */
-  --hljs-params: #cccccc; /* Mesma cor do texto principal */
-  --hljs-meta: #9a9a9a; /* Mesma cor secundária */
-  --hljs-comment: #608b4e; /* Verde musgo para comentários */
-  --hljs-template-variable: #d7ba7d; /* Laranja/Amarelo */
+  /* Highlight.js Variables (Dark) */
+  --hljs-keyword: #569cd6;
+  --hljs-type: #4ec9b0;
+  --hljs-builtin: #dcdcaa;
+  --hljs-string: #ce9178;
+  --hljs-number: #b5cea8;
+  --hljs-attribute: #9cdcee;
+  --hljs-tag: #569cd6;
+  --hljs-params: #cccccc;
+  --hljs-meta: #9a9a9a;
+  --hljs-comment: #608b4e;
+  --hljs-template-variable: #d7ba7d;
 }
 
+/* --- Basic Reset --- */
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +73,10 @@ body.dark-mode {
   scroll-behavior: smooth;
 }
 
-/* --- Estilos Base --- */
+/* ==========================================================================
+   Base HTML Element Styles
+   ========================================================================== */
+
 html {
   font-size: 16px;
 }
@@ -83,6 +92,7 @@ body {
   max-width: 100dvw !important;
 }
 
+/* --- Typography --- */
 h1,
 h2,
 h3,
@@ -127,89 +137,88 @@ small {
   font-size: 0.875rem;
 }
 
-/* Estilos para o botão Voltar ao Topo */
-.back-to-top {
-  display: none;
-  position: fixed;
-  bottom: calc(var(--spacing-unit) * 2 + 40px);
-  right: calc(var(--spacing-unit) * 2);
-  z-index: 99;
-  border: none;
-  background-color: var(--header-bg);
-  color: var(--button-text);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-  pointer-events: none;
-}
+/* ==========================================================================
+   Utility Styles & Widgets
+   ========================================================================== */
 
-.back-to-top:hover {
-  background-color: var(--secondary-color);
-}
-
-/* Estilos para o botão Ir ao Final */
+/* --- Scroll Buttons (Back to Top / Go to Bottom) --- */
+.back-to-top,
 .go-to-bottom {
-  display: none;
   position: fixed;
-  bottom: calc(var(--spacing-unit) * 2);
   right: calc(var(--spacing-unit) * 2);
   z-index: 99;
   border: none;
-  background-color: var(--header-bg);
-  color: var(--button-text);
+  background-color: var(
+    --header-bg
+  ); /* Uses header background for consistency */
+  color: var(--button-text); /* Text color needs contrast with button BG */
   width: 30px;
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
-  display: flex;
+  display: flex; /* Use flex to center icon */
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Not clickable when hidden */
 }
 
+.back-to-top {
+  bottom: calc(
+    var(--spacing-unit) * 2 + 40px
+  ); /* Position above Go to Bottom */
+}
+
+.go-to-bottom {
+  bottom: calc(var(--spacing-unit) * 2);
+}
+
+.back-to-top:hover,
 .go-to-bottom:hover {
   background-color: var(--secondary-color);
 }
 
-/* Classe para mostrar os botões (adicionado via JavaScript) */
+/* --- Visibility control for scroll buttons (managed by JS) --- */
 .back-to-top.show,
 .go-to-bottom.show {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Estilo para os ícones SVG dentro dos botões */
+/* --- SVG icons within scroll buttons --- */
 .back-to-top svg,
 .go-to-bottom svg {
-  display: block;
+  display: block; /* Ensure SVG takes up space */
   width: 24px;
   height: 24px;
+  stroke: var(--text-color); /* Use text color for the icon lines */
 }
 
-/* Classe para mostrar o botão (adicionado via JavaScript) */
-.back-to-top.show {
-  opacity: 1;
-  pointer-events: auto;
+/* --- Accessibility Helper --- */
+/* Hides content visually but keeps it accessible to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-/* Estilo para o ícone SVG dentro do botão */
-.back-to-top svg {
-  display: block;
-  width: 24px;
-  height: 24px;
+/* Ensure icon links don't get underlines on hover */
+.icon:hover {
+  text-decoration: none !important;
 }
 
-/* --- Layout --- */
+/* ==========================================================================
+   Layout Styles
+   ========================================================================== */
+
+/* --- Main Content Container --- */
 .container {
   max-width: var(--container-max-width);
   margin-left: auto;
@@ -218,10 +227,12 @@ small {
   padding-right: var(--spacing-unit);
 }
 
+/* --- General Content Section --- */
 .content-section {
   padding: calc(var(--spacing-unit) * 3) 0;
 }
 
+/* --- Alternate Background Content Section --- */
 .content-section.alt-bg {
   background-color: var(--alt-bg-color);
   border-top: 1px solid var(--border-color);
@@ -229,23 +240,29 @@ small {
   transition: var(--theme-transition), border-color 0.3s ease;
 }
 
-/* --- Header --- */
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+
+/* --- Site Header Bar --- */
 .site-header {
   padding: calc(var(--spacing-unit) * 0.5) 0;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--header-bg);
-  position: sticky;
+  position: sticky; /* Makes header stick to top on scroll */
   top: 0;
-  z-index: 10;
+  z-index: 10; /* Ensures header is above page content */
   transition: var(--theme-transition), border-color 0.3s ease;
 }
 
+/* --- Container within the Header --- */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* --- Site Title Link --- */
 .site-title {
   font-size: 1.7rem;
   font-weight: 700;
@@ -257,6 +274,7 @@ small {
   text-decoration: none;
 }
 
+/* --- Main Navigation Menu --- */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -273,6 +291,7 @@ small {
   text-decoration: none;
 }
 
+/* --- Theme Toggle Button (within Header) --- */
 .theme-toggle-button {
   background: none;
   border: 1px solid var(--border-color);
@@ -281,14 +300,17 @@ small {
   padding: 0.3rem 0.5rem;
   border-radius: 5px;
   font-size: 1rem;
-  line-height: 1;
+  line-height: 1; /* Ensure icon/emoji fits */
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .theme-toggle-button:hover {
   background-color: var(--alt-bg-color);
 }
 
-/* --- Hero Section --- */
+/* ==========================================================================
+   Hero Section Styles
+   ========================================================================== */
+
 .hero {
   padding: calc(var(--spacing-unit) * 4) 0;
   text-align: center;
@@ -305,14 +327,18 @@ small {
   margin-right: auto;
 }
 
-/* --- Listas de Artigos e Projetos --- */
+/* ==========================================================================
+   Article & Project List Styles
+   ========================================================================== */
+
+/* --- List Containers --- */
 .article-list,
 .project-list {
   display: grid;
   gap: calc(var(--spacing-unit) * 2);
 }
 
-/* Para telas maiores, exibir em colunas */
+/* --- Grid Layout for Wider Screens --- */
 @media (min-width: 768px) {
   .article-list {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -322,6 +348,7 @@ small {
   }
 }
 
+/* --- Individual Preview Cards --- */
 .article-preview,
 .project-preview {
   border: 1px solid var(--border-color);
@@ -336,11 +363,13 @@ small {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Different shadow for dark mode hover */
 body.dark-mode .article-preview:hover,
 body.dark-mode .project-preview:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Titles within Preview Cards --- */
 .article-preview h3,
 .project-preview h3 {
   margin-top: 0;
@@ -358,13 +387,14 @@ body.dark-mode .project-preview:hover {
   text-decoration: underline;
 }
 
+/* --- Technology Tags in Project Previews --- */
 .project-preview small {
-  /* Tags de tecnologia */
   display: block;
   margin-top: var(--spacing-unit);
   font-style: italic;
 }
 
+/* --- Link to "See All" (if used) --- */
 .section-link {
   margin-top: calc(var(--spacing-unit) * 2);
   text-align: right;
@@ -373,7 +403,10 @@ body.dark-mode .project-preview:hover {
   font-weight: 700;
 }
 
-/* --- Footer --- */
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
 .site-footer {
   padding: 0.5rem 0 0.7rem;
   margin-top: calc(var(--spacing-unit) * 3);
@@ -395,34 +428,24 @@ body.dark-mode .project-preview:hover {
   padding: 0;
 }
 .footer-links {
-  margin-top: 0;
+  margin-top: 0; /* Reset margin if needed */
 }
 .footer-links a {
   color: var(--secondary-color);
   font-weight: 500;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem; /* Space around footer links */
 }
 .footer-links a:hover {
   color: var(--link-color);
 }
 
-/* Visibilidade dos Icones */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-.icon:hover {
-  text-decoration: none !important;
-}
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
 
-/* --- Responsividade --- */
+/* --- Breakpoint: max-width: 768px --- */
 @media (max-width: 768px) {
+  /* Adjust typography for smaller screens */
   h1 {
     font-size: 2rem;
   }
@@ -433,15 +456,21 @@ body.dark-mode .project-preview:hover {
     font-size: 1.25rem;
   }
 
+  /* Stack header items vertically */
   .header-container {
     flex-direction: column;
     gap: var(--spacing-unit);
   }
+
+  /* Center navigation links */
   .main-nav ul {
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow nav links to wrap */
   }
-  .theme-toggle-button {
+
+  /* Reposition theme toggle button in the header for mobile */
+  /* Note: This rule targets the HEADER button specifically */
+  .site-header .theme-toggle-button {
     position: absolute;
     top: var(--spacing-unit);
     right: var(--spacing-unit);
