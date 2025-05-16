@@ -209,3 +209,14 @@
   background-color: var(--alt-bg-color);
   font-weight: bold;
 }
+
+/* --- */
+.log-var {
+  font-style: italic;
+}
+
+.math-expr {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero",
+    "onum" !important;
+}
