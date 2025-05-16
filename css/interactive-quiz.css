@@ -1,0 +1,180 @@
+/* --- Container Principal do Quiz --- */
+.interactive-quiz {
+  margin-top: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  padding: var(--spacing-unit);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--alt-bg-color);
+  transition: var(--theme-transition), border-color 0.3s ease;
+}
+
+.interactive-quiz p:first-child {
+  margin-top: 0;
+}
+
+/* --- Itens e Grupos de Questões --- */
+.question-item,
+.question-group {
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  padding-bottom: calc(var(--spacing-unit) * 1.5);
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.question-item:last-child,
+.question-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.question-group p:first-child {
+  font-weight: bold;
+}
+
+/* --- Estilização de Elementos de Formulário --- */
+.interactive-quiz label {
+  display: flex;
+  align-items: center;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.interactive-quiz input[type="checkbox"],
+.interactive-quiz input[type="radio"] {
+  margin-right: calc(var(--spacing-unit) * 0.75);
+  accent-color: var(--primary-color);
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+/* Para navegadores que não suportam accent-color, um fallback visual pode ser mais complexo */
+/* Exemplo simples de customização (pode precisar de mais ajustes) */
+.interactive-quiz input[type="radio"],
+.interactive-quiz input[type="checkbox"] {
+  vertical-align: middle;
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+
+.interactive-quiz fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: calc(var(--spacing-unit) * 0.75);
+  margin-bottom: var(--spacing-unit);
+}
+
+.interactive-quiz legend {
+  font-weight: bold;
+  padding: 0 calc(var(--spacing-unit) * 0.5);
+  color: var(--secondary-color);
+}
+
+.interactive-quiz fieldset label {
+  font-weight: normal;
+  margin-bottom: calc(var(--spacing-unit) * 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.interactive-quiz textarea,
+.interactive-quiz input[type="text"] {
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.75);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family-base);
+  font-size: 0.9rem;
+  margin-top: calc(var(--spacing-unit) * 0.25);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.interactive-quiz textarea:focus,
+.interactive-quiz input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px
+    var(--primary-color-transparent, rgba(86, 156, 214, 0.3)); /* Adicione primary-color-transparent se quiser */
+}
+
+.interactive-quiz textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* --- Botão de Submissão/Verificação --- */
+.interactive-quiz button[type="button"] {
+  display: inline-block;
+  padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
+  background-color: var(--primary-color);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin-top: var(--spacing-unit);
+}
+
+.interactive-quiz button[type="button"]:hover {
+  background-color: var(
+    --button-hover-bg
+  ); /* Usando a variável definida acima */
+  color: var(--button-hover-text); /* Usando a variável definida acima */
+}
+
+/* --- Área de Feedback --- */
+.feedback {
+  margin-top: calc(var(--spacing-unit) * 0.75);
+  padding: calc(var(--spacing-unit) * 0.75);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: none; /* Oculto por padrão, exibido via JS */
+}
+
+.feedback.correct {
+  background-color: var(--feedback-correct-bg);
+  color: var(--feedback-correct-text);
+  border: 1px solid var(--feedback-correct-text);
+  display: block; /* Exibe quando a classe 'correct' é adicionada */
+}
+
+.feedback.incorrect {
+  background-color: var(--feedback-incorrect-bg);
+  color: var(--feedback-incorrect-text);
+  border: 1px solid var(--feedback-incorrect-text);
+  display: block; /* Exibe quando a classe 'incorrect' é adicionada */
+}
+
+.feedback.info {
+  background-color: var(--feedback-info-bg);
+  color: var(--feedback-info-text);
+  border: 1px solid var(--feedback-info-text);
+  display: block; /* Exibe quando a classe 'info' é adicionada */
+}
+
+.feedback p {
+  margin: 0 0 calc(var(--spacing-unit) * 0.5) 0;
+}
+.feedback p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- MathJax/KaTeX alignment within quiz text --- */
+/* Se você estiver usando MathJax ou KaTeX, pode precisar de ajustes
+   para garantir que as fórmulas matemáticas estejam bem alinhadas
+   com o texto e os elementos do formulário. */
+.interactive-quiz .katex,
+.interactive-quiz .MathJax_Display {
+  display: inline !important; /* Tenta manter na linha, ajuste conforme necessário */
+  margin: 0 0.2em !important;
+  vertical-align: middle;
+}

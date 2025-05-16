@@ -35,6 +35,18 @@
   --hljs-meta: #7a6a5d;
   --hljs-comment: #7a6a5d;
   --hljs-template-variable: #5f9ea0;
+
+  /* Feedback */
+  --feedback-correct-text: #28a745; /* Verde para sucesso */
+  --feedback-correct-bg: #e9f7ec;
+  --feedback-incorrect-text: #dc3545; /* Vermelho para erro */
+  --feedback-incorrect-bg: #fdecea;
+  --feedback-info-text: #17a2b8; /* Azul para informação/resposta modelo */
+  --feedback-info-bg: #e7f6f8;
+  --button-hover-bg: var(
+    --primary-color
+  ); /* Definindo uma cor base para hover do botão */
+  --button-hover-text: #ffffff;
 }
 
 /* --- Dark Mode Theme Variables --- */
@@ -63,6 +75,16 @@ body.dark-mode {
   --hljs-meta: #9a9a9a;
   --hljs-comment: #608b4e;
   --hljs-template-variable: #d7ba7d;
+
+  /* Feedback */
+  --feedback-correct-text: #73d188;
+  --feedback-correct-bg: #1c3322;
+  --feedback-incorrect-text: #ea868f;
+  --feedback-incorrect-bg: #3e1e22;
+  --feedback-info-text: #63c5d4;
+  --feedback-info-bg: #1a363b;
+  --button-hover-bg: #79b8ff; /* Exemplo de cor de hover para botão em dark mode */
+  --button-hover-text: #1e1e1e;
 }
 
 /* --- Basic Reset --- */

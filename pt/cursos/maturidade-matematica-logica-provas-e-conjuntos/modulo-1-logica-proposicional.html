@@ -60,6 +60,7 @@
     <link rel="stylesheet" href="/css/article.css" />
     <link rel="stylesheet" href="/css/highlight.css" />
     <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/interactive-quiz.css" />
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,7 +71,7 @@
     />
 
     <!-- Script -->
-
+    <script src="/js/quiz-modulo-1-logica-proposicional.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
       //hljs.highlightAll(); // Descomente ou ajuste conforme a necessidade de highlight no seu blog
@@ -712,9 +713,9 @@
                   <strong
                     >Sentenças Abertas (com variáveis não definidas):</strong
                   >
-                  "$x > 5$." (O valor V/F depende do valor de $x$. Só se torna
-                  uma proposição se atribuirmos um valor a $x$ ou se a
-                  quantificarmos – por exemplo, "Para todo número real $x$, $x >
+                  "$x > 5$." (O valor V/F depende do valor de <span class="log-var">x</span>. Só se torna
+                  uma proposição se atribuirmos um valor a <span class="log-var">x</span> ou se a
+                  quantificarmos – por exemplo, "Para todo número real <span class="log-var">x</span>, $x >
                   5$," que é Falsa. Sentenças abertas são o domínio da Lógica de
                   Predicados, que veremos em um módulo futuro).
                 </li>
@@ -748,29 +749,233 @@
               proposição.
             </p>
           </blockquote>
-          <p><strong>Verifique sua compreensão 1.1.2:</strong></p>
-          <p>
-            Das frases abaixo, identifique quais são proposições no sentido da
-            lógica proposicional. Para aquelas que são, se possível, indique seu
-            valor de verdade (V ou F). Para as que não são, explique brevemente
-            o porquê.
-          </p>
-          <ol>
-            <li>"A Terra gira em torno do Sol."</li>
-            <li>"Qual a cor do cavalo branco de Napoleão?"</li>
-            <li>"Estude para a prova de lógica!"</li>
-            <li>"$5 \times 2 = 10$."</li>
-            <li>"Este curso de lógica é fácil."</li>
-            <li>"Existe um número primo par maior que 2."</li>
-            <li>"$x + y = z$."</li>
-            <li>"Amanhã fará sol."</li>
-          </ol>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-2">
+            <p><strong>Verifique sua compreensão 1.1.2:</strong></p>
+            <p>
+              Das frases abaixo, identifique quais são proposições no sentido da
+              lógica proposicional. Para aquelas que são, se possível, indique
+              seu valor de verdade (V ou F). Para as que não são, explique
+              brevemente o porquê.
+            </p>
+            <form>
+              <div class="question-item" id="q-1-1-2-1">
+                <p>1. "A Terra gira em torno do Sol."</p>
+                <label>
+                  <input type="checkbox" name="q1_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q1_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q1_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q1_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-2-1"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-2">
+                <p>2. "Qual a cor do cavalo branco de Napoleão?"</p>
+                <label>
+                  <input type="checkbox" name="q2_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q2_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q2_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q2_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-2-2"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-3">
+                <p>3. "Estude para a prova de lógica!"</p>
+                <label
+                  ><input type="checkbox" name="q3_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q3_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q3_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q3_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+
+                <div class="feedback" id="feedback-1-1-2-3"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-4">
+                <p>4. "$5 \times 2 = 10$."</p>
+                <label
+                  ><input type="checkbox" name="q4_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q4_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q4_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q4_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+
+                <div class="feedback" id="feedback-1-1-2-4"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-5">
+                <p>5. "Este curso de lógica é fácil."</p>
+                <label
+                  ><input type="checkbox" name="q5_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q5_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q5_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q5_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+
+                <div class="feedback" id="feedback-1-1-2-5"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-6">
+                <p>6. "Existe um número primo par maior que 2."</p>
+                <label
+                  ><input type="checkbox" name="q6_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q6_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q6_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q6_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+
+                <div class="feedback" id="feedback-1-1-2-6"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-7">
+                <p>7. "$x + y = z$."</p>
+                <label
+                  ><input type="checkbox" name="q7_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q7_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q7_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q7_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+
+                <div class="feedback" id="feedback-1-1-2-7"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-2-8">
+                <p>8. "Amanhã fará sol."</p>
+                <label
+                  ><input type="checkbox" name="q8_is_prop" />
+                  <span class="label-text">É uma proposição?</span>
+                </label>
+                <br />
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input type="radio" name="q8_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q8_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q8_truth_value" value="NA" /> Não
+                    se aplica / Não sei</label
+                  >
+                </fieldset>
+
+                <div class="feedback" id="feedback-1-1-2-8"></div>
+              </div>
+
+              <button type="button" onclick="checkQuiz('quiz-1-1-2')">
+                Verificar Respostas
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h3
             id="1-1-3-proposicoes-atomicas-e-moleculares-a-quimica-do-raciocinio"
@@ -785,9 +990,9 @@
           </p>
           <p>Exemplos de proposições atômicas:</p>
           <ul>
-            <li>$P$: "Está chovendo."</li>
-            <li>$Q$: "O gato está no telhado."</li>
-            <li>$R$: "$7$ é um número primo."</li>
+            <li><span class="log-var">P</span>: "Está chovendo."</li>
+            <li><span class="log-var">Q</span>: "O gato está no telhado."</li>
+            <li><span class="log-var">R</span>: "$7$ é um número primo."</li>
           </ul>
           <p>
             A verdadeira expressividade da lógica surge quando começamos a
@@ -801,8 +1006,8 @@
             <strong>e</strong> o gato está no telhado."
           </p>
           <p>
-            Aqui, "e" é o conectivo lógico que une as proposições atômicas $P$ e
-            $Q$.
+            Aqui, "e" é o conectivo lógico que une as proposições atômicas <span class="log-var">P</span> e
+            <span class="log-var">Q</span>.
           </p>
           <p>
             Nesta fase inicial, nos concentraremos nos cinco conectivos lógicos
@@ -847,12 +1052,12 @@
               <strong>O que faz:</strong> A negação é um conectivo
               <strong>unário</strong>, o que significa que opera sobre uma única
               proposição. Sua função é inverter o valor de verdade da proposição
-              original. Se uma proposição $P$ é Verdadeira, então $\neg P$ ("não
-              $P$") é Falsa. Se $P$ é Falsa, então $\neg P$ é Verdadeira.
+              original. Se uma proposição <span class="log-var">P</span> é Verdadeira, então $\neg P$ ("não
+              <span class="log-var">P</span>") é Falsa. Se <span class="log-var">P</span> é Falsa, então $\neg P$ é Verdadeira.
             </li>
             <li>
-              <strong>Como lemos:</strong> "não $P$", ou "não é o caso que $P$",
-              ou "é falso que $P$".
+              <strong>Como lemos:</strong> "não <span class="log-var">P</span>", ou "não é o caso que <span class="log-var">P</span>",
+              ou "é falso que <span class="log-var">P</span>".
             </li>
           </ul>
           <p>
@@ -864,7 +1069,7 @@
           <table>
             <thead>
               <tr>
-                <th>$P$</th>
+                <th><span class="log-var">P</span></th>
                 <th>$\neg P$</th>
               </tr>
             </thead>
@@ -882,7 +1087,7 @@
           <p><strong>Exemplo Cotidiano:</strong></p>
           <ul>
             <li>
-              Se $P$ é a proposição: "O semáforo está verde." (Suponha que $P$
+              Se <span class="log-var">P</span> é a proposição: "O semáforo está verde." (Suponha que <span class="log-var">P</span>
               seja Verdadeira no momento).
             </li>
             <li>
@@ -891,13 +1096,13 @@
               está verde"). Neste caso, $\neg P$ seria Falsa.
             </li>
             <li>
-              Se $P$ fosse Falsa (o semáforo não está verde), então $\neg P$
+              Se <span class="log-var">P</span> fosse Falsa (o semáforo não está verde), então $\neg P$
               seria Verdadeira.
             </li>
           </ul>
           <p><strong>Exemplo Matemático:</strong></p>
           <ul>
-            <li>Se $P$ é a proposição: "$x = 5$."</li>
+            <li>Se <span class="log-var">P</span> é a proposição: "$x = 5$."</li>
             <li>
               Então $\neg P$ é a proposição: "$x \neq 5$" (lê-se "x é diferente
               de 5").
@@ -924,19 +1129,41 @@
               <code>!usuario_logado</code> avalia para <code>true</code>.
             </li>
           </ul>
-          <p><strong>Verifique sua compreensão 1.1.4.1 (Negação):</strong></p>
-          <p>
-            Se a proposição $Q$: "Todos os números primos são ímpares" é Falsa
-            (pois 2 é um número primo par), qual é o valor de verdade da
-            proposição $\neg Q$: "Não é o caso que todos os números primos são
-            ímpares"?
-          </p>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-4-1">
+            <p><strong>Verifique sua compreensão 1.1.4.1 (Negação):</strong></p>
+            <p>
+              Se a proposição <span class="log-var">Q</span>: "Todos os números primos são ímpares" é Falsa
+              (pois 2 é um número primo par), qual é o valor de verdade da
+              proposição $\neg Q$: "Não é o caso que todos os números primos são
+              ímpares"?
+            </p>
+            <form>
+              <div class="question-item" id="q-1-1-4-1-1">
+                <fieldset>
+                  <legend>Valor de verdade de $\neg Q$:</legend>
+                  <label
+                    ><input type="radio" name="q_neg_truth_value" value="V" />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input type="radio" name="q_neg_truth_value" value="F" />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-1-1"></div>
+              </div>
+              <button type="button" onclick="checkQuiz('quiz-1-1-4-1')">
+                Verificar Resposta
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h4 id="2-conjuncao-land-ou-and-ou-and-o-e-exigente">
             2. Conjunção ($\land$ ou <code>&&</code> ou <code>AND</code>) - O
@@ -965,19 +1192,19 @@
             <li>
               <strong>O que faz:</strong> A conjunção é um conectivo
               <strong>binário</strong> (opera sobre duas proposições, digamos
-              $P$ e $Q$). A proposição molecular $P \land Q$ ("$P$ e $Q$") é
+              <span class="log-var">P</span> e <span class="log-var">Q</span>). A proposição molecular $P \land Q$ ("<span class="log-var">P</span> e <span class="log-var">Q</span>") é
               Verdadeira <strong>se, e somente se, AMBAS</strong> as proposições
-              $P$ e $Q$ forem Verdadeiras. Se pelo menos uma delas (ou ambas)
+              <span class="log-var">P</span> e <span class="log-var">Q</span> forem Verdadeiras. Se pelo menos uma delas (ou ambas)
               for Falsa, a conjunção $P \land Q$ é Falsa.
             </li>
-            <li><strong>Como lemos:</strong> "$P$ e $Q$".</li>
+            <li><strong>Como lemos:</strong> "<span class="log-var">P</span> e <span class="log-var">Q</span>".</li>
           </ul>
           <p><strong>Tabela-Verdade da Conjunção:</strong></p>
           <table>
             <thead>
               <tr>
-                <th>$P$</th>
-                <th>$Q$</th>
+                <th><span class="log-var">P</span></th>
+                <th><span class="log-var">Q</span></th>
                 <th>$P \land Q$</th>
               </tr>
             </thead>
@@ -1044,29 +1271,109 @@
               >
             </li>
             <li>
-              Ambas <code>estoque_disponivel</code> (seria $P$) e
-              <code>pagamento_aprovado</code> (seria $Q$) devem ser
+              Ambas <code>estoque_disponivel</code> (seria <span class="log-var">P</span>) e
+              <code>pagamento_aprovado</code> (seria <span class="log-var">Q</span>) devem ser
               <code>true</code> para que a condição do <code>if</code> seja
               <code>true</code> e a compra prossiga.
             </li>
           </ul>
-          <p><strong>Verifique sua compreensão 1.1.4.2 (Conjunção):</strong></p>
-          <p>
-            Sejam as proposições:<br />$P$: "O número 10 é par." (Verdadeira)<br />$Q$:
-            "O número 10 é divisível por 3." (Falsa)<br />$R$: "O sol é um
-            planeta." (Falsa)
-          </p>
-          <p>
-            Qual é o valor de verdade das seguintes proposições moleculares?<br />a)
-            $P \land Q$<br />b) $P \land (\neg R)$<br />c) $(\neg Q) \land (\neg
-            R)$
-          </p>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-4-2">
+            <p>
+              <strong>Verifique sua compreensão 1.1.4.2 (Conjunção):</strong>
+            </p>
+            <p>
+              Sejam as proposições:<br />
+              <span class="log-var">P</span>: "O número 10 é par." (Verdadeira)<br />
+              <span class="log-var">Q</span>: "O número 10 é divisível por 3." (Falsa)<br />
+              <span class="log-var">R</span>: "O sol é um planeta." (Falsa)
+            </p>
+            <p>
+              Qual é o valor de verdade das seguintes proposições moleculares?
+            </p>
+            <form>
+              <div class="question-item" id="q-1-1-4-2-a">
+                <p>a) $P \land Q$</p>
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_conj_a_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_conj_a_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-2-a"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-2-b">
+                <p>b) $P \land (\neg R)$</p>
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_conj_b_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_conj_b_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-2-b"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-2-c">
+                <p>c) $(\neg Q) \land (\neg R)$</p>
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_conj_c_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_conj_c_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-2-c"></div>
+              </div>
+              <button type="button" onclick="checkQuiz('quiz-1-1-4-2')">
+                Verificar Respostas
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h4 id="3-disjuncao-lor-ou-or-ou-or-o-ou-inclusivo">
             3. Disjunção ($\lor$ ou <code>||</code> ou <code>OR</code>) - O "OU"
@@ -1094,27 +1401,27 @@
             </li>
             <li>
               <strong>O que faz:</strong> A disjunção é um conectivo
-              <strong>binário</strong>. A proposição molecular $P \lor Q$ ("$P$
-              ou $Q$") é Verdadeira se <strong>PELO MENOS UMA</strong> das
-              proposições $P$ ou $Q$ (ou ambas) for Verdadeira. Ela só é Falsa
-              se AMBAS $P$ e $Q$ forem Falsas.
+              <strong>binário</strong>. A proposição molecular $P \lor Q$ ("<span class="log-var">P</span>
+              ou <span class="log-var">Q</span>") é Verdadeira se <strong>PELO MENOS UMA</strong> das
+              proposições <span class="log-var">P</span> ou <span class="log-var">Q</span> (ou ambas) for Verdadeira. Ela só é Falsa
+              se AMBAS <span class="log-var">P</span> e <span class="log-var">Q</span> forem Falsas.
             </li>
             <li>
               <strong>Importante:</strong> Na lógica formal, o $\lor$ é
-              <strong>inclusivo</strong> por padrão. Isso significa "$P$, ou
-              $Q$, ou ambos $P$ e $Q$". Isso pode diferir do uso coloquial do
+              <strong>inclusivo</strong> por padrão. Isso significa "<span class="log-var">P</span>, ou
+              <span class="log-var">Q</span>, ou ambos <span class="log-var">P</span> e <span class="log-var">Q</span>". Isso pode diferir do uso coloquial do
               "ou", que às vezes é exclusivo (um ou outro, mas não ambos).
               Existe um conectivo para o "ou exclusivo" (XOR), que veremos mais
               tarde.
             </li>
-            <li><strong>Como lemos:</strong> "$P$ ou $Q$".</li>
+            <li><strong>Como lemos:</strong> "<span class="log-var">P</span> ou <span class="log-var">Q</span>".</li>
           </ul>
           <p><strong>Tabela-Verdade da Disjunção (Inclusiva):</strong></p>
           <table>
             <thead>
               <tr>
-                <th>$P$</th>
-                <th>$Q$</th>
+                <th><span class="log-var">P</span></th>
+                <th><span class="log-var">Q</span></th>
                 <th>$P \lor Q$</th>
               </tr>
             </thead>
@@ -1185,21 +1492,103 @@
               ambos), a condição do <code>if</code> será <code>true</code>.
             </li>
           </ul>
-          <p><strong>Verifique sua compreensão 1.1.4.3 (Disjunção):</strong></p>
-          <p>
-            Sejam as proposições:<br />$P$: "A grama é verde." (Verdadeira)<br />$Q$:
-            "O céu é laranja." (Falsa)<br />$R$: "2 é um número ímpar." (Falsa)
-          </p>
-          <p>
-            Qual é o valor de verdade das seguintes proposições moleculares?<br />a)
-            $P \lor Q$<br />b) $Q \lor R$<br />c) $P \lor (\neg R)$
-          </p>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-4-3">
+            <p>
+              <strong>Verifique sua compreensão 1.1.4.3 (Disjunção):</strong>
+            </p>
+            <p>
+              Sejam as proposições:<br />
+              <span class="log-var">P</span>: "A grama é verde." (Verdadeira)<br />
+              <span class="log-var">Q</span>: "O céu é laranja." (Falsa)<br />
+              <span class="log-var">R</span>: "2 é um número ímpar." (Falsa)
+            </p>
+            <p>
+              Qual é o valor de verdade das seguintes proposições moleculares?
+            </p>
+            <form>
+              <div class="question-item" id="q-1-1-4-3-a">
+                <p>a) $P \lor Q$</p>
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_disj_a_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_disj_a_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-3-a"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-3-b">
+                <p>b) $Q \lor R$</p>
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_disj_b_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_disj_b_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-3-b"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-3-c">
+                <p>c) $P \lor (\neg R)$</p>
+                <fieldset>
+                  <legend>Valor de Verdade:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_disj_c_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_disj_c_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-3-c"></div>
+              </div>
+              <button type="button" onclick="checkQuiz('quiz-1-1-4-3')">
+                Verificar Respostas
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h4 id="4-implicacao-rightarrow-ou-supset-o-se-entao-condicional">
             4. Implicação ($\rightarrow$ ou $\supset$) - O "Se... Então..."
@@ -1228,30 +1617,30 @@
             <li>
               <strong>O que faz:</strong> A implicação é um conectivo
               <strong>binário</strong>. A proposição $P \rightarrow Q$
-              estabelece uma relação condicional: se $P$ (o antecedente) for
-              Verdadeiro, então $Q$ (o consequente) também deve ser Verdadeiro
+              estabelece uma relação condicional: se <span class="log-var">P</span> (o antecedente) for
+              Verdadeiro, então <span class="log-var">Q</span> (o consequente) também deve ser Verdadeiro
               para que a implicação como um todo seja Verdadeira.<br />A parte
               mais contraintuitiva para iniciantes é que,
               <strong
-                >se o antecedente $P$ for Falso, a implicação $P \rightarrow Q$
+                >se o antecedente <span class="log-var">P</span> for Falso, a implicação $P \rightarrow Q$
                 é considerada Verdadeira, não importa qual seja o valor de
-                verdade de $Q$</strong
+                verdade de <span class="log-var">Q</span></strong
               >.
             </li>
             <li>
-              <strong>Como lemos:</strong> "Se $P$, então $Q$"; "$P$ implica
-              $Q$"; "$P$ somente se $Q$"; "$Q$ se $P$"; "$P$ é condição
-              suficiente para $Q$"; "$Q$ é condição necessária para $P$".
+              <strong>Como lemos:</strong> "Se <span class="log-var">P</span>, então <span class="log-var">Q</span>"; "<span class="log-var">P</span> implica
+              <span class="log-var">Q</span>"; "<span class="log-var">P</span> somente se <span class="log-var">Q</span>"; "<span class="log-var">Q</span> se <span class="log-var">P</span>"; "<span class="log-var">P</span> é condição
+              suficiente para <span class="log-var">Q</span>"; "<span class="log-var">Q</span> é condição necessária para <span class="log-var">P</span>".
             </li>
             <li>
               <strong>Terminologia:</strong>
               <ul>
                 <li>
-                  $P$ é chamado de <strong>antecedente</strong>,
+                  <span class="log-var">P</span> é chamado de <strong>antecedente</strong>,
                   <strong>hipótese</strong>, ou <strong>premissa</strong>.
                 </li>
                 <li>
-                  $Q$ é chamado de <strong>consequente</strong>,
+                  <span class="log-var">Q</span> é chamado de <strong>consequente</strong>,
                   <strong>tese</strong>, ou <strong>conclusão</strong>.
                 </li>
               </ul>
@@ -1264,8 +1653,8 @@
           <table>
             <thead>
               <tr>
-                <th>$P$ (Antecedente)</th>
-                <th>$Q$ (Consequente)</th>
+                <th><span class="log-var">P</span> (Antecedente)</th>
+                <th><span class="log-var">Q</span> (Consequente)</th>
                 <th>$P \rightarrow Q$</th>
                 <th>Explicação</th>
               </tr>
@@ -1276,8 +1665,8 @@
                 <td>V</td>
                 <td><strong>V</strong></td>
                 <td>
-                  Promessa cumprida: A condição $P$ ocorreu, e a consequência
-                  $Q$ também. OK.
+                  Promessa cumprida: A condição <span class="log-var">P</span> ocorreu, e a consequência
+                  <span class="log-var">Q</span> também. OK.
                 </td>
               </tr>
               <tr>
@@ -1285,8 +1674,8 @@
                 <td>F</td>
                 <td>F</td>
                 <td>
-                  Promessa quebrada: A condição $P$ ocorreu, mas a consequência
-                  $Q$ prometida não ocorreu. <strong>ÚNICO CASO FALSO!</strong>
+                  Promessa quebrada: A condição <span class="log-var">P</span> ocorreu, mas a consequência
+                  <span class="log-var">Q</span> prometida não ocorreu. <strong>ÚNICO CASO FALSO!</strong>
                 </td>
               </tr>
               <tr>
@@ -1295,7 +1684,7 @@
                 <td><strong>V</strong></td>
                 <td>
                   Promessa não testada (ou cumprida por vacuidade): A condição
-                  $P$ não ocorreu. A implicação não foi violada. OK.
+                  <span class="log-var">P</span> não ocorreu. A implicação não foi violada. OK.
                 </td>
               </tr>
               <tr>
@@ -1304,7 +1693,7 @@
                 <td><strong>V</strong></td>
                 <td>
                   Promessa não testada (ou cumprida por vacuidade): A condição
-                  $P$ não ocorreu. A implicação não foi violada. OK.
+                  <span class="log-var">P</span> não ocorreu. A implicação não foi violada. OK.
                 </td>
               </tr>
             </tbody>
@@ -1313,13 +1702,13 @@
             <p>
               <strong>Ponto Chave sobre a Implicação (Material):</strong><br />A
               implicação $P \rightarrow Q$ <strong>NÃO</strong> afirma que
-              existe uma relação causal entre $P$ e $Q$.<br />Ela
-              <strong>NÃO</strong> diz que $P$ é a <em>única</em> causa de
-              $Q$.<br />Ela apenas estabelece uma garantia:
+              existe uma relação causal entre <span class="log-var">P</span> e <span class="log-var">Q</span>.<br />Ela
+              <strong>NÃO</strong> diz que <span class="log-var">P</span> é a <em>única</em> causa de
+              <span class="log-var">Q</span>.<br />Ela apenas estabelece uma garantia:
               <strong
-                >NÃO PODE ACONTECER de $P$ ser Verdadeiro e $Q$ ser Falso ao
+                >NÃO PODE ACONTECER de <span class="log-var">P</span> ser Verdadeiro e <span class="log-var">Q</span> ser Falso ao
                 mesmo tempo.</strong
-              ><br />Se $P$ for falso, a "promessa" contida em $P \rightarrow Q$
+              ><br />Se <span class="log-var">P</span> for falso, a "promessa" contida em $P \rightarrow Q$
               não é nem mesmo testada, então a implicação é considerada
               verdadeira "por vacuidade". Pense nisso como uma promessa: "Se
               você tirar 10 na prova, eu te dou um presente."
@@ -1374,19 +1763,19 @@
           <p><strong>Exemplo Matemático:</strong></p>
           <ul>
             <li>
-              "<strong>Se</strong> um número $n$ é divisível por 4 (P),
-              <strong>então</strong> $n$ é divisível por 2 (Q)."
+              "<strong>Se</strong> um número <span class="log-var">n</span> é divisível por 4 (P),
+              <strong>então</strong> <span class="log-var">n</span> é divisível por 2 (Q)."
               <ul>
                 <li>
-                  $n=8$: $P$ é V (8 é div. por 4), $Q$ é V (8 é div. por 2). $P
+                  $n=8$: <span class="log-var">P</span> é V (8 é div. por 4), <span class="log-var">Q</span> é V (8 é div. por 2). $P
                   \rightarrow Q$ é V.
                 </li>
                 <li>
-                  $n=6$: $P$ é F (6 não é div. por 4), $Q$ é V (6 é div. por 2).
+                  $n=6$: <span class="log-var">P</span> é F (6 não é div. por 4), <span class="log-var">Q</span> é V (6 é div. por 2).
                   $P \rightarrow Q$ é V. (A afirmação não foi violada)
                 </li>
                 <li>
-                  $n=5$: $P$ é F (5 não é div. por 4), $Q$ é F (5 não é div. por
+                  $n=5$: <span class="log-var">P</span> é F (5 não é div. por 4), <span class="log-var">Q</span> é F (5 não é div. por
                   2). $P \rightarrow Q$ é V. (A afirmação não foi violada)
                 </li>
                 <li>
@@ -1414,30 +1803,134 @@
               é quebrada, quer o desconto seja aplicado por outro motivo ou não.
             </li>
           </ul>
-          <p>
-            <strong>Verifique sua compreensão 1.1.4.4 (Implicação):</strong>
-          </p>
-          <p>
-            Sejam as proposições:<br />$P$: "O triângulo ABC é equilátero."<br />$Q$:
-            "O triângulo ABC é isósceles."
-          </p>
-          <p>
-            Considere a implicação $P \rightarrow Q$: "Se o triângulo ABC é
-            equilátero, então ele é isósceles." (Esta implicação é Verdadeira na
-            geometria).<br />Avalie o valor de verdade de $P \rightarrow Q$ nos
-            seguintes casos:<br />a) O triângulo ABC é equilátero. (Então $P$ é
-            V, e $Q$ também será V).<br />b) O triângulo ABC é isósceles, mas
-            não equilátero. (Então $P$ é F, e $Q$ é V).<br />c) O triângulo ABC
-            não é isósceles (e, portanto, também não é equilátero). (Então $P$ é
-            F, e $Q$ é F).<br />d) É possível que $P$ seja Verdadeira e $Q$ seja
-            Falsa neste contexto geométrico?
-          </p>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-4-4">
+            <p>
+              <strong>Verifique sua compreensão 1.1.4.4 (Implicação):</strong>
+            </p>
+            <p>
+              Sejam as proposições:<br />
+              <span class="log-var">P</span>: "O triângulo ABC é equilátero."<br />
+              <span class="log-var">Q</span>: "O triângulo ABC é isósceles."
+            </p>
+            <p>
+              Considere a implicação $P \rightarrow Q$: "Se o triângulo ABC é
+              equilátero, então ele é isósceles." (Esta implicação é Verdadeira
+              na geometria).<br />
+              Avalie o valor de verdade de $P \rightarrow Q$ nos seguintes
+              casos:
+            </p>
+            <form>
+              <div class="question-item" id="q-1-1-4-4-a">
+                <p>
+                  a) O triângulo ABC é equilátero. (Então <span class="log-var">P</span> é V, e <span class="log-var">Q</span> também
+                  será V).
+                </p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \rightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_impl_a_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_impl_a_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-4-a"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-4-b">
+                <p>
+                  b) O triângulo ABC é isósceles, mas não equilátero. (Então <span class="log-var">P</span>
+                  é F, e <span class="log-var">Q</span> é V).
+                </p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \rightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_impl_b_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_impl_b_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-4-b"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-4-c">
+                <p>
+                  c) O triângulo ABC não é isósceles (e, portanto, também não é
+                  equilátero). (Então <span class="log-var">P</span> é F, e <span class="log-var">Q</span> é F).
+                </p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \rightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_impl_c_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_impl_c_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-4-c"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-4-d">
+                <p>
+                  d) É possível que <span class="log-var">P</span> seja Verdadeira e <span class="log-var">Q</span> seja Falsa neste
+                  contexto geométrico?
+                </p>
+                <fieldset>
+                  <legend>Resposta:</legend>
+                  <label
+                    ><input type="radio" name="q_impl_d_possible" value="sim" />
+                    Sim</label
+                  >
+                  <label
+                    ><input type="radio" name="q_impl_d_possible" value="nao" />
+                    Não</label
+                  >
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-4-d"></div>
+              </div>
+              <button type="button" onclick="checkQuiz('quiz-1-1-4-4')">
+                Verificar Respostas
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h4
             id="5-equivalencia-leftrightarrow-ou-equiv-ou-iff-o-se-e-somente-se-de-mao-dupla"
@@ -1469,16 +1962,16 @@
               <strong>binário</strong>. A proposição molecular $P
               \leftrightarrow Q$ é Verdadeira
               <strong
-                >se, e somente se, $P$ e $Q$ tiverem o MESMO valor de
+                >se, e somente se, <span class="log-var">P</span> e <span class="log-var">Q</span> tiverem o MESMO valor de
                 verdade</strong
-              >. Ou seja, $P \leftrightarrow Q$ é V se ($P$ é V e $Q$ é V) ou se
-              ($P$ é F e $Q$ é F). Se $P$ e $Q$ tiverem valores de verdade
+              >. Ou seja, $P \leftrightarrow Q$ é V se (<span class="log-var">P</span> é V e <span class="log-var">Q</span> é V) ou se
+              (<span class="log-var">P</span> é F e <span class="log-var">Q</span> é F). Se <span class="log-var">P</span> e <span class="log-var">Q</span> tiverem valores de verdade
               diferentes, $P \leftrightarrow Q$ é Falsa.
             </li>
             <li>
-              <strong>Como lemos:</strong> "$P$ se, e somente se, $Q$"; "$P$ é
-              equivalente a $Q$"; "$P$ é condição necessária e suficiente para
-              $Q$".
+              <strong>Como lemos:</strong> "<span class="log-var">P</span> se, e somente se, <span class="log-var">Q</span>"; "<span class="log-var">P</span> é
+              equivalente a <span class="log-var">Q</span>"; "<span class="log-var">P</span> é condição necessária e suficiente para
+              <span class="log-var">Q</span>".
             </li>
             <li>
               <strong>Conexão Importante:</strong> $P \leftrightarrow Q$ é
@@ -1490,8 +1983,8 @@
           <table>
             <thead>
               <tr>
-                <th>$P$</th>
-                <th>$Q$</th>
+                <th><span class="log-var">P</span></th>
+                <th><span class="log-var">Q</span></th>
                 <th>$P \leftrightarrow Q$</th>
               </tr>
             </thead>
@@ -1522,9 +2015,9 @@
           <ul>
             <li>
               "Uma pessoa pode dirigir legalmente um automóvel em via pública no
-              Brasil ($P$) <strong>se, e somente se,</strong> ela possui uma
+              Brasil (<span class="log-var">P</span>) <strong>se, e somente se,</strong> ela possui uma
               Carteira Nacional de Habilitação (CNH) válida para a categoria do
-              veículo ($Q$)."
+              veículo (<span class="log-var">Q</span>)."
               <ul>
                 <li>
                   Se tem CNH válida (Q=V) e dirige (P=V) $\rightarrow$ a
@@ -1548,8 +2041,8 @@
           <p><strong>Exemplo Matemático:</strong></p>
           <ul>
             <li>
-              "Um número inteiro $n$ é par ($P$)
-              <strong>se, e somente se,</strong> $n^2$ é par ($Q$)."
+              "Um número inteiro <span class="log-var">n</span> é par (<span class="log-var">P</span>)
+              <strong>se, e somente se,</strong> $n^2$ é par (<span class="log-var">Q</span>)."
               <ul>
                 <li>
                   Se $n=4$ (par, P=V), $n^2=16$ (par, Q=V). $P \leftrightarrow
@@ -1560,7 +2053,7 @@
                   \leftrightarrow Q$ é V.
                 </li>
                 <li>
-                  Não é possível $n$ ser par e $n^2$ ser ímpar, nem $n$ ser
+                  Não é possível <span class="log-var">n</span> ser par e $n^2$ ser ímpar, nem <span class="log-var">n</span> ser
                   ímpar e $n^2$ ser par.
                 </li>
               </ul>
@@ -1581,28 +2074,135 @@
               >
             </li>
           </ul>
-          <p>
-            <strong>Verifique sua compreensão 1.1.4.5 (Equivalência):</strong>
-          </p>
-          <p>
-            Sejam as proposições:<br />$P$: "Eu ganhei na loteria."<br />$Q$:
-            "Eu estou rico."
-          </p>
-          <p>
-            Considere a proposição $P \leftrightarrow Q$: "Eu ganhei na loteria
-            se, e somente se, eu estou rico."<br />Avalie o valor de verdade de
-            $P \leftrightarrow Q$ nos seguintes cenários:<br />a) Eu ganhei na
-            loteria e estou rico.<br />b) Eu ganhei na loteria, mas não estou
-            rico (ex: o prêmio era muito pequeno).<br />c) Eu não ganhei na
-            loteria, mas estou rico (ex: por outros meios).<br />d) Eu não
-            ganhei na loteria e não estou rico.
-          </p>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-4-5">
+            <p>
+              <strong>Verifique sua compreensão 1.1.4.5 (Equivalência):</strong>
+            </p>
+            <p>
+              Sejam as proposições:<br />
+              <span class="log-var">P</span>: "Eu ganhei na loteria."<br />
+              <span class="log-var">Q</span>: "Eu estou rico."
+            </p>
+            <p>
+              Considere a proposição $P \leftrightarrow Q$: "Eu ganhei na
+              loteria se, e somente se, eu estou rico."<br />
+              Avalie o valor de verdade de $P \leftrightarrow Q$ nos seguintes
+              cenários:
+            </p>
+            <form>
+              <div class="question-item" id="q-1-1-4-5-a">
+                <p>a) Eu ganhei na loteria e estou rico.</p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \leftrightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_a_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_a_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-5-a"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-5-b">
+                <p>
+                  b) Eu ganhei na loteria, mas não estou rico (ex: o prêmio era
+                  muito pequeno).
+                </p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \leftrightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_b_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_b_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-5-b"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-5-c">
+                <p>
+                  c) Eu não ganhei na loteria, mas estou rico (ex: por outros
+                  meios).
+                </p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \leftrightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_c_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_c_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-5-c"></div>
+              </div>
+
+              <div class="question-item" id="q-1-1-4-5-d">
+                <p>d) Eu não ganhei na loteria e não estou rico.</p>
+                <fieldset>
+                  <legend>Valor de Verdade de $P \leftrightarrow Q$:</legend>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_d_truth_value"
+                      value="V"
+                    />
+                    <span class="label-text">V</span>
+                  </label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="q_equiv_d_truth_value"
+                      value="F"
+                    />
+                    <span class="label-text">F</span>
+                  </label>
+                </fieldset>
+                <div class="feedback" id="feedback-1-1-4-5-d"></div>
+              </div>
+              <button type="button" onclick="checkQuiz('quiz-1-1-4-5')">
+                Verificar Respostas
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h3
             id="1-1-5-proposicoes-moleculares-complexas-construindo-ideias-elaboradas"
@@ -1650,22 +2250,22 @@
           </p>
           <ul>
             <li>
-              Se $P$ é uma proposição (atômica ou molecular), então $\neg P$ é
+              Se <span class="log-var">P</span> é uma proposição (atômica ou molecular), então $\neg P$ é
               uma proposição molecular.
               <ul>
                 <li>
-                  Exemplo: Se $P$ é "O sistema está online", $\neg P$ é "O
+                  Exemplo: Se <span class="log-var">P</span> é "O sistema está online", $\neg P$ é "O
                   sistema não está online".
                 </li>
               </ul>
             </li>
             <li>
-              Se $P$ e $Q$ são proposições (atômicas ou moleculares), então $P
+              Se <span class="log-var">P</span> e <span class="log-var">Q</span> são proposições (atômicas ou moleculares), então $P
               \land Q$, $P \lor Q$, $P \rightarrow Q$, e $P \leftrightarrow Q$
               são proposições moleculares.
               <ul>
                 <li>
-                  Exemplo: Se $P$ é "O arquivo existe" e $Q$ é "O usuário tem
+                  Exemplo: Se <span class="log-var">P</span> é "O arquivo existe" e <span class="log-var">Q</span> é "O usuário tem
                   permissão", então $P \land Q$ é "O arquivo existe e o usuário
                   tem permissão".
                 </li>
@@ -1679,33 +2279,33 @@
           </p>
           <ul>
             <li>
-              $\neg P \land Q$: (Lê-se: "(Não $P$) e $Q$")
+              $\neg P \land Q$: (Lê-se: "(Não <span class="log-var">P</span>) e <span class="log-var">Q</span>")
               <ul>
                 <li>
                   Ex: "O servidor <strong>não</strong> está em modo de
                   manutenção ($ \neg P$) <strong>E</strong> os usuários podem se
-                  conectar ($Q$)."
+                  conectar (<span class="log-var">Q</span>)."
                 </li>
               </ul>
             </li>
             <li>
-              $P \rightarrow (Q \lor R)$: (Lê-se: "Se $P$, então ($Q$ ou $R$)")
+              $P \rightarrow (Q \lor R)$: (Lê-se: "Se <span class="log-var">P</span>, então (<span class="log-var">Q</span> ou <span class="log-var">R</span>)")
               <ul>
                 <li>
-                  Ex: "<strong>Se</strong> a compra for aprovada ($P$),
+                  Ex: "<strong>Se</strong> a compra for aprovada (<span class="log-var">P</span>),
                   <strong>então</strong> enviaremos um email de confirmação
-                  ($Q$) <strong>ou</strong> uma notificação SMS ($R$)."
+                  (<span class="log-var">Q</span>) <strong>ou</strong> uma notificação SMS (<span class="log-var">R</span>)."
                 </li>
               </ul>
             </li>
             <li>
-              $(P \land Q) \rightarrow \neg R$: (Lê-se: "Se ($P$ e $Q$), então
-              não $R$")
+              $(P \land Q) \rightarrow \neg R$: (Lê-se: "Se (<span class="log-var">P</span> e <span class="log-var">Q</span>), então
+              não <span class="log-var">R</span>")
               <ul>
                 <li>
                   Ex: "<strong>Se</strong> o sensor de temperatura indicar acima
-                  de 30°C ($P$) <strong>e</strong> o sensor de umidade indicar
-                  acima de 70% ($Q$), <strong>então</strong> o sistema de ar
+                  de 30°C (<span class="log-var">P</span>) <strong>e</strong> o sensor de umidade indicar
+                  acima de 70% (<span class="log-var">Q</span>), <strong>então</strong> o sistema de ar
                   condicionado <strong>não</strong> será desligado ($\neg R$)."
                 </li>
               </ul>
@@ -1740,23 +2340,23 @@
             cenário:
           </p>
           <ul>
-            <li>$P$ seja Falsa (F)</li>
-            <li>$Q$ seja Falsa (F)</li>
-            <li>$R$ seja Verdadeira (V)</li>
+            <li><span class="log-var">P</span> seja Falsa (F)</li>
+            <li><span class="log-var">Q</span> seja Falsa (F)</li>
+            <li><span class="log-var">R</span> seja Verdadeira (V)</li>
           </ul>
           <p>Vamos avaliar o valor de verdade da fórmula:</p>
           <ol>
             <li>
-              <strong>Avaliar $\neg Q$</strong>: Como $Q$ é F, $\neg Q$ é V.<br />A
+              <strong>Avaliar $\neg Q$</strong>: Como <span class="log-var">Q</span> é F, $\neg Q$ é V.<br />A
               fórmula se torna: $(P \lor V) \rightarrow R$.
             </li>
             <li>
-              <strong>Avaliar $P \lor V$</strong>: Como $P$ é F, temos $(F \lor
+              <strong>Avaliar $P \lor V$</strong>: Como <span class="log-var">P</span> é F, temos $(F \lor
               V)$. Pela tabela-verdade da disjunção, F $\lor$ V é V.<br />A
               fórmula se torna: $V \rightarrow R$.
             </li>
             <li>
-              <strong>Avaliar $V \rightarrow R$</strong>: Como $R$ é V, temos $V
+              <strong>Avaliar $V \rightarrow R$</strong>: Como <span class="log-var">R</span> é V, temos $V
               \rightarrow V$. Pela tabela-verdade da implicação, V $\rightarrow$
               V é V.
             </li>
@@ -1789,11 +2389,11 @@
           <ul>
             <li>
               $P \land (Q \lor R)$: Primeiro calcula-se $Q \lor R$, depois
-              faz-se a conjunção de $P$ com o resultado.
+              faz-se a conjunção de <span class="log-var">P</span> com o resultado.
             </li>
             <li>
               $(P \land Q) \lor R$: Primeiro calcula-se $P \land Q$, depois
-              faz-se a disjunção do resultado com $R$.
+              faz-se a disjunção do resultado com <span class="log-var">R</span>.
             </li>
           </ul>
           <p>
@@ -1859,26 +2459,125 @@
             >, especialmente quando estiver aprendendo. Clareza é mais
             importante que economia de parênteses.
           </p>
-          <p><strong>Verifique sua compreensão 1.1.5:</strong></p>
-          <ol>
-            <li>
-              Sejam $P=V, Q=F, R=V$. Determine o valor de verdade das seguintes
-              FBFs:<br />a) $P \rightarrow (Q \land R)$<br />b) $(P \rightarrow
-              Q) \land R$<br />c) $\neg(P \lor \neg Q) \leftrightarrow (R
-              \rightarrow \neg P)$
-            </li>
-            <li>
-              Usando as regras de precedência, onde você colocaria os parênteses
-              para mostrar explicitamente a ordem de avaliação em $\neg P \lor Q
-              \land R \rightarrow S \leftrightarrow T$?
-            </li>
-          </ol>
-          <p>
-            <em
-              >(Respostas e explicações estarão ao final do Tópico Principal
-              1.1)</em
-            >
-          </p>
+          <div class="interactive-quiz" id="quiz-1-1-5">
+            <p><strong>Verifique sua compreensão 1.1.5:</strong></p>
+            <form>
+              <div class="question-group">
+                <p>
+                  1. Sejam $P=V, Q=F, R=V$. Determine o valor de verdade das
+                  seguintes FBFs:
+                </p>
+                <div class="question-item" id="q-1-1-5-1a">
+                  <p>a) $P \rightarrow (Q \land R)$</p>
+                  <fieldset>
+                    <legend>Valor de Verdade:</legend>
+                    <label
+                      ><input
+                        type="radio"
+                        name="q_fbf_1a_truth_value"
+                        value="V"
+                      />
+                      <span class="label-text">V</span>
+                    </label>
+                    >
+                    <label
+                      ><input
+                        type="radio"
+                        name="q_fbf_1a_truth_value"
+                        value="F"
+                      />
+                      <span class="label-text">F</span>
+                    </label>
+                    >
+                  </fieldset>
+                  <div class="feedback" id="feedback-1-1-5-1a"></div>
+                </div>
+
+                <div class="question-item" id="q-1-1-5-1b">
+                  <p>b) $(P \rightarrow Q) \land R$</p>
+                  <fieldset>
+                    <legend>Valor de Verdade:</legend>
+                    <label
+                      ><input
+                        type="radio"
+                        name="q_fbf_1b_truth_value"
+                        value="V"
+                      />
+                      <span class="label-text">V</span>
+                    </label>
+                    >
+                    <label
+                      ><input
+                        type="radio"
+                        name="q_fbf_1b_truth_value"
+                        value="F"
+                      />
+                      <span class="label-text">F</span>
+                    </label>
+                    >
+                  </fieldset>
+                  <div class="feedback" id="feedback-1-1-5-1b"></div>
+                </div>
+
+                <div class="question-item" id="q-1-1-5-1c">
+                  <p>
+                    c) $\neg(P \lor \neg Q) \leftrightarrow (R \rightarrow \neg
+                    P)$
+                  </p>
+                  <fieldset>
+                    <legend>Valor de Verdade:</legend>
+                    <label
+                      ><input
+                        type="radio"
+                        name="q_fbf_1c_truth_value"
+                        value="V"
+                      />
+                      <span class="label-text">V</span>
+                    </label>
+                    >
+                    <label
+                      ><input
+                        type="radio"
+                        name="q_fbf_1c_truth_value"
+                        value="F"
+                      />
+                      <span class="label-text">F</span>
+                    </label>
+                    >
+                  </fieldset>
+                  <div class="feedback" id="feedback-1-1-5-1c"></div>
+                </div>
+              </div>
+
+              <div class="question-group">
+                <p>
+                  2. Usando as regras de precedência, onde você colocaria os
+                  parênteses para mostrar explicitamente a ordem de avaliação em
+                  $\neg P \lor Q \land R \rightarrow S \leftrightarrow T$?
+                </p>
+                <div class="question-item" id="q-1-1-5-2">
+                  <label for="q_fbf_2_parentheses">Sua resposta:</label><br />
+                  <input
+                    type="text"
+                    name="q_fbf_2_parentheses"
+                    id="q_fbf_2_parentheses"
+                    size="50"
+                  />
+                  <div class="feedback" id="feedback-1-1-5-2"></div>
+                </div>
+              </div>
+              <button type="button" onclick="checkQuiz('quiz-1-1-5')">
+                Verificar Respostas
+              </button>
+            </form>
+            <br />
+            <p>
+              <em
+                >(Respostas e explicações estarão ao final do Tópico Principal
+                1.1)</em
+              >
+            </p>
+          </div>
 
           <h3
             id="1-1-6-a-natureza-dos-conectivos-aridade-e-o-universo-das-funcoes-de-verdade"
@@ -1907,7 +2606,7 @@
             <strong>número de proposições de entrada</strong> que o conectivo
             utiliza para produzir uma proposição de saída. Uma "proposição de
             entrada" aqui pode ser tanto uma
-            <strong>proposição atômica</strong> (simples, como $P$) quanto uma
+            <strong>proposição atômica</strong> (simples, como <span class="log-var">P</span>) quanto uma
             <strong>proposição molecular</strong> já construída (complexa, como
             $(P \land Q)$). A aridade do conectivo principal se refere ao número
             de unidades proposicionais <em>imediatas</em> que ele manipula.
@@ -1937,12 +2636,12 @@
               </ul>
             </li>
             <li>
-              <strong>Conectivos N-ários (ou de aridade $n$):</strong>
-              Teoricamente, um conectivo poderia operar sobre $n$ proposições.
+              <strong>Conectivos N-ários (ou de aridade <span class="log-var">n</span>):</strong>
+              Teoricamente, um conectivo poderia operar sobre <span class="log-var">n</span> proposições.
               <ul>
                 <li>
                   Por exemplo, um conectivo ternário ($n=3$) operaria sobre $P,
-                  Q,$ e $R$. Embora menos comuns como primitivos na lógica
+                  Q,$ e <span class="log-var">R</span>. Embora menos comuns como primitivos na lógica
                   proposicional básica, eles existem (como o operador
                   condicional "se-então-senão" em programação).
                 </li>
@@ -1952,7 +2651,7 @@
           <p>
             A aridade é fundamental porque determina quantas combinações de
             valores de verdade de entrada precisamos considerar para definir
-            completamente a função do conectivo. Se um conectivo tem $n$
+            completamente a função do conectivo. Se um conectivo tem <span class="log-var">n</span>
             proposições de entrada, e cada proposição pode ser V ou F, então
             existem $2^n$ linhas na tabela-verdade (combinações de valores de
             verdade das entradas).
@@ -1961,7 +2660,7 @@
             Para cada uma dessas $2^n$ combinações de entrada, a saída do
             conectivo pode ser V ou F. Isso significa que o número total de
             funções de verdade distintas (e, portanto, de conectivos distintos)
-            para uma aridade $n$ é $2^{(2^n)}$.
+            para uma aridade <span class="log-var">n</span> é $2^{(2^n)}$.
           </p>
           <ul>
             <li>
@@ -1996,11 +2695,11 @@
           <p>
             Como $n=1$ nos dá $2^2=4$ funções unárias, existem exatamente quatro
             maneiras de transformar o valor de verdade de uma única proposição
-            $P$:
+            <span class="log-var">P</span>:
           </p>
           <ol>
             <li>
-              <strong>Identidade (Afirmação):</strong> A saída é $P$.
+              <strong>Identidade (Afirmação):</strong> A saída é <span class="log-var">P</span>.
               <ul>
                 <li>Tabela-Verdade: Se P=V, saída=V; Se P=F, saída=F.</li>
                 <li>Não altera a entrada.</li>
@@ -2054,12 +2753,12 @@
                 EQUIVALENTE"):</strong
               >
               Negação da Equivalência, $\neg(P \leftrightarrow Q)$. É Verdadeira
-              se, e somente se, $P$ e $Q$ têm valores de verdade diferentes.
+              se, e somente se, <span class="log-var">P</span> e <span class="log-var">Q</span> têm valores de verdade diferentes.
               <table>
                 <thead>
                   <tr>
-                    <th>$P$</th>
-                    <th>$Q$</th>
+                    <th><span class="log-var">P</span></th>
+                    <th><span class="log-var">Q</span></th>
                     <th>$P \oplus Q$</th>
                   </tr>
                 </thead>
@@ -2089,13 +2788,13 @@
             </li>
             <li>
               <strong>NAND ($P \uparrow Q$ ou "Não E"):</strong> Negação da
-              Conjunção, $\neg(P \land Q)$. É Falsa somente quando $P$ e $Q$ são
+              Conjunção, $\neg(P \land Q)$. É Falsa somente quando <span class="log-var">P</span> e <span class="log-var">Q</span> são
               ambas Verdadeiras.
               <table>
                 <thead>
                   <tr>
-                    <th>$P$</th>
-                    <th>$Q$</th>
+                    <th><span class="log-var">P</span></th>
+                    <th><span class="log-var">Q</span></th>
                     <th>$P \uparrow Q$</th>
                   </tr>
                 </thead>
@@ -2125,13 +2824,13 @@
             </li>
             <li>
               <strong>NOR ($P \downarrow Q$ ou "Não OU"):</strong> Negação da
-              Disjunção, $\neg(P \lor Q)$. É Verdadeira somente quando $P$ e $Q$
+              Disjunção, $\neg(P \lor Q)$. É Verdadeira somente quando <span class="log-var">P</span> e <span class="log-var">Q</span>
               são ambas Falsas.
               <table>
                 <thead>
                   <tr>
-                    <th>$P$</th>
-                    <th>$Q$</th>
+                    <th><span class="log-var">P</span></th>
+                    <th><span class="log-var">Q</span></th>
                     <th>$P \downarrow Q$</th>
                   </tr>
                 </thead>
@@ -2169,11 +2868,11 @@
               <ul>
                 <li>
                   <strong>Tautologia Binária ($\top$):</strong> Resultado sempre
-                  Verdadeiro (V), independentemente das entradas $P$ e $Q$.
+                  Verdadeiro (V), independentemente das entradas <span class="log-var">P</span> e <span class="log-var">Q</span>.
                 </li>
                 <li>
                   <strong>Contradição Binária ($\bot$):</strong> Resultado
-                  sempre Falso (F), independentemente das entradas $P$ e $Q$.<br /><em
+                  sempre Falso (F), independentemente das entradas <span class="log-var">P</span> e <span class="log-var">Q</span>.<br /><em
                     >(Lembre-se que $\top$ e $\bot$ também existem como
                     conceitos unários, representando "sempre V" ou "sempre F"
                     para uma única entrada; aqui, aplicam-se a duas
@@ -2185,13 +2884,13 @@
             <li>
               <strong>Quatro Funções de Projeção (ou "Degeneradas"):</strong
               ><br />Estas funções, embora binárias na sua definição (aceitam
-              $P$ e $Q$), efetivamente ignoram uma das entradas. O resultado é
+              <span class="log-var">P</span> e <span class="log-var">Q</span>), efetivamente ignoram uma das entradas. O resultado é
               simplesmente o valor da outra entrada ou sua negação:
               <ul>
-                <li><strong>Saída $P$</strong> (ignora $Q$)</li>
-                <li><strong>Saída $Q$</strong> (ignora $P$)</li>
-                <li><strong>Saída $\neg P$</strong> (ignora $Q$)</li>
-                <li><strong>Saída $\neg Q$</strong> (ignora $P$)</li>
+                <li><strong>Saída <span class="log-var">P</span></strong> (ignora <span class="log-var">Q</span>)</li>
+                <li><strong>Saída <span class="log-var">Q</span></strong> (ignora <span class="log-var">P</span>)</li>
+                <li><strong>Saída $\neg P$</strong> (ignora <span class="log-var">Q</span>)</li>
+                <li><strong>Saída $\neg Q$</strong> (ignora <span class="log-var">P</span>)</li>
               </ul>
             </li>
             <li>
@@ -2201,18 +2900,18 @@
               <ul>
                 <li>
                   <strong>$P \land \neg Q$ ("P e não Q"):</strong> Verdadeira
-                  somente quando $P$ é V e $Q$ é F.
+                  somente quando <span class="log-var">P</span> é V e <span class="log-var">Q</span> é F.
                 </li>
                 <li>
                   <strong>$\neg P \land Q$ ("Não P e Q"):</strong> Verdadeira
-                  somente quando $P$ é F e $Q$ é V.
+                  somente quando <span class="log-var">P</span> é F e <span class="log-var">Q</span> é V.
                 </li>
                 <li>
                   <strong
                     >$P \leftarrow Q$ (Implicação Inversa, ou $Q \rightarrow
                     P$):</strong
                   >
-                  Falsa somente quando $Q$ é V e $P$ é F (equivalente a $P \lor
+                  Falsa somente quando <span class="log-var">Q</span> é V e <span class="log-var">P</span> é F (equivalente a $P \lor
                   \neg Q$).
                 </li>
               </ul>
