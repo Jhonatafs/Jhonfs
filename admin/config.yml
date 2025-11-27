@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: Jhonatafs/jhonfs-ecosystem
+  branch: main
+
+media_folder: "src/static/img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Data",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  - name: "sanctum"
+    label: "Sanctum (Privado)"
+    folder: "content/sanctum"
+    create: true
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Corpo", name: "body", widget: "markdown" }

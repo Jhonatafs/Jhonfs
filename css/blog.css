@@ -1,0 +1,50 @@
+/* Layout da Lista Cronológica */
+.blog-index {
+  margin-top: 2rem;
+}
+
+.year-group {
+  margin-bottom: 3rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--bg-surface);
+}
+
+.year-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-family: var(--font-stack-mono);
+}
+
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--ui-border);
+  transition: padding-left 0.2s ease;
+}
+
+.post-item:hover {
+  padding-left: 10px;
+  border-color: var(--accent-action);
+}
+
+.post-item a {
+  border: none;
+  font-weight: 500;
+  color: var(--text-body);
+}
+
+.post-item a:hover {
+  background: none;
+  color: var(--accent-action);
+}
+
+.post-meta {
+  font-family: var(--font-stack-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}

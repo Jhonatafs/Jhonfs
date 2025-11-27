@@ -1,0 +1,83 @@
+/* Remove a rolagem se o conteúdo for pequeno */
+body {
+  max-height: 100%;
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 0 30%;
+  padding: 0;
+}
+
+/* Estilo do Conteúdo (Markdown) */
+.terminal-content {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.terminal-content h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0.5rem;
+  border: none; /* Remove bordas padrão se houver */
+}
+
+.terminal-content p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* Navegação Vertical ou em Bloco */
+.landing-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid var(--ui-border);
+}
+
+.landing-nav a {
+  font-family: var(--font-stack-mono);
+  font-size: 1.1rem;
+  color: var(--accent-action);
+  text-decoration: none;
+  border: none;
+  width: fit-content;
+  padding: 0 0.5rem 0 0;
+}
+
+.landing-nav a:hover {
+  background: none;
+  text-decoration: underline;
+  color: var(--accent-primary);
+  padding: 0 0 0 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.landing-footer {
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}

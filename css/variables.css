@@ -1,0 +1,88 @@
+/* =========================================
+   VARS GLOBAIS & SEMÂNTICA
+   =========================================
+   --bg-base:        Fundo principal da janela/body
+   --bg-surface:     Fundo de cartões, sidebars, modais
+   --text-body:      Cor principal de leitura (tinta)
+   --text-muted:     Metadados, legendas, datas
+   --accent-primary: Identidade, Estrutura, Foco, Títulos
+   --accent-action:  Botões, Links, Interação direta
+   --ui-border:      Bordas estruturais (essencial p/ temas dark)
+   ========================================= */
+
+/* TEMA PADRÃO: CODEX PAPER (Swiss Naturalis) */
+:root {
+  --bg-base: #f9f7f1;
+  --bg-surface: #ebe8e1;
+  --text-body: #2d2a26;
+  --text-muted: #5c5850;
+  --accent-primary: #2a5c68; /* Azul Petróleo */
+  --accent-action: #d96c45; /* Terracotta */
+  --ui-border: 1px solid transparent; /* Temas claros usam sombras, não bordas */
+}
+
+/* TEMA: TUNGSTEN NOIR */
+[data-theme="tungsten"] {
+  --bg-base: #181818;
+  --bg-surface: #242424;
+  --text-body: #e0ddcf;
+  --text-muted: #a19f95;
+  --accent-primary: #d8a657; /* Old Gold */
+  --accent-action: #8fbcbb; /* Mineral Blue */
+  --ui-border: 1px solid #242424;
+}
+
+/* TEMA: BOTANICA NOCTIS */
+[data-theme="botanica"] {
+  --bg-base: #191a19;
+  --bg-surface: #222422;
+  --text-body: #dcd7c9;
+  --text-muted: #8c8f8c;
+  --accent-primary: #7a9e7e; /* Verde Sálvia */
+  --accent-action: #d6858f; /* Rosa Antigo */
+  --ui-border: 1px solid #222422;
+}
+
+/* TEMA: GRIMÓRIO AETERNA */
+[data-theme="grimorio"] {
+  --bg-base: #141210;
+  --bg-surface: #1f1c18;
+  --text-body: #d1c7b7;
+  --text-muted: #857f72;
+  --accent-primary: #c8a668; /* Ouro Velho */
+  --accent-action: #6b8ca3; /* Azul Arcano */
+  --ui-border: 1px solid #3a3630; /* Borda visível para efeito rústico */
+}
+
+/* TEMA: SUDO READ */
+[data-theme="sudo"] {
+  --bg-base: #0f111a;
+  --bg-surface: #181b26;
+  --text-body: #b0b7c3;
+  --text-muted: #5c6370;
+  --accent-primary: #32cd99; /* Verde Lógico */
+  --accent-action: #e5c07b; /* Âmbar */
+  --ui-border: 1px solid #181b26;
+}
+
+/* TEMA: ROOT VELVET */
+[data-theme="root"] {
+  --bg-base: #121016;
+  --bg-surface: #1e1a24;
+  --text-body: #e6e1f0;
+  --text-muted: #7e768d;
+  --accent-primary: #ff4f81; /* Operator Pink */
+  --accent-action: #4ad4f8; /* Electric Cyan */
+  --ui-border: 1px solid #2d2636;
+}
+
+/* TEMA: NEON CONSOLE */
+[data-theme="neon"] {
+  --bg-base: #0f1215;
+  --bg-surface: #1a1e24;
+  --text-body: #c5cdd3;
+  --text-muted: #676e75;
+  --accent-primary: #50fa7b; /* Terminal Green */
+  --accent-action: #ff79c6; /* Electric Pink */
+  --ui-border: 1px solid #2a3038;
+}

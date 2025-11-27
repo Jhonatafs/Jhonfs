@@ -1,0 +1,205 @@
+@import url(variables.css);
+
+/* ============================================
+    Reset & Base Estrutural
+=============================================*/
+
+html {
+  font-size: 18px;
+  /* Nota: Certifique-se de definir --font-stack-mono no seu arquivo variables.css 
+     ou substitua aqui por 'monospace' se não estiver definido */
+  font-family: var(--font-stack-mono, monospace);
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-body);
+  line-height: 1.7;
+
+  /* Correção do layout */
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100dvh !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* ============================================
+    Tipografia & Elementos
+=============================================*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 1.5em 0 0 0;
+  letter-spacing: -0.5px;
+  color: var(--accent-primary); /* Títulos assumem a cor da identidade */
+}
+
+p,
+li {
+  max-width: 75ch;
+  color: var(--text-body);
+}
+
+a {
+  color: var(--accent-action);
+  text-decoration: none;
+  /* Usamos a variável de borda global para garantir que suma no tema Paper se necessário */
+  border-bottom: var(--ui-border);
+  transition: all 0.2s;
+}
+
+a:hover {
+  background-color: var(--accent-action);
+  color: var(
+    --bg-base
+  ); /* Inverte para a cor do fundo atual para garantir leitura */
+  border-bottom-style: solid;
+  border-color: var(--accent-action);
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  border: var(--ui-border);
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: var(--ui-border);
+  padding: 0 0.2rem;
+  color: var(--text-body);
+}
+
+/* ============================================
+    Layout Components
+=============================================*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2% 0.2rem;
+  border: none;
+  border-bottom: var(--ui-border);
+  background-color: var(--bg-base);
+}
+
+nav h1,
+#brand {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 0;
+  margin: 0;
+  color: var(--accent-primary);
+}
+
+#brand span {
+  color: var(--accent-action);
+}
+
+#navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#navigation a {
+  font-size: 1rem;
+  padding: 0 0.1rem 0 0;
+  margin: 0;
+  text-decoration: none;
+  border: none; /* Remove borda dos links do menu para ficar mais limpo */
+  color: var(--text-body); /* Menu geralmente é neutro até o hover */
+
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#navigation a:hover {
+  padding: 0 0 0 0.1rem;
+  color: var(--accent-action);
+  background-color: transparent; /* Evita o background sólido no menu */
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0;
+  margin: 0;
+  border-top: var(--ui-border); /* Opcional: separação sutil no rodapé */
+}
+
+footer p {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  box-sizing: border-box;
+}
+
+/* ============================================
+    Ajustes por Tela
+=============================================*/
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 0 0.5rem !important;
+  }
+
+  h1,
+  h2 {
+    margin-top: 1em;
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  nav {
+    flex-direction: column;
+  }
+
+  #navigation {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
