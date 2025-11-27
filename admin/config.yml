@@ -2,6 +2,10 @@ backend:
   name: github
   repo: Jhonatafs/jhonfs-ecosystem
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_domain: jhonfs.com
+  app_id: Ov23lifs0yqITUqEtlHF
 
 media_folder: "src/static/img/uploads"
 public_folder: "/img/uploads"
@@ -30,3 +34,59 @@ collections:
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
+
+  - name: "projects"
+    label: "Projetos"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nome do Projeto", name: "title", widget: "string" }
+      - {
+          label: "Data",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+        }
+      - {
+          label: "Status",
+          name: "status",
+          widget: "select",
+          options: ["Em Desenvolvimento", "Live", "Arquivado"],
+        }
+      - { label: "Tecnologias", name: "tech", widget: "list" }
+      - { label: "Link", name: "link", widget: "string" }
+      - { label: "Descrição", name: "body", widget: "markdown" }
+
+  - name: "aiterus"
+    label: "Aiterus (Acervo)"
+    folder: "content/aiterus"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Tipo",
+          name: "type",
+          widget: "select",
+          options: ["Artefato", "Poesia", "Registro", "Grimório"],
+        }
+      # Stats é um objeto complexo, para simplificar no CMS usamos 'object'
+      - label: "Estatísticas (Stats)"
+        name: "stats"
+        widget: "object"
+        fields:
+          - {
+              label: "Chave 1 (ex: Autor)",
+              name: "key1",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Valor 1",
+              name: "val1",
+              widget: "string",
+              required: false,
+            }
+          # Adicione mais pares se necessário ou use widget 'map' se preferir livre
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
