@@ -4,7 +4,7 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
-  site_domain: jhonfs.com
+  site_domain: statuesque-dolphin-c2c0d0.netlify.app
   app_id: Ov23lifs0yqITUqEtlHF
 
 media_folder: "src/static/img/uploads"
