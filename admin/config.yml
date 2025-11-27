@@ -1,11 +1,9 @@
 backend:
-  name: github
-  repo: Jhonatafs/jhonfs-ecosystem
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-  site_domain: statuesque-dolphin-c2c0d0.netlify.app
-  app_id: Ov23lifs0yqITUqEtlHF
+  # Importante: Como seu site está no GitHub Pages, precisamos dizer onde o "Porteiro" mora:
+  accept_roles: ["admin"] # Opcional, mas boa prática
+  site_url: https://statuesque-dolphin-c2c0d0.netlify.app
 
 media_folder: "src/static/img/uploads"
 public_folder: "/img/uploads"
