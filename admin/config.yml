@@ -2,11 +2,7 @@ backend:
   name: github
   repo: Jhonatafs/jhonfs-ecosystem
   branch: main
-  # ⚠️ ATENÇÃO: Este endpoint de autenticação é provisório.
-  # Na Fase 3, configuraremos o Cloudflare Worker para lidar com o login.
-  # Por enquanto, o CMS pedirá um "Personal Access Token" se o login falhar,
-  # o que é aceitável para testes locais.
-  auth_endpoint: https://auth.jhonfs-sanctum.workers.dev
+  auth_endpoint: https://auth-jhonfs-sanctum.jhonatasade.workers.dev
 
 # Configurações de Mídia
 media_folder: "src/static/assets/uploads" # Onde salvar no repo
