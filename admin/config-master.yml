@@ -1,0 +1,52 @@
+backend:
+  name: github
+  repo: Jhonatafs/jhonfs-ecosystem
+  branch: main
+  base_url: https://auth-jhonfs-sanctum.jhonatasade.workers.dev
+
+media_folder: "src/static/assets/uploads"
+public_folder: "/assets/uploads"
+show_preview_links: true
+
+collections:
+  # VOCÊ vê tudo: Blog, Sanctum e Projetos
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Data",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+        }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  - name: "sanctum"
+    label: "Sanctum (Área Privada)"
+    folder: "content/sanctum"
+    create: true
+    extension: "md"
+    fields:
+      - { label: "Identificador (Slug)", name: "title", widget: "string" }
+      - { label: "Conteúdo Privado", name: "body", widget: "markdown" }
+
+  - name: "projects"
+    label: "Projetos"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { label: "Nome do Projeto", name: "title", widget: "string" }
+      - {
+          label: "Status",
+          name: "status",
+          widget: "select",
+          options: ["WIP", "Live", "Archived"],
+        }
+      - { label: "Tecnologias", name: "tech", widget: "list" }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Descrição", name: "body", widget: "markdown" }
