@@ -2,14 +2,12 @@ backend:
   name: github
   repo: Jhonatafs/jhonfs-ecosystem
   branch: main
-  auth_endpoint: https://auth-jhonfs-sanctum.jhonatasade.workers.dev
+  base_url: https://auth-jhonfs-sanctum.jhonatasade.workers.dev
 
 # Configurações de Mídia
 media_folder: "src/static/assets/uploads" # Onde salvar no repo
 public_folder: "/assets/uploads" # Como ler no HTML
 
-# Workflow: O "editorial_workflow" ativa o fluxo: Rascunho -> PR -> Aprovação
-publish_mode: editorial_workflow
 show_preview_links: true
 
 # Definição das Coleções de Conteúdo
