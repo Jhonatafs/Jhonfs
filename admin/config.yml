@@ -1,19 +1,29 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Jhonatafs/jhonfs-ecosystem
   branch: main
-  # Importante: Como seu site está no GitHub Pages, precisamos dizer onde o "Porteiro" mora:
-  accept_roles: ["admin"] # Opcional, mas boa prática
-  site_url: https://statuesque-dolphin-c2c0d0.netlify.app
+  # ⚠️ ATENÇÃO: Este endpoint de autenticação é provisório.
+  # Na Fase 3, configuraremos o Cloudflare Worker para lidar com o login.
+  # Por enquanto, o CMS pedirá um "Personal Access Token" se o login falhar,
+  # o que é aceitável para testes locais.
+  auth_endpoint: https://auth.jhonfs-sanctum.workers.dev
 
-media_folder: "src/static/img/uploads"
-public_folder: "/img/uploads"
+# Configurações de Mídia
+media_folder: "src/static/assets/uploads" # Onde salvar no repo
+public_folder: "/assets/uploads" # Como ler no HTML
 
+# Workflow: O "editorial_workflow" ativa o fluxo: Rascunho -> PR -> Aprovação
+publish_mode: editorial_workflow
+show_preview_links: true
+
+# Definição das Coleções de Conteúdo
 collections:
+  # 1. Blog (Público)
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - {
@@ -22,69 +32,32 @@ collections:
           widget: "datetime",
           format: "YYYY-MM-DD",
         }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
+  # 2. Sanctum (Privado/Restrito)
   - name: "sanctum"
-    label: "Sanctum (Privado)"
+    label: "Sanctum (Área Privada)"
     folder: "content/sanctum"
     create: true
+    extension: "md"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+      - { label: "Identificador (Slug)", name: "title", widget: "string" }
+      - { label: "Conteúdo Privado", name: "body", widget: "markdown" }
 
+  # 3. Projetos
   - name: "projects"
     label: "Projetos"
     folder: "content/projects"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "Nome do Projeto", name: "title", widget: "string" }
-      - {
-          label: "Data",
-          name: "date",
-          widget: "datetime",
-          format: "YYYY-MM-DD",
-        }
       - {
           label: "Status",
           name: "status",
           widget: "select",
-          options: ["Em Desenvolvimento", "Live", "Arquivado"],
+          options: ["WIP", "Live", "Archived"],
         }
       - { label: "Tecnologias", name: "tech", widget: "list" }
-      - { label: "Link", name: "link", widget: "string" }
+      - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Descrição", name: "body", widget: "markdown" }
-
-  - name: "aiterus"
-    label: "Aiterus (Acervo)"
-    folder: "content/aiterus"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - {
-          label: "Tipo",
-          name: "type",
-          widget: "select",
-          options: ["Artefato", "Poesia", "Registro", "Grimório"],
-        }
-      # Stats é um objeto complexo, para simplificar no CMS usamos 'object'
-      - label: "Estatísticas (Stats)"
-        name: "stats"
-        widget: "object"
-        fields:
-          - {
-              label: "Chave 1 (ex: Autor)",
-              name: "key1",
-              widget: "string",
-              required: false,
-            }
-          - {
-              label: "Valor 1",
-              name: "val1",
-              widget: "string",
-              required: false,
-            }
-          # Adicione mais pares se necessário ou use widget 'map' se preferir livre
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
