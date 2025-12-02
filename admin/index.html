@@ -8,26 +8,56 @@
   <link href="./config.yml" type="text/yaml" rel="cms-config-url" />
   
   <script>
+    // 1. Configuração Básica do MathJax
     window.MathJax = {
       tex: {
-        // Define os delimitadores: $$ para bloco, $ para inline
         inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
       },
-      svg: {
-        fontCache: 'global'
-      },
-      // Faz o MathJax observar mudanças no DOM (importante para o CMS dinâmico)
-      options: {
-        enableMenu: false
+      svg: { fontCache: 'global' },
+      // Importante: Dizemos para não rodar automaticamente no início,
+      // pois vamos controlar manualmente com o Observador abaixo.
+      startup: {
+        typeset: false 
       }
     };
   </script>
+
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let timeoutId = null;
+      
+      // Esta função acorda o MathJax, mas espera você parar de digitar por 300ms
+      // para não travar o navegador (Debounce).
+      const reRenderMath = () => {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          if (window.MathJax && window.MathJax.typesetPromise) {
+            // Manda o MathJax varrer a página inteira em busca de novos $$
+            window.MathJax.typesetPromise().catch((err) => console.log('MathJax Error:', err));
+          }
+        }, 300);
+      };
+
+      // Cria o Observador que detecta mudanças no HTML (digitação, novos blocos)
+      const observer = new MutationObserver((mutations) => {
+        // Se algo mudou na estrutura da página, chama a renderização
+        reRenderMath();
+      });
+
+      // Começa a vigiar o corpo do site assim que carregar
+      // Nota: childList e subtree garantem que pegamos mudanças profundas no CMS
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  </script>
+
   <style>
-    /* Ajuste minimalista para o loading */
     body { margin: 0; background: #1a1a1a; color: #e5e5e5; font-family: sans-serif; }
+    /* Ajuste opcional para garantir que as fórmulas não fiquem gigantes */
+    mjx-container { max-width: 100%; overflow-x: auto; }
   </style>
 </head>
 <body>
