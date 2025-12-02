@@ -7,6 +7,24 @@
   
   <link href="./config.yml" type="text/yaml" rel="cms-config-url" />
   
+  <script>
+    window.MathJax = {
+      tex: {
+        // Define os delimitadores: $$ para bloco, $ para inline
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      // Faz o MathJax observar mudanças no DOM (importante para o CMS dinâmico)
+      options: {
+        enableMenu: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
     /* Ajuste minimalista para o loading */
     body { margin: 0; background: #1a1a1a; color: #e5e5e5; font-family: sans-serif; }
