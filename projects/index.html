@@ -10,11 +10,25 @@
 <body>
     <nav>
         <div id="brand">Jhon<span>F</span>s</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
         <ul id="navigation">
             <li><a href="/">[root]</a></li>
             <li><a href="/blog">~/blog</a></li>
             <li><a href="/projects">~/projects</a></li>
             <li><a href="/aiterus">../aiterus</a></li>
+            
+            <li class="theme-trigger-wrapper">
+                <button onclick="window.cycleTheme()" class="theme-trigger">
+                    <span class="cmd-prefix">$ theme.set</span>
+                    <span id="theme-display">[ CODEX.SYS ]</span>
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -80,5 +94,6 @@ conhecimento acessível.</p>
     <footer>
         <p>&copy; 2025 JhonFS Ecosystem. Static Generate.</p>
     </footer>
+    <script src="/js/theme-engine.js"></script>
 </body>
 </html>

@@ -6,9 +6,8 @@
 
 html {
   font-size: 18px;
-  /* Nota: Certifique-se de definir --font-stack-mono no seu arquivo variables.css 
-     ou substitua aqui por 'monospace' se não estiver definido */
-  font-family: var(--font-stack-mono, monospace);
+  /* Garante a fonte mono definida nas variáveis ou fallback */
+  font-family: var(--font-stack-mono, "Fira Code", "Courier New", monospace);
   overflow-x: hidden;
   scrollbar-gutter: stable;
 }
@@ -45,7 +44,7 @@ h6 {
   font-weight: 700;
   margin: 1.5em 0 0 0;
   letter-spacing: -0.5px;
-  color: var(--accent-primary); /* Títulos assumem a cor da identidade */
+  color: var(--accent-primary);
 }
 
 p,
@@ -57,16 +56,13 @@ li {
 a {
   color: var(--accent-action);
   text-decoration: none;
-  /* Usamos a variável de borda global para garantir que suma no tema Paper se necessário */
   border-bottom: var(--ui-border);
   transition: all 0.2s;
 }
 
 a:hover {
   background-color: var(--accent-action);
-  color: var(
-    --bg-base
-  ); /* Inverte para a cor do fundo atual para garantir leitura */
+  color: var(--bg-base);
   border-bottom-style: solid;
   border-color: var(--accent-action);
 }
@@ -130,19 +126,16 @@ nav h1,
 
 #navigation a {
   font-size: 1rem;
-  padding: 0 0.1rem 0 0;
   margin: 0;
   text-decoration: none;
-  border: none; /* Remove borda dos links do menu para ficar mais limpo */
-  color: var(--text-body); /* Menu geralmente é neutro até o hover */
-
+  border: none;
+  color: var(--text-body);
   transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #navigation a:hover {
-  padding: 0 0 0 0.1rem;
   color: var(--accent-action);
-  background-color: transparent; /* Evita o background sólido no menu */
+  background-color: transparent;
 }
 
 main {
@@ -162,7 +155,7 @@ footer {
   gap: 0.9rem;
   padding: 0;
   margin: 0;
-  border-top: var(--ui-border); /* Opcional: separação sutil no rodapé */
+  border-top: var(--ui-border);
 }
 
 footer p {
@@ -174,18 +167,16 @@ footer p {
 }
 
 /* ============================================
-    Ajustes por Tela
+    Ajustes por Tela (Media Queries)
 =============================================*/
 
 @media (max-width: 768px) {
   html {
     font-size: 16px;
   }
-
   main {
     padding: 0 0.5rem !important;
   }
-
   h1,
   h2 {
     margin-top: 1em;
@@ -197,9 +188,210 @@ footer p {
   nav {
     flex-direction: column;
   }
-
   #navigation {
     gap: 0.5rem;
     flex-wrap: wrap;
+  }
+}
+
+/* =========================================
+   WIDGET DE TEMA (Estilo Inserido Diretamente)
+   ========================================= */
+
+button.theme-trigger {
+  /* Layout e Posicionamento */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  margin-left: 0.5rem;
+
+  /* Reset Completo do Botão Nativo */
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none; /* Importante para Safari/iOS */
+  border: 1px solid var(--ui-border);
+  border-radius: 4px;
+  box-shadow: none;
+
+  /* Tipografia */
+  color: var(--text-muted);
+  font-family: var(--font-stack-mono, "Fira Code", monospace);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Prefixo do comando ($ theme.set) */
+button.theme-trigger .cmd-prefix {
+  color: var(--accent-primary);
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+/* Valor do tema ([ CODEX.SYS ]) */
+button.theme-trigger #theme-display {
+  color: var(--accent-action);
+  font-weight: bold;
+}
+
+/* --- Estados Interativos --- */
+
+button.theme-trigger:hover {
+  background-color: var(--bg-surface);
+  border-color: var(--accent-action);
+  color: var(--text-body);
+  text-decoration: none;
+}
+
+button.theme-trigger:active {
+  transform: translateY(2px);
+}
+
+/* --- Responsividade do Botão --- */
+@media (max-width: 600px) {
+  button.theme-trigger .cmd-prefix {
+    display: none; /* Esconde o prefixo em telas pequenas */
+  }
+
+  button.theme-trigger {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================
+   MENU HAMBÚRGUER (PURE CSS)
+   ========================================= */
+
+/* 1. Esconde o Checkbox (O cérebro) e o Label (O botão) no Desktop */
+.nav-toggle,
+.nav-toggle-label {
+  display: none;
+}
+
+/* 2. Comportamento para Mobile (< 768px) */
+@media (max-width: 768px) {
+  /* Configura o container NAV para permitir quebra de linha */
+  nav {
+    flex-wrap: wrap;
+    padding: 1rem 5%; /* Ajuste de padding para mobile */
+  }
+
+  /* O Botão Hambúrguer (Label) */
+  .nav-toggle-label {
+    display: flex; /* Aparece só no mobile */
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    /* Ícone de 3 linhas usando CSS puro */
+    position: relative;
+  }
+
+  /* A linha do meio */
+  .nav-toggle-label span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-body);
+    position: relative;
+    transition: background 0.2s ease-out;
+  }
+
+  /* As linhas de cima e baixo (Pseudo-elementos) */
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-body);
+    transition: all 0.2s ease-out;
+  }
+
+  .nav-toggle-label span::before {
+    top: -8px;
+  }
+  .nav-toggle-label span::after {
+    top: 8px;
+  }
+
+  /* 3. Estilo da Lista de Links (Escondida por padrão) */
+  #navigation {
+    display: none; /* Segredo: some daqui */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--ui-border);
+    gap: 0; /* Remove gap do flex row */
+  }
+
+  #navigation li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #navigation a {
+    display: block;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--ui-border);
+    width: 100%;
+  }
+
+  /* Ajuste especial para o botão de tema no mobile */
+  .theme-trigger-wrapper {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  button.theme-trigger {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+    border: 1px solid var(--ui-border);
+    padding: 0.8rem;
+  }
+
+  /* =========================================
+       A LÓGICA DE ABERTURA (CHECKBOX HACK)
+       ========================================= */
+
+  /* Quando o checkbox estiver marcado, selecione o irmão #navigation */
+  .nav-toggle:checked ~ #navigation {
+    display: flex;
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  /* Animação do ícone virando um X */
+  .nav-toggle:checked + .nav-toggle-label span {
+    background: transparent; /* A linha do meio some */
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::before {
+    transform: rotate(45deg); /* Linha de cima desce rodando */
+    top: 0;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::after {
+    transform: rotate(-45deg); /* Linha de baixo sobe rodando */
+    top: 0;
+  }
+}
+
+/* Animação simples de entrada */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

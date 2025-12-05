@@ -49,10 +49,22 @@ body {
 .landing-nav {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 90% !important;
   gap: 1rem;
   padding: 0;
   margin: 0;
   border-left: 2px solid var(--ui-border);
+}
+
+@media screen and (max-width: 768px) {
+  .landing-nav {
+    width: 80% !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 0.5rem;
+  }
 }
 
 .landing-nav a {
@@ -62,14 +74,12 @@ body {
   text-decoration: none;
   border: none;
   width: fit-content;
-  padding: 0 0.5rem 0 0;
 }
 
 .landing-nav a:hover {
   background: none;
   text-decoration: underline;
   color: var(--accent-primary);
-  padding: 0 0 0 0.5rem;
   transition: all 0.2s ease;
 }
 

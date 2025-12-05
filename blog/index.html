@@ -12,11 +12,25 @@
 <body>
     <nav>
         <div id="brand">Jhon<span>F</span>s</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
         <ul id="navigation">
             <li><a href="/">[root]</a></li>
             <li><a href="/blog">~/blog</a></li>
             <li><a href="/projects">~/projects</a></li>
             <li><a href="/aiterus">../aiterus</a></li>
+            
+            <li class="theme-trigger-wrapper">
+                <button onclick="window.cycleTheme()" class="theme-trigger">
+                    <span class="cmd-prefix">$ theme.set</span>
+                    <span id="theme-display">[ CODEX.SYS ]</span>
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -31,13 +45,18 @@
     
     
     <div class="year-group">
-        <div class="year-label">2023</div>
+        <div class="year-label">2025</div>
         
         <div class="posts-list">
             
             <div class="post-item">
+                <a href="/blog/2025-12-04-latim-napoleao-01-nominativo/">Latim com Napoleão #01: Nominativo</a>
+                <span class="post-meta">12-04</span>
+            </div>
+            
+            <div class="post-item">
                 <a href="/blog/teste/">Documento de Teste de Conversão</a>
-                <span class="post-meta">10-27</span>
+                <span class="post-meta">12-03</span>
             </div>
             
         </div>
@@ -50,5 +69,6 @@
     <footer>
         <p>&copy; 2025 JhonFS Ecosystem. Static Generate.</p>
     </footer>
+    <script src="/js/theme-engine.js"></script>
 </body>
 </html>
