@@ -1,3 +1,5 @@
+@import url(../fonts/FiraCode-VF.ttf);
+@import url(../fonts/SymbolsNerdFontMono-Regular.ttf);
 @import url(variables.css);
 
 /* ============================================
@@ -6,8 +8,7 @@
 
 html {
   font-size: 18px;
-  /* Garante a fonte mono definida nas variáveis ou fallback */
-  font-family: var(--font-stack-mono, "Fira Code", "Courier New", monospace);
+  font-family: "Fira Code", "Symbols Nerd Font", "Courier New", monospace;
   overflow-x: hidden;
   scrollbar-gutter: stable;
 }
@@ -49,7 +50,7 @@ h6 {
 
 p,
 li {
-  max-width: 75ch;
+  max-width: 65ch;
   color: var(--text-body);
 }
 
@@ -138,6 +139,14 @@ nav h1,
   background-color: transparent;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
 main {
   width: 100%;
   max-width: 800px;
@@ -181,16 +190,16 @@ footer p {
   h2 {
     margin-top: 1em;
     font-size: 1.8rem;
+    line-height: 1.3;
   }
-}
 
-@media screen and (max-width: 370px) {
-  nav {
-    flex-direction: column;
+  p,
+  li {
+    max-width: 75ch;
   }
-  #navigation {
-    gap: 0.5rem;
-    flex-wrap: wrap;
+
+  footer span {
+    display: none;
   }
 }
 
@@ -210,7 +219,7 @@ button.theme-trigger {
   /* Reset Completo do Botão Nativo */
   background: transparent;
   appearance: none;
-  -webkit-appearance: none; /* Importante para Safari/iOS */
+  -webkit-appearance: none;
   border: 1px solid var(--ui-border);
   border-radius: 4px;
   box-shadow: none;
@@ -253,7 +262,7 @@ button.theme-trigger:active {
 /* --- Responsividade do Botão --- */
 @media (max-width: 600px) {
   button.theme-trigger .cmd-prefix {
-    display: none; /* Esconde o prefixo em telas pequenas */
+    display: none;
   }
 
   button.theme-trigger {
@@ -277,12 +286,13 @@ button.theme-trigger:active {
   /* Configura o container NAV para permitir quebra de linha */
   nav {
     flex-wrap: wrap;
-    padding: 1rem 5%; /* Ajuste de padding para mobile */
+    position: relative;
+    padding: 1rem 5%;
   }
 
   /* O Botão Hambúrguer (Label) */
   .nav-toggle-label {
-    display: flex; /* Aparece só no mobile */
+    display: flex;
     align-items: center;
     width: 30px;
     height: 30px;
@@ -322,13 +332,13 @@ button.theme-trigger:active {
 
   /* 3. Estilo da Lista de Links (Escondida por padrão) */
   #navigation {
-    display: none; /* Segredo: some daqui */
+    display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px dashed var(--ui-border);
-    gap: 0; /* Remove gap do flex row */
+    gap: 0;
   }
 
   #navigation li {
@@ -352,10 +362,10 @@ button.theme-trigger:active {
 
   button.theme-trigger {
     margin-left: 0;
-    width: 100%;
+    width: fit-content;
     justify-content: center;
     border: 1px solid var(--ui-border);
-    padding: 0.8rem;
+    padding: 0.8rem 0.1rem;
   }
 
   /* =========================================
@@ -370,16 +380,16 @@ button.theme-trigger:active {
 
   /* Animação do ícone virando um X */
   .nav-toggle:checked + .nav-toggle-label span {
-    background: transparent; /* A linha do meio some */
+    background: transparent;
   }
 
   .nav-toggle:checked + .nav-toggle-label span::before {
-    transform: rotate(45deg); /* Linha de cima desce rodando */
+    transform: rotate(45deg);
     top: 0;
   }
 
   .nav-toggle:checked + .nav-toggle-label span::after {
-    transform: rotate(-45deg); /* Linha de baixo sobe rodando */
+    transform: rotate(-45deg);
     top: 0;
   }
 }
@@ -393,5 +403,61 @@ button.theme-trigger:active {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ============================================
+    BOTÕES DE NAVEGAÇÃO RÁPIDA (Novas Regras)
+=============================================*/
+
+/* Estilo Comum dos Botões (Top/Bottom) */
+.nav-button {
+  position: fixed;
+  right: 20px;
+  opacity: 0.5 !important;
+  color: var(--accent-action);
+  padding: 10px 14px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 5px;
+
+  /* Configurações de transição e visibilidade */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 999;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:hover {
+  background-color: var(--accent-primary);
+  color: var(--bg-base);
+  border: none;
+}
+
+/* Posição Específica para o Botão Topo */
+#go-to-top {
+  bottom: 60px;
+}
+
+/* Posição Específica para o Botão Fim */
+#go-to-bottom {
+  bottom: 20px;
+}
+
+/* Classe para Mostrar o Botão (ativado pelo JS) */
+.show-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile: Ajustar posicionamento ou tamanho (opcional) */
+@media (max-width: 768px) {
+  .nav-button {
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }

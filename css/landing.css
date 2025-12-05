@@ -57,16 +57,6 @@ body {
   border-left: 2px solid var(--ui-border);
 }
 
-@media screen and (max-width: 768px) {
-  .landing-nav {
-    width: 80% !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-    gap: 0.5rem;
-  }
-}
-
 .landing-nav a {
   font-family: var(--font-stack-mono);
   font-size: 1.1rem;
@@ -90,4 +80,14 @@ body {
   text-align: center;
   font-size: 0.8rem;
   opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .landing-nav {
+    width: 80% !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: end;
+    gap: 0.5rem;
+  }
 }

@@ -1,3 +1,7 @@
+html {
+  font-family: "Fira Sans", "Symbols Nerd Font", "Courier New", monospace !important;
+}
+
 /* Layout do Artigo */
 .post-header {
   margin-bottom: 3rem;
@@ -13,7 +17,6 @@
 }
 
 .post-meta {
-  font-family: var(--font-stack-mono);
   color: var(--text-muted);
   font-size: 0.9rem;
 }
@@ -25,8 +28,6 @@
 
 .post-content h2 {
   margin-top: 2.5rem;
-  border-left: 4px solid var(--accent-primary);
-  padding-left: 1rem;
 }
 .post-content p {
   margin-bottom: 1.5rem;
@@ -38,6 +39,26 @@
   font-style: italic;
 }
 
+/* Estilização para notas e reflexões pessoais */
+.personal-note {
+  display: block;
+  width: 80%;
+  margin-inline: auto;
+  line-height: 1.5;
+  opacity: 0.8;
+  font-size: 0.9em;
+}
+
+/* Estilização para correções ou insights importantes */
+.correcao-gramatical {
+  display: block;
+  margin-top: 1em;
+  padding: 1em;
+  border: 1px dashed #28a745; /* Verde para correção */
+  background-color: #e2f0e9;
+  font-size: 1em;
+}
+
 /* Blocos de Código (Pandoc) */
 pre {
   background: #1e1e1e;
@@ -45,7 +66,8 @@ pre {
   padding: 1rem;
   border-radius: 4px;
   overflow-x: auto;
-  font-size: 0.9rem;
+  font-family: "Fira Code", "Symbols Nerd Font", "Courier New", monospace;
+  font-size: 1rem;
 }
 code {
   font-family: var(--font-stack-mono);

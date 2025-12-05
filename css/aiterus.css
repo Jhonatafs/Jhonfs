@@ -1,7 +1,7 @@
 /* Layout Base do Aiterus */
 .library-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--ui-border);
   padding: 15% 0 2rem;
 }
@@ -117,4 +117,11 @@
   gap: 1.5rem;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .aiterus-footer {
+    flex-direction: column;
+    padding-inline: 0;
+  }
 }

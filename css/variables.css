@@ -86,3 +86,198 @@
   --accent-action: #ff79c6; /* Electric Pink */
   --ui-border: 1px solid #2a3038;
 }
+
+/*
+ * =================================================================
+ * CONFIGURAÇÃO DA FAMÍLIA FIRA SANS (PROPORCIONAL/NÃO MONOESPAÇADA)
+ * =================================================================
+ *
+ * Mapeia cada arquivo .ttf para o peso (weight) e estilo (style) corretos.
+ * font-family: 'Fira Sans'; é o nome que você usará no CSS.
+ */
+
+/* PESOS NORMAIS (font-style: normal) */
+/* Thin (100) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Thin.ttf) format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraLight (200) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-ExtraLight.ttf) format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light (300) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold (600) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraBold (800) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-ExtraBold.ttf) format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black (900) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Black.ttf) format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PESOS ITÁLICOS (font-style: italic) */
+/* ThinItalic (100) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-ThinItalic.ttf) format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraLightItalic (200) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-ExtraLightItalic.ttf) format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* LightItalic (300) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-LightItalic.ttf) format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Italic (400) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-Italic.ttf) format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* MediumItalic (500) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* SemiBoldItalic (600) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-SemiBoldItalic.ttf) format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* BoldItalic (700) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-BoldItalic.ttf) format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraBoldItalic (800) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-ExtraBoldItalic.ttf) format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* BlackItalic (900) */
+@font-face {
+  font-family: "Fira Sans";
+  src: url(../fonts/FiraSans-BlackItalic.ttf) format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*
+ * =================================================================
+ * OUTRAS
+ * =================================================================
+ */
+
+@font-face {
+  font-family: "Fira Code";
+  src: url(../fonts/FiraCode-VF.ttf) format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Symbols Nerd Font";
+  src: url(../fonts/SymbolsNerdFontMono-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
