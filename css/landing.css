@@ -21,7 +21,7 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
-  margin: 0 0 30%;
+  margin: 0 0 8%;
   padding: 0;
 }
 
@@ -46,7 +46,8 @@ body {
 }
 
 /* Navegação Vertical ou em Bloco */
-.landing-nav {
+.landing-nav,
+.landing-icons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -57,7 +58,12 @@ body {
   border-left: 2px solid var(--ui-border);
 }
 
-.landing-nav a {
+.landing-icons {
+  margin-top: 3rem;
+}
+
+.landing-nav a,
+.landing-icons a {
   font-family: var(--font-stack-mono);
   font-size: 1.1rem;
   color: var(--accent-action);
@@ -66,11 +72,15 @@ body {
   width: fit-content;
 }
 
-.landing-nav a:hover {
+.landing-nav a:hover,
+.landing-icons a:hover {
   background: none;
-  text-decoration: underline;
   color: var(--accent-primary);
   transition: all 0.2s ease;
+}
+
+.landing-nav a:hover {
+  text-decoration: underline;
 }
 
 .landing-footer {
