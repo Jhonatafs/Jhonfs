@@ -29,7 +29,7 @@
 
 .search-input {
   width: 100%;
-  padding: 1rem 1rem 1rem 3rem; /* Espaço para ícone */
+  padding: 1rem 1rem 1rem 3rem;
   background: var(--bg-surface);
   border: 1px solid var(--ui-border);
   color: var(--text-body);
@@ -99,15 +99,9 @@
 /* Rodapé Exclusivo */
 
 .aiterus-footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   padding: 2rem 0 1rem;
-  border-top: 1px solid var(--ui-border);
   text-align: center;
-  font-family: var(--font-stack-mono);
   font-size: 0.9rem;
 }
 
@@ -123,5 +117,25 @@
   .aiterus-footer {
     flex-direction: column;
     padding-inline: 0;
+  }
+
+  .aiterus-nav {
+    flex-wrap: wrap;
+  }
+
+  .aiterus-footer .theme-trigger {
+    display: inline-flex !important;
+    width: auto !important;
+    padding: 0.4rem 0 !important;
+    margin: 0 !important;
+    border: 1px solid var(--ui-border);
+  }
+
+  #theme-display {
+    display: inline-block !important;
+  }
+
+  .aiterus-footer .theme-trigger .cmd-prefix {
+    display: none;
   }
 }
