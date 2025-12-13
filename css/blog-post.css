@@ -39,6 +39,32 @@ html {
   font-style: italic;
 }
 
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100% !important;
+  width: 100%;
+  margin: .5rem auto;
+  padding-inline: .2rem;
+}
+
+figure img {
+  max-width: 100%;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+figure figcaption {
+  font-size: .8rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
 /* Estilização para notas e reflexões pessoais */
 .personal-note {
   display: block;

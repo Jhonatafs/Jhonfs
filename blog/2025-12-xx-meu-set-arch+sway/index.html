@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Setup Arch Linux (+Sway) | Blog</title>
+
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="JhonFs" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+<link rel="stylesheet" href="/css/blog-post.css">
+
+</head>
+<body>
+    <nav id="main-navbar">
+        <div id="brand">Jhon<span>F</span>s</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
+        <ul id="navigation">
+            <li><a href="/">[root]</a></li>
+            <li><a href="/blog">~/blog</a></li>
+            <li><a href="/projects">~/projects</a></li>
+            <li><a href="/aiterus">../aiterus</a></li>
+            
+            <li class="theme-trigger-wrapper">
+                <button onclick="window.cycleTheme()" class="theme-trigger">
+                    <span class="cmd-prefix">$ theme.set</span>
+                    <span id="theme-display">[ CODEX.SYS ]</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        
+<article>
+    <header class="post-header">
+        <h1>Meu Setup Arch Linux (+Sway)</h1>
+        <div class="post-meta">
+            <time>2025-12-xx</time>
+            
+            <span style="margin: 0 10px;">//</span>
+            <span>Linux, Setup, Arch, Sway, </span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+        <p>Não sei ao certo a razão, mas creio ser pelo desejo de recomeçar — ou
+de iniciar do zero — que decidi reinstalar o <em>Arch Linux</em>.
+Afinal, o que significa mais uma reinstalação? Hoje, temos o
+<code>archinstall</code>, que evita todo o trabalho da instalação via
+<em>wiki</em>. Portanto, escrevo esta nota pessoal para um futuro
+qualquer.</p>
+<p>Pois bem, decidi investigar as melhores práticas e buscar
+alternativas ao i3wm. Deparei-me com o artigo <a
+href="https://akitaonrails.com/2025/08/29/new-omarchy-2-0-install/"><em>Instalando
+Omarchy 2.0 do Zero - Anotações Pessoais</em></a>, de Fabio Akita, o que
+me lançou uma dúvida cruel e tomou-me um tempo dedicado à questão:
+<strong>Hyprland</strong> ou <strong>Sway</strong>?</p>
+<p>Optei pelo Sway. O motivo? Confesso com certa tristeza, deve-se à
+idade da máquina que uso. Mas… testar o Sway não me trouxe tristeza
+alguma; senti-o mais sereno de configurar e, até o momento, mais fluido
+com pacotes Flatpak.</p>
+<h2 id="pós-instalação">Pós Instalação</h2>
+<p>Logo após o <code>archinstall</code> (perfil <em>minimal</em>), visto
+que almejava um sistema enxuto, perdi-me entre fóruns, vídeos de
+configurações, boas práticas e… :( distrações. Cheguei, então, à
+conclusão de documentar o processo via <em>git</em>, utilizando-o como
+<em>backup</em>.</p>
+<p>Para tal, criei um <em>alias</em> denominado <code>config</code>,
+substituindo o comando <code>git</code>, definindo a pasta
+<code>.cfg/</code> como o diretório do repositório e a
+<code>$HOME</code> como a <em>Working Tree</em>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> config=<span class="st">&#39;/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME&#39;</span></span></code></pre></div>
+<p>Elaborei também um <code>.gitignore</code> na <code>$HOME</code>.
+Nele, bloqueei tudo por padrão (<code>/*</code>) e liberei apenas o
+necessário (e.g. <code>!/.config/sway/config</code>), mantendo o
+repositório livre de lixo e <em>caches</em>. E como tudo não são flores,
+enfrentei um pequeno contratempo, pois desconhecia a necessidade de
+liberar primeiramente a pasta pai para, só então, selecionar as
+subpastas:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/*</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">!/.config/</span> <span class="co"># Liberar a pasta raiz</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/.config/*</span> <span class="co"># Bloquear o conteúdo interno da pasta</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">!/.config/sway/</span> <span class="co"># Selecionar especificamente a subpasta desejada</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span></code></pre></div>
+<p>Seguindo a estrutura da nota anterior, realizei os ajustes
+ortográficos (como “mexer” e “ficaria”), corrigi a crase e a pontuação,
+e refinei o vocabulário para conferir maior fluidez e elegância técnica
+ao texto.</p>
+<p>Note que substitui o termo “ROM” por “armazenamento” ou “disco”, pois
+“ROM” (<em>Read-Only Memory</em>) tecnicamente não se aplica ao espaço
+de disco gravável monitorado em barras de sistema, o que poderia gerar
+ambiguidade técnica.</p>
+<hr />
+<h2 id="interface">Interface</h2>
+<p>Concluída a instalação dos pacotes e <em>drivers</em>, bem como a
+configuração do Git, dediquei-me à Waybar. Demorei-me nos ajustes,
+inserindo e removendo módulos, testando sobre o que ficaria à direita, à
+esquerda e ao centro. Por fim, cheguei a este <em>layout</em> com o tema
+Gruvbox, pois sinto que exige menos da minha visão.</p>
+<p>Na seção central da barra, ficaram: horário, data, consumo de CPU,
+RAM e disco; temperatura, indicadores de <em>Caps Lock</em> e <em>Num
+Lock</em>, rede, volume, etc.</p>
+<p>À esquerda, pus o ícone do Arch Linux que, ao ser clicado, abre o
+menu — mantive-o, embora ainda incerto de sua real utilidade — seguido
+pelo título da janela em foco. Já à direita, encontram-se as áreas de
+trabalho (<em>workspaces</em>) de 1 a 9 — talvez eu altere esta seção
+posteriormente, pois desejo inserir ícones ou algum elemento dinâmico —
+e as aplicações em segundo plano (<em>system tray</em>).</p>
+<p>Quanto ao menu <strong>Fuzzel</strong>, solicitei a uma IA que
+replicasse o tema da Waybar. Limitei a exibição a quatro linhas e,
+embora a configuração tenha sido gerada automaticamente pelo Gemini, o
+resultado final agradou-me, atendendo exatamente ao que eu desejava.</p>
+<p>Em seguida, procedi com os ajustes do <strong>Sway</strong>. Tomei
+por base minha antiga configuração do i3wm e pedi à IA que realizasse a
+conversão. Após algumas alterações pontuais, dei-me por satisfeito.</p>
+<h2 id="shell">Shell</h2>
+<p>Ao abandonar o Windows e instalar o Arch, descobri no <em>shell</em>
+um ambiente de paz, onde as distrações não me alcançam e aquela tela
+preta me permite muito. Nutri, então, um gosto pelo estilo do Bash:
+simples, no formato <code>User@Dir: Comando</code>.</p>
+<p>Apesar de haver testado o Zsh com o <em>Oh My Zsh</em> anteriormente
+e detestado a experiência, decidi dar-lhe uma nova chance, para que o
+<em>shell</em> permanecesse simples, porém com um <em>layout</em>
+distinto — anciava por mudanças.</p>
+<p>Recorri novamente à IA para elaborar algo minimalista, pois não
+possuo o tino para a <em>customização</em> visual — acabo “vestindo o
+personagem e esquecendo de jogar”. Para mim, o resultado foi excelente:
+o <em>prompt</em> foi configurado em duas linhas, separando o contexto
+(diretório/<em>git</em>) do comando, o que facilitou sobremaneira a
+leitura.</p>
+<figure>
+<img src="/img/blog/20251213-iloveshell.png" alt="I Love Shell" />
+<figcaption aria-hidden="true">I Love Shell</figcaption>
+</figure>
+<h3 id="editor-de-texto">Editor de Texto</h3>
+<p>Uso o VsCode para codigo, mas sempre senti uma atração pelo estilo do
+vim, porém já tentei e novamente sinto-me perdendo tempo configurando
+então instalei o nvim como editor shell padrão, e pedi novamente a uma
+IA para fazer a config, pois só o uso para coisas simples, e o VSCode
+para ademais.</p>
+<h2 id="isolando-aplicações">Isolando aplicações</h2>
+
+    </div>
+</article>
+
+<div style="margin-top: 4rem; border-top: 1px dashed var(--ui-border); padding-top: 1rem;">
+    <a href="/blog">← cd ..</a>
+</div>
+
+<a href="#" id="go-to-top" class="nav-button" title="Voltar ao Topo">&#9650;</a>
+<a href="#" id="go-to-bottom" class="nav-button" title="Ir para o Final">&#9660;</a>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 JhonFS Ecosystem<span>. Static Generate</span></p>
+    </footer>
+    <script src="/js/theme-engine.js"></script>
+    <script src="/js/navigation.js"></script>
+</body>
+</html>
