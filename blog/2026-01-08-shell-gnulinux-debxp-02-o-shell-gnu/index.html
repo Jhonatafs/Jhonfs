@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell GNU/Linux com Blau Araujo (debxp) #02: O Shell GNU | Blog</title>
+
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="JhonFs" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+<link rel="stylesheet" href="/css/blog-post.css">
+
+</head>
+<body>
+    <nav id="main-navbar">
+        <div id="brand">Jhon<span>F</span>s</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
+        <ul id="navigation">
+            <li><a href="/">[root]</a></li>
+            <li><a href="/blog">~/blog</a></li>
+            <li><a href="/projects">~/projects</a></li>
+            <li><a href="/aiterus">../aiterus</a></li>
+            
+            <li class="theme-trigger-wrapper">
+                <button onclick="window.cycleTheme()" class="theme-trigger">
+                    <span class="cmd-prefix">$ theme.set</span>
+                    <span id="theme-display">[ CODEX.SYS ]</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        
+<article>
+    <header class="post-header">
+        <h1>Shell GNU/Linux com Blau Araujo (debxp) #02: O Shell GNU</h1>
+        <div class="post-meta">
+            <time>2026-01-08</time>
+            
+            <span style="margin: 0 10px;">//</span>
+            <span>Estudos, Shell, Script, Blau Araujo, debxp, Linux, Bash, Aprendizado, Autodidata</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+        <h2 id="o-gnu">O GNU</h2>
+<p>O advento do CTSS alterou fundamentalmente o paradigma de interação
+Humano-Computador, dando início a tentativas por outros de criar formas
+melhores de interação Humano-Computador. Dessa linhagem de tentativas, e
+após a experiência do projeto Multics, surgiu o
+<strong>Unix</strong>.</p>
+<p>O crescimento do Unix foi impulsionado por uma peculiaridade
+jurídica. Devido ao <em>Decreto de Consentimento de 1956</em>, a
+AT&amp;T (detentora do Bell Labs) estava proibida pelo governo americano
+de atuar comercialmente fora do setor de telecomunicações.
+Consequentemente, ela não podia vender o Unix como produto. A solução
+foi licenciar o software para universidades apenas pelo custo da mídia,
+sem oferecer suporte técnico. Isso forçou os usuários a colaborarem
+entre si, compartilhando correções e melhorias, fomentando uma cultura
+de desenvolvimento comunitário.</p>
+<p>O cenário mudou na década de 1980, quando a AT&amp;T foi desmembrada
+e liberada das restrições comerciais. O Unix tornou-se um software
+proprietário, fechado e pago.</p>
+<p>Em algum momento, Richard Stallman deparou-se com uma falha no
+<em>driver</em> de uma impressora Xerox. Ao solicitar o código-fonte
+para corrigir o problema (como era de costume as pessoas fazerem, já que
+não se tinha suporte), o acesso lhe foi negado sob a justificativa de
+segredo industrial. Agora ninguém mais podia compartilhar as
+modificações e melhorias do UNIX para terceiros.</p>
+<p>Em 27 de setembro de 1983, Richard publicou na <em>Usenet</em> — o
+principal sistema de discussão em rede da época — o que daria início ao
+GNU:</p>
+<blockquote>
+<p>A partir do próximo Dia de Ação de Graças, vou escrever um software
+completo compatível com Unix chamado GNU (sigla para <span
+lang="en"><strong>G</strong>NU’s <strong>N</strong>ot
+<strong>U</strong>nix</span>), e o compartilharei livremente com
+qualquer um que possa usá-lo. Contribuições em termos de tempo,
+dinheiro, programas e equipamentos são muito bem-vindas. (…) O GNU
+rodará programas Unix, mas não será idêntico ao Unix. (…)</p>
+<p>Eu sou Richard Stallman, inventor do original e muito imitado editor
+EMACS (…) Eu não posso, em boa consciência, assinar um acordo de não
+quebra ou um acordo de licença de software. Então, para que eu posso
+continuar a usar computadores sem violar meus princípios, eu decidi
+reunir um corpo suficiente de software livre de tal modo que eu esteja
+apto a passar sem o uso de qualquer software que não seja livre.</p>
+<p><em>Texto retirado do <a
+href="https://www.gnu.org/gnu/initial-announcement.html">GNU.org</a></em></p>
+</blockquote>
+<p>Acho que ele ficou “PUTO!” com a UNIX.</p>
+<p>Então aqui tenho o que preciso para entender a parte GNU de “Shell
+GNU”. Agora volto ao que interessa, ao Shell.</p>
+<hr />
+<h2 id="o-shell">O Shell</h2>
+<p><img src="./img/blog/o-que-e-o-shell.png" /></p>
+<p>Esse diagrama gerou-me muitas dúvidas. Até que ponto o <span
+lang="en">Shell</span> — iniciado com o RUNCOM — difere do <span
+lang="en">Shell Script</span>, das implementações de <span
+lang="en">Shell</span> (e.g. Bash, Zsh) e do Terminal? David Korn nos
+Bell Labs no início dos anos 1980, sendo anunciado oficialmente em 14 de
+julho de 1983 na conferência USENIX, combinando o melhor do Bourne Shell
+e do C Shell para oferecer um shell mais eficiente e poderoso para Unix.
+￼ Principais pontos: Criação: Início dos anos 1980 por David Korn.
+Lançamento: Anunciado em 14 de julho de 1983. Base: Desenvolvido a
+partir do código do Bourne Shell. Objetivo: Combinar a compatibilidade
+do Bourne Shel O <span lang="en">Shell</span> idealizado por Louis
+Pouzin é, em essência, o programa que interpreta comandos para o núcleo
+(kernel) e retorna as respostas ao usuário. Já o <span lang="en">Shell
+Script</span> é a linguagem de alto nível, como define o professor Blau,
+utilizada pelo usuário para redigir instruções ao interpretador.</p>
+<p>O terminal é o ambiente onde se digitam os comandos em <span
+lang="en">Shell Script</span>. Ele trouxe-me outra dúvida, pois
+comumente utiliza-se o termo “Emulador de Terminal”. Por que “emulador”?
+Qual seria o verdadeiro terminal?</p>
+<p>O terminal originário é o Teletipo (<span
+lang="en">Teletypewriter</span>): a “máquina de escrever” na qual o
+usuário digitava o comando e recebia a resposta mecanicamente impressa.
+Posteriormente, surgiram os monitores de vídeo — conhecidos como
+“terminais burros”. Estes simulavam a interação papel-máquina e são
+utilizados pelo kernel até hoje, operando em modo de texto puro (os mais
+modernos suportam cores). Os emuladores de terminal surgem para simular
+esses terminais burros dentro de um ambiente gráfico (ex: foot, kitty,
+alacritty).</p>
+<p>Em síntese:****</p>
+<ul>
+<li><strong>Shell:</strong> O programa interpretador que faz a ponte
+entre o Usuário e o Kernel.</li>
+<li><strong>Shell Script:</strong> A estrutura sintática e lógica
+compreendida pelo Shell.</li>
+<li><strong>Terminal:</strong> A interface visual e de entrada/saída
+para o Shell.</li>
+<li><strong>Plataforma:</strong> É o conjunto de Utilitários e
+Bibliotecas de Sistema (como o projeto GNU) que operam sobre o
+Kernel.</li>
+</ul>
+<p>Softwares como Bash, Zsh e Ksh são implementações completas do
+conceito de Shell.</p>
+<h3 id="continuando-história-do-shell-posix">Continuando: História do
+Shell + POSIX</h3>
+<p>Embora Glenda Schroeder e Roy Feiertag tenham escrito o primeiro
+<span lang="en">Shell</span> para o Multics (baseado nas ideias de
+Pouzin), aquele era um sistema extremamente complexo. Quando Ken
+Thompson e Dennis Ritchie abandonaram o Multics para criar o Unix, eles
+levaram consigo a filosofia de Pouzin, mas sob o prisma da
+simplificação.</p>
+<p><strong>1971:</strong> Thompson escreve o primeiro <span
+lang="en">Shell</span> (<code>sh</code>) para o Unix V1. Ainda não era
+uma linguagem de programação completa, apesar de introduzir mecanismos
+seminais como o redirecionamento de entrada e saída (<code>&lt;</code> e
+<code>&gt;</code>) e os filtros (<em>pipes</em> <code>|</code>),
+faltavam-lhe, por exemplo, estruturas de controle de fluxo
+(<code>if</code>, <code>for</code>) robustas.</p>
+<p><strong>1979:</strong> Stephen Bourne lançou o Bourne <span
+lang="en">Shell</span> (<code>sh</code>) integrando o Unix Versão 7.
+Bourne transformou o <span lang="en">Shell</span> em uma linguagem de
+programação algorítmica, introduzindo o uso de variáveis, laços de
+repetição (<span lang="en">loops</span>) e condicionais. Esta versão
+estabeleceu a base sintática (o padrão <span lang="en">POSIX</span>) que
+herdamos até hoje.</p>
+<p><strong>1978:</strong> Bill Joy desenvolve o ‘csh’ (C Shell) para o
+BSD Unix, introduzindo uma sintaxe inspirada na linguagem C e recursos
+como histórico de comandos e “aliases”.</p>
+<p><strong>1983:</strong> David Korn, no Bell Labs, buscando unir o
+melhor dos dois mundos, lançou o Korn Shell (<code>ksh</code>). Ele
+combinou o Bourne Shell com o <code>csh</code>.</p>
+<p>Nos anos 80, quando a AT&amp;T começou a licenciar o código para
+várias empresas. Cada uma criou sua própria versão, otimizada para seu
+hardware e com melhorias proprietárias.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 13%" />
+<col style="width: 26%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sistema Unix</th>
+<th style="text-align: left;">Desenvolvedor</th>
+<th style="text-align: left;">Características Principais</th>
+<th style="text-align: left;">Shell Padrão Típico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>System V</strong></td>
+<td style="text-align: left;">AT&amp;T</td>
+<td style="text-align: left;">A “linha principal” comercial.</td>
+<td style="text-align: left;">Bourne Shell (<code>sh</code>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BSD (Berkeley Software
+Distribution)</strong></td>
+<td style="text-align: left;">UC Berkeley</td>
+<td style="text-align: left;">Introduziu sockets, <code>vi</code>,
+<code>csh</code>.</td>
+<td style="text-align: left;">C Shell (<code>csh</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>HP-UX</strong></td>
+<td style="text-align: left;">Hewlett-Packard</td>
+<td style="text-align: left;">Para servidores HP.</td>
+<td style="text-align: left;"><code>sh</code> + extensões</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AIX</strong></td>
+<td style="text-align: left;">IBM</td>
+<td style="text-align: left;">Para mainframes IBM.</td>
+<td style="text-align: left;">Korn Shell (<code>ksh</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Solaris</strong></td>
+<td style="text-align: left;">Sun Microsystems</td>
+<td style="text-align: left;">Sucesso em servidores.</td>
+<td style="text-align: left;">Bourne Shell (<code>sh</code>) e depois
+<code>ksh</code></td>
+</tr>
+</tbody>
+</table>
+<p>Então, script escrito para o sh do AIX podia falhar no sh do HP-UX.
+Era a “Guerra dos Unixes”: uma batalha por mercado que fragmentava a
+tecnologia.</p>
+<p>Para resolver essa Torre de Babel, o IEEE (Instituto de Engenheiros
+Eletricistas e Eletrônicos) criou um comitê para definir um padrão de
+interface portável para sistemas operacionais, o POSIX (Portable
+Operating System Interface).</p>
+<p>A primeira especificação, POSIX.1-1988, definiu um padrão para a
+linguagem de shell e utilitários padrão. O Bourne Shell (sh) de 1979,
+foi escolhido como a base.</p>
+<p><strong>1989:</strong> É neste cenário, mas com uma base comum agora
+definida pelo POSIX, que Brian Fox lança o Bash (Bourne-Again Shell)
+para o projeto GNU. Ele incorporou os recursos interativos mais
+apreciados do csh e do ksh.</p>
+
+    </div>
+</article>
+
+<div style="margin-top: 4rem; border-top: 1px dashed var(--ui-border); padding-top: 1rem;">
+    <a href="/blog">← cd ..</a>
+</div>
+
+<a href="#" id="go-to-top" class="nav-button" title="Voltar ao Topo">&#9650;</a>
+<a href="#" id="go-to-bottom" class="nav-button" title="Ir para o Final">&#9660;</a>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JhonFS Ecosystem<span>. Static Generate</span></p>
+    </footer>
+    <script src="/js/theme-engine.js"></script>
+    <script src="/js/navigation.js"></script>
+</body>
+</html>
