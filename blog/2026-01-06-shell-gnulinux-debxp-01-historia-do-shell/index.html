@@ -63,9 +63,9 @@ própria, pois achei fascinante a introdução dada pelo professor;
 todavia, havia lacunas inseridas por perguntas que surgiam durante a
 aula.</p>
 <p>Comecei pela Wikipedia a respeito do Shell e, nas referências,
-encontrei o artigo <a href="https://www.multicians.org/shell.html"><span
-lang="en">The Origin of the Shell</span></a> por <em>Louis
-Pouzin</em>.</p>
+encontrei o artigo <a href="https://www.multicians.org/shell.html"
+target="_blank"><span lang="en">The Origin of the Shell</span></a> por
+<em>Louis Pouzin</em>.</p>
 <p><em><span lang="en">The Origin of The Shell</span></em> é um texto
 curto que trata da criação do “RUNCOM”, um “rascunho” do que viria a ser
 o <span lang="en">Shell</span>.</p>
@@ -82,22 +82,22 @@ projeto de Christopher Strachey que Louis criou a base do que é o
 lang="en">papers</span>:</p>
 <ul>
 <li><a
-href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-4.pdf"><span
-lang="en">The SHELL: A Global Tool for Calling and Chaining Procedures
-in the System</span></a></li>
+href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-4.pdf"
+target="_blank"><span lang="en">The SHELL: A Global Tool for Calling and
+Chaining Procedures in the System</span></a></li>
 <li><a
-href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-5.pdf"><span
-lang="en">RUNCOM • A Macro-Procedure Processor for the 636
-System</span></a></li>
+href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-5.pdf"
+target="_blank"><span lang="en">RUNCOM • A Macro-Procedure Processor for
+the 636 System</span></a></li>
 </ul>
 <p>Como não compreendi plenamente a proposta de Louis, decidi pesquisar
 o funcionamento do <span lang="en">Compatible Time-Sharing System</span>
 (CTSS), sistema utilizado por ele em 1964.</p>
 <p>O primeiro conteúdo que encontrei foi muito esclarecedor: um <a
-href="https://www.youtube.com/watch?v=Q07PhW5sCEk&amp;list=PLT8Ms9NT2xpb6yBvtVpBXzUoIMAhDu0G9">vídeo</a>
-de 1963, no qual o repórter John Fitch entrevista o Prof. Fernando J.
-Corbató, que demonstra e explica o funcionamento dos computadores e como
-operariam com o CTSS.</p>
+href="https://www.youtube.com/watch?v=Q07PhW5sCEk&amp;list=PLT8Ms9NT2xpb6yBvtVpBXzUoIMAhDu0G9"
+target="_blank">vídeo</a> de 1963, no qual o repórter John Fitch
+entrevista o Prof. Fernando J. Corbató, que demonstra e explica o
+funcionamento dos computadores e como operariam com o CTSS.</p>
 <h2 id="o-paradigma-do-processamento-em-lote-batch-processing">O
 Paradigma do Processamento em Lote (<span lang="en">Batch
 Processing</span>)</h2>
@@ -194,13 +194,13 @@ Pouzin</em></p>
 hoje:</p>
 <ul>
 <li><strong>O Shell como um Procedimento de Usuário (<a
-href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-4.pdf">MDN-4</a>):</strong>
-Louis Pouzin propôs que o interpretador de comandos não deveria ser uma
-função fixa e interna do <strong>Supervisor</strong> (núcleo), mas sim
-um programa comum de usuário. Isso permitiu que o sistema fosse
-extensível e que o <span lang="en">Shell</span> pudesse ser substituído
-ou melhorado sem a necessidade de recompilar todo o sistema
-operacional.</li>
+href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-4.pdf"
+target="_blank">MDN-4</a>):</strong> Louis Pouzin propôs que o
+interpretador de comandos não deveria ser uma função fixa e interna do
+<strong>Supervisor</strong> (núcleo), mas sim um programa comum de
+usuário. Isso permitiu que o sistema fosse extensível e que o <span
+lang="en">Shell</span> pudesse ser substituído ou melhorado sem a
+necessidade de recompilar todo o sistema operacional.</li>
 <li><strong>Encadeamento de Procedimentos (<span
 lang="en">Chaining</span>):</strong> A ideia de que comandos individuais
 poderiam servir como “blocos de construção” para tarefas maiores. O
@@ -208,12 +208,12 @@ poderiam servir como “blocos de construção” para tarefas maiores. O
 e encadear esses procedimentos, criando fluxos complexos a partir de
 comandos simples.</li>
 <li><strong>Processamento de Macro e Substituição (<a
-href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-5.pdf">MDN-5</a>):</strong>
-O RUNCOM evoluiu de um simples executor para um processador de
-macro-procedimentos. Isso introduziu a lógica de <strong>substituição de
-argumentos</strong>, permitindo que um único script fosse reutilizado
-com diferentes parâmetros, além de prever estruturas de controle como
-desvios condicionais e laços (<em><span
+href="https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-5.pdf"
+target="_blank">MDN-5</a>):</strong> O RUNCOM evoluiu de um simples
+executor para um processador de macro-procedimentos. Isso introduziu a
+lógica de <strong>substituição de argumentos</strong>, permitindo que um
+único script fosse reutilizado com diferentes parâmetros, além de prever
+estruturas de controle como desvios condicionais e laços (<em><span
 lang="en">loops</span></em>).</li>
 <li><strong>Interface de Abstração:</strong> O <span
 lang="en">Shell</span> passou a ser a “casca” que protege o usuário da
