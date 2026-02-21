@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 849.91998 538.38397"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="diagrama_linguagem.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   width="849.91998"
+   height="538.38397"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs21" />
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="406.23285"
+     inkscape:cy="253.85133"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g92"
+     showguides="true">
+    <sodipodi:guide
+       position="870.94921,-121.96368"
+       orientation="0,-1"
+       id="guide94"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <style
+     id="style1">
+    .node-rect { fill: #f9f9f9; stroke: #333; stroke-width: 1.5; }
+    .node-text { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 13px; fill: #000; }
+    .root-text { font-weight: bold; font-size: 15px; }
+    .line { fill: none; stroke: #666; stroke-width: 1.2; }
+    .category { fill: #e1f5fe; stroke: #01579b; }
+    .aspect { fill: #fff3e0; stroke: #e65100; }
+  </style>
+  <g
+     id="g49">
+    <g
+       id="g46"
+       transform="translate(0,-1.7607422e-5)" />
+  </g>
+  <g
+     id="g59-7"
+     transform="translate(63.354323,50.852501)" />
+  <g
+     id="g65-0"
+     transform="translate(119.73051,95.686789)">
+    <g
+       id="g63-8"
+       transform="translate(-173.24116,-190.91883)" />
+  </g>
+  <g
+     id="g93"
+     transform="translate(-74.177075,-18.914835)">
+    <g
+       id="g92"
+       transform="translate(248.71929,-4.20562)">
+      <path
+         d="m 250.58331,59.446001 v 15"
+         class="line"
+         id="path12-25"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 251.49343,115.09552 v 15"
+         class="line"
+         id="path12-95-4"
+         style="fill:none;stroke:#ffffff;stroke-width:0.848528;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 379.39353,130.09552 v 15"
+         class="line"
+         id="path12-8-9"
+         style="fill:none;stroke:#ffffff;stroke-width:0.848528;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 379.81779,130.5177 h -253.413"
+         class="line"
+         id="path12-2-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.84436;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 251.49343,130.09552 v 15"
+         class="line"
+         id="path12-0-0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.848528;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 126.8289,130.09552 v 15"
+         class="line"
+         id="path12-9-0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.848528;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 251.49342,245.03236 v 15"
+         class="line"
+         id="path12-7-3-9"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 126.82891,180.03281 v 15"
+         class="line"
+         id="path12-7-7-4"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 251.49342,180.03281 v 15"
+         class="line"
+         id="path12-7-7-2-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 379.39353,180.03281 v 15"
+         class="line"
+         id="path12-7-7-1-5"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 379.81803,195.45499 h -253.413"
+         class="line"
+         id="path12-2-6-1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.84436;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 251.50221,195.03281 v 15"
+         class="line"
+         id="path12-7-5-7"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="M 515.2332,260.25124 H -11.769797"
+         class="line"
+         id="path12-2-5-4"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 299.26981,259.82674 v 15"
+         class="line"
+         id="path12-7-3-8-5-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m -95.951397,375.97482 v 15"
+         class="line"
+         id="path12-7-2-4"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 66.038613,375.87971 v 15"
+         class="line"
+         id="path12-7-2-8-6"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m -95.951397,425.98577 v 15"
+         class="line"
+         id="path12-7-2-7-9"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m -95.951397,475.88516 v 15"
+         class="line"
+         id="path12-7-2-7-5-4"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m -11.346117,259.82674 v 15"
+         class="line"
+         id="path12-7-3-8-2"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m -11.346107,310.13082 v 15"
+         class="line"
+         id="path12-7-3-8-1-6"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 66.463593,325.55282 h -162.839"
+         class="line"
+         id="path12-2-5-1-1-1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.844;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m -95.951397,325.97482 v 15"
+         class="line"
+         id="path12-7-3-8-59-2"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 66.039093,325.97482 v 15"
+         class="line"
+         id="path12-7-3-8-59-4-8"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 299.26712,310.03755 v 15"
+         class="line"
+         id="path12-7-4-4-9"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 366.62562,325.46205 h -134.717"
+         class="line"
+         id="path12-2-5-1-7-2"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 232.33265,325.03755 v 15"
+         class="line"
+         id="path12-7-4-8-8"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 177.63993,535.11302 v -160.476"
+         class="line"
+         id="path12-2-5-1-3-6"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 192.21542,407.50597 h -15"
+         class="line"
+         id="path12-7-4-0-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 192.21542,492.29046 h -15"
+         class="line"
+         id="path12-7-4-88-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 192.21542,534.6827 h -15"
+         class="line"
+         id="path12-7-4-9-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 192.21542,449.89821 h -15"
+         class="line"
+         id="path12-7-4-7-0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="M 346.57571,543.54714 V 425.46958"
+         class="line"
+         id="path12-2-5-1-3-2-7"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 361.15121,543.12302 h -15"
+         class="line"
+         id="path12-7-4-88-1-6"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 361.15121,500.73077 h -15"
+         class="line"
+         id="path12-7-4-7-8-8"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 361.15122,458.33853 h -15"
+         class="line"
+         id="path12-7-4-0-2-0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 366.20124,325.03755 v 15"
+         class="line"
+         id="path12-7-4-5-8"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 366.20124,375.03753 v 15"
+         class="line"
+         id="path12-7-4-92-9"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 514.80757,259.82674 v 15"
+         class="line"
+         id="path12-7-3-8-5-9-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="M 498.5129,385.35049 V 309.82674"
+         class="line"
+         id="path12-2-5-1-3-3-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 513.31285,342.89883 h -15"
+         class="line"
+         id="path12-7-3-8-5-9-1-3"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <path
+         d="m 513.31286,384.97168 h -15"
+         class="line"
+         id="path12-7-3-8-5-9-1-0-6"
+         style="fill:none;stroke:#ffffff;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <g
+         id="g72"
+         transform="translate(-200.9429,3.43134)" />
+      <g
+         id="g94">
+        <g
+           id="g42"
+           transform="translate(-296.33226,-51.516248)">
+          <rect
+             x="435.25806"
+             y="262.13992"
+             width="224.70987"
+             height="33.499569"
+             rx="6"
+             class="node-rect category"
+             id="rect5"
+             style="fill:#1a1a1a;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-width:1.5;stroke-dasharray:none" />
+          <text
+             x="547.36829"
+             y="283.6347"
+             text-anchor="middle"
+             class="node-text"
+             id="text6"
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';fill:#ffffff;font-size:13.07692337px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+               id="tspan45">UNIDADE FUNCIONAL: PALAVRA</tspan></text>
+        </g>
+        <g
+           id="g41"
+           transform="translate(-248.71929,4.20562)">
+          <g
+             id="g32"
+             transform="translate(0,0.7284317)">
+            <rect
+               x="349.93448"
+               y="19.934519"
+               width="298.31088"
+               height="33.503624"
+               rx="6.000073"
+               class="node-rect category"
+               id="rect1"
+               style="fill:#1a1a1a;fill-opacity:1;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+            <text
+               x="499.43494"
+               y="43.420319"
+               text-anchor="middle"
+               class="node-text root-text"
+               id="text1"
+               style="fill:#ffffff;-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-family:'JetBrainsMono Nerd Font Mono';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.07692337px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';fill:#ffffff;font-size:13.07692337px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+                 id="tspan21">LINGUAGEM (MEIO DE COMUNICAÇÃO)</tspan></text>
+          </g>
+          <g
+             id="g28"
+             transform="translate(0,-14.660614)">
+            <rect
+               x="469.07535"
+               y="91.155838"
+               width="61.849335"
+               height="33.499691"
+               rx="5.99997"
+               class="node-rect"
+               id="rect2"
+               style="fill:#1a1a1a;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-width:1.5;stroke-dasharray:none" />
+            <text
+               x="500.0715"
+               y="112.6507"
+               text-anchor="middle"
+               class="node-text"
+               font-weight="bold"
+               id="text2"
+               style="fill:#ffffff;-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-family:'JetBrainsMono Nerd Font Mono';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.07692337px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';fill:#ffffff;font-size:13.07692337px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+                 id="tspan22">TIPOS</tspan></text>
+          </g>
+          <path
+             d="m 499.0899,55.081251 v 15"
+             class="line"
+             id="path12"
+             style="stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             d="m 500.00002,110.73078 v 15"
+             class="line"
+             id="path12-95"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.848528;stroke-opacity:1" />
+          <g
+             id="g40"
+             transform="translate(-3.148932,-20.421)">
+            <g
+               id="g35">
+              <g
+                 id="g29"
+                 transform="translate(-18.21608,23.138114)">
+                <rect
+                   x="573.96649"
+                   y="138.76436"
+                   width="150.59639"
+                   height="32.76189"
+                   rx="5.9999795"
+                   class="node-rect"
+                   id="rect2-8-4-1"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                <text
+                   x="583.51715"
+                   y="160.5403"
+                   class="node-text"
+                   id="text5"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff"><tspan
+                     sodipodi:role="line"
+                     id="tspan24"
+                     x="583.51715"
+                     y="160.5403">ESCRITA (GRÁFICA)</tspan></text>
+              </g>
+              <path
+                 d="m 631.04905,146.15178 v 15"
+                 class="line"
+                 id="path12-8"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.848528;stroke-opacity:1" />
+            </g>
+            <path
+               d="m 631.47331,146.57396 h -253.413"
+               class="line"
+               id="path12-2"
+               style="fill:none;stroke:#1a1a1a;stroke-width:0.84436;stroke-dasharray:none;stroke-opacity:1" />
+            <g
+               id="g39">
+              <g
+                 id="g38"
+                 transform="translate(-1.6090804)">
+                <g
+                   id="g30"
+                   transform="translate(-17.732728,23.138124)">
+                  <rect
+                     x="488.43823"
+                     y="138.76434"
+                     width="68.105049"
+                     height="33.498627"
+                     rx="5.9999795"
+                     class="node-rect"
+                     id="rect2-8-4"
+                     style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                  <text
+                     x="498.94775"
+                     y="161.62366"
+                     class="node-text"
+                     id="text4"
+                     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">MÍMICA</text>
+                </g>
+              </g>
+              <path
+                 d="m 503.14895,146.15178 v 15"
+                 class="line"
+                 id="path12-0"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.848528;stroke-opacity:1" />
+            </g>
+            <g
+               id="g37">
+              <rect
+                 x="306.38083"
+                 y="161.90247"
+                 width="144.20805"
+                 height="32.809616"
+                 rx="5.9999795"
+                 class="node-rect"
+                 id="rect2-8"
+                 style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+              <text
+                 x="316.81934"
+                 y="183.70227"
+                 class="node-text"
+                 id="text3"
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">SONORA (GLÓTICA)</text>
+              <path
+                 d="m 378.48442,146.15178 v 15"
+                 class="line"
+                 id="path12-9"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.848528;stroke-opacity:1" />
+            </g>
+          </g>
+        </g>
+        <path
+           d="m 500.00001,240.66762 v 15"
+           class="line"
+           id="path12-7-3"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <path
+           d="m 375.3355,175.66807 v 15"
+           class="line"
+           id="path12-7-7"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <path
+           d="m 500.00001,175.66807 v 15"
+           class="line"
+           id="path12-7-7-2"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <path
+           d="m 627.90012,175.66807 v 15"
+           class="line"
+           id="path12-7-7-1"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <path
+           d="m 628.32462,191.09025 h -253.413"
+           class="line"
+           id="path12-2-6"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.84436;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <path
+           d="m 500.0088,190.66807 v 15"
+           class="line"
+           id="path12-7-5"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <path
+           d="m 763.73979,255.8865 h -527.003"
+           class="line"
+           id="path12-2-5"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-248.71929,4.20562)" />
+        <g
+           id="g58"
+           transform="translate(-250.57275,-14.335162)">
+          <rect
+             x="285.96356"
+             y="405.80576"
+             width="60.870193"
+             height="33.729195"
+             rx="6"
+             class="node-rect aspect"
+             id="rect6-3-4"
+             style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+          <g
+             id="g56"
+             transform="translate(-387.5651,-56.669697)">
+            <rect
+               x="499.91528"
+               y="462.57056"
+               width="84.116951"
+               height="33.510948"
+               rx="6"
+               class="node-rect aspect"
+               id="rect6-3-30"
+               style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+            <text
+               x="511.02075"
+               y="485.43604"
+               class="node-text"
+               id="text9"
+               style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">VOCÁBULO</text>
+          </g>
+          <g
+             id="g57"
+             transform="translate(-398.42306,-48.169001)">
+            <rect
+               x="504.07303"
+               y="504.08081"
+               width="97.517387"
+               height="33.399395"
+               rx="6"
+               class="node-rect aspect"
+               id="rect6-3-30-4"
+               style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+            <text
+               x="510.17871"
+               y="526.8905"
+               class="node-text"
+               id="text10"
+               style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">VOCABULÁRIO</text>
+          </g>
+          <g
+             id="g55"
+             transform="translate(-229.7655,64.211285)">
+            <rect
+               x="307.54596"
+               y="441.59991"
+               width="153.25641"
+               height="33.300488"
+               rx="6"
+               class="node-rect aspect"
+               id="rect6-3-30-47"
+               style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+            <text
+               x="317.84811"
+               y="463.71017"
+               class="node-text"
+               id="text11"
+               style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">DICIONÁRIO/LÉXICO</text>
+          </g>
+          <text
+             x="297.11316"
+             y="427.41537"
+             class="node-text"
+             id="text13"
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">TERMO</text>
+          <path
+             d="m 154.40866,390.15086 v 15"
+             class="line"
+             id="path12-7-2"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             d="m 316.39867,390.05575 v 15"
+             class="line"
+             id="path12-7-2-8"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             d="m 154.40866,440.16181 v 15"
+             class="line"
+             id="path12-7-2-7"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             d="m 154.40866,490.0612 v 15"
+             class="line"
+             id="path12-7-2-7-5"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <g
+             id="g54"
+             transform="translate(-166.11679,17.766502)">
+            <g
+               id="g48">
+              <g
+                 id="g47"
+                 transform="translate(0,0.56864694)">
+                <rect
+                   x="362.81842"
+                   y="271.41437"
+                   width="84.624649"
+                   height="33.506557"
+                   rx="6.0004649"
+                   class="node-rect aspect"
+                   id="rect6"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-width:1.5;stroke-dasharray:none" />
+                <text
+                   x="405.27371"
+                   y="292.91266"
+                   text-anchor="middle"
+                   class="node-text"
+                   id="text7"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">ASPECTOS</text>
+              </g>
+              <path
+                 d="m 405.13072,256.23628 v 15"
+                 class="line"
+                 id="path12-7-3-8"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              <path
+                 d="m 405.13073,306.54036 v 15"
+                 class="line"
+                 id="path12-7-3-8-1"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+            </g>
+            <g
+               id="g53"
+               transform="translate(-3.7688438,-40.12851)">
+              <g
+                 id="g52"
+                 transform="translate(-16.778786,31.658317)">
+                <rect
+                   x="272.87323"
+                   y="346.60553"
+                   width="136.40079"
+                   height="33.498047"
+                   rx="6"
+                   class="node-rect aspect"
+                   id="rect6-3-3"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                <text
+                   x="400.45584"
+                   y="368.06223"
+                   text-anchor="end"
+                   class="node-text"
+                   font-weight="bold"
+                   id="text8"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.0769px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">EXTERNO (FORMA)</text>
+              </g>
+              <g
+                 id="g51"
+                 transform="translate(-56.731423,64.651054)">
+                <rect
+                   x="467.59531"
+                   y="313.61279"
+                   width="150.84084"
+                   height="33.402931"
+                   rx="5.9999619"
+                   class="node-rect aspect"
+                   id="rect6-3-3-5"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                <text
+                   x="480.75656"
+                   y="335.02194"
+                   class="node-text"
+                   font-weight="bold"
+                   id="text12"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.0769px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0;stroke-dasharray:none">INTERNO(SENTIDO)</text>
+              </g>
+              <path
+                 d="m 486.70928,362.09087 h -162.839"
+                 class="line"
+                 id="path12-2-5-1-1"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.844;stroke-dasharray:none;stroke-opacity:1" />
+              <path
+                 d="m 324.29429,362.51287 v 15"
+                 class="line"
+                 id="path12-7-3-8-59"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              <path
+                 d="m 486.28478,362.51287 v 15"
+                 class="line"
+                 id="path12-7-3-8-59-4"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+            </g>
+          </g>
+        </g>
+        <rect
+           x="465.80353"
+           y="271.98126"
+           width="68.387589"
+           height="33.469559"
+           rx="6.0004005"
+           class="node-rect"
+           id="rect13"
+           style="fill:#1a1a1a;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-width:1.5;stroke-dasharray:none"
+           transform="translate(-200.9429,3.43134)" />
+        <text
+           x="499.48004"
+           y="294.82605"
+           text-anchor="middle"
+           class="node-text"
+           id="text14"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff"
+           transform="translate(-200.9429,3.43134)">LÍNGUA</text>
+        <path
+           d="m 500.00001,256.23628 v 15"
+           class="line"
+           id="path12-7-3-8-5"
+           style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1"
+           transform="translate(-200.9429,3.43134)" />
+        <g
+           id="g84"
+           transform="translate(-200.9429,3.43134)">
+          <path
+             d="m 499.99732,306.44709 v 15"
+             class="line"
+             id="path12-7-4-4"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             d="m 567.35582,321.87159 h -134.717"
+             class="line"
+             id="path12-2-5-1-7"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <g
+             id="g82"
+             transform="translate(-37.772234,-33.23402)">
+            <g
+               id="g59"
+               transform="translate(-104.03873,0.019946)">
+              <rect
+                 x="505.50659"
+                 y="370.41116"
+                 width="138.73445"
+                 height="33.099461"
+                 rx="6"
+                 class="node-rect aspect"
+                 id="rect6-3-5"
+                 style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+              <text
+                 x="516.34131"
+                 y="393.07089"
+                 class="node-text"
+                 id="text15-9"
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">TIPOS DE LÍNGUA</text>
+            </g>
+            <path
+               d="m 470.83509,354.68111 v 15"
+               class="line"
+               id="path12-7-4-8"
+               style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+            <g
+               id="g70"
+               transform="translate(-3.263412,48.485279)">
+              <g
+                 id="g69"
+                 transform="translate(-44.790368,0.36895461)">
+                <path
+                   d="m 464.19614,515.90234 v -160.476"
+                   class="line"
+                   id="path12-2-5-1-3"
+                   style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+                <g
+                   id="g68"
+                   transform="translate(0.19650001)">
+                  <g
+                     id="g64"
+                     transform="translate(3.40213,-0.52851845)">
+                    <g
+                       id="g60"
+                       transform="translate(-169.82699,-186.67619)">
+                      <rect
+                         x="645.59454"
+                         y="558.59454"
+                         width="53.164909"
+                         height="33.810905"
+                         rx="6"
+                         class="node-rect aspect"
+                         id="rect6-3-8"
+                         style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none" />
+                      <text
+                         x="656.84998"
+                         y="580.48547"
+                         class="node-text"
+                         id="text15"
+                         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.0769px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">VIVA</text>
+                    </g>
+                    <path
+                       d="m 475.17301,388.82381 h -15"
+                       class="line"
+                       id="path12-7-4-0"
+                       style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+                  </g>
+                  <g
+                     id="g66"
+                     transform="translate(3.40213,-2.8428415)">
+                    <g
+                       id="g62"
+                       transform="translate(-163.70565,-188.63981)">
+                      <rect
+                         x="639.58569"
+                         y="647.76947"
+                         width="75.689926"
+                         height="33.585922"
+                         rx="6"
+                         class="node-rect aspect"
+                         id="rect6-3-8-6-3"
+                         style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none" />
+                      <text
+                         x="650.07861"
+                         y="669.54791"
+                         class="node-text"
+                         id="text17"
+                         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.0769px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">EXTINTA</text>
+                    </g>
+                    <path
+                       d="m 475.17301,475.92262 h -15"
+                       class="line"
+                       id="path12-7-4-88"
+                       style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+                  </g>
+                  <g
+                     id="g65"
+                     transform="translate(3.40213,-4)">
+                    <g
+                       id="g63"
+                       transform="translate(-173.24116,-190.91883)">
+                      <rect
+                         x="649.22467"
+                         y="693.70135"
+                         width="100.079"
+                         height="33.378998"
+                         rx="6"
+                         class="node-rect aspect"
+                         id="rect6-3-8-6-38"
+                         style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none" />
+                      <text
+                         x="660.26416"
+                         y="715.37634"
+                         class="node-text"
+                         id="text18"
+                         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.0769px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">ARTIFICIAL</text>
+                    </g>
+                    <path
+                       d="m 475.17301,519.47202 h -15"
+                       class="line"
+                       id="path12-7-4-9"
+                       style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+                  </g>
+                  <g
+                     id="g67"
+                     transform="translate(3.40213,-1.6856872)">
+                    <g
+                       id="g61"
+                       transform="translate(-165.85636,-189.67446)">
+                      <rect
+                         x="641.66339"
+                         y="605.1817"
+                         width="60.599964"
+                         height="33.73196"
+                         rx="6"
+                         class="node-rect aspect"
+                         id="rect6-3-8-6"
+                         style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none" />
+                      <text
+                         x="652.59338"
+                         y="626.72766"
+                         class="node-text"
+                         id="text16"
+                         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.0769px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">MORTA</text>
+                    </g>
+                    <path
+                       d="m 475.17301,432.37322 h -15"
+                       class="line"
+                       id="path12-7-4-7"
+                       style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g
+             id="g81"
+             transform="translate(-37.43397,-33.234019)">
+            <g
+               id="g80"
+               transform="translate(4.41187)">
+              <path
+                 d="M 580.32802,573.19069 V 455.11313"
+                 class="line"
+                 id="path12-2-5-1-3-2"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              <g
+                 id="g64-9"
+                 transform="translate(119.73051,99.158271)">
+                <g
+                   id="g60-3"
+                   transform="translate(-169.82699,-186.67619)">
+                  <rect
+                     x="645.74988"
+                     y="558.74402"
+                     width="84.026985"
+                     height="33.500256"
+                     rx="6.0000181"
+                     class="node-rect aspect"
+                     id="rect6-3-8-68"
+                     style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                  <text
+                     x="656.27087"
+                     y="581.60413"
+                     class="node-text"
+                     id="text15-0"
+                     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">FONÉTICA</text>
+                </g>
+                <path
+                   d="m 475.17301,388.82381 h -15"
+                   class="line"
+                   id="path12-7-4-0-2"
+                   style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              </g>
+              <g
+                 id="g62-0"
+                 transform="translate(-43.570476,-92.036307)">
+                <rect
+                   x="639.224"
+                   y="648.01227"
+                   width="76.205215"
+                   height="33.581219"
+                   rx="6"
+                   class="node-rect aspect"
+                   id="rect6-3-8-6-3-5"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                <text
+                   x="650.07861"
+                   y="669.54791"
+                   class="node-text"
+                   id="text17-1"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">SINTAXE</text>
+              </g>
+              <path
+                 d="m 594.90352,572.76657 h -15"
+                 class="line"
+                 id="path12-7-4-88-1"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              <g
+                 id="g61-6"
+                 transform="translate(-46.185225,-91.673358)">
+                <rect
+                   x="641.83875"
+                   y="605.35706"
+                   width="99.795242"
+                   height="33.381241"
+                   rx="6"
+                   class="node-rect aspect"
+                   id="rect6-3-8-6-2"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+                <text
+                   x="652.59332"
+                   y="626.79266"
+                   class="node-text"
+                   id="text16-5"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">MORFOLOGIA</text>
+              </g>
+              <path
+                 d="m 594.90352,530.37432 h -15"
+                 class="line"
+                 id="path12-7-4-7-8"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+            </g>
+            <g
+               id="g74"
+               transform="translate(20.686943,9.729279)">
+              <path
+                 d="m 583.67847,344.95183 v 15"
+                 class="line"
+                 id="path12-7-4-5"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              <g
+                 id="g73"
+                 transform="translate(2.6091309e-5)">
+                <rect
+                   x="537.75269"
+                   y="360.72906"
+                   width="91.851517"
+                   height="33.445511"
+                   rx="6.5128989"
+                   class="node-rect aspect"
+                   id="rect6-3-9"
+                   style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none" />
+                <text
+                   x="583.43146"
+                   y="383.56183"
+                   text-anchor="middle"
+                   class="node-text"
+                   id="text14-0"
+                   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">GRAMÁTICA</text>
+              </g>
+            </g>
+            <g
+               id="g75"
+               transform="translate(-28.468602,-20.102875)">
+              <path
+                 d="m 632.83401,424.78397 v 15"
+                 class="line"
+                 id="path12-7-4-92"
+                 style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+              <rect
+                 x="598.534"
+                 y="440.53397"
+                 width="68.600037"
+                 height="33.932037"
+                 rx="6"
+                 class="node-rect aspect"
+                 id="rect6-3-5-9"
+                 style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+              <text
+                 x="609.58472"
+                 y="463.40973"
+                 class="node-text"
+                 id="text15-9-4"
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">PARTES</text>
+            </g>
+          </g>
+        </g>
+        <g
+           id="g91"
+           transform="translate(-192.40223,-18)">
+          <g
+             id="g50"
+             transform="translate(122.79591,21.43134)">
+            <g
+               id="g45"
+               transform="translate(0,-0.4652886)">
+              <rect
+                 x="552.60248"
+                 y="272.44656"
+                 width="63.203243"
+                 height="33.51001"
+                 rx="6.0004005"
+                 class="node-rect"
+                 id="rect18"
+                 style="fill:#1a1a1a;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-width:1.5;stroke-dasharray:none" />
+              <text
+                 x="583.979"
+                 y="294.16577"
+                 text-anchor="middle"
+                 class="node-text"
+                 id="text19"
+                 style="fill:#ffffff;-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-family:'JetBrainsMono Nerd Font Mono';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.07692337px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">FRASE</text>
+            </g>
+            <path
+               d="m 584.20118,256.23628 v 15"
+               class="line"
+               id="path12-7-3-8-5-9"
+               style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+          <path
+             d="M 690.70243,403.19137 V 327.66762"
+             class="line"
+             id="path12-2-5-1-3-3"
+             style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          <g
+             id="g89"
+             transform="translate(204.75566,-74.953319)">
+            <g
+               id="g88"
+               transform="translate(-102.45047,-14)">
+              <rect
+                 x="603.9472"
+                 y="432.94727"
+                 width="136.55649"
+                 height="33.49152"
+                 rx="5.9996276"
+                 class="node-rect aspect"
+                 id="rect6-3-99"
+                 style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+              <text
+                 x="614.3559"
+                 y="454.51602"
+                 class="node-text"
+                 id="text20"
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">ORAÇÃO (VERBAL)</text>
+            </g>
+            <path
+               d="m 500.74673,435.69303 h -15"
+               class="line"
+               id="path12-7-3-8-5-9-1"
+               style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+          <g
+             id="g90"
+             transform="translate(49.6516,-32.880466)">
+            <g
+               id="g87"
+               transform="translate(56.577113,-196.07475)">
+              <rect
+                 x="600.02368"
+                 y="615.02368"
+                 width="159.77768"
+                 height="33.48819"
+                 rx="5.9995565"
+                 class="node-rect aspect"
+                 id="rect6-3-99-8"
+                 style="fill:#1a1a1a;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+              <text
+                 x="610.32996"
+                 y="636.44775"
+                 class="node-text"
+                 id="text21"
+                 style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.07692337px;font-family:'JetBrainsMono Nerd Font Mono';-inkscape-font-specification:'JetBrainsMono Nerd Font Mono, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">NOMINAL (AVERBIAL)</text>
+            </g>
+            <path
+               d="m 655.85079,435.69303 h -15"
+               class="line"
+               id="path12-7-3-8-5-9-1-0"
+               style="fill:none;stroke:#1a1a1a;stroke-width:0.849;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
