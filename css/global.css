@@ -87,6 +87,7 @@ td {
   border: var(--ui-border);
   padding: 0 0.2rem;
   color: var(--text-body);
+  white-space: nowrap;
 }
 
 /* ============================================
