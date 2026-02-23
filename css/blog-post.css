@@ -65,6 +65,129 @@ figure figcaption {
   padding: 0;
 }
 
+/* Fixar o índice na lateral esquerda e definir o seu estado recolhido */
+#TOC {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  width: 30px;
+  /* Largura minimalista para exibir apenas os traços */
+  max-height: 80vh;
+  background-color: transparent;
+  transition: width 0.4s ease, background-color 0.4s ease, padding 0.4s ease;
+  overflow: hidden;
+  z-index: 1000;
+  white-space: nowrap;
+  /* Impede a quebra de linha prematura dos títulos */
+}
+
+/* Estado expandido ao sobrepor o cursor (rato) */
+#TOC:hover {
+  width: 350px;
+  /* Expansão necessária para ler os títulos */
+  background-color: #fcfcfc;
+  /* Fundo sólido para sobrepor o texto do artigo */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  /* Permite rolagem caso o índice seja extenso */
+}
+
+/* Ocultar o cabeçalho H2 no estado recolhido */
+#TOC h2 {
+  opacity: 0;
+  margin-top: 0;
+  transition: opacity 0.3s ease;
+}
+
+#TOC:hover h2 {
+  opacity: 1;
+}
+
+/* Remoção das marcas padrão de lista e formatação do contêiner */
+#TOC ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* A linha vertical mestre (o | entre os tópicos) */
+#TOC>ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  /* Eixo de alinhamento da linha */
+  width: 2px;
+  background-color: #d1d5db;
+  /* Cor da linha vertical */
+  z-index: -1;
+}
+
+/* O espaçamento de cada item de lista */
+#TOC li {
+  position: relative;
+  padding-left: 25px;
+  /* Recuo para acomodar o traço */
+  margin: 15px 0;
+}
+
+/* Os traços horizontais (o - indicando o nó do tópico) */
+#TOC li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 2px;
+  background-color: #6b7280;
+  /* Cor do traço */
+  transition: background-color 0.3s ease;
+}
+
+/* Interatividade: Alteração cromática do traço ao apontar para o tópico */
+#TOC li:hover::before {
+  background-color: #2563eb;
+}
+
+/* Estado recolhido: Ocultar o texto das hiperligações */
+#TOC a {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  color: #374151;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+/* Estado expandido: Revelar os textos */
+#TOC:hover a {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Destaque textual ao sobrepor o cursor no hiperligador */
+#TOC a:hover {
+  color: #2563eb;
+}
+
+/* Hierarquia de sublistas: recuo estrutural sem replicar a linha mestre */
+#TOC ul ul {
+  margin-left: 15px;
+  border-left: 1px dashed #e5e7eb;
+  /* Divisor visual mais subtil para subtópicos */
+}
+
+#TOC ul ul::before {
+  display: none;
+}
+
 /* Estilização para notas e reflexões pessoais */
 .personal-note {
   display: block;

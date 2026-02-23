@@ -11,6 +11,7 @@ html {
   font-family: "Fira Code", "Symbols Nerd Font", "Courier New", monospace;
   overflow-x: hidden;
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 body {
