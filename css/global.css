@@ -70,6 +70,8 @@ a:hover {
 }
 
 table {
+  display: block;
+  max-width: 100% !important;
   width: 98%;
   border-collapse: collapse;
   border: var(--ui-border);
@@ -77,6 +79,7 @@ table {
   margin-bottom: 1rem;
   border-radius: 4px;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 th,
