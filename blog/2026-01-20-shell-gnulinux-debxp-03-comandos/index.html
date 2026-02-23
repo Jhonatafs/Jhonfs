@@ -57,7 +57,24 @@
     </header>
 
     <div class="post-content">
-        <p><strong>O que é um comando?</strong> O professor Blau inicia com essa
+        <nav id="TOC" class="indice-artigo">
+  <h2>Índice</h2>
+  <ul>
+  <li><a href="#etapas-de-processamento-de-comandos"
+  id="toc-etapas-de-processamento-de-comandos"><span
+  class="toc-section-number">0.0.1</span> Etapas de processamento de
+  comandos</a>
+  <ul>
+  <li><a href="#metacaracteres" id="toc-metacaracteres"><span
+  class="toc-section-number">0.0.1.1</span> Metacaracteres</a></li>
+  <li><a href="#citação" id="toc-citação"><span
+  class="toc-section-number">0.0.1.2</span> Citação</a></li>
+  <li><a href="#apelidos" id="toc-apelidos"><span
+  class="toc-section-number">0.0.1.3</span> Apelidos</a></li>
+  </ul></li>
+  </ul>
+</nav>
+<p><strong>O que é um comando?</strong> O professor Blau inicia com essa
 questão, e sua resposta fez-me recordar o que dizem os autores do livro
 <a href="https://jhonatafs.github.io/sicp-pt-br/"
 target="_blank"><em>Estrutura e Interpretação de Programas de
@@ -110,7 +127,8 @@ lang="en">wiki</span>, o professor aborda explicitamente o comando sem
 invocação. Caso tenha sido mencionado em aula, a explicação me passou
 despercebida, mas sinto-me satisfeito por ter alcançado essas
 conclusões.</p>
-<h3 id="etapas-de-processamento-de-comandos">Etapas de processamento de
+<h3 data-number="0.0.1" id="etapas-de-processamento-de-comandos"><span
+class="header-section-number">0.0.1</span> Etapas de processamento de
 comandos</h3>
 <p>No <span lang="en">Issues</span> #4, um aluno faz uma pergunta que
 resultou em uma excelente explicação do professor sobre os processos. O
@@ -136,12 +154,14 @@ lang="en">shell</span> e palavras reservadas.</li>
 <li><p>Etapa #4: Execução de redirecionamentos.</p></li>
 <li><p>Etapa #5: Monitoramento de estados de término.</p></li>
 </ol>
-<h4 id="metacaracteres">Metacaracteres</h4>
+<h4 data-number="0.0.1.1" id="metacaracteres"><span
+class="header-section-number">0.0.1.1</span> Metacaracteres</h4>
 <p>Metacaracteres são caracteres cuja função é delimitar palavras,
 podendo ter sua natureza alterada quando citados. São eles:
 <code>|</code>, <code>&amp;</code>, <code>;</code>, <code>(</code>,
 <code>)</code>, <code>&lt;</code>, ou <code>&gt;</code>.</p>
-<h4 id="citação">Citação</h4>
+<h4 data-number="0.0.1.2" id="citação"><span
+class="header-section-number">0.0.1.2</span> Citação</h4>
 <p>A citação é, conforme o <a
 href="https://www.gnu.org/software/bash/manual/bash.html#Quoting"
 target="_blank">manual do <span lang="en">Bash</span></a>, o meio para
@@ -160,7 +180,8 @@ exeção de:
 <p>Há ainda a citação <span lang="en">ANSI-C</span>, que converte um
 código em caractere <span lang="en">ASCII</span>. Exemplo:
 <code>\b</code> → <span lang="en">Backspace</span>.</p>
-<h4 id="apelidos">Apelidos</h4>
+<h4 data-number="0.0.1.3" id="apelidos"><span
+class="header-section-number">0.0.1.3</span> Apelidos</h4>
 <p>Enquanto uma variável é um contêiner que armazena valor, um apelido
 (<code>alias</code>) é um recurso inerente ao <span
 lang="en">shell</span> para criar atalhos para cadeias de caracteres
@@ -168,7 +189,6 @@ lang="en">shell</span> para criar atalhos para cadeias de caracteres
 <code>alias nome_do_atalho='string'</code>. É invocado como
 <code>nome_do_atalho</code> quando posicionado como a primeira palavra
 do comando.</p>
-
     </div>
 </article>
 
