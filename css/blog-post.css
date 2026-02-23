@@ -50,7 +50,7 @@ figure {
   padding-inline: .2rem;
 }
 
-figure img {
+figure img, img {
   max-width: 100%;
   width: auto;
   margin: 0;
