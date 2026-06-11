@@ -4,19 +4,18 @@
 
 ---
 
-[![Latine](https://flagcdn.com/w40/va.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/la.md)
-[![Português Brasil](https://flagcdn.com/w40/br.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/pt-br.md)
-[![English](https://flagcdn.com/w40/gb.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/en.md)
-[![Español](https://flagcdn.com/w40/es.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/es.md)
-[![Français](https://flagcdn.com/w40/fr.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/fr.md)
-[![Deutsch](https://flagcdn.com/w40/de.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/de.md)
-[![Italiano](https://flagcdn.com/w40/it.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/it.md)
-[![日本語](https://flagcdn.com/w40/jp.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/ja.md)
-[![简体中文](https://flagcdn.com/w40/cn.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/zh-cn.md)
-[![한국어](https://flagcdn.com/w40/kr.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/ko.md)
-[![Русский](https://flagcdn.com/w40/ru.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/ru.md)
-[![العربية](https://flagcdn.com/w40/sa.png)](https://raw.githubusercontent.com/Jhonatafs/Jhonfs/refs/heads/gh-pages/img/habitica/ar.md)
-
+[![Latine](https://flagcdn.com/w40/va.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/la.md)
+[![Português Brasil](https://flagcdn.com/w40/br.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/pt-br.md)
+[![English](https://flagcdn.com/w40/gb.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/en.md)
+[![Español](https://flagcdn.com/w40/es.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/es.md)
+[![Français](https://flagcdn.com/w40/fr.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/fr.md)
+[![Deutsch](https://flagcdn.com/w40/de.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/de.md)
+[![Italiano](https://flagcdn.com/w40/it.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/it.md)
+[![日本語](https://flagcdn.com/w40/jp.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/ja.md)
+[![简体中文](https://flagcdn.com/w40/cn.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/zh-cn.md)
+[![한국어](https://flagcdn.com/w40/kr.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/ko.md)
+[![Русский](https://flagcdn.com/w40/ru.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/ru.md)
+[![العربية](https://flagcdn.com/w40/sa.png)](https://github.com/Jhonatafs/Jhonfs/blob/gh-pages/img/habitica/ar.md)
 ---
 
 مرحبًا بك في نقابة *Sodalitas Profectus* - **نقابة التقدّم**.
