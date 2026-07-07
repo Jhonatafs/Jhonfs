@@ -27,6 +27,14 @@
             const themeName = themes.find(t => t.id === themeId)?.name || 'UNKNOWN';
             display.innerText = `[ ${themeName} ]`;
         }
+
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) {
+            const bgBase = getComputedStyle(html).getPropertyValue('--bg-base').trim();
+            if (bgBase) {
+                themeColor.setAttribute('content', bgBase);
+            }
+        }
     }
 
     function initTheme() {

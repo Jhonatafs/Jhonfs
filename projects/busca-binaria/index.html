@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca Binária em 8bit | Projetos</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="JhonFs" />
+    <meta name="theme-color" content="#1d2021" />
+    <meta name="description" content="Blog, projetos técnicos e jogos didáticos de JhonFs." />
+    <link rel="manifest" href="/manifest.json" />
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+<link rel="stylesheet" href="/css/binary-search-game.css">
+
+</head>
+<body>
+    <nav id="main-navbar">
+        <div id="brand">Jhon<span>F</span>s</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
+        <ul id="navigation">
+            <li><a href="/">[root]</a></li>
+            <li><a href="/blog">~/blog</a></li>
+            <li><a href="/projects">~/projects</a></li>
+            
+            <li class="theme-trigger-wrapper">
+                <button onclick="window.cycleTheme()" class="theme-trigger">
+                    <span class="cmd-prefix">$ theme.set</span>
+                    <span id="theme-display">[ CODEX.SYS ]</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        
+<article class="binary-game-page" data-active-screen="menu">
+    <div class="game-topbar">
+        <a class="back-link" href="/projects">← cd ../projects</a>
+        <span>jhonfs.com :: projetos</span>
+    </div>
+
+    <section id="screen-menu" class="game-screen is-active" aria-labelledby="menu-title">
+        <div class="boot-panel">
+            <span class="boot-label">binary.search/game</span>
+            <pre class="ascii-title" aria-label="Busca Binária">BUSCA
+BINARIA</pre>
+            <h1 id="menu-title">Descubra o Número</h1>
+            <p>
+                Um jogo curto para treinar a arte de reduzir possibilidades,
+                palpite por palpite, até encontrar o número secreto.
+            </p>
+        </div>
+
+        <nav class="game-menu" aria-label="Menu do jogo">
+            <button type="button" data-screen-target="game">Jogar</button>
+            <button type="button" data-screen-target="about">Sobre</button>
+            <button type="button" data-screen-target="credits">Créditos</button>
+        </nav>
+    </section>
+
+    <section id="screen-game" class="game-screen" aria-labelledby="game-title" hidden>
+        <header class="compact-game-header">
+            <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+            <div class="mini-title-block">
+                <span class="boot-label">run ./busca-binaria</span>
+                <pre class="mini-ascii-title" aria-label="Busca Binária">BUSCA BINARIA</pre>
+            </div>
+        </header>
+
+        <section class="terminal-panel play-panel" aria-label="Área principal do jogo">
+            <div class="game-hud" aria-label="Informações da partida">
+                <div class="hud-line hud-range">
+                    <span>intervalo</span>
+                    <strong id="game-instruction">Descubra o número entre 1 - ?</strong>
+                </div>
+                <div class="hud-line hud-attempts">
+                    <span>tentativas</span>
+                    <strong><span id="attempt-count">0</span> / <span id="ideal-count">—</span></strong>
+                    <small>limite binário</small>
+                </div>
+            </div>
+
+            <form id="guess-form" class="guess-form" autocomplete="off">
+                <label for="guess-input">Palpite</label>
+                <div class="guess-row">
+                    <input id="guess-input" name="guess" type="number" inputmode="numeric" min="1" required>
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+
+            <div id="game-message" class="game-message" role="status" aria-live="polite">
+                Digite um número dentro do intervalo sorteado.
+            </div>
+
+            <div id="victory-panel" class="victory-panel" hidden>
+                <span class="boot-label">status: resolved</span>
+                <h2>ACERTOU!!!</h2>
+                <p id="victory-summary"></p>
+                <button id="play-again" type="button">Jogar novamente</button>
+            </div>
+        </section>
+
+        <section class="terminal-panel history-section" aria-labelledby="history-title">
+            <div class="section-heading">
+                <span class="boot-label">history.log</span>
+                <h2 id="history-title">Palpites</h2>
+            </div>
+            <div id="history-scroll" class="history-scroll" tabindex="0">
+                <ol id="guess-history" class="guess-history">
+                    <li class="empty-history">Nenhum palpite válido ainda.</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="screen-about" class="game-screen text-screen" aria-labelledby="about-title" hidden>
+        <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+        <div class="terminal-panel">
+            <span class="boot-label">about.md</span>
+            <h2 id="about-title">Sobre</h2>
+            <p>
+                Este projeto foi criado para estudar, praticar e demonstrar a lógica da
+                <strong>busca binária</strong>, um algoritmo usado para encontrar valores em
+                uma coleção ordenada por meio da redução sucessiva do espaço de busca.
+            </p>
+            <p>
+                A ideia do jogo é simples: o sistema escolhe um número secreto dentro de um
+                intervalo conhecido, e o jogador tenta descobri-lo. A cada tentativa, o jogo
+                informa se o número secreto é maior ou menor que o palpite. Com isso, é
+                possível aplicar a estratégia da busca binária: escolher sempre o meio do
+                intervalo restante e descartar metade das possibilidades a cada passo.
+            </p>
+            <p>
+                Este projeto está sendo desenvolvido a partir dos estudos acompanhando as
+                aulas do professor <strong>Blau Araujo</strong>, no canal
+                <strong>Debxp</strong>:
+                <a href="https://www.youtube.com/@debxp">https://www.youtube.com/@debxp</a>.
+            </p>
+            <p>
+                As aulas fazem parte da série <strong>“Lendo e Praticando”</strong>, baseada
+                na leitura e prática do livro <strong><em>Entendendo Algoritmos</em></strong>,
+                de <strong>Aditya Y. Bhargava</strong>.
+            </p>
+            <p>
+                Inicialmente, criei uma versão do jogo em Shell Script para praticar a lógica
+                da busca binária diretamente no terminal. Depois de apresentar essa primeira
+                versão ao meu amigo Ian, ele gostou da ideia e quis jogar pelo celular. A
+                partir disso, decidi criar uma versão em JavaScript para o site, tornando o
+                projeto mais acessível para quem quiser brincar.
+            </p>
+        </div>
+    </section>
+
+    <section id="screen-credits" class="game-screen text-screen" aria-labelledby="credits-title" hidden>
+        <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+        <div class="terminal-panel credits-panel">
+            <span class="boot-label">credits.txt</span>
+            <h2 id="credits-title">Créditos</h2>
+            <p>Criado por JhonFs</p>
+            <p>Site: <a href="https://jhonfs.com">https://jhonfs.com</a></p>
+        </div>
+    </section>
+</article>
+
+<script src="/js/binary-search-game.js"></script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JhonFS Ecosystem<span>. Static Generate</span></p>
+    </footer>
+    <script src="/js/theme-engine.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/pwa-register.js"></script>
+</body>
+</html>

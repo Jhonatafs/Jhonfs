@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos | JhonFS</title>
 
-    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="JhonFs" />
-    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#1d2021" />
+    <meta name="description" content="Blog, projetos técnicos e jogos didáticos de JhonFs." />
+    <link rel="manifest" href="/manifest.json" />
 
     <link rel="stylesheet" href="/css/global.css">
     
@@ -29,7 +35,6 @@
             <li><a href="/">[root]</a></li>
             <li><a href="/blog">~/blog</a></li>
             <li><a href="/projects">~/projects</a></li>
-            <li><a href="/aiterus">../aiterus</a></li>
             
             <li class="theme-trigger-wrapper">
                 <button onclick="window.cycleTheme()" class="theme-trigger">
@@ -48,7 +53,35 @@
     
     <div class="project-item" style="margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--text-muted);">
         <h3 style="margin-bottom: 0.5rem;">
-            <a href="https://github.com/Jhonatafs/lqm-file-extractor" target="_blank">Extrator LQM</a>
+            <a href="/projects/busca-binaria/">Busca Binária</a>
+        </h3>
+        
+        <div class="meta" style="font-family: var(--font-stack-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            <span style="color: var(--accent-action);">Live</span> 
+            // 2026-07-06
+            <br>
+            Tech: [ 
+            
+                <span>HTML</span>, 
+            
+                <span>CSS</span>, 
+            
+                <span>JavaScript</span>
+            
+            ]
+        </div>
+
+        <div class="desc">
+            <p>Jogo didático em estilo retro/8bit para praticar a lógica da busca
+binária. O sistema sorteia um intervalo e um número secreto; a cada
+palpite, indica se a resposta está mais alta ou mais baixa.</p>
+
+        </div>
+    </div>
+    
+    <div class="project-item" style="margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--text-muted);">
+        <h3 style="margin-bottom: 0.5rem;">
+            <a href="https://github.com/Jhonatafs/lqm-file-extractor" target="_blank" rel="noopener noreferrer">Extrator LQM</a>
         </h3>
         
         <div class="meta" style="font-family: var(--font-stack-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
@@ -71,7 +104,7 @@ QuickMemo - LG</p>
     
     <div class="project-item" style="margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--text-muted);">
         <h3 style="margin-bottom: 0.5rem;">
-            <a href="https://jhonatafs.github.io/sicp-pt-br/" target="_blank">Tradução SICP PT-BR</a>
+            <a href="https://jhonatafs.github.io/sicp-pt-br/" target="_blank" rel="noopener noreferrer">Tradução SICP PT-BR</a>
         </h3>
         
         <div class="meta" style="font-family: var(--font-stack-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
@@ -104,5 +137,6 @@ conhecimento acessível.</p>
     </footer>
     <script src="/js/theme-engine.js"></script>
     <script src="/js/navigation.js"></script>
+    <script src="/js/pwa-register.js"></script>
 </body>
 </html>
