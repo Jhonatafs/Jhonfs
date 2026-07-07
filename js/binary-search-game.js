@@ -5,6 +5,8 @@
   const instruction = document.getElementById("game-instruction");
   const attemptDisplay = document.getElementById("attempt-count");
   const idealDisplay = document.getElementById("ideal-count");
+  const lowerBoundDisplay = document.getElementById("lower-bound");
+  const upperBoundDisplay = document.getElementById("upper-bound");
   const message = document.getElementById("game-message");
   const form = document.getElementById("guess-form");
   const input = document.getElementById("guess-input");
@@ -14,6 +16,23 @@
   const victoryPanel = document.getElementById("victory-panel");
   const victorySummary = document.getElementById("victory-summary");
   const playAgain = document.getElementById("play-again");
+  const creditsEasterEgg = document.getElementById("credits-easter-egg");
+  const githubEasterTrigger = document.querySelector("[data-easter-trigger='github']");
+  const creditsMenuButton = document.querySelector("[data-screen-target='credits']");
+  const victoryPerfectSound = new Audio("/audio/victory-perfect.mp3");
+  const victoryLateSound = new Audio("/audio/victory-late.mp3");
+  const konamiSequence = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a"
+  ];
 
   let maxLimit;
   let secretNumber;
@@ -21,6 +40,13 @@
   let idealAttempts;
   let finished;
   let guesses;
+  let konamiIndex = 0;
+  let githubClickCount = 0;
+  let creditsHoldTimer;
+  let creditGlitchTimer;
+
+  victoryPerfectSound.preload = "auto";
+  victoryLateSound.preload = "auto";
 
   function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -51,13 +77,83 @@
     message.classList.toggle("is-success", type === "success");
   }
 
+  function getClosestGuesses() {
+    return guesses.reduce(
+      (closest, entry) => {
+        if (entry.guess < secretNumber) {
+          closest.lower =
+            closest.lower === null ? entry.guess : Math.max(closest.lower, entry.guess);
+        }
+
+        if (entry.guess > secretNumber) {
+          closest.upper =
+            closest.upper === null ? entry.guess : Math.min(closest.upper, entry.guess);
+        }
+
+        return closest;
+      },
+      { lower: null, upper: null }
+    );
+  }
+
   function renderStats() {
-    instruction.textContent = `Descubra o número entre 1 - ${maxLimit}`;
+    const closest = getClosestGuesses();
+
+    instruction.textContent = `Descubra o número que escolhi entre 1 - ${maxLimit}`;
     attemptDisplay.textContent = attempts;
     idealDisplay.textContent = idealAttempts;
+    lowerBoundDisplay.textContent = closest.lower === null ? "—" : closest.lower;
+    upperBoundDisplay.textContent = closest.upper === null ? "—" : closest.upper;
     input.min = minLimit;
     input.max = maxLimit;
     input.placeholder = `1 a ${maxLimit}`;
+  }
+
+  function playVictorySound(withinIdeal) {
+    const sound = withinIdeal ? victoryPerfectSound : victoryLateSound;
+    sound.currentTime = 0;
+
+    const playback = sound.play();
+
+    if (playback && typeof playback.catch === "function") {
+      playback.catch(() => {});
+    }
+  }
+
+  function revealCreditsEasterEgg(text) {
+    if (!creditsEasterEgg) {
+      return;
+    }
+
+    showScreen("credits");
+    creditsEasterEgg.textContent = text;
+    creditsEasterEgg.hidden = false;
+    creditsEasterEgg.classList.remove("is-visible");
+    void creditsEasterEgg.offsetWidth;
+    creditsEasterEgg.classList.add("is-visible");
+
+    app.classList.remove("is-credit-glitch");
+    void app.offsetWidth;
+    app.classList.add("is-credit-glitch");
+
+    window.clearTimeout(creditGlitchTimer);
+    creditGlitchTimer = window.setTimeout(() => {
+      app.classList.remove("is-credit-glitch");
+    }, 650);
+  }
+
+  function normalizeEasterKey(key) {
+    return key.length === 1 ? key.toLowerCase() : key;
+  }
+
+  function isTypingTarget(target) {
+    const tagName = target.tagName;
+    return (
+      target.isContentEditable ||
+      tagName === "INPUT" ||
+      tagName === "TEXTAREA" ||
+      tagName === "SELECT"
+    );
   }
 
   function renderHistory() {
@@ -129,11 +225,11 @@
       ? "Dentro do limite da busca binária."
       : "Você acertou, mas passou do limite ideal da busca binária.";
 
-    victorySummary.textContent =
-      `${comparison} O número secreto era ${secretNumber}. Tentativas: ${attempts} / ${idealAttempts}.`;
+    victorySummary.textContent = comparison;
 
     victoryPanel.classList.add(withinIdeal ? "is-optimal" : "is-over-limit");
     victoryPanel.hidden = false;
+    playVictorySound(withinIdeal);
     setMessage("ACERTOU!!!", "success");
   }
 
@@ -188,6 +284,57 @@
 
     showScreen(target.dataset.screenTarget);
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (isTypingTarget(event.target)) {
+      return;
+    }
+
+    const key = normalizeEasterKey(event.key);
+    const expectedKey = konamiSequence[konamiIndex];
+
+    if (key === expectedKey) {
+      konamiIndex += 1;
+
+      if (konamiIndex === konamiSequence.length) {
+        revealCreditsEasterEgg("KONAMI OK :: rota secreta desbloqueada.");
+        konamiIndex = 0;
+      }
+
+      return;
+    }
+
+    konamiIndex = key === konamiSequence[0] ? 1 : 0;
+  });
+
+  if (githubEasterTrigger) {
+    githubEasterTrigger.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        return;
+      }
+
+      githubClickCount += 1;
+
+      if (githubClickCount >= 5) {
+        revealCreditsEasterEgg("GITHUB x5 :: deploy successful.");
+        githubClickCount = 0;
+      }
+    });
+  }
+
+  if (creditsMenuButton) {
+    creditsMenuButton.addEventListener("pointerdown", () => {
+      creditsHoldTimer = window.setTimeout(() => {
+        revealCreditsEasterEgg("GLITCH MODE :: 01000010 01010011 01000011.");
+      }, 850);
+    });
+
+    ["pointerup", "pointerleave", "pointercancel"].forEach((eventName) => {
+      creditsMenuButton.addEventListener(eventName, () => {
+        window.clearTimeout(creditsHoldTimer);
+      });
+    });
+  }
 
   form.addEventListener("submit", handleGuess);
   playAgain.addEventListener("click", resetGame);

@@ -1,13 +1,35 @@
 body:has(.binary-game-page) {
   background: var(--bg-base);
+  overflow: hidden;
+}
+
+html:has(.binary-game-page),
+body:has(.binary-game-page),
+body:has(.binary-game-page) main,
+.binary-game-page,
+.binary-game-page * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html:has(.binary-game-page)::-webkit-scrollbar,
+body:has(.binary-game-page)::-webkit-scrollbar,
+body:has(.binary-game-page) main::-webkit-scrollbar,
+.binary-game-page::-webkit-scrollbar,
+.binary-game-page *::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 body:has(.binary-game-page) main {
   width: 100%;
   max-width: none;
-  min-height: calc(100dvh - 7rem);
+  height: calc(100dvh - 7rem);
+  min-height: 0;
   display: grid;
   place-items: center;
+  overflow: hidden;
   padding: clamp(0.7rem, 2vw, 1.35rem) !important;
 }
 
@@ -16,32 +38,40 @@ body:has(.binary-game-page) main {
   --game-muted: var(--text-muted);
   --game-line: color-mix(in srgb, var(--accent-primary) 72%, var(--text-muted));
   --game-line-soft: color-mix(in srgb, var(--accent-primary) 34%, transparent);
+  --game-border: color-mix(in srgb, var(--text-muted) 58%, transparent);
+  --game-border-soft: color-mix(in srgb, var(--text-muted) 24%, transparent);
   --game-action: var(--accent-action);
   --game-ok: var(--accent-primary);
-  --game-shadow: color-mix(in srgb, var(--accent-action) 42%, transparent);
   --game-danger: color-mix(in srgb, var(--accent-action) 78%, var(--text-body));
 
   width: min(100%, 980px);
-  min-height: clamp(540px, calc(100dvh - 8rem), 760px);
+  height: min(760px, 100%);
+  min-height: 0;
   box-sizing: border-box;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   gap: 0.9rem;
   margin: 0 auto;
   padding: clamp(0.8rem, 2vw, 1.25rem);
-  border: 2px solid var(--game-line);
-  outline: 1px solid color-mix(in srgb, var(--game-action) 38%, transparent);
+  border: 2px solid var(--game-border);
+  outline: 1px solid var(--game-border-soft);
   outline-offset: 5px;
   background: transparent;
-  box-shadow: 6px 6px 0 var(--game-shadow);
   color: var(--game-text);
   font-family: var(--font-stack-mono, "Fira Code", "Courier New", monospace);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: auto;
 }
 
 .binary-game-page *,
 .binary-game-page *::before,
 .binary-game-page *::after {
   box-sizing: border-box;
+}
+
+.binary-game-page [hidden] {
+  display: none !important;
 }
 
 .binary-game-page a {
@@ -60,7 +90,7 @@ body:has(.binary-game-page) main {
   justify-content: space-between;
   gap: 1rem;
   padding-bottom: 0.55rem;
-  border-bottom: 1px solid var(--game-line-soft);
+  border-bottom: 1px solid var(--game-border-soft);
   color: var(--game-muted);
   font-size: 0.72rem;
   line-height: 1.25;
@@ -97,8 +127,10 @@ body:has(.binary-game-page) main {
 
 #screen-about.is-active,
 #screen-credits.is-active {
+  width: min(100%, 820px);
   gap: 1rem;
-  align-content: center;
+  align-content: start;
+  justify-items: center;
 }
 
 .boot-panel,
@@ -197,10 +229,9 @@ body:has(.binary-game-page) main {
 .victory-panel button {
   min-height: 44px;
   appearance: none;
-  border: 2px solid var(--game-line);
+  border: 1px solid var(--game-border);
   border-radius: 0;
   background: transparent;
-  box-shadow: 4px 4px 0 var(--game-shadow);
   color: var(--game-text);
   cursor: pointer;
   font: inherit;
@@ -208,8 +239,7 @@ body:has(.binary-game-page) main {
   line-height: 1;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease,
-    transform 0.12s ease;
+  transition: color 0.12s ease, border-color 0.12s ease;
 }
 
 .game-menu button {
@@ -226,21 +256,32 @@ body:has(.binary-game-page) main {
 }
 
 .game-menu button::after {
-  content: "01";
   position: absolute;
   right: 0.8rem;
   color: var(--game-muted);
-  font-size: 0.68rem;
+  font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", var(--font-stack-mono, monospace);
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+.game-menu button:nth-child(1)::after {
+  content: "\f04b";
+}
+
+.game-menu button:nth-child(2)::after {
+  content: "\f129";
+}
+
+.game-menu button:nth-child(3)::after {
+  content: "\f2c2";
 }
 
 .game-menu button:hover,
 .ghost-command:hover,
 .guess-row button:hover,
 .victory-panel button:hover {
-  border-color: var(--game-action);
-  box-shadow: 2px 2px 0 var(--game-shadow);
+  border-color: var(--game-border);
   color: var(--game-action);
-  transform: translate(2px, 2px);
 }
 
 .compact-game-header {
@@ -249,10 +290,25 @@ body:has(.binary-game-page) main {
   flex-wrap: nowrap;
   gap: 0.9rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: left;
   padding-bottom: 0.7rem;
-  border-bottom: 2px solid var(--game-line);
+  border-bottom: 2px solid var(--game-border);
+}
+
+.text-screen-header {
+  width: min(100%, 760px);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.9rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--game-border);
+}
+
+.text-screen-header h2 {
+  margin: 0;
 }
 
 .mini-title-block {
@@ -280,6 +336,16 @@ body:has(.binary-game-page) main {
   width: fit-content;
 }
 
+.text-screen-header .ghost-command {
+  flex: 0 0 auto;
+  width: fit-content;
+}
+
+.header-spacer {
+  flex: 0 0 auto;
+  width: 4.6rem;
+}
+
 .play-panel {
   width: min(100%, 760px);
   min-height: 0;
@@ -291,71 +357,67 @@ body:has(.binary-game-page) main {
   width: min(100%, 920px);
   min-height: 0;
   padding-top: 0.9rem;
-  border-top: 1px dashed var(--game-line-soft);
+  border-top: 1px dashed var(--game-border-soft);
 }
 
 .game-hud {
-  width: min(100%, 36rem);
+  width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.75rem;
-  align-items: end;
+  justify-items: center;
+  text-align: center;
   margin-bottom: 1rem;
 }
 
-.hud-line {
-  min-width: 0;
-}
-
-.hud-line span,
-.hud-line small {
+.game-instruction {
   display: block;
-  color: var(--game-muted);
-  font-size: 0.68rem;
-  line-height: 1.2;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.hud-line strong {
-  display: block;
-  margin-top: 0.18rem;
   color: var(--game-line);
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  line-height: 1.2;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  line-height: 1.25;
   letter-spacing: 0.01em;
 }
 
-.hud-attempts {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 0.4rem;
-  align-items: baseline;
-  justify-content: end;
-  text-align: right;
-  white-space: nowrap;
-}
-
-.hud-attempts span {
-  display: inline;
-}
-
-.hud-attempts strong {
-  display: inline;
+.match-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem 1rem;
   margin: 0;
+}
+
+.match-stats div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.match-stats dt,
+.match-stats dd {
+  margin: 0;
+}
+
+.match-stats dt {
+  color: var(--game-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.match-stats dd {
   color: var(--game-action);
   font-size: clamp(0.96rem, 2.2vw, 1.18rem);
 }
 
-.hud-attempts small {
-  grid-column: 1 / -1;
+.match-bounds {
+  border-top: 1px dashed var(--game-border-soft);
+  padding-top: 0.35rem;
 }
 
 .guess-form {
   width: min(100%, 24rem);
   margin: 0;
   padding-top: 0.85rem;
-  border-top: 1px solid var(--game-line-soft);
+  border-top: 1px solid var(--game-border-soft);
 }
 
 .guess-form label,
@@ -384,7 +446,7 @@ body:has(.binary-game-page) main {
   width: 100%;
   min-height: 46px;
   padding: 0.62rem 0.7rem;
-  border: 2px solid var(--game-line-soft);
+  border: 1px solid var(--game-border);
   border-radius: 0;
   background: transparent;
   color: var(--game-text);
@@ -398,14 +460,20 @@ body:has(.binary-game-page) main {
 }
 
 .guess-row input:focus {
-  border-color: var(--game-action);
-  outline: 2px solid var(--game-line);
+  border-color: var(--game-border);
+  outline: 1px solid var(--game-border);
   outline-offset: 2px;
 }
 
 .guess-row button,
 .victory-panel button {
   padding: 0.65rem 0.9rem;
+}
+
+.guess-row button {
+  min-width: 3rem;
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .guess-row button:disabled,
@@ -419,35 +487,68 @@ body:has(.binary-game-page) main {
   min-height: 3.1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 0.9rem;
-  padding: 0.65rem 0 0.65rem 0.7rem;
-  border: 0;
-  border-left: 3px solid var(--game-line);
+  padding: 0.65rem 0.8rem;
+  border: 1px dashed var(--game-border);
   background: transparent;
   color: var(--game-text);
   font-size: 0.9rem;
   line-height: 1.4;
+  text-align: center;
+  box-shadow: 3px 3px 0 var(--game-border-soft);
 }
 
 .game-message.is-error {
-  border-left-color: var(--game-danger);
+  border-color: var(--game-border);
   color: var(--game-danger);
 }
 
 .game-message.is-success {
-  border-left-color: var(--game-ok);
+  border-color: var(--game-border);
   color: var(--game-ok);
 }
 
 .victory-panel {
   width: min(100%, 34rem);
+  display: grid;
+  justify-items: center;
+  justify-self: center;
+  position: relative;
   margin-top: 0.9rem;
-  padding: 0.85rem;
-  border: 2px solid var(--game-ok);
+  padding: 1rem 1.1rem;
+  border: 2px solid var(--game-border);
   border-radius: 0;
-  background: transparent;
-  box-shadow: 5px 5px 0 color-mix(in srgb, var(--game-ok) 32%, transparent);
-  transform: rotate(-0.2deg);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--bg-surface) 92%, var(--game-ok)),
+      var(--bg-surface) 62%
+    );
+  box-shadow:
+    7px 7px 0 color-mix(in srgb, var(--bg-base) 74%, transparent),
+    10px 10px 0 var(--game-border-soft);
+  text-align: center;
+  transform: translateY(-0.15rem) rotate(-0.2deg);
+}
+
+.victory-panel::before,
+.victory-panel::after {
+  content: "";
+  position: absolute;
+  width: 0.62rem;
+  height: 0.62rem;
+  background: var(--game-border);
+}
+
+.victory-panel::before {
+  top: 0.35rem;
+  left: 0.35rem;
+}
+
+.victory-panel::after {
+  right: 0.35rem;
+  bottom: 0.35rem;
 }
 
 .victory-panel h2 {
@@ -460,9 +561,18 @@ body:has(.binary-game-page) main {
   text-shadow: 2px 2px 0 color-mix(in srgb, var(--game-action) 48%, transparent);
 }
 
+.victory-panel.is-optimal {
+  border-color: var(--game-ok);
+}
+
 .victory-panel.is-over-limit {
   border-color: var(--game-action);
-  box-shadow: 5px 5px 0 color-mix(in srgb, var(--game-action) 30%, transparent);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--bg-surface) 88%, var(--game-action)),
+      var(--bg-surface) 64%
+    );
 }
 
 .victory-panel.is-over-limit h2 {
@@ -475,6 +585,10 @@ body:has(.binary-game-page) main {
   color: var(--game-text);
   font-size: 0.88rem;
   line-height: 1.45;
+}
+
+.victory-panel button {
+  background: color-mix(in srgb, var(--bg-base) 72%, transparent);
 }
 
 .section-heading {
@@ -502,7 +616,7 @@ body:has(.binary-game-page) main {
   max-height: clamp(180px, 30dvh, 320px);
   overflow-y: auto;
   padding-right: 0.35rem;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
 }
 
 .guess-history li {
@@ -513,7 +627,7 @@ body:has(.binary-game-page) main {
   align-items: baseline;
   break-inside: avoid;
   padding: 0.45rem 0;
-  border-bottom: 1px solid var(--game-line-soft);
+  border-bottom: 1px solid var(--game-border-soft);
   color: var(--game-text);
   font-size: 0.84rem;
   line-height: 1.25;
@@ -547,18 +661,147 @@ body:has(.binary-game-page) main {
   line-height: 1.65;
 }
 
-.credits-panel p {
+.credits-panel {
+  width: min(100%, 36rem);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.credits-note {
+  margin: 0;
+  color: var(--game-muted);
   font-family: inherit;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.credits-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.credit-item {
+  display: grid;
+  grid-template-columns: 1.4rem minmax(5.5rem, auto) minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: baseline;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed var(--game-border-soft);
+  color: var(--game-text);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.credit-item::before {
+  color: var(--game-action);
+  font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", var(--font-stack-mono, monospace);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.credit-author::before {
+  content: "\f2bd";
+}
+
+.credit-site::before {
+  content: "\f0ac";
+}
+
+.credit-github::before {
+  content: "\f09b";
+}
+
+.credit-github {
+  cursor: pointer;
+}
+
+.credit-item span {
+  color: var(--game-muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.credit-item strong,
+.credit-item a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.credit-item a:hover {
+  color: var(--game-line);
+}
+
+.credits-easter {
+  justify-self: center;
+  max-width: min(100%, 32rem);
+  margin: 0.15rem 0 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px dashed var(--game-border);
+  color: var(--game-ok);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: 3px 3px 0 var(--game-border-soft);
+}
+
+.credits-easter.is-visible {
+  animation: terminal-reveal 0.28s steps(3, end);
+}
+
+.binary-game-page.is-credit-glitch .text-screen-header h2 {
+  animation: credit-glitch 0.58s steps(2, end);
+}
+
+@keyframes terminal-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes credit-glitch {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    text-shadow: none;
+  }
+
+  24% {
+    transform: translate(-1px, 1px);
+    text-shadow: 2px 0 0 var(--game-action);
+  }
+
+  52% {
+    transform: translate(1px, -1px);
+    text-shadow: -2px 0 0 var(--game-ok);
+  }
+
+  78% {
+    transform: translate(-1px, 0);
+    text-shadow: 1px 1px 0 var(--game-action);
+  }
 }
 
 @media (max-width: 860px) {
   body:has(.binary-game-page) main {
     align-items: start;
-    min-height: calc(100dvh - 6.5rem);
+    height: calc(100dvh - 6.5rem);
+    min-height: 0;
   }
 
   .binary-game-page {
-    min-height: auto;
+    height: 100%;
+    min-height: 0;
   }
 
   .history-section {
@@ -579,7 +822,6 @@ body:has(.binary-game-page) main {
     gap: 0.75rem;
     padding: 0.75rem;
     outline-offset: 3px;
-    box-shadow: 4px 4px 0 var(--game-shadow);
   }
 
   .game-topbar {
@@ -612,18 +854,13 @@ body:has(.binary-game-page) main {
     width: 100%;
   }
 
-  .compact-game-header .ghost-command {
+  .compact-game-header .ghost-command,
+  .text-screen-header .ghost-command {
     width: fit-content;
   }
 
-  .game-hud {
-    grid-template-columns: 1fr;
-    gap: 0.55rem;
-  }
-
-  .hud-attempts {
-    justify-content: start;
-    text-align: left;
+  .header-spacer {
+    display: none;
   }
 
   .guess-row {

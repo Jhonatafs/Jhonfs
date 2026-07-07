@@ -1,0 +1,35 @@
+{
+  "name": "Busca Binária",
+  "short_name": "Busca Binária",
+  "description": "Jogo didático de adivinhação para praticar a lógica da busca binária.",
+  "id": "/projects/busca-binaria/",
+  "start_url": "/projects/busca-binaria/",
+  "scope": "/projects/busca-binaria/",
+  "display": "standalone",
+  "background_color": "#191a19",
+  "theme_color": "#191a19",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

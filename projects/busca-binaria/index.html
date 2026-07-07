@@ -13,10 +13,12 @@
     <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192" />
     <link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="JhonFs" />
-    <meta name="theme-color" content="#1d2021" />
-    <meta name="description" content="Blog, projetos técnicos e jogos didáticos de JhonFs." />
-    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-title" content="Busca Binária" />
+    <meta name="theme-color" content="#191a19" />
+    <meta name="description" content="Jogo didático de adivinhação para praticar a lógica da busca binária." />
+    
+<link rel="manifest" href="/projects/busca-binaria/manifest.json">
+
 
     <link rel="stylesheet" href="/css/global.css">
     
@@ -81,26 +83,41 @@ BINARIA</pre>
                 <span class="boot-label">run ./busca-binaria</span>
                 <pre class="mini-ascii-title" aria-label="Busca Binária">BUSCA BINARIA</pre>
             </div>
+            <div class="header-spacer" aria-hidden="true"></div>
         </header>
 
         <section class="terminal-panel play-panel" aria-label="Área principal do jogo">
             <div class="game-hud" aria-label="Informações da partida">
-                <div class="hud-line hud-range">
-                    <span>intervalo</span>
-                    <strong id="game-instruction">Descubra o número entre 1 - ?</strong>
-                </div>
-                <div class="hud-line hud-attempts">
-                    <span>tentativas</span>
-                    <strong><span id="attempt-count">0</span> / <span id="ideal-count">—</span></strong>
-                    <small>limite binário</small>
-                </div>
+                <strong id="game-instruction" class="game-instruction">
+                    Descubra o número que escolhi entre 1 - ?
+                </strong>
+                <dl class="match-stats" aria-label="Dados da partida">
+                    <div>
+                        <dt>Tentativas</dt>
+                        <dd id="attempt-count">0</dd>
+                    </div>
+                    <div>
+                        <dt>Máximo ideal</dt>
+                        <dd id="ideal-count">—</dd>
+                    </div>
+                </dl>
+                <dl class="match-stats match-bounds" aria-label="Limites atuais da busca">
+                    <div>
+                        <dt>Baixo próximo</dt>
+                        <dd id="lower-bound">—</dd>
+                    </div>
+                    <div>
+                        <dt>Alto próximo</dt>
+                        <dd id="upper-bound">—</dd>
+                    </div>
+                </dl>
             </div>
 
             <form id="guess-form" class="guess-form" autocomplete="off">
                 <label for="guess-input">Palpite</label>
                 <div class="guess-row">
                     <input id="guess-input" name="guess" type="number" inputmode="numeric" min="1" required>
-                    <button type="submit">Enviar</button>
+                    <button type="submit" aria-label="Confirmar palpite" title="Confirmar palpite">↵</button>
                 </div>
             </form>
 
@@ -130,10 +147,15 @@ BINARIA</pre>
     </section>
 
     <section id="screen-about" class="game-screen text-screen" aria-labelledby="about-title" hidden>
-        <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+        <header class="text-screen-header">
+            <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+            <div class="mini-title-block">
+                <span class="boot-label">about.md</span>
+                <h2 id="about-title">Sobre</h2>
+            </div>
+            <div class="header-spacer" aria-hidden="true"></div>
+        </header>
         <div class="terminal-panel">
-            <span class="boot-label">about.md</span>
-            <h2 id="about-title">Sobre</h2>
             <p>
                 Este projeto foi criado para estudar, praticar e demonstrar a lógica da
                 <strong>busca binária</strong>, um algoritmo usado para encontrar valores em
@@ -168,12 +190,31 @@ BINARIA</pre>
     </section>
 
     <section id="screen-credits" class="game-screen text-screen" aria-labelledby="credits-title" hidden>
-        <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+        <header class="text-screen-header">
+            <button class="ghost-command" type="button" data-screen-target="menu">← menu</button>
+            <div class="mini-title-block">
+                <span class="boot-label">credits.txt</span>
+                <h2 id="credits-title">Créditos</h2>
+            </div>
+            <div class="header-spacer" aria-hidden="true"></div>
+        </header>
         <div class="terminal-panel credits-panel">
-            <span class="boot-label">credits.txt</span>
-            <h2 id="credits-title">Créditos</h2>
-            <p>Criado por JhonFs</p>
-            <p>Site: <a href="https://jhonfs.com">https://jhonfs.com</a></p>
+            <p class="credits-note">Projeto, código e direção visual por JhonFs.</p>
+            <ul class="credits-list" aria-label="Links do criador">
+                <li class="credit-item credit-author">
+                    <span>Criado por</span>
+                    <strong>JhonFs</strong>
+                </li>
+                <li class="credit-item credit-site">
+                    <span>Site</span>
+                    <a href="https://jhonfs.com">https://jhonfs.com</a>
+                </li>
+                <li class="credit-item credit-github" data-easter-trigger="github">
+                    <span>GitHub</span>
+                    <a href="https://github.com/Jhonatafs/">https://github.com/Jhonatafs/</a>
+                </li>
+            </ul>
+            <p id="credits-easter-egg" class="credits-easter" aria-live="polite" hidden></p>
         </div>
     </section>
 </article>
