@@ -37,14 +37,17 @@
         }
     }
 
+    function getCurrentTheme() {
+        return localStorage.getItem('jhonfs-theme') || document.documentElement.dataset.theme || 'root';
+    }
+
     function initTheme() {
-        const saved = localStorage.getItem('jhonfs-theme') || 'root';
-        applyTheme(saved);
+        applyTheme(getCurrentTheme());
     }
 
     // Função pública para alternar (Cycling)
     window.cycleTheme = function() {
-        const current = localStorage.getItem('jhonfs-theme') || 'root';
+        const current = getCurrentTheme();
         const currentIndex = themes.findIndex(t => t.id === current);
         const nextIndex = (currentIndex + 1) % themes.length;
         applyTheme(themes[nextIndex].id);
