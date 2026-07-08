@@ -1,6 +1,6 @@
 const LOCAL_HOSTS = ["localhost", "127.0.0.1", "::1"];
 const IS_LOCALHOST = LOCAL_HOSTS.includes(self.location.hostname);
-const CACHE_NAME = "jhonfs-ecosystem-v11";
+const CACHE_NAME = "jhonfs-ecosystem-v12";
 const GAME_ROUTE = "/projects/busca-binaria/";
 const GAME_ROUTE_NO_SLASH = "/projects/busca-binaria";
 const GAME_MANIFEST = "/projects/busca-binaria/manifest.json";
@@ -15,6 +15,7 @@ const CORE_ASSETS = [
   "/css/landing.css",
   "/css/blog.css",
   "/css/blog-post.css",
+  "/js/blog-filters.js",
   "/js/theme-engine.js",
   "/js/navigation.js",
   "/js/pwa-register.js",
@@ -102,6 +103,12 @@ function gamePageNetworkFirst(request) {
     ));
 }
 
+function networkFirst(request) {
+  return fetch(request)
+    .then((networkResponse) => cacheResponse(request, networkResponse))
+    .catch(() => caches.match(request));
+}
+
 self.addEventListener("install", (event) => {
   if (IS_LOCALHOST) {
     self.skipWaiting();
@@ -163,6 +170,16 @@ self.addEventListener("fetch", (event) => {
 
   if (event.request.mode === "navigate" && isGameRoute(requestUrl.pathname)) {
     event.respondWith(gamePageNetworkFirst(event.request));
+    return;
+  }
+
+  if (
+    requestUrl.pathname === "/blog/" ||
+    requestUrl.pathname === "/blog" ||
+    requestUrl.pathname === "/js/blog-filters.js" ||
+    requestUrl.pathname === "/css/blog.css"
+  ) {
+    event.respondWith(networkFirst(event.request));
     return;
   }
 

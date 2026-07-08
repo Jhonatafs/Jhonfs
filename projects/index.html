@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="botanica">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,16 @@
     <link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="JhonFs" />
-    <meta name="theme-color" content="#1d2021" />
-    <meta name="description" content="Blog, projetos técnicos e jogos didáticos de JhonFs." />
+    <meta name="theme-color" content="#191a19" />
+    <meta name="description" content="Projetos de desenvolvimento de Jhonata Flores Sande organizados em estilo de sistema de arquivos." />
     
     <link rel="manifest" href="/manifest.json" />
     
 
     <link rel="stylesheet" href="/css/global.css">
     
+<link rel="stylesheet" href="/css/projects.css">
+
 </head>
 <body>
     <nav id="main-navbar">
@@ -49,88 +51,201 @@
 
     <main>
         
-<h1>~/projects</h1>
+<section class="projects-shell" aria-labelledby="projects-title">
+    <h1 id="projects-title">~/projects</h1>
 
-<div class="project-list">
-    
-    <div class="project-item" style="margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--text-muted);">
-        <h3 style="margin-bottom: 0.5rem;">
-            <a href="/projects/busca-binaria/">Busca Binária</a>
-        </h3>
+    <div class="project-list" role="list">
         
-        <div class="meta" style="font-family: var(--font-stack-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-            <span style="color: var(--accent-action);">Live</span> 
-            // 2026-07-06
-            <br>
-            Tech: [ 
-            
-                <span>HTML</span>, 
-            
-                <span>CSS</span>, 
-            
-                <span>JavaScript</span>
-            
-            ]
-        </div>
+        <article class="project-entry" role="listitem">
+            <div class="project-heading">
+                <span class="project-kind" aria-hidden="true">dir</span>
 
-        <div class="desc">
-            <p>Jogo didático em estilo retro/8bit para praticar a lógica da busca
-binária. O sistema sorteia um intervalo e um número secreto; a cada
-palpite, indica se a resposta está mais alta ou mais baixa.</p>
+                
+                <a
+                    class="project-name"
+                    href="https://github.com/Jhonatafs/ossma/tree/ossma-rebuild"
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Abrir projeto OSSMA"
+                >OSSMA/</a>
+                
+            </div>
 
-        </div>
-    </div>
-    
-    <div class="project-item" style="margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--text-muted);">
-        <h3 style="margin-bottom: 0.5rem;">
-            <a href="https://github.com/Jhonatafs/lqm-file-extractor" target="_blank" rel="noopener noreferrer">Extrator LQM</a>
-        </h3>
+            <div class="project-details">
+                <div class="project-description">
+                    <p>Aplicação em desenvolvimento para realização e organização de
+avaliações físicas para profissionais autônomos, academias e clínicas
+pequenas.</p>
+
+                </div>
+
+                <p class="project-meta">
+                    <span class="project-field">stack:</span>
+                    <span class="project-value">SvelteKit · TypeScript · IndexedDB · Dexie · Vitest · Playwright</span>
+                </p>
+
+                <p class="project-meta">
+                    <span class="project-field">status:</span>
+                    <span class="project-value">em desenvolvimento</span>
+                </p>
+
+                <p class="project-meta project-links">
+                    <span class="project-field">link:</span>
+
+                    
+                        
+                        <a
+                            class="project-link"
+                            href="https://github.com/Jhonatafs/ossma/tree/ossma-rebuild"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub do projeto OSSMA"
+                        >GitHub</a>
+                        
+                    
+                </p>
+            </div>
+        </article>
         
-        <div class="meta" style="font-family: var(--font-stack-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-            <span style="color: var(--accent-action);">Live</span> 
-            // 2025-05-15
-            <br>
-            Tech: [ 
-            
-                <span>Pyhton</span>
-            
-            ]
-        </div>
+        <article class="project-entry" role="listitem">
+            <div class="project-heading">
+                <span class="project-kind" aria-hidden="true">dir</span>
 
-        <div class="desc">
-            <p>Ferramenta para extração e conversão de arquivos LQM criados pelo
-QuickMemo - LG</p>
+                
+                <span class="project-name">Automacao-Avaliacoes/</span>
+                
+            </div>
 
-        </div>
-    </div>
-    
-    <div class="project-item" style="margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--text-muted);">
-        <h3 style="margin-bottom: 0.5rem;">
-            <a href="https://jhonatafs.github.io/sicp-pt-br/" target="_blank" rel="noopener noreferrer">Tradução SICP PT-BR</a>
-        </h3>
+            <div class="project-details">
+                <div class="project-description">
+                    <p>Solução interna usada em 226 avaliações físicas reais, automatizando
+coleta de dados, cálculos e geração de relatórios em PDF.</p>
+
+                </div>
+
+                <p class="project-meta">
+                    <span class="project-field">stack:</span>
+                    <span class="project-value">Google Forms · Google Sheets · Fórmulas · PDF</span>
+                </p>
+
+                <p class="project-meta">
+                    <span class="project-field">status:</span>
+                    <span class="project-value">utilizado em produção / case interno</span>
+                </p>
+
+                <p class="project-meta project-links">
+                    <span class="project-field">link:</span>
+
+                    
+                    <span class="project-value">sem link público por enquanto</span>
+                    
+                </p>
+            </div>
+        </article>
         
-        <div class="meta" style="font-family: var(--font-stack-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-            <span style="color: var(--accent-action);">Live</span> 
-            // 2025-02-18
-            <br>
-            Tech: [ 
-            
-                <span>HTML</span>, 
-            
-                <span>Git</span>
-            
-            ]
-        </div>
+        <article class="project-entry" role="listitem">
+            <div class="project-heading">
+                <span class="project-kind" aria-hidden="true">dir</span>
 
-        <div class="desc">
-            <p>Tradução completa para o português do livro “Structure and
-Interpretation of Computer Programs”. Um projeto para tornar
-conhecimento acessível.</p>
+                
+                <a
+                    class="project-name"
+                    href="https://jhonfs.com"
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Abrir projeto jhonfs.com"
+                >jhonfs.com/</a>
+                
+            </div>
 
-        </div>
+            <div class="project-details">
+                <div class="project-description">
+                    <p>Portfólio pessoal e blog técnico para organizar projetos, estudos e
+registros de aprendizado.</p>
+
+                </div>
+
+                <p class="project-meta">
+                    <span class="project-field">stack:</span>
+                    <span class="project-value">HTML · CSS · JavaScript</span>
+                </p>
+
+                <p class="project-meta">
+                    <span class="project-field">status:</span>
+                    <span class="project-value">ativo</span>
+                </p>
+
+                <p class="project-meta project-links">
+                    <span class="project-field">link:</span>
+
+                    
+                        
+                        <a
+                            class="project-link"
+                            href="https://jhonfs.com"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Site do projeto jhonfs.com"
+                        >Site</a><span class="project-link-separator">·</span>
+                        
+                        <a
+                            class="project-link"
+                            href="https://github.com/Jhonatafs/Jhonfs"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub do projeto jhonfs.com"
+                        >GitHub</a>
+                        
+                    
+                </p>
+            </div>
+        </article>
+        
+        <article class="project-entry" role="listitem">
+            <div class="project-heading">
+                <span class="project-kind" aria-hidden="true">dir</span>
+
+                
+                <a
+                    class="project-name"
+                    href="https://github.com/Jhonatafs/sicp-pt-br"
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Abrir projeto SICP-PT-BR"
+                >SICP-PT-BR/</a>
+                
+            </div>
+
+            <div class="project-details">
+                <div class="project-description">
+                    <p>Projeto pessoal de tradução e revisão técnica do livro Structure and
+Interpretation of Computer Programs para português brasileiro.</p>
+
+                </div>
+
+                <p class="project-meta">
+                    <span class="project-field">stack:</span>
+                    <span class="project-value">HTML · GitHub · Revisão técnica · Fundamentos de Computação</span>
+                </p>
+
+                <p class="project-meta">
+                    <span class="project-field">status:</span>
+                    <span class="project-value">em andamento</span>
+                </p>
+
+                <p class="project-meta project-links">
+                    <span class="project-field">link:</span>
+
+                    
+                        
+                        <a
+                            class="project-link"
+                            href="https://github.com/Jhonatafs/sicp-pt-br"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub do projeto SICP-PT-BR"
+                        >GitHub</a>
+                        
+                    
+                </p>
+            </div>
+        </article>
+        
     </div>
-    
-</div>
+</section>
 
     </main>
 
@@ -140,5 +255,6 @@ conhecimento acessível.</p>
     <script src="/js/theme-engine.js"></script>
     <script src="/js/navigation.js"></script>
     <script src="/js/pwa-register.js"></script>
+    
 </body>
 </html>

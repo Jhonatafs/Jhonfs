@@ -1,50 +1,118 @@
+.blog-header {
+  margin-bottom: 2.5rem;
+}
+
+.blog-header h1 {
+  margin-bottom: 0.75rem;
+}
+
+.blog-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.15rem;
+  font-family: var(--font-stack-mono, "Fira Code", monospace);
+  line-height: 1.8;
+}
+
+.blog-filter {
+  display: inline-flex;
+  align-items: baseline;
+  width: auto;
+  padding: 0;
+  color: var(--accent-action);
+  background: transparent;
+  border: none !important;
+  white-space: nowrap;
+}
+
+.blog-filter:hover {
+  color: var(--accent-primary);
+  background: transparent;
+}
+
+.blog-filter:focus-visible {
+  outline: 1px solid var(--accent-action);
+  outline-offset: 4px;
+}
+
+.blog-filter.is-active {
+  color: var(--accent-primary);
+}
+
+.blog-filter.is-active::before {
+  content: "./";
+  color: var(--text-muted);
+}
+
 /* Layout da Lista Cronológica */
 .blog-index {
   margin-top: 2rem;
 }
 
 .year-group {
-  margin-bottom: 3rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--bg-surface);
+  margin-bottom: 2.35rem;
 }
 
 .year-label {
-  font-size: 1.5rem;
-  font-weight: 700;
+  margin-bottom: 0.75rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
-  font-family: var(--font-stack-mono);
+  font-family: var(--font-stack-mono, "Fira Code", monospace);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.year-label::before {
+  content: "$ ls ";
+  color: var(--accent-primary);
+  font-weight: 400;
 }
 
 .post-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
-  padding: 0.5rem 0;
-  border-bottom: 1px dashed var(--ui-border);
-  transition: padding-left 0.2s ease;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  transition: transform 0.2s ease;
+}
+
+.post-item.is-hidden,
+.year-group.is-hidden {
+  display: none !important;
 }
 
 .post-item:hover {
-  padding-left: 10px;
-  border-color: var(--accent-action);
+  transform: translateX(0.35rem);
 }
 
 .post-item a {
+  min-width: 0;
   border: none;
-  font-weight: 500;
   color: var(--text-body);
+  font-weight: 500;
 }
 
 .post-item a:hover {
-  background: none;
   color: var(--accent-action);
+  background: none;
 }
 
 .post-meta {
-  font-family: var(--font-stack-mono);
-  font-size: 0.8rem;
   color: var(--text-muted);
+  font-family: var(--font-stack-mono, "Fira Code", monospace);
+  font-size: 0.8rem;
   white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .blog-category-nav {
+    gap: 0.2rem 0.85rem;
+  }
+
+  .post-item {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+    padding: 0.55rem 0;
+  }
 }
