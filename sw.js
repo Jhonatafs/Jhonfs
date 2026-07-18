@@ -1,6 +1,6 @@
 const LOCAL_HOSTS = ["localhost", "127.0.0.1", "::1"];
 const IS_LOCALHOST = LOCAL_HOSTS.includes(self.location.hostname);
-const CACHE_NAME = "jhonfs-ecosystem-v12";
+const CACHE_NAME = "jhonfs-ecosystem-v13";
 const GAME_ROUTE = "/projects/busca-binaria/";
 const GAME_ROUTE_NO_SLASH = "/projects/busca-binaria";
 const GAME_MANIFEST = "/projects/busca-binaria/manifest.json";
@@ -16,6 +16,7 @@ const CORE_ASSETS = [
   "/css/blog.css",
   "/css/blog-post.css",
   "/js/blog-filters.js",
+  "/js/blog-code-blocks.js",
   "/js/theme-engine.js",
   "/js/navigation.js",
   "/js/pwa-register.js",

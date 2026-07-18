@@ -24,6 +24,18 @@
     
 <link rel="stylesheet" href="/css/blog-post.css">
 
+    
+
+<script>
+    window.MathJax = {
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"></script>
+
+
 </head>
 <body>
     <nav id="main-navbar">
@@ -97,10 +109,11 @@ class="math inline">\(x\)</span>.</p>
 <p><span class="math display">\[
 m = \left\lfloor \frac{S_i + S_f}{2} \right\rfloor
 \]</span></p>
-<p>%% <span class="math inline">\(S_i\)</span>: início | <span
+<p><small class="personal-note"><span
+class="math inline">\(S_i\)</span>: início | <span
 class="math inline">\(S_f\)</span>: fim | <span
 class="math inline">\(\lfloor \ldots \rfloor\)</span>: arredondamento
-para baixo. %%</p>
+para baixo.</small></p>
 <p>Depois, comparamos <span class="math inline">\(x\)</span> com o valor
 armazenado no índice central, <span
 class="math inline">\(a_m\)</span>:</p>
@@ -140,7 +153,8 @@ k \approx \log_2 n
 <p><span class="math display">\[
 O(\log n)
 \]</span></p>
-<p>%% A base do logaritmo não altera a complexidade assintótica. %%</p>
+<p><small class="personal-note">A base do logaritmo não altera a
+complexidade assintótica.</small></p>
 <p>A conta <span class="math inline">\(\log_2 n\)</span> representa a
 quantidade aproximada de reduções do intervalo. No pior caso de uma
 busca bem-sucedida, ainda é necessário comparar o valor com o último
@@ -215,10 +229,11 @@ n)\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>%% Quando <span class="math inline">\(n\)</span> não é uma potência
-de 2, o logaritmo não resulta em um número inteiro. A diferença de
-arredondamento e a comparação final não alteram a complexidade: ela
-continua sendo <span class="math inline">\(O(\log n)\)</span>. %%</p>
+<p><small class="personal-note">Quando <span
+class="math inline">\(n\)</span> não é uma potência de 2, o logaritmo
+não resulta em um número inteiro. A diferença de arredondamento e a
+comparação final não alteram a complexidade: ela continua sendo <span
+class="math inline">\(O(\log n)\)</span>.</small></p>
 <h3 data-number="0.0.2" id="implementando-a-busca-binária"><span
 class="header-section-number">0.0.2</span> Implementando a Busca
 Binária</h3>
@@ -522,5 +537,9 @@ CSS3 + JAVASCRIPT</a></li>
     <script src="/js/navigation.js"></script>
     <script src="/js/pwa-register.js"></script>
     
+
+<script src="/js/blog-code-blocks.js"></script>
+
+
 </body>
 </html>

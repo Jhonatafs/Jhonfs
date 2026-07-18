@@ -92,24 +92,207 @@ figure figcaption {
   font-size: 1em;
 }
 
-/* Blocos de Código (Pandoc) */
-pre {
-  background: #1e1e1e;
-  color: #dcdcdc;
-  padding: 1rem;
-  border-radius: 4px;
+/* Fórmulas matemáticas */
+.post-content .math.display,
+.post-content mjx-container[display="true"] {
+  display: block;
+  max-width: 100%;
   overflow-x: auto;
-  font-family: "Fira Code", "Symbols Nerd Font", "Courier New", monospace;
-  font-size: 1rem;
+  overflow-y: hidden;
+  padding: 0.35rem 0;
+  color: var(--text-body);
+  -webkit-overflow-scrolling: touch;
 }
-code {
-  font-family: var(--font-stack-mono);
-  background: rgba(0, 0, 0, 0.05);
-  padding: 2px 4px;
-  border-radius: 3px;
+
+.post-content .math.inline,
+.post-content mjx-container:not([display="true"]) {
+  color: inherit;
+}
+
+/* Blocos de código e realce de sintaxe do Pandoc */
+:root {
+  --code-bg: #ebe8e1;
+  --code-toolbar-bg: #dedad1;
+  --code-text: #2d2a26;
+  --code-muted: #69645c;
+  --code-border: #cec8bc;
+  --code-keyword: #8b3a62;
+  --code-string: #8a4f19;
+  --code-comment: #65705d;
+  --code-function: #1f6070;
+  --code-number: #7b4fa3;
+  --code-variable: #365f8d;
+  --code-operator: #9a422d;
+  --code-error: #b42318;
+}
+
+[data-theme="tungsten"],
+[data-theme="botanica"],
+[data-theme="grimorio"],
+[data-theme="sudo"],
+[data-theme="root"],
+[data-theme="neon"] {
+  --code-bg: #17191d;
+  --code-toolbar-bg: #22252b;
+  --code-text: #e6e1d8;
+  --code-muted: #9298a1;
+  --code-border: #343942;
+  --code-keyword: #ff7ab2;
+  --code-string: #e7c66b;
+  --code-comment: #7f9982;
+  --code-function: #70c0e8;
+  --code-number: #c7a0f8;
+  --code-variable: #9cc7ff;
+  --code-operator: #ff9b7b;
+  --code-error: #ff6b6b;
+}
+
+.post-content code {
+  font-family: "Fira Code", "Symbols Nerd Font", "Courier New", monospace;
   font-size: 0.9em;
 }
-pre code {
-  background: none;
+
+.post-content :not(pre) > code {
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: var(--bg-surface);
+  color: var(--text-body);
+}
+
+.code-block {
+  width: 100%;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border: 1px solid var(--code-border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  box-sizing: border-box;
+}
+
+.code-toolbar {
+  display: flex;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.8rem;
+  border-bottom: 1px solid var(--code-border);
+  background: var(--code-toolbar-bg);
+  box-sizing: border-box;
+}
+
+.code-language {
+  color: var(--code-muted);
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.code-copy-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.code-copy-button {
+  margin-left: auto;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--code-text);
+  font: 600 0.72rem/1.2 "Fira Code", "Courier New", monospace;
+  cursor: pointer;
+}
+
+.code-copy-button:hover,
+.code-copy-button:focus-visible {
+  border-color: var(--accent-action);
+  color: var(--accent-action);
+  outline: none;
+}
+
+.code-copy-button:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.post-content pre {
+  max-width: 100%;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  box-sizing: border-box;
+  font-family: "Fira Code", "Symbols Nerd Font", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  -webkit-overflow-scrolling: touch;
+}
+
+.code-block pre {
+  margin: 0;
+  border-radius: 0;
+}
+
+.post-content pre code {
   padding: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+.post-content pre a,
+.post-content pre a:hover {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Classes de tokens emitidas pelo highlighting do Pandoc. */
+.sourceCode .kw,
+.sourceCode .cf,
+.sourceCode .im,
+.sourceCode .bu { color: var(--code-keyword); font-weight: 600; }
+.sourceCode .st,
+.sourceCode .ss,
+.sourceCode .vs,
+.sourceCode .ch { color: var(--code-string); }
+.sourceCode .co,
+.sourceCode .an,
+.sourceCode .cv,
+.sourceCode .do { color: var(--code-comment); font-style: italic; }
+.sourceCode .fu,
+.sourceCode .ex { color: var(--code-function); }
+.sourceCode .dv,
+.sourceCode .bn,
+.sourceCode .fl,
+.sourceCode .cn { color: var(--code-number); }
+.sourceCode .va,
+.sourceCode .dt,
+.sourceCode .ot { color: var(--code-variable); }
+.sourceCode .op,
+.sourceCode .at,
+.sourceCode .pp { color: var(--code-operator); }
+.sourceCode .al,
+.sourceCode .er { color: var(--code-error); font-weight: 700; }
+
+@media screen and (max-width: 768px) {
+  .post-content pre {
+    padding: 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .code-toolbar {
+    padding-left: 0.6rem;
+  }
 }
