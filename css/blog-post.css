@@ -160,6 +160,10 @@ figure figcaption {
 }
 
 .code-block {
+  --scrollbar-thumb: color-mix(in srgb, var(--code-muted) 72%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--accent-primary) 88%, transparent);
+  --scrollbar-thumb-active: color-mix(in srgb, var(--accent-action) 94%, transparent);
+
   width: 100%;
   margin: 1.5rem 0;
   overflow: hidden;

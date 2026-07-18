@@ -19,6 +19,12 @@
   --accent-primary: #2a5c68; /* Azul Petróleo */
   --accent-action: #d96c45; /* Terracotta */
   --ui-border: 1px solid transparent; /* Temas claros usam sombras, não bordas */
+
+  /* Barras de rolagem: herdam automaticamente as cores do tema ativo. */
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: color-mix(in srgb, var(--text-muted) 62%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--accent-primary) 86%, transparent);
+  --scrollbar-thumb-active: color-mix(in srgb, var(--accent-action) 92%, transparent);
 }
 
 /* TEMA: TUNGSTEN NOIR */

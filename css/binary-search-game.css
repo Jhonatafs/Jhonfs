@@ -3,25 +3,6 @@ body:has(.binary-game-page) {
   overflow: hidden;
 }
 
-html:has(.binary-game-page),
-body:has(.binary-game-page),
-body:has(.binary-game-page) main,
-.binary-game-page,
-.binary-game-page * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-html:has(.binary-game-page)::-webkit-scrollbar,
-body:has(.binary-game-page)::-webkit-scrollbar,
-body:has(.binary-game-page) main::-webkit-scrollbar,
-.binary-game-page::-webkit-scrollbar,
-.binary-game-page *::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
-}
-
 body:has(.binary-game-page) main {
   width: 100%;
   max-width: none;
