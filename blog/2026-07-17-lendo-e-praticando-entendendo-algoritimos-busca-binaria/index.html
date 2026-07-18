@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendendo Algoritimos (Bhargava): Busca Binária | Blog</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="JhonFs" />
+    <meta name="theme-color" content="#1d2021" />
+    <meta name="description" content="Blog, projetos técnicos e jogos didáticos de JhonFs." />
+    
+    <link rel="manifest" href="/manifest.json" />
+    
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+<link rel="stylesheet" href="/css/blog-post.css">
+
+</head>
+<body>
+    <nav id="main-navbar">
+        <div id="brand">Jhon<span>F</span>s</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
+        <ul id="navigation">
+            <li><a href="/">[root]</a></li>
+            <li><a href="/blog">~/blog</a></li>
+            <li><a href="/projects">~/projects</a></li>
+            
+            <li class="theme-trigger-wrapper">
+                <button onclick="window.cycleTheme()" class="theme-trigger">
+                    <span class="cmd-prefix">$ theme.set</span>
+                    <span id="theme-display">[ CODEX.SYS ]</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        
+<article>
+    <header class="post-header">
+        <h1>Entendendo Algoritimos (Bhargava): Busca Binária</h1>
+        <div class="post-meta">
+            <time>2026-07-17</time>
+            
+            <span style="margin: 0 10px;">//</span>
+            <span>Estudos, Algoritimos, Bhargava, Blau Araujo, Computação, Busca Binária, Aprendizado, Autodidata</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+        <nav id="TOC" class="indice-artigo">
+  <h2>Índice</h2>
+  <ul>
+  <li><a href="#busca-simples-x-binária"
+  id="toc-busca-simples-x-binária"><span
+  class="toc-section-number">0.0.1</span> Busca Simples x
+  Binária</a></li>
+  <li><a href="#implementando-a-busca-binária"
+  id="toc-implementando-a-busca-binária"><span
+  class="toc-section-number">0.0.2</span> Implementando a Busca
+  Binária</a></li>
+  </ul>
+</nav>
+<p>A busca binária é uma <strong>técnica</strong> para encontrar um item
+em uma coleção ordenada, reduzindo o espaço de busca pela metade a cada
+passo.</p>
+<p>Essa técnica só funciona quando há uma ordem conhecida: crescente,
+decrescente ou algum critério equivalente. Sem ordem, não há como
+descartar metade dos elementos com segurança.</p>
+<p>Dada uma sequência ordenada:</p>
+<p><span class="math display">\[
+a_0, a_1, a_2, \ldots, a_{n-1}
+\]</span></p>
+<p>com a propriedade:</p>
+<p><span class="math display">\[
+a_0 \leq a_1 \leq a_2 \leq \ldots \leq a_{n-1},
+\]</span></p>
+<p>queremos encontrar um valor <span
+class="math inline">\(x\)</span>.</p>
+<p>Em cada passo, escolhemos um índice central:</p>
+<p><span class="math display">\[
+m = \left\lfloor \frac{S_i + S_f}{2} \right\rfloor
+\]</span></p>
+<p>%% <span class="math inline">\(S_i\)</span>: início | <span
+class="math inline">\(S_f\)</span>: fim | <span
+class="math inline">\(\lfloor \ldots \rfloor\)</span>: arredondamento
+para baixo. %%</p>
+<p>Depois, comparamos <span class="math inline">\(x\)</span> com o valor
+armazenado no índice central, <span
+class="math inline">\(a_m\)</span>:</p>
+<ul>
+<li>se <span class="math inline">\(x = a_m\)</span>, o item foi
+encontrado;</li>
+<li>se <span class="math inline">\(x &lt; a_m\)</span>, procuramos na
+metade esquerda;</li>
+<li>se <span class="math inline">\(x &gt; a_m\)</span>, procuramos na
+metade direita.</li>
+</ul>
+<h3 data-number="0.0.1" id="busca-simples-x-binária"><span
+class="header-section-number">0.0.1</span> Busca Simples x Binária</h3>
+<p>Em uma busca simples, também chamada de busca linear ou sequencial,
+uma coleção com <span class="math inline">\(n\)</span> elementos pode
+exigir até <span class="math inline">\(n\)</span> comparações no pior
+caso, pois a busca percorre os elementos do primeiro até o último.</p>
+<p>A busca binária reduz essa quantidade porque, a cada passo, o espaço
+de busca é dividido por 2:</p>
+<p><span class="math display">\[
+n,\ \frac{n}{2},\ \frac{n}{2^2},\ \frac{n}{2^3},\ \ldots,\ \frac{n}{2^k}
+\]</span></p>
+<p>Para estimar quantas divisões são necessárias até restar
+aproximadamente um elemento, usamos:</p>
+<p><span class="math display">\[
+\frac{n}{2^k} \approx 1
+\]</span></p>
+<p>Logo:</p>
+<p><span class="math display">\[
+n \approx 2^k
+\]</span></p>
+<p>Portanto:</p>
+<p><span class="math display">\[
+k \approx \log_2 n
+\]</span></p>
+<p>Assim, a complexidade da busca binária é:</p>
+<p><span class="math display">\[
+O(\log n)
+\]</span></p>
+<p>%% A base do logaritmo não altera a complexidade assintótica. %%</p>
+<p>A conta <span class="math inline">\(\log_2 n\)</span> representa a
+quantidade aproximada de reduções do intervalo. No pior caso de uma
+busca bem-sucedida, ainda é necessário comparar o valor com o último
+candidato. Por isso, a quantidade máxima de comparações é:</p>
+<p><span class="math display">\[
+\left\lfloor \log_2 n \right\rfloor + 1
+\]</span></p>
+<p>Exemplo:</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 13%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Elementos</th>
+<th style="text-align: center;"><span
+class="math inline">\(\log_2(n)\)</span></th>
+<th style="text-align: center;">Busca binária no pior caso</th>
+<th style="text-align: center;">Busca simples no pior caso</th>
+<th style="text-align: center;">Complexidade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+2{,}8\)</span></td>
+<td style="text-align: center;">até 3 comparações</td>
+<td style="text-align: center;">até 7 comparações</td>
+<td style="text-align: center;"><span class="math inline">\(O(\log
+n)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;">até 4 comparações</td>
+<td style="text-align: center;">até 8 comparações</td>
+<td style="text-align: center;"><span class="math inline">\(O(\log
+n)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;"><span
+class="math inline">\(5\)</span></td>
+<td style="text-align: center;">até 6 comparações</td>
+<td style="text-align: center;">até 32 comparações</td>
+<td style="text-align: center;"><span class="math inline">\(O(\log
+n)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1024</td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;">até 11 comparações</td>
+<td style="text-align: center;">até 1024 comparações</td>
+<td style="text-align: center;"><span class="math inline">\(O(\log
+n)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1048576</td>
+<td style="text-align: center;"><span
+class="math inline">\(20\)</span></td>
+<td style="text-align: center;">até 21 comparações</td>
+<td style="text-align: center;">até 1048576 comparações</td>
+<td style="text-align: center;"><span class="math inline">\(O(\log
+n)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>%% Quando <span class="math inline">\(n\)</span> não é uma potência
+de 2, o logaritmo não resulta em um número inteiro. A diferença de
+arredondamento e a comparação final não alteram a complexidade: ela
+continua sendo <span class="math inline">\(O(\log n)\)</span>. %%</p>
+<h3 data-number="0.0.2" id="implementando-a-busca-binária"><span
+class="header-section-number">0.0.2</span> Implementando a Busca
+Binária</h3>
+<p>Para começar a implementação, criei uma ideia de sistema:</p>
+<ol type="1">
+<li>O sistema escolhe um número dentro de um intervalo.</li>
+<li>O usuário tenta adivinhar o número.</li>
+<li>A cada tentativa, o sistema compara:
+<ul>
+<li>se a tentativa for igual ao número secreto, o usuário ganhou;</li>
+<li>se a tentativa for menor que o número secreto, o número secreto é
+maior;</li>
+<li>se a tentativa for maior que o número secreto, o número secreto é
+menor.</li>
+</ul></li>
+<li>O sistema conta quantas tentativas foram feitas.</li>
+</ol>
+<p>Vou construir meu raciocínio em texto.</p>
+<blockquote>
+<p>O sistema escolhe um número dentro de um intervalo.</p>
+</blockquote>
+<p>Seja <span class="math inline">\(n_0\)</span> o limite mínimo e <span
+class="math inline">\(n_1\)</span> o limite máximo.</p>
+<p>O limite mínimo é 1, e o limite máximo é escolhido aleatoriamente
+entre 50 e 500:</p>
+<p><span class="math display">\[
+n_0 = 1
+\]</span></p>
+<p><span class="math display">\[
+n_1 = \texttt{MAX\_NUMBER}
+\]</span></p>
+<p>O número secreto pertence ao intervalo <span
+class="math inline">\([n_0, n_1]\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">MAX_NUMBER</span><span class="op">=</span><span class="va">$(</span><span class="fu">shuf</span> <span class="at">-i</span> 50-500 <span class="at">-n</span> 1<span class="va">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">NUMBER</span><span class="op">=</span><span class="va">$(</span><span class="fu">shuf</span> <span class="at">-i</span> <span class="st">&quot;1-</span><span class="va">$MAX_NUMBER</span><span class="st">&quot;</span> <span class="at">-n</span> 1<span class="va">)</span></span></code></pre></div>
+<blockquote>
+<p>O usuário tenta adivinhar.</p>
+</blockquote>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">read</span> <span class="at">-r</span> <span class="at">-p</span> <span class="st">&quot;Digite um palpite: &quot;</span> <span class="va">guess</span></span></code></pre></div>
+<blockquote>
+<p>A cada tentativa, o sistema compara:</p>
+<ul>
+<li>se a tentativa for igual ao número secreto, o usuário ganhou;</li>
+<li>se a tentativa for menor que o número secreto, o número secreto é
+maior;</li>
+<li>se a tentativa for maior que o número secreto, o número secreto é
+menor.</li>
+</ul>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">==</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Acertou!&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">&gt;</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Chute um número mais baixo.&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Chute um número mais alto.&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div>
+<blockquote>
+<p>O sistema conta quantas tentativas foram feitas.</p>
+</blockquote>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">attempts</span><span class="op">=</span>0</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="fu">true</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">((</span><span class="va">attempts</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Comparação do palpite.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>O primeiro código ficou assim:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">max_number</span><span class="op">=</span><span class="va">$(</span><span class="fu">shuf</span> <span class="at">-i</span> 50-500 <span class="at">-n</span> 1<span class="va">)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">number</span><span class="op">=</span><span class="va">$(</span><span class="fu">shuf</span> <span class="at">-i</span> <span class="st">&quot;1-</span><span class="va">$max_number</span><span class="st">&quot;</span> <span class="at">-n</span> 1<span class="va">)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">attempts</span><span class="op">=</span>0 <span class="co"># Tentativas</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="fu">true</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">((</span><span class="va">attempts</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">read</span> <span class="at">-r</span> <span class="at">-p</span> <span class="st">&quot;T.</span><span class="va">$attempts</span><span class="st">: Que nº eu escolhi? &quot;</span> <span class="va">guess</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">==</span> <span class="va">number</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;Acertou na </span><span class="va">$attempts</span><span class="st">ª tentativa.&quot;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">&gt;</span> <span class="va">number</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;Chute um nº mais baixo.&quot;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;Chute um nº mais alto.&quot;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>Depois de escrever o primeiro código e entender melhor a busca
+binária, melhorei o controle das tentativas. Em vez de apenas informar
+se o palpite foi alto ou baixo, passei a guardar os limites já
+descobertos.</p>
+<p>A lógica da função ficou assim:</p>
+<ol type="1">
+<li>A função aumenta a quantidade de tentativas.</li>
+<li>Se o palpite for igual ao número secreto, o usuário acertou e o laço
+deve terminar.</li>
+<li>Se o palpite for maior que o número secreto:
+<ul>
+<li>se já existe um limite superior e o novo palpite é maior ou igual a
+esse limite, o programa avisa que essa informação já era conhecida;</li>
+<li>caso contrário, o palpite passa a ser o novo limite superior
+indicado.</li>
+</ul></li>
+<li>Se o palpite for menor que o número secreto:
+<ul>
+<li>se o novo palpite é menor ou igual ao limite inferior conhecido, o
+programa avisa que essa informação já era conhecida;</li>
+<li>caso contrário, o palpite passa a ser o novo limite inferior.</li>
+</ul></li>
+<li>Se o usuário ainda não acertou, o laço continua.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># loop      :: Variavel de controle para o loop do jogo</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># high_next :: Dica do limite superior</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># low_next  :: Dica do limite inferior</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># message   :: Dica do palpite</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">check()</span> <span class="kw">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">((</span><span class="va">attempts</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">==</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;Acertou!&quot;</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">loop</span><span class="op">=</span>false</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">&gt;</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">((</span><span class="va">high_next</span> <span class="op">!=</span> <span class="dv">0</span> <span class="kw">&amp;&amp;</span> <span class="va">guess</span> <span class="op">&gt;=</span> <span class="va">high_next</span><span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Alto, mas você já sabia que o número era menor que </span><span class="va">$high_next</span><span class="st">.&quot;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            <span class="va">high_next</span><span class="op">=</span><span class="va">$guess</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Alto.&quot;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">loop</span><span class="op">=</span>true</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">clear</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">((</span><span class="va">guess</span> <span class="op">&lt;=</span> <span class="va">low_next</span><span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Baixo, mas você já sabia que o número era maior que </span><span class="va">$low_next</span><span class="st">.&quot;</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="va">low_next</span><span class="op">=</span><span class="va">$guess</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Baixo.&quot;</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">loop</span><span class="op">=</span>true</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">clear</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>Depois disso, criei uma função para que a máquina também pudesse
+brincar.</p>
+<p>A ideia foi criar um desafio para o usuário. Antes, o script apenas
+escolhia um número aleatoriamente. Agora, além disso, uma função tenta
+descobrir esse número sozinha usando a busca binária. Ao final, o
+programa informa ao usuário quantas tentativas a máquina realizou,
+criando nele a vontade de sempre acertar em menos tentativas.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">guess_system()</span> <span class="kw">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">start</span><span class="op">=</span>1</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">end</span><span class="op">=</span><span class="va">$MAX_NUMBER</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">attempts_system</span><span class="op">=</span>0</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">midpoint</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">((</span> <span class="va">start</span> <span class="op">&lt;=</span> <span class="va">end</span> <span class="kw">));</span> <span class="cf">do</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">((</span><span class="va">attempts_system</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">midpoint</span><span class="op">=</span><span class="va">$((</span> (<span class="va">start</span> <span class="op">+</span> <span class="va">end</span>) <span class="op">/</span> <span class="dv">2</span> <span class="va">))</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">((</span> <span class="va">midpoint</span> <span class="op">==</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="va">ideal_maximum_attempts</span><span class="op">=</span><span class="va">$attempts_system</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="kw">((</span> <span class="va">midpoint</span> <span class="op">&lt;</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">start</span><span class="op">=</span><span class="va">$((midpoint</span> <span class="op">+</span> <span class="dv">1</span><span class="va">))</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            <span class="va">end</span><span class="op">=</span><span class="va">$((midpoint</span> <span class="op">-</span> <span class="dv">1</span><span class="va">))</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>Por fim, alterei a estrutura do laço principal do jogo.</p>
+<p>Antes de iniciar o laço, a função <code>guess_system</code> tenta
+descobrir o número escolhido usando a busca binária. A quantidade de
+tentativas realizadas pela máquina é armazenada para servir como
+referência ao usuário.</p>
+<p>Durante o jogo, o programa mostra a quantidade de tentativas do
+usuário, a quantidade de tentativas da máquina e o intervalo no qual o
+número ainda pode estar. Assim, o usuário pode tentar descobrir o número
+antes da máquina.</p>
+<p>O código completo ficou assim:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Constants</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">readonly</span> <span class="va">MAX_NUMBER</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">shuf</span> <span class="at">-i</span> 50-500 <span class="at">-n</span> 1<span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">readonly</span> <span class="va">NUMBER</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">shuf</span> <span class="at">-i</span> 1-<span class="st">&quot;</span><span class="va">$MAX_NUMBER</span><span class="st">&quot;</span> <span class="at">-n</span> 1<span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="va">attempts</span><span class="op">=</span>0</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="va">low_next</span><span class="op">=</span>0</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="va">high_next</span><span class="op">=</span>0</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="va">guess</span><span class="op">=</span>0</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="va">loop</span><span class="op">=</span>true</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="va">message</span><span class="op">=</span><span class="st">&quot;&quot;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="va">ideal_maximum_attempts</span><span class="op">=</span>0</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">check()</span> <span class="kw">{</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">((</span><span class="va">attempts</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">==</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;Acertou!&quot;</span> </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">loop</span><span class="op">=</span>false</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="kw">((</span> <span class="va">guess</span> <span class="op">&gt;</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">((</span><span class="va">high_next</span> <span class="op">!=</span> <span class="dv">0</span> <span class="kw">&amp;&amp;</span> <span class="va">guess</span> <span class="op">&gt;=</span> <span class="va">high_next</span><span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Alto, mas você já sabia que o número era menor que </span><span class="va">$high_next</span><span class="st">.&quot;</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            <span class="va">high_next</span><span class="op">=</span><span class="va">$guess</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Alto.&quot;</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">loop</span><span class="op">=</span>true</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">clear</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">((</span><span class="va">guess</span> <span class="op">&lt;=</span> <span class="va">low_next</span><span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Baixo, mas você já sabia que o número era maior que </span><span class="va">$low_next</span><span class="st">.&quot;</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>            <span class="va">low_next</span><span class="op">=</span><span class="va">$guess</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>            <span class="va">message</span><span class="op">=</span><span class="st">&quot;Chutou Baixo.&quot;</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">loop</span><span class="op">=</span>true</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>        <span class="fu">clear</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="fu">guess_system()</span> <span class="kw">{</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">start</span><span class="op">=</span>1</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">end</span><span class="op">=</span><span class="va">$MAX_NUMBER</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">attempts_system</span><span class="op">=</span>0</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">midpoint</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">((</span> <span class="va">start</span> <span class="op">&lt;=</span> <span class="va">end</span> <span class="kw">));</span> <span class="cf">do</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>        <span class="kw">((</span><span class="va">attempts_system</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>        <span class="va">midpoint</span><span class="op">=</span><span class="va">$((</span> (<span class="va">start</span> <span class="op">+</span> <span class="va">end</span>) <span class="op">/</span> <span class="dv">2</span> <span class="va">))</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">((</span> <span class="va">midpoint</span> <span class="op">==</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>            <span class="va">ideal_maximum_attempts</span><span class="op">=</span><span class="va">$attempts_system</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="kw">((</span> <span class="va">midpoint</span> <span class="op">&lt;</span> <span class="va">NUMBER</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>            <span class="va">start</span><span class="op">=</span><span class="va">$((midpoint</span> <span class="op">+</span> <span class="dv">1</span><span class="va">))</span></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>            <span class="va">end</span><span class="op">=</span><span class="va">$((midpoint</span> <span class="op">-</span> <span class="dv">1</span><span class="va">))</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Game</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="ex">guess_system</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu">clear</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">$loop</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span> ascii-art.txt</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Descubra o número que escolhi entre 1 - </span><span class="va">$MAX_NUMBER</span><span class="st">&quot;</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Tentativas: </span><span class="va">$attempts</span><span class="st"> | Máximo Ideal: </span><span class="va">$ideal_maximum_attempts</span><span class="st">&quot;</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Baixo próximo: </span><span class="va">$low_next</span><span class="st"> | Alto próximo: </span><span class="va">$high_next</span><span class="st">&quot;</span></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;&quot;</span> </span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$message</span><span class="st">&quot;</span></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>    <span class="bu">read</span> <span class="at">-r</span> <span class="at">-p</span> <span class="st">&quot;[</span><span class="va">$attempts</span><span class="st">] Digite seu palpite: &quot;</span> <span class="va">guess</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>    <span class="ex">check</span></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<hr />
+<ul>
+<li>Versão <a href="https://jhonfs.com/projects/busca-binaria/">HTML5 +
+CSS3 + JAVASCRIPT</a></li>
+</ul>
+    </div>
+</article>
+
+<div style="margin-top: 4rem; border-top: 1px dashed var(--ui-border); padding-top: 1rem;">
+    <a href="/blog">← cd ..</a>
+</div>
+
+<a href="#" id="go-to-top" class="nav-button" title="Voltar ao Topo">&#9650;</a>
+<a href="#" id="go-to-bottom" class="nav-button" title="Ir para o Final">&#9660;</a>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JhonFS Ecosystem<span>. Static Generate</span></p>
+    </footer>
+    <script src="/js/theme-engine.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/pwa-register.js"></script>
+    
+</body>
+</html>
