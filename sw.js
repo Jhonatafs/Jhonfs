@@ -1,25 +1,49 @@
 const LOCAL_HOSTS = ["localhost", "127.0.0.1", "::1"];
 const IS_LOCALHOST = LOCAL_HOSTS.includes(self.location.hostname);
-const CACHE_NAME = "jhonfs-ecosystem-v14";
+const BUILD_VERSION = "3c0699ad3fc0f0c5234babd540cb4c36d9ac8e57";
+const CACHE_NAME = `jhonfs-ecosystem-${BUILD_VERSION}`;
 const GAME_ROUTE = "/projects/busca-binaria/";
 const GAME_ROUTE_NO_SLASH = "/projects/busca-binaria";
 const GAME_MANIFEST = "/projects/busca-binaria/manifest.json";
 
-const CORE_ASSETS = [
-  "/",
-  "/blog/",
-  "/projects/",
-  "/projects/busca-binaria/",
+const VERSIONED_ASSET_PATHS = new Set([
   "/css/global.css",
   "/css/variables.css",
   "/css/landing.css",
   "/css/blog.css",
   "/css/blog-post.css",
+  "/css/projects.css",
+  "/css/binary-search-game.css",
   "/js/blog-filters.js",
   "/js/blog-code-blocks.js",
   "/js/theme-engine.js",
   "/js/navigation.js",
   "/js/pwa-register.js",
+  "/js/name-animation-control.js",
+  "/js/binary-search-game.js"
+]);
+
+function versionedAsset(asset) {
+  return VERSIONED_ASSET_PATHS.has(asset) ? `${asset}?v=${BUILD_VERSION}` : asset;
+}
+
+const CORE_ASSETS = [
+  "/",
+  "/blog/",
+  "/projects/",
+  GAME_ROUTE,
+  "/css/global.css",
+  "/css/variables.css",
+  "/css/landing.css",
+  "/css/blog.css",
+  "/css/blog-post.css",
+  "/css/projects.css",
+  "/js/blog-filters.js",
+  "/js/blog-code-blocks.js",
+  "/js/theme-engine.js",
+  "/js/navigation.js",
+  "/js/pwa-register.js",
+  "/js/name-animation-control.js",
   "/manifest.json",
   "/favicon.ico",
   "/favicon.svg",
@@ -29,7 +53,7 @@ const CORE_ASSETS = [
   "/apple-touch-icon.png",
   "/web-app-manifest-192x192.png",
   "/web-app-manifest-512x512.png"
-];
+].map(versionedAsset);
 
 const GAME_ASSETS = [
   GAME_ROUTE,
@@ -53,14 +77,30 @@ const GAME_ASSETS = [
   "/apple-touch-icon.png",
   "/web-app-manifest-192x192.png",
   "/web-app-manifest-512x512.png"
-];
+].map(versionedAsset);
 
 const PRECACHE_ASSETS = Array.from(new Set([...CORE_ASSETS, ...GAME_ASSETS]));
-const GAME_STATIC_ASSETS = new Set(GAME_ASSETS.filter((asset) => asset !== GAME_ROUTE));
-
-function isGameRoute(pathname) {
-  return pathname === GAME_ROUTE || pathname === GAME_ROUTE_NO_SLASH;
-}
+const GAME_STATIC_PATHS = new Set([
+  "/css/global.css",
+  "/css/variables.css",
+  "/css/binary-search-game.css",
+  "/js/theme-engine.js",
+  "/js/navigation.js",
+  "/js/pwa-register.js",
+  "/js/binary-search-game.js",
+  "/fonts/FiraCode-VF.ttf",
+  "/fonts/SymbolsNerdFontMono-Regular.ttf",
+  "/audio/victory-perfect.mp3",
+  "/audio/victory-late.mp3",
+  "/favicon.ico",
+  "/favicon.svg",
+  "/favicon-16x16.png",
+  "/favicon-32x32.png",
+  "/favicon-96x96.png",
+  "/apple-touch-icon.png",
+  "/web-app-manifest-192x192.png",
+  "/web-app-manifest-512x512.png"
+]);
 
 function cacheResponse(request, response) {
   if (!response || !response.ok) {
@@ -68,10 +108,7 @@ function cacheResponse(request, response) {
   }
 
   const responseClone = response.clone();
-  caches.open(CACHE_NAME).then((cache) => {
-    cache.put(request, responseClone);
-  });
-
+  caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
   return response;
 }
 
@@ -85,29 +122,11 @@ function cacheFirst(request) {
   });
 }
 
-function gamePageNetworkFirst(request) {
-  return fetch(request)
-    .then((networkResponse) => {
-      if (networkResponse && networkResponse.ok) {
-        const responseClone = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(GAME_ROUTE, responseClone);
-        });
-      }
-
-      return networkResponse;
-    })
-    .catch(() => (
-      caches.match(request)
-        .then((cachedResponse) => cachedResponse || caches.match(GAME_ROUTE))
-        .then((cachedResponse) => cachedResponse || caches.match("/"))
-    ));
-}
-
-function networkFirst(request) {
-  return fetch(request)
+function networkFirst(request, fallbackUrl = "/") {
+  return fetch(request, { cache: "no-cache" })
     .then((networkResponse) => cacheResponse(request, networkResponse))
-    .catch(() => caches.match(request));
+    .catch(() => caches.match(request)
+      .then((cachedResponse) => cachedResponse || caches.match(fallbackUrl)));
 }
 
 self.addEventListener("install", (event) => {
@@ -130,11 +149,7 @@ self.addEventListener("activate", (event) => {
         .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
         .then(() => self.registration.unregister())
         .then(() => self.clients.matchAll())
-        .then((clients) => {
-          clients.forEach((client) => {
-            client.navigate(client.url);
-          });
-        })
+        .then((clients) => clients.forEach((client) => client.navigate(client.url)))
     );
     return;
   }
@@ -142,25 +157,20 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
       ))
       .then(() => self.clients.claim())
+      .then(() => self.clients.matchAll({ type: "window" }))
+      .then((clients) => clients.forEach((client) => client.navigate(client.url)))
   );
 });
 
 self.addEventListener("fetch", (event) => {
-  if (IS_LOCALHOST) {
-    return;
-  }
-
-  if (event.request.method !== "GET") {
+  if (IS_LOCALHOST || event.request.method !== "GET") {
     return;
   }
 
   const requestUrl = new URL(event.request.url);
-
   if (requestUrl.origin !== self.location.origin) {
     return;
   }
@@ -169,41 +179,13 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (event.request.mode === "navigate" && isGameRoute(requestUrl.pathname)) {
-    event.respondWith(gamePageNetworkFirst(event.request));
+  if (event.request.mode === "navigate") {
+    const fallbackUrl = requestUrl.pathname === GAME_ROUTE_NO_SLASH ? GAME_ROUTE : "/";
+    event.respondWith(networkFirst(event.request, fallbackUrl));
     return;
   }
 
-  if (
-    requestUrl.pathname === "/blog/" ||
-    requestUrl.pathname === "/blog" ||
-    requestUrl.pathname === "/js/blog-filters.js" ||
-    requestUrl.pathname === "/css/blog.css"
-  ) {
-    event.respondWith(networkFirst(event.request));
-    return;
-  }
-
-  if (GAME_STATIC_ASSETS.has(requestUrl.pathname)) {
+  if (GAME_STATIC_PATHS.has(requestUrl.pathname)) {
     event.respondWith(cacheFirst(event.request));
-    return;
   }
-
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request)
-        .then((networkResponse) => cacheResponse(event.request, networkResponse))
-        .catch(() => {
-          if (event.request.mode === "navigate") {
-            return caches.match("/");
-          }
-
-          return undefined;
-        });
-    })
-  );
 });

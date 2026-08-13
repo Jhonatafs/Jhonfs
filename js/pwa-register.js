@@ -47,7 +47,7 @@
   }
 
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("/sw.js").catch(function () {
+    navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" }).catch(function () {
       // A instalação PWA é progressiva; o site continua normal se falhar.
     });
   });
