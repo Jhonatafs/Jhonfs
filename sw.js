@@ -1,6 +1,6 @@
 const LOCAL_HOSTS = ["localhost", "127.0.0.1", "::1"];
 const IS_LOCALHOST = LOCAL_HOSTS.includes(self.location.hostname);
-const BUILD_VERSION = "de43608438d82dcae08e610e94b910bddae3785a";
+const BUILD_VERSION = "10c031ca9b35492463c0c5a9e918b2fd1ad9db60";
 const CACHE_NAME = `jhonfs-ecosystem-${BUILD_VERSION}`;
 const GAME_ROUTE = "/projects/busca-binaria/";
 const GAME_ROUTE_NO_SLASH = "/projects/busca-binaria";
